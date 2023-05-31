@@ -1,5 +1,21 @@
 USE Academico;
-
+-- -----------------------------------------------------------------------------
+-- FUNCIÓN OBTENER SEMESTRE ACTUAL
+-- -----------------------------------------------------------------------------
+SET GLOBAL log_bin_trust_function_creators = 1;
+DROP FUNCTION IF EXISTS f_obtener_semestre;
+DELIMITER $$
+CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
+BEGIN
+	SET @current_month = MONTH(curdate());
+    SET @current_year = YEAR(curdate());
+    IF @current_month <= 7 THEN
+		RETURN CONCAT(@current_year,'-1');
+	ELSE
+		RETURN CONCAT(@current_year,'-2');
+    END IF;
+END $$
+DELIMITER ;
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS ESTUDIANTE
 -- -----------------------------------------------------------------------------
