@@ -27,7 +27,9 @@ CREATE TABLE Profesor (
   prof_oficina VARCHAR(45) NULL,
   PRIMARY KEY (prof_cc),
     FOREIGN KEY (prof_cc)
-    REFERENCES Persona (per_cc));
+    REFERENCES Persona (per_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -41,9 +43,12 @@ CREATE TABLE Estudiante (
   estud_tutor_prof_cc INT NOT NULL, -- Profesor tutor del estudiante
   PRIMARY KEY (estud_cc),
     FOREIGN KEY (estud_cc)
-    REFERENCES Persona (per_cc),
+    REFERENCES Persona (per_cc)
+    ON UPDATE CASCADE,
     FOREIGN KEY (estud_tutor_prof_cc)
-    REFERENCES Profesor (prof_cc));
+    REFERENCES Profesor (prof_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 -- -----------------------------------------------------
 -- Table Estudiante_posgrado
@@ -55,9 +60,13 @@ CREATE TABLE Estudiante_posgrado (
   estudi_posg_prof_cc INT NOT NULL,
   PRIMARY KEY (estudi_posg_cc),
     FOREIGN KEY (estudi_posg_cc)
-    REFERENCES Estudiante (estud_cc),
+    REFERENCES Estudiante (estud_cc)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (estudi_posg_prof_cc)
-    REFERENCES Profesor (prof_cc));
+    REFERENCES Profesor (prof_cc)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -82,7 +91,9 @@ CREATE TABLE Departamento (
   depa_id_facultad INT NOT NULL,
   PRIMARY KEY (depa_id),
     FOREIGN KEY (depa_id_facultad)
-    REFERENCES Facultad (facu_id));
+    REFERENCES Facultad (facu_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -99,7 +110,9 @@ CREATE TABLE Asignatura (
   asig_id_departamento INT NOT NULL,
   PRIMARY KEY (asig_id),
     FOREIGN KEY (asig_id_departamento)
-    REFERENCES Departamento (depa_id));
+    REFERENCES Departamento (depa_id)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -113,7 +126,9 @@ CREATE TABLE Programa (
   prog_id_departamento INT NOT NULL,
   PRIMARY KEY (prog_id),
     FOREIGN KEY (prog_id_departamento)
-    REFERENCES Departamento (depa_id));
+    REFERENCES Departamento (depa_id)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -129,9 +144,13 @@ CREATE TABLE Grupo (
   grup_semestre VARCHAR(45) NULL,
   PRIMARY KEY (grup_no_grupo, grup_asig_id),
     FOREIGN KEY (grup_asig_id)
-    REFERENCES Asignatura (asig_id),
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (grup_prof_cc)
-    REFERENCES Profesor (prof_cc));
+    REFERENCES Profesor (prof_cc)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -147,13 +166,21 @@ CREATE TABLE Inscripcion (
   insc_no_grupo INT NOT NULL,
   PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
     FOREIGN KEY (insc_estudiante_cc)
-    REFERENCES Estudiante (estud_cc),
+    REFERENCES Estudiante (estud_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (insc_id_asignatura)
-    REFERENCES Asignatura (asig_id),
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (insc_id_programa)
-    REFERENCES Programa (prog_id),
+    REFERENCES Programa (prog_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (insc_no_grupo)
-    REFERENCES Grupo (grup_no_grupo));
+    REFERENCES Grupo (grup_no_grupo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -166,9 +193,13 @@ CREATE TABLE Asignatura_has_Programa (
   Programa_id_programa INT NOT NULL,
   PRIMARY KEY (Asignatura_id_asignatura, Programa_id_programa),
     FOREIGN KEY (Asignatura_id_asignatura)
-    REFERENCES Asignatura (asig_id),
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (Programa_id_programa)
-    REFERENCES Programa (prog_id));
+    REFERENCES Programa (prog_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -181,9 +212,13 @@ CREATE TABLE Estudiante_has_Programa (
   Programa_id_programa INT NOT NULL,
   PRIMARY KEY (Estudiante_persona_cc, Programa_id_programa),
     FOREIGN KEY (Estudiante_persona_cc)
-    REFERENCES Estudiante (estud_cc),
+    REFERENCES Estudiante (estud_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (Programa_id_programa)
-    REFERENCES Programa (prog_id));
+    REFERENCES Programa (prog_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -205,9 +240,13 @@ CREATE TABLE Historia_Academica (
   histAcad_semestre VARCHAR(10) NOT NULL,
   PRIMARY KEY (histAcad_id),
     FOREIGN KEY (histAcad_id_programa)
-    REFERENCES Programa (prog_id),
+    REFERENCES Programa (prog_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (histAcad_estudiante_cc)
-    REFERENCES Estudiante (estud_cc));
+    REFERENCES Estudiante (estud_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 -- -----------------------------------------------------
 -- Table Ponderado
@@ -224,9 +263,13 @@ CREATE TABLE Ponderado (
   ponde_id_histAcad INT NOT NULL,
   PRIMARY KEY (ponde_insc_semestre,  ponde_insc_estudiante_cc,  ponde_insc_id_programa,  ponde_insc_id_asignatura),
     FOREIGN KEY (ponde_insc_semestre,  ponde_insc_estudiante_cc,  ponde_insc_id_programa,  ponde_insc_id_asignatura)
-    REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa ,insc_id_asignatura),
+    REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa ,insc_id_asignatura)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (ponde_id_histAcad)
-    REFERENCES Historia_Academica (histAcad_id));
+    REFERENCES Historia_Academica (histAcad_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -245,7 +288,9 @@ CREATE TABLE Evaluacion (
   eval_ponde_insc_id_asignatura INT NOT NULL,
   PRIMARY KEY (eval_nombre, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura),
     FOREIGN KEY (eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura)
-    REFERENCES Ponderado (ponde_insc_semestre , ponde_insc_estudiante_cc, ponde_insc_id_programa , ponde_insc_id_asignatura));
+    REFERENCES Ponderado (ponde_insc_semestre , ponde_insc_estudiante_cc, ponde_insc_id_programa , ponde_insc_id_asignatura)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -258,9 +303,13 @@ CREATE TABLE Asignatura_has_Asignatura (
   Asignatura_id_asignatura_pre INT NOT NULL,-- Asignatura prerequisito
   PRIMARY KEY (Asignatura_id_asignatura),
     FOREIGN KEY (Asignatura_id_asignatura)
-    REFERENCES Asignatura (asig_id),
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (Asignatura_id_asignatura_pre)
-    REFERENCES Asignatura (asig_id));
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -286,7 +335,9 @@ CREATE TABLE Salon (
   sal_edif_id INT NOT NULL,
   PRIMARY KEY (sal_id,sal_edif_id),
     FOREIGN KEY (sal_edif_id)
-    REFERENCES Edificio (edif_id));
+    REFERENCES Edificio (edif_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
     
 -- TABLE Salon ADD INDEX idx_sal_id (sal_id, sal_edif_id);
 
@@ -305,10 +356,13 @@ CREATE TABLE IF NOT EXISTS Horario (
   horar_sal_edif_id INT NOT NULL,
   PRIMARY KEY (horar_dia, horar_hora_inicio, horar_grup_no_grupo, horar_grup_asig_id),
     FOREIGN KEY (horar_grup_no_grupo , horar_grup_asig_id)
-    REFERENCES Grupo (grup_no_grupo ,grup_asig_id),
+    REFERENCES Grupo (grup_no_grupo ,grup_asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (horar_sal_id, horar_sal_edif_id)
     REFERENCES Salon (sal_id, sal_edif_id)
-    );
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 DROP TABLE IF EXISTS Usuario ;
 CREATE TABLE IF NOT EXISTS Usuario (
@@ -318,5 +372,7 @@ CREATE TABLE IF NOT EXISTS Usuario (
   PRIMARY KEY (user_usuario),
   FOREIGN KEY (user_cc)
   REFERENCES Persona (per_cc)
-    );    
+  ON DELETE CASCADE
+  ON UPDATE CASCADE 
+  );    
        
