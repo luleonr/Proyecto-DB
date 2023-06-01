@@ -82,6 +82,42 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 -- CALL sp_Estudiante_mostrar_horario('mcheshire');
 
 
+-- ROL PROFESOR ----------------------------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+-- MOSTRAR DATOS PROFESOR
+-- -----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Profesor_mostrar_datos_personales;
+DELIMITER //
+CREATE PROCEDURE sp_Profesor_mostrar_datos_personales(IN user_ CHAR(40))
+BEGIN
+  SELECT * FROM vw_Profesor_ver_datos_personales WHERE usuario = user_;
+END //
+DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE sp_Profesor_mostrar_datos_personales TO Profesor;
+CALL sp_Profesor_mostrar_datos_personales('jcoleborn');
+
+-- ----------------------------------------------------------------------------
+-- MODIFICAR DATOS PROFESOR
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Profesor_actualizar_datos_personales;
+DELIMITER //
+CREATE PROCEDURE sp_Profesor_actualizar_datos_personales(
+  user_ CHAR(40), 
+  Direccion_ VARCHAR(40), 
+  Tel_Mov VARCHAR(40), 
+  Tel_Fij VARCHAR(40)
+)
+BEGIN
+  UPDATE vw_Profesor_modificar_datos_personales 
+  SET Direccion = Direccion_, Telefono_Movil = Tel_Mov, Telefono_Fijo = Tel_Fij
+  WHERE usuario = user_;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Profesor_actualizar_datos_personales TO Profesor;
+/*CALL sp_Profesor_actualizar_datos_personales(
+  'jcoleborn', 'Carrera 3D este # 85 - 24 sur', '3006747152','2058164'
+  );*/
 
 -- ROL ADMIN USUARIOS --------------------------------------------------------------------------------------------------------------------
 
