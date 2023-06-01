@@ -102,7 +102,7 @@ JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id) 
 
 -- -----------------------------------------------------------------------------------------
 
-DROP VIEW IF EXISTS vw_horarios;
+DROP VIEW IF EXISTS vw_horario_profesor;
 CREATE VIEW vw_horarios AS 
 SELECT horar_dia AS Dia, horar_hora_inicio AS HoraInicio, horar_hora_final AS HoraFinal, horar_actividad AS Actividad,
 horar_grup_asig_id AS Asignatura_ID, asig_nombre AS Asignatura,horar_grup_no_grupo AS Grupo,
