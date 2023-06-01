@@ -57,3 +57,5 @@ GRANT SELECT ON vw_Horario TO Estudiante;
 
 DROP ROLE IF EXISTS Profesor;
 CREATE ROLE Profesor;
+GRANT SELECT ON vw_Profesor_ver_datos_personales TO Profesor;
+GRANT SELECT,UPDATE ON vw_Profesor_modificar_datos_personales TO Profesor;
