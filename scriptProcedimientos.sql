@@ -21,14 +21,16 @@ DELIMITER ;
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS Estudiante_mostrar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE Estudiante_mostrar_datos_personales(IN user_ CHAR(40))
+CREATE PROCEDURE Estudiante_mostrar_datos_personales()
 BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   SELECT * FROM vw_Estudiante_ver_datos_personales WHERE usuario = user_;
 END //
 DELIMITER ;
 
 GRANT EXECUTE ON PROCEDURE Estudiante_mostrar_datos_personales TO Estudiante;
--- CALL Estudiante_mostrar_datos_personales('cbarrerar');
+-- CALL Estudiante_mostrar_datos_personales();
 
 
 -- ----------------------------------------------------------------------------
@@ -37,12 +39,29 @@ GRANT EXECUTE ON PROCEDURE Estudiante_mostrar_datos_personales TO Estudiante;
 DROP PROCEDURE IF EXISTS Estudiante_actualizar_datos_personales;
 DELIMITER //
 CREATE PROCEDURE Estudiante_actualizar_datos_personales(
-  user_ CHAR(40), 
   Direccion_ VARCHAR(40), 
   Tel_Mov VARCHAR(40), 
   Tel_Fij VARCHAR(40)
 )
 BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  IF Direccion_ IS NULL THEN
+        SELECT Direccion INTO Direccion_
+		FROM vw_Estudiante_modificar_datos_personales
+		WHERE usuario = user_;
+    END IF ;
+  IF Tel_Mov IS NULL THEN
+        SELECT Telefono_Movil INTO Tel_Mov
+		FROM vw_Estudiante_modificar_datos_personales
+		WHERE usuario = user_;
+    END IF ;
+  IF Tel_Fij IS NULL THEN
+        SELECT Telefono_Fijo INTO Tel_Fij
+		FROM vw_Estudiante_modificar_datos_personales
+		WHERE usuario = user_;
+    END IF ;
+  
   UPDATE vw_Estudiante_modificar_datos_personales 
   SET Direccion = Direccion_, Telefono_Movil = Tel_Mov, Telefono_Fijo = Tel_Fij
   WHERE usuario = user_;
@@ -146,6 +165,147 @@ DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Admin_usuarios_actualizar_estudiante TO Admin_usuarios;
 -- CALL Admin_usuarios_actualizar_estudiante();
 
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS ACTIVAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_activas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_activas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now();
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now() AND Program=Programa;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_activas TO Estudiante;
+CALL Estudiante_mirar_citas_activas(null);
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS PRÓXIMAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_proximas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_proximas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now();
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now() AND Program=Programa;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_proximas TO Estudiante;
+CALL Estudiante_mirar_citas_proximas(null);
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS VENCIDAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_vencidas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_vencidas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now();
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final>now() AND Program=Programa;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_vencidas TO Estudiante;
+CALL Estudiante_mirar_citas_vencidas(null);
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR PROGRAMAS DEL ESTUDIANTE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_programas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_programas()
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  SELECT Programa FROM vw_citas_de_inscripcion WHERE usuario=user_;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_programas TO Estudiante;
+CALL Estudiante_mirar_programas();
+
+-- ---------------------------------------------------------------------------
+-- INSCRIBIR MATERIA
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Inscribir_materia;
+DELIMITER //
+CREATE PROCEDURE Inscribir_materia(Asignatura INT, Programa INT, Grupo INT)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  DECLARE cedula int;
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  SELECT user_cc INTO cedula FROM usuario WHERE user_usuario=user_;
+  
+  INSERT INTO inscripcion VALUES (f_obtener_semestre(),cedula,Asignatura,Programa,Grupo);
+
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Inscribir_materia TO Estudiante;
+-- CALL Inscribir_materia(1,1,1);
+
+-- ---------------------------------------------------------------------------
+-- NOTAS DEFINITIVAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Notas_definitivas;
+DELIMITER //
+CREATE PROCEDURE Notas_definitivas(Semestre VARCHAR(10))
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  DECLARE cedula int;
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  SELECT user_cc INTO cedula FROM usuario WHERE user_usuario=user_;
+  
+  SELECT ponde_insc_id_asignatura,ponde_nota_final,ponde_aprobado FROM ponderado WHERE ponde_insc_semestre=Semestre
+  AND ponde_insc_estudiante_cc=cedula;
+
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Notas_definitivas TO Estudiante;
+CALL Notas_definitivas(1);
+
+
+-- ---------------------------------------------------------------------------
+-- NOTAS POR MATERIA
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Notas_materia;
+DELIMITER //
+CREATE PROCEDURE Notas_materia(Asignatura INT, Semestre VARCHAR(10))
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  DECLARE cedula int;
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  SELECT user_cc INTO cedula FROM usuario WHERE user_usuario=user_;
+  
+  SELECT eval_nota,eval_porcentaje FROM evaluacion WHERE eval_ponde_insc_id_asignatura=Asignatura AND eval_ponde_insc_semestre=Semestre
+  AND eval_ponde_insc_estudiante_cc=cedula;
+
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Notas_materia TO Estudiante;
+CALL Notas_materia(1,1);
 
 -- ---------------------------------------------------------------------------
 -- CREAR UN USUARIO CON SOLO INGRESAR EL USUARIO Y EL ROL QUE TIENE

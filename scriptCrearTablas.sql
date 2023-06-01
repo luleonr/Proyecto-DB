@@ -154,6 +154,23 @@ CREATE TABLE Inscripcion (
     REFERENCES Programa (prog_id),
     FOREIGN KEY (insc_no_grupo)
     REFERENCES Grupo (grup_no_grupo));
+    
+-- -----------------------------------------------------
+-- Table Cita
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Cita ;
+
+CREATE TABLE Cita (
+  cit_inicio DATETIME NOT NULL,
+  cit_final DATETIME NOT NULL,
+  cit_estudiante_cc INT NOT NULL,
+  cit_id_programa INT NOT NULL,
+  PRIMARY KEY (cit_inicio,cit_estudiante_cc,cit_id_programa),
+    FOREIGN KEY (cit_estudiante_cc)
+    REFERENCES Estudiante (estud_cc),
+    FOREIGN KEY (cit_id_programa)
+    REFERENCES Programa (prog_id)
+    );
 
 
 -- -----------------------------------------------------
