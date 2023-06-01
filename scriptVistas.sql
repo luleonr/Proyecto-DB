@@ -86,3 +86,16 @@ AND ponde_insc_id_asignatura=insc_id_asignatura);
 FROM Persona JOIN Profesor ON per_cc = prof_cc JOIN Usuario ON prof_cc = user_cc;
 
 -- SELECT * FROM vw_Profesor_ver_estudiante;
+
+-- ------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_evaluaciones_estudiante;
+CREATE VIEW vw_evaluaciones_estudiante AS 
+SELECT DISTINCT per_cc AS CC, per_nombre AS Nombre,eval_nombre AS Actividad, eval_nota AS Puntaje, 
+eval_porcentaje AS Porcentaje,eval_calificacion_minima AS Calificacion_minima,
+eval_ponde_insc_id_asignatura AS Asignatura_ID, insc_no_grupo AS Grupo, grup_prof_cc AS Profesor_CC,
+insc_id_programa AS Programa, insc_semestre AS Semestre
+FROM evaluacion JOIN persona ON eval_ponde_insc_estudiante_cc=per_cc 
+JOIN inscripcion ON (eval_ponde_insc_estudiante_cc=insc_estudiante_cc AND eval_ponde_insc_id_programa=insc_id_programa 
+AND eval_ponde_insc_id_asignatura = insc_id_asignatura)
+JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id) ORDER BY per_cc;
