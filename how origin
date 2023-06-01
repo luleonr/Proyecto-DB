@@ -1,0 +1,45 @@
+[33mcommit c085db4a8a79b0ed9cb611ea3db2ecd097585f08[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: kriz14 <102041466+kriz14@users.noreply.github.com>
+Date:   Wed May 31 19:19:33 2023 -0500
+
+    Procedimientos con el CRUD para Admin_usuarios
+
+[33mcommit c01d460422861fe83c949db100cccd5cfac5944c[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: bbfd484 7a6d3f4
+Author: kriz14 <102041466+kriz14@users.noreply.github.com>
+Date:   Wed May 31 18:08:48 2023 -0500
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit bbfd48485fcd4aee0c3bdf393ab0fc442e5ff7dc[m
+Author: kriz14 <102041466+kriz14@users.noreply.github.com>
+Date:   Wed May 31 13:36:17 2023 -0500
+
+    Tablas con UPDATE y DELETE en cascada
+
+[33mcommit 7a6d3f4481ac323e1c9a17243d599e6103da9b0c[m
+Author: mijx <124107747+mijx@users.noreply.github.com>
+Date:   Wed May 31 11:59:32 2023 -0500
+
+    Update scriptProcedimientos.sql
+
+[33mcommit 44100b7066437aa7ee5a44a54fbefbbff38bc88b[m
+Merge: ce2c6a8 235c787
+Author: kriz14 <102041466+kriz14@users.noreply.github.com>
+Date:   Wed May 31 09:17:38 2023 -0500
+
+    Merge remote-tracking branch 'origin/main'
+    Descargar el repositorio remoto ya que tiene un archivo README que no
+    tiene el local
+
+[33mcommit ce2c6a81a26d6b16c40f771470a5b3ac407dda7e[m
+Author: kriz14 <102041466+kriz14@users.noreply.github.com>
+Date:   Wed May 31 08:56:20 2023 -0500
+
+    1.0
+
+[33mcommit 235c7878ee22789d76da586443a0dc512ea856c6[m
+Author: luleonr <86278482+luleonr@users.noreply.github.com>
+Date:   Tue May 30 19:02:20 2023 -0500
+
+    Initial commit

@@ -16,3 +16,5 @@ DROP USER IF EXISTS 'cbarrerar2';
 CALL create_user('cbarrerar2', 'Admin_usuarios');
 
 SELECT USER FROM mysql.user;
+SELECT SUBSTRING_INDEX(CURRENT_USER(), '@', 1) AS Usuario;
+
