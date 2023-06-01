@@ -2,24 +2,6 @@ USE Academico;
 
 -- ROL ESTUDIANTE --------------------------------------------------------------
 -- -----------------------------------------------------------------------------
--- FUNCIÓN OBTENER SEMESTRE ACTUAL
--- -----------------------------------------------------------------------------
-SET GLOBAL log_bin_trust_function_creators = 1;
-DROP FUNCTION IF EXISTS f_obtener_semestre;
-DELIMITER $$
-CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
-BEGIN
-	SET @current_month = MONTH(curdate());
-    SET @current_year = YEAR(curdate());
-    IF @current_month <= 7 THEN
-		RETURN CONCAT(@current_year,'-1');
-	ELSE
-		RETURN CONCAT(@current_year,'-2');
-    END IF;
-END $$
-DELIMITER ;
-
--- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS ESTUDIANTE
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_datos_personales;
@@ -84,6 +66,36 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 
 -- ROL PROFESOR ----------------------------------------------------------------------------------------------
 -- -----------------------------------------------------------------------------
+-- FUNCIÓN OBTENER SEMESTRE ACTUAL
+-- -----------------------------------------------------------------------------
+SET GLOBAL log_bin_trust_function_creators = 1;
+DROP FUNCTION IF EXISTS f_obtener_semestre;
+DELIMITER $$
+CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
+BEGIN
+	SET @current_month = MONTH(curdate());
+    SET @current_year = YEAR(curdate());
+    IF @current_month <= 7 THEN
+		RETURN CONCAT(@current_year,'-1');
+	ELSE
+		RETURN CONCAT(@current_year,'-2');
+    END IF;
+END $$
+DELIMITER ;
+
+-- -----------------------------------------------------------------------------
+-- FUNCIÓN OBTENER SEMESTRE ACTUAL
+-- -----------------------------------------------------------------------------------------
+
+DROP FUNCTION IF EXISTS f_find_cc_from_user;
+DELIMITER $$
+CREATE FUNCTION f_find_cc_from_user(username VARCHAR(45)) RETURNS INT
+BEGIN
+    RETURN (SELECT user_cc FROM Usuario WHERE user_usuario LIKE username);
+END $$
+DELIMITER ;
+
+-- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS PROFESOR
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Profesor_mostrar_datos_personales;
@@ -118,6 +130,9 @@ GRANT EXECUTE ON PROCEDURE sp_Profesor_actualizar_datos_personales TO Profesor;
 /*CALL sp_Profesor_actualizar_datos_personales(
   'jcoleborn', 'Carrera 3D este # 85 - 24 sur', '3006747152','2058164'
   );*/
+  
+  
+  
 
 -- ROL ADMIN USUARIOS --------------------------------------------------------------------------------------------------------------------
 
