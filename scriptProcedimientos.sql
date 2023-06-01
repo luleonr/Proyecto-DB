@@ -1,4 +1,6 @@
 USE Academico;
+
+-- ROL ESTUDIANTE --------------------------------------------------------------
 -- -----------------------------------------------------------------------------
 -- FUNCIÓN OBTENER SEMESTRE ACTUAL
 -- -----------------------------------------------------------------------------
@@ -16,27 +18,27 @@ BEGIN
     END IF;
 END $$
 DELIMITER ;
+
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS ESTUDIANTE
 -- -----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mostrar_datos_personales;
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE Estudiante_mostrar_datos_personales(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_datos_personales(IN user_ CHAR(40))
 BEGIN
   SELECT * FROM vw_Estudiante_ver_datos_personales WHERE usuario = user_;
 END //
 DELIMITER ;
 
-GRANT EXECUTE ON PROCEDURE Estudiante_mostrar_datos_personales TO Estudiante;
--- CALL Estudiante_mostrar_datos_personales('cbarrerar');
-
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_datos_personales TO Estudiante;
+-- CALL sp_Estudiante_mostrar_datos_personales('cbarrerar');
 
 -- ----------------------------------------------------------------------------
 -- MODIFICAR DATOS ESTUDIANTE
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_actualizar_datos_personales;
+DROP PROCEDURE IF EXISTS sp_Estudiante_actualizar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE Estudiante_actualizar_datos_personales(
+CREATE PROCEDURE sp_Estudiante_actualizar_datos_personales(
   user_ CHAR(40), 
   Direccion_ VARCHAR(40), 
   Tel_Mov VARCHAR(40), 
@@ -48,43 +50,44 @@ BEGIN
   WHERE usuario = user_;
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_actualizar_datos_personales TO Estudiante;
--- CALL Estudiante_actualizar_datos_personales('cbarrerar', 'Transversal 5C Este # 23 42', '300657574',null);
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_actualizar_datos_personales TO Estudiante;
+-- CALL sp_Estudiante_actualizar_datos_personales('cbarrerar', 'Transversal 5C Este # 23 42', '300657574',null);
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HISTORIA ACADEMICA
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mostrar_historia_academica;
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_historia_academica;
 DELIMITER //
-CREATE PROCEDURE Estudiante_mostrar_historia_academica(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica(IN user_ CHAR(40))
 BEGIN
 	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_mostrar_historia_academica TO Estudiante;
--- CALL Estudiante_mostrar_historia_academica('mcheshire');
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_historia_academica TO Estudiante;
+-- CALL sp_Estudiante_mostrar_historia_academica('mcheshire');
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HORARIO
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mostrar_horario;
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_horario;
 DELIMITER //
-CREATE PROCEDURE Estudiante_mostrar_horario(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_horario(IN user_ CHAR(40))
 BEGIN
 	SELECT * FROM  vw_Horario WHERE usuario = user_;
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_mostrar_horario TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 -- CALL Estudiante_mostrar_horario('mcheshire');
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 
--- ---------------------------------------------------------------------------
+-- ROL ADMIN USUARIOS ---------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- INSERTAR ESTUDIANTE
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Admin_usuarios_insertar_estudiante;
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_insertar_estudiante;
 DELIMITER //
-CREATE PROCEDURE Admin_usuarios_insertar_estudiante( 
+CREATE PROCEDURE sp_Admin_usuarios_insertar_estudiante( 
   per_cc INT ,
   per_nombre VARCHAR(45) ,
   per_direccion VARCHAR(45) ,
@@ -109,51 +112,171 @@ BEGIN
     INSERT INTO Estudiante_has_Programa (Estudiante_persona_CC, Programa_id_programa) VALUES (per_cc,prog_id_);
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Admin_usuarios_insertar_estudiante TO Admin_usuarios;
--- CALL insertar_estudiante_rol_Admin_usuarios(2010000004, 'Maria Florez', 'Calle 58 # 24 - 51 Sur',
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_insertar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_insertar_estudiante(2010000004, 'Maria Florez', 'Calle 58 # 24 - 51 Sur',
 -- 300875135 , NULL, 'mflorezr@unal.edu.co', '2023-01-01' , 80150101 ,'Ingeniería de Sistemas y Computación');
 
--- ---------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- CONSULTAR ESTUDIANTES
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Admin_usuarios_mostrar_estudiante;
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_mostrar_estudiante;
 DELIMITER //
-CREATE PROCEDURE Admin_usuarios_mostrar_estudiante()
+CREATE PROCEDURE sp_Admin_usuarios_mostrar_estudiante()
 BEGIN
 	SELECT * FROM  Persona JOIN Estudiante ON per_cc = estud_cc;
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Admin_usuarios_mostrar_estudiante TO Admin_usuarios;
--- CALL Admin_usuarios_mostrar_estudiante();
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_mostrar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_mostrar_estudiante();
 
 -- ---------------------------------------------------------------------------
 -- ACTUALIZAR DATOS ESTUDIANTE
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Admin_usuarios_actualizar_estudiante;
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_actualizar_estudiante;
 DELIMITER //
-CREATE PROCEDURE Admin_usuarios_actualizar_estudiante(
-  user_ CHAR(40), 
-  Direccion_ VARCHAR(40), 
-  Tel_Mov VARCHAR(40), 
-  Tel_Fij VARCHAR(40)
+CREATE PROCEDURE sp_Admin_usuarios_actualizar_estudiante(
+  cc INT,
+  nombre VARCHAR(45),
+  direccion VARCHAR(45),
+  tel_movil VARCHAR(20),
+  tel_fijo VARCHAR(20),
+  correo_institucional VARCHAR(45),
+  -- ---------------
+  año_ingreso DATE ,
+  tutor_prof_cc INT -- Profesor tutor del estudiante
 )
 BEGIN
-  UPDATE vw_Estudiante_modificar_datos_personales 
-  SET Direccion = Direccion_, Telefono_Movil = Tel_Mov, Telefono_Fijo = Tel_Fij
-  WHERE usuario = user_;
+  UPDATE Persona
+  SET per_nombre = nombre,
+  per_direccion = direccion,
+  per_tel_movil = tel_movil,
+  per_tel_fijo = tel_fijo,
+  per_correo_institucional = correo_institucional 
+  WHERE per_cc = cc;
+  UPDATE Estudiante
+  SET estud_año_ingreso = año_ingreso, estud_tutor_prof_cc = tutor_prof_cc
+  WHERE estud_cc = cc;
 END //
 DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Admin_usuarios_actualizar_estudiante TO Admin_usuarios;
--- CALL Admin_usuarios_actualizar_estudiante();
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_actualizar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_actualizar_estudiante(2010000004, 'Maria Angelica Florez', 'Calle 58 # 24 - 51 Sur',
+-- 350875135 , 2064681, 'mflorezr@unal.edu.co', '2023-01-01' , 80150101);
 
+-- ----------------------------------------------------------------------------
+-- BORRAR ESTUDIANTES
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_borrar_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_Admin_usuarios_borrar_estudiante(cc INT)
+BEGIN
+	DELETE FROM estudiante WHERE estud_cc = cc;
+    DELETE FROM persona WHERE per_cc = cc;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_borrar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_borrar_estudiante(2010000004);
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
+-- INSERTAR PROFESOR
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_insertar_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_Admin_usuarios_insertar_estudiante( 
+  per_cc INT ,
+  per_nombre VARCHAR(45) ,
+  per_direccion VARCHAR(45) ,
+  per_tel_movil VARCHAR(20),
+  per_tel_fijo VARCHAR(20),
+  per_correo_institucional VARCHAR(45),  
+  estud_año_ingreso DATE,
+  estud_tutor_prof_cc INT,
+  prog_nombre_ VARCHAR(45)
+  )
+BEGIN
+	DECLARE prog_id_ VARCHAR(45);
+	
+	INSERT INTO Persona (per_cc, per_nombre, per_direccion, per_tel_movil, per_tel_fijo, per_correo_institucional) 
+		VALUES (per_cc, per_nombre, per_direccion, per_tel_movil , per_tel_fijo, per_correo_institucional);
+    -- -----------------------------------------    
+	INSERT INTO Estudiante (estud_cc, estud_año_ingreso, estud_tutor_prof_cc) 
+		VALUES (per_cc, estud_año_ingreso, estud_tutor_prof_cc);
+
+    SELECT prog_id INTO prog_id_ FROM Programa WHERE prog_nombre = prog_nombre_;
+    
+    INSERT INTO Estudiante_has_Programa (Estudiante_persona_CC, Programa_id_programa) VALUES (per_cc,prog_id_);
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_insertar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_insertar_estudiante(2010000004, 'Maria Florez', 'Calle 58 # 24 - 51 Sur',
+-- 300875135 , NULL, 'mflorezr@unal.edu.co', '2023-01-01' , 80150101 ,'Ingeniería de Sistemas y Computación');
+
+-- ----------------------------------------------------------------------------
+-- CONSULTAR ESTUDIANTES
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_mostrar_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_Admin_usuarios_mostrar_estudiante()
+BEGIN
+	SELECT * FROM  Persona JOIN Estudiante ON per_cc = estud_cc;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_mostrar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_mostrar_estudiante();
+
+-- ---------------------------------------------------------------------------
+-- ACTUALIZAR DATOS ESTUDIANTE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_actualizar_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_Admin_usuarios_actualizar_estudiante(
+  cc INT,
+  nombre VARCHAR(45),
+  direccion VARCHAR(45),
+  tel_movil VARCHAR(20),
+  tel_fijo VARCHAR(20),
+  correo_institucional VARCHAR(45),
+  -- ---------------
+  año_ingreso DATE ,
+  tutor_prof_cc INT -- Profesor tutor del estudiante
+)
+BEGIN
+  UPDATE Persona
+  SET per_nombre = nombre,
+  per_direccion = direccion,
+  per_tel_movil = tel_movil,
+  per_tel_fijo = tel_fijo,
+  per_correo_institucional = correo_institucional 
+  WHERE per_cc = cc;
+  UPDATE Estudiante
+  SET estud_año_ingreso = año_ingreso, estud_tutor_prof_cc = tutor_prof_cc
+  WHERE estud_cc = cc;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_actualizar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_actualizar_estudiante(2010000004, 'Maria Angelica Florez', 'Calle 58 # 24 - 51 Sur',
+-- 350875135 , 2064681, 'mflorezr@unal.edu.co', '2023-01-01' , 80150101);
+
+-- ----------------------------------------------------------------------------
+-- BORRAR ESTUDIANTES
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Admin_usuarios_borrar_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_Admin_usuarios_borrar_estudiante(cc INT)
+BEGIN
+	DELETE FROM estudiante WHERE estud_cc = cc;
+    DELETE FROM persona WHERE per_cc = cc;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_borrar_estudiante TO Admin_usuarios;
+-- CALL sp_Admin_usuarios_borrar_estudiante(2010000004);
 -- ---------------------------------------------------------------------------
 -- CREAR UN USUARIO CON SOLO INGRESAR EL USUARIO Y EL ROL QUE TIENE
 -- ----------------------------------------------------------------------------
-/*DROP PROCEDURE IF EXISTS create_user;
+/*DROP PROCEDURE IF EXISTS sp_create_user;
 DELIMITER $$
 
-CREATE PROCEDURE create_user(usuario VARCHAR(40), rol VARCHAR(40))
+CREATE PROCEDURE sp_create_user(usuario VARCHAR(40), rol VARCHAR(40))
 BEGIN
     -- Asignar los valores a las variables locales
     SET @usuario1 = usuario;
