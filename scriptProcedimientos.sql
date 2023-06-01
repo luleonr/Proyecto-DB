@@ -2,24 +2,6 @@ USE Academico;
 
 -- ROL ESTUDIANTE --------------------------------------------------------------
 -- -----------------------------------------------------------------------------
--- FUNCIÓN OBTENER SEMESTRE ACTUAL
--- -----------------------------------------------------------------------------
-SET GLOBAL log_bin_trust_function_creators = 1;
-DROP FUNCTION IF EXISTS f_obtener_semestre;
-DELIMITER $$
-CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
-BEGIN
-	SET @current_month = MONTH(curdate());
-    SET @current_year = YEAR(curdate());
-    IF @current_month <= 7 THEN
-		RETURN CONCAT(@current_year,'-1');
-	ELSE
-		RETURN CONCAT(@current_year,'-2');
-    END IF;
-END $$
-DELIMITER ;
-
--- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS ESTUDIANTE
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_datos_personales;
@@ -84,6 +66,36 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 
 -- ROL PROFESOR ----------------------------------------------------------------------------------------------
 -- -----------------------------------------------------------------------------
+-- FUNCIÓN OBTENER SEMESTRE ACTUAL
+-- -----------------------------------------------------------------------------
+SET GLOBAL log_bin_trust_function_creators = 1;
+DROP FUNCTION IF EXISTS f_obtener_semestre;
+DELIMITER $$
+CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
+BEGIN
+	SET @current_month = MONTH(curdate());
+    SET @current_year = YEAR(curdate());
+    IF @current_month <= 7 THEN
+		RETURN CONCAT(@current_year,'-1');
+	ELSE
+		RETURN CONCAT(@current_year,'-2');
+    END IF;
+END $$
+DELIMITER ;
+
+-- -----------------------------------------------------------------------------
+-- FUNCIÓN OBTENER CC DEL PROFESOR CON SU USUARIO
+-- -----------------------------------------------------------------------------
+
+DROP FUNCTION IF EXISTS f_find_cc_from_user;
+DELIMITER $$
+CREATE FUNCTION f_find_cc_from_user(username VARCHAR(45)) RETURNS INT
+BEGIN
+    RETURN (SELECT user_cc FROM Usuario WHERE user_usuario LIKE username);
+END $$
+DELIMITER ;
+
+-- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS PROFESOR
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Profesor_mostrar_datos_personales;
@@ -118,6 +130,168 @@ GRANT EXECUTE ON PROCEDURE sp_Profesor_actualizar_datos_personales TO Profesor;
 /*CALL sp_Profesor_actualizar_datos_personales(
   'jcoleborn', 'Carrera 3D este # 85 - 24 sur', '3006747152','2058164'
   );*/
+  
+-- ----------------------------------------------------------------------------
+-- VER LISTA DE CLASE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_ver_lista_clase;
+DELIMITER $$
+CREATE PROCEDURE sp_ver_lista_clase(userProfesor VARCHAR(45), asig_id INT, grup INT)
+BEGIN
+	DECLARE profesor INT;
+	SET profesor = f_find_cc_from_user(userProfesor);
+    SELECT CC, Nombre, Correo, Nota_final FROM vw_Profesor_ver_estudiante WHERE Profesor_CC LIKE profesor
+    AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
+END $$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- VER CALIFICACIONES DE CLASE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_ver_calificaciones;
+DELIMITER $$
+CREATE PROCEDURE sp_ver_calificaciones(userProfesor VARCHAR(45), asig_id INT, grup INT)
+BEGIN
+	DECLARE profesor INT;
+	SET profesor = f_find_cc_from_user(userProfesor);
+    SELECT CC, Nombre, Actividad, Puntaje, Porcentaje FROM vw_evaluaciones_estudiante WHERE Profesor_CC LIKE profesor 
+    AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
+END $$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- AGREGAR ACTIVIDAD EVALUATIVA
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_agregar_evaluacion;
+DELIMITER $$
+CREATE PROCEDURE sp_agregar_evaluacion(userProfesor VARCHAR(45), asig_id INT, grup INT, nom_actividad VARCHAR(45),act_porcentaje DECIMAL(5,2))
+BEGIN
+	DECLARE profesor INT;
+	SET profesor = f_find_cc_from_user(userProfesor);
+    INSERT INTO evaluacion(eval_nombre,eval_nota,eval_porcentaje,eval_ponde_insc_semestre,eval_ponde_insc_estudiante_cc,eval_ponde_insc_id_programa,
+    eval_ponde_insc_id_asignatura)   SELECT DISTINCT nom_actividad,0,act_porcentaje,Semestre,CC,Programa,Asignatura_ID
+    FROM vw_evaluaciones_estudiante WHERE Profesor_CC LIKE profesor 
+    AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
+END $$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- MODIFICAR EVALUACION: NOMBRE O PORCENTAJE DE ACTIVIDAD
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_modificar_descripcion_evaluacion;
+DELIMITER $$
+CREATE PROCEDURE sp_modificar_descripcion_evaluacion(userProfesor VARCHAR(45), asig_id INT, grup INT, nom_actividad VARCHAR(45), nuevo_nombre VARCHAR(45),nuevo_porcentaje DECIMAL(5,2))
+BEGIN
+	DECLARE profesor INT;
+	SET profesor = f_find_cc_from_user(userProfesor);
+    
+    UPDATE
+		evaluacion JOIN persona ON eval_ponde_insc_estudiante_cc=per_cc 
+		JOIN inscripcion ON (eval_ponde_insc_estudiante_cc=insc_estudiante_cc AND eval_ponde_insc_id_programa=insc_id_programa 
+		AND eval_ponde_insc_id_asignatura = insc_id_asignatura)
+		JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id)
+	SET eval_nombre = 
+		CASE
+			WHEN nuevo_nombre IS NOT NULL THEN nuevo_nombre
+			ELSE eval_nombre -- mantener el valor original si no se lo anterior
+		END,
+		eval_porcentaje = 
+		CASE
+			WHEN nuevo_porcentaje IS NOT NULL THEN nuevo_porcentaje
+			ELSE eval_porcentaje -- mantener el valor original si no se lo anterior
+		END
+	WHERE grup_prof_cc LIKE profesor AND grup_asig_id=asig_id AND grup_no_grupo=grup AND
+	grup_semestre LIKE f_obtener_semestre() AND eval_nombre LIKE nom_actividad;
+END $$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- ASIGNAR CALIFICACION A ESTUDIANTE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_asignar_calificación;
+DELIMITER $$
+CREATE PROCEDURE sp_asignar_calificación(userProfesor VARCHAR(45), asig_id INT, grup INT, nom_actividad VARCHAR(45),estud INT, nota DECIMAL(5,2))
+BEGIN
+	DECLARE profesor INT;
+	SET profesor = f_find_cc_from_user(userProfesor);
+    
+    UPDATE
+		evaluacion JOIN persona ON eval_ponde_insc_estudiante_cc=per_cc 
+		JOIN inscripcion ON (eval_ponde_insc_estudiante_cc=insc_estudiante_cc AND eval_ponde_insc_id_programa=insc_id_programa 
+		AND eval_ponde_insc_id_asignatura = insc_id_asignatura)
+		JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id)
+	SET eval_nota = nota
+    WHERE grup_prof_cc LIKE profesor AND grup_asig_id=asig_id AND grup_no_grupo=grup AND eval_nombre LIKE nom_actividad
+    AND eval_ponde_insc_estudiante_cc=estud AND grup_semestre LIKE f_obtener_semestre();
+    
+END $$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- PUBLICAR DEFINITIVAS ESTUDIANTES DE CLASE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_publicar_definitivas;
+DELIMITER $$
+CREATE PROCEDURE sp_publicar_definitivas(userProfesor VARCHAR(45), asig_id INT, grup INT)
+BEGIN
+    DECLARE sumaPorcentajes DECIMAL(5,2);
+    DECLARE msg varchar(255);
+    DECLARE profesor INT;
+    DECLARE semestreActual VARCHAR(10);
+    SET profesor = f_find_cc_from_user(userProfesor);
+    SET semestreActual = f_obtener_semestre();
+    
+    -- Verificar que los porcentajes sumen 100
+    SELECT SUM(Porcentaje) INTO sumaPorcentajes FROM (SELECT DISTINCT Actividad, Porcentaje FROM vw_evaluaciones_estudiante WHERE Profesor_CC LIKE profesor AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE semestreActual)EvaluacionesYporcentajes;
+
+    IF sumaPorcentajes != 100.00 THEN
+		SET msg = concat('Constraint violated: para publicar definitivas de clase, la suma de los porcentajes debe ser 100,
+        pero resultó ', sumaPorcentajes);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+    END IF;
+    
+    -- En esta tabla temporal se almacenara el puntaje de cada nota multiplicado por su porcentaje al ponderado de la materia
+    CREATE TEMPORARY TABLE temp_nota_aporte_ponderado(
+		CC INT,
+		Actividad VARCHAR(45),
+		Aporte_ponderado DECIMAL(5,2),
+        IdPrograma INT,
+        IdAsignatura INT
+	);
+    -- Hay un ponderado por cada estudiante en la materia indicada, entonces la cedula sera join en esta tabla auxiliar
+	CREATE TEMPORARY TABLE temp_ponderados(
+		CC INT,
+        ponderado DECIMAL(5,2)
+	);
+    
+    -- Inicializar las tablas temporales
+    INSERT INTO temp_nota_aporte_ponderado 
+	SELECT CC, Actividad, Puntaje*Porcentaje*0.01,Programa,Asignatura_ID FROM vw_evaluaciones_estudiante 
+	WHERE Profesor_CC LIKE profesor AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE semestreActual;
+    
+    INSERT INTO temp_ponderados SELECT CC, sum(Aporte_ponderado) FROM temp_nota_aporte_ponderado GROUP BY CC;
+    
+    -- Actualizar los ponderados
+    -- Se hace join porque en ponderados hay que 
+	UPDATE ponderado join (SELECT DISTINCT CC,IdPrograma,IdAsignatura,ponderado FROM temp_nota_aporte_ponderado natural join temp_ponderados)AS subquery
+				ON CC = ponderado.ponde_insc_estudiante_cc 
+				AND IdPrograma = ponderado.ponde_insc_id_programa 
+				AND IdAsignatura = ponderado.ponde_insc_id_asignatura 
+				AND ponde_insc_semestre LIKE f_obtener_semestre()
+		SET ponde_nota_final = ponderado,
+		ponde_aprobado =
+			CASE
+				WHEN ponde_nota_final>=3 THEN 1
+				ELSE 0
+			END;
+
+	-- Las tablas auxiliares solo seran accesibles durante el procedimiento
+    DROP TABLE temp_nota_aporte_ponderado;
+    DROP TABLE temp_ponderados;
+		
+END $$
+DELIMITER ;
+  
 
 -- ROL ADMIN USUARIOS --------------------------------------------------------------------------------------------------------------------
 
