@@ -125,3 +125,9 @@ join inscripcion on (insc_id_asignatura=asig_id AND grup_no_grupo=insc_no_grupo)
 ORDER BY horar_dia;
 
 
+-- ---------------------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_ver_programas;
+CREATE VIEW vw_ver_Programas AS
+SELECT prog_nombre,depa_nombre, facu_nombre FROM Programa JOIN Departamento ON prog_id_departamento = depa_id 
+JOIN Facultad ON depa_id_facultad  = facu_id;
