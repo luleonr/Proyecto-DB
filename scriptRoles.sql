@@ -47,6 +47,11 @@ DROP ROLE IF EXISTS Admin_inscripciones;
 CREATE ROLE Admin_inscripciones;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Inscripcion TO Admin_inscripciones;
 
+DROP ROLE IF EXISTS Decano;
+CREATE ROLE Decano;
+GRANT SELECT ON vw_Estudiante_ver_datos_personales TO Decano;
+GRANT SELECT ON vw_Profesor_ver_datos_personales TO Decano;
+GRANT SELECT ON vw_ver_programas TO Decano;
 
 DROP ROLE IF EXISTS Estudiante;
 CREATE ROLE Estudiante;
@@ -57,3 +62,8 @@ GRANT SELECT ON vw_Horario TO Estudiante;
 
 DROP ROLE IF EXISTS Profesor;
 CREATE ROLE Profesor;
+GRANT SELECT ON vw_Profesor_ver_datos_personales TO Profesor;
+GRANT SELECT,UPDATE ON vw_Profesor_modificar_datos_personales TO Profesor;
+GRANT SELECT ON vw_Profesor_ver_estudiante TO Profesor;
+GRANT INSERT,SELECT,UPDATE ON vw_evaluaciones_estudiante TO Profesor;
+GRANT SELECT ON vw_horario_profesor TO Profesor;
