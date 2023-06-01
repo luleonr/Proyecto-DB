@@ -59,3 +59,6 @@ DROP ROLE IF EXISTS Profesor;
 CREATE ROLE Profesor;
 GRANT SELECT ON vw_Profesor_ver_datos_personales TO Profesor;
 GRANT SELECT,UPDATE ON vw_Profesor_modificar_datos_personales TO Profesor;
+GRANT SELECT ON vw_Profesor_ver_estudiante TO Profesor;
+GRANT INSERT,SELECT,UPDATE ON vw_evaluaciones_estudiante TO Profesor;
+GRANT SELECT ON vw_horario_profesor TO Profesor;
