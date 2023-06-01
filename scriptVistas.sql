@@ -48,3 +48,25 @@ JOIN Asignatura ON horar_grup_asig_id = asig_id JOIN Usuario ON  insc_estudiante
 
 -- SELECT * FROM  vw_Horario;
 -- ------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_Profesor_ver_datos_personales;
+
+CREATE VIEW vw_Profesor_ver_datos_personales AS 
+SELECT DISTINCT per_cc AS Cedula, per_nombre AS Nombre, per_direccion AS Direccion,
+per_tel_movil AS Telefono_Movil, per_tel_fijo AS Telefono_Fijo, per_correo_institucional AS Correo, 
+user_usuario AS usuario
+FROM persona JOIN profesor ON per_cc = prof_cc JOIN Usuario ON per_cc = user_cc ;
+
+
+-- SELECT * FROM vw_Profesor_ver_datos_personales;
+
+-- -------------------------------
+
+DROP VIEW IF EXISTS vw_Profesor_modificar_datos_personales;
+
+CREATE VIEW vw_Profesor_modificar_datos_personales AS 
+SELECT per_direccion AS Direccion ,per_tel_movil AS Telefono_Movil, per_tel_fijo AS Telefono_Fijo,
+user_usuario AS usuario
+FROM Persona JOIN Profesor ON per_cc = prof_cc JOIN Usuario ON prof_cc = user_cc;
+
+-- SELECT * FROM vw_Profesor_modificar_datos_personales;
