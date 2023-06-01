@@ -62,11 +62,25 @@ FROM persona JOIN profesor ON per_cc = prof_cc JOIN Usuario ON per_cc = user_cc 
 
 -- -------------------------------
 
+DROP VIEW IF EXISTS vw_Profesor_ver_datos_personales;
+
+CREATE VIEW vw_Profesor_ver_datos_personales AS 
+SELECT DISTINCT per_cc AS Cedula, per_nombre AS Nombre, per_direccion AS Direccion,
+per_tel_movil AS Telefono_Movil, per_tel_fijo AS Telefono_Fijo, per_correo_institucional AS Correo, 
+user_usuario AS usuario
+FROM persona JOIN profesor ON per_cc = prof_cc JOIN Usuario ON per_cc = user_cc ;
+
+
+-- SELECT * FROM vw_Profesor_ver_datos_personales;
+
+-- -------------------------------
+
 DROP VIEW IF EXISTS vw_Profesor_modificar_datos_personales;
 
 CREATE VIEW vw_Profesor_modificar_datos_personales AS 
 SELECT per_direccion AS Direccion ,per_tel_movil AS Telefono_Movil, per_tel_fijo AS Telefono_Fijo,
 user_usuario AS usuario
+FROM Persona JOIN Profesor ON per_cc = prof_cc JOIN Usuario ON prof_cc = user_cc;
 
 -- SELECT * FROM vw_Profesor_modificar_datos_personales;
 
@@ -83,7 +97,6 @@ JOIN inscripcion ON insc_estudiante_cc=per_cc
 JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id)
 JOIN ponderado ON (ponde_insc_semestre=insc_semestre AND ponde_insc_estudiante_cc=insc_estudiante_cc 
 AND ponde_insc_id_asignatura=insc_id_asignatura);
-FROM Persona JOIN Profesor ON per_cc = prof_cc JOIN Usuario ON prof_cc = user_cc;
 
 -- SELECT * FROM vw_Profesor_ver_estudiante;
 
