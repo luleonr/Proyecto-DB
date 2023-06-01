@@ -82,6 +82,7 @@ BEGIN
     END IF;
 END $$
 DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_obtener_semestre TO Profesor;
 
 -- -----------------------------------------------------------------------------
 -- FUNCIÓN OBTENER CC DEL PROFESOR CON SU USUARIO
@@ -94,6 +95,7 @@ BEGIN
     RETURN (SELECT user_cc FROM Usuario WHERE user_usuario LIKE username);
 END $$
 DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_find_cc_from_user TO Profesor;
 
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS PROFESOR
@@ -144,6 +146,7 @@ BEGIN
     AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
 END $$
 DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_ver_lista_clase TO Profesor;
 
 -- ----------------------------------------------------------------------------
 -- VER CALIFICACIONES DE CLASE
@@ -158,6 +161,7 @@ BEGIN
     AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
 END $$
 DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_ver_calificaciones TO Profesor;
 
 -- ----------------------------------------------------------------------------
 -- AGREGAR ACTIVIDAD EVALUATIVA
@@ -174,6 +178,7 @@ BEGIN
     AND Asignatura_ID = asig_id AND Grupo=grup AND Semestre LIKE f_obtener_semestre();
 END $$
 DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_agregar_evaluacion TO Profesor;
 
 -- ----------------------------------------------------------------------------
 -- MODIFICAR EVALUACION: NOMBRE O PORCENTAJE DE ACTIVIDAD
@@ -291,7 +296,23 @@ BEGIN
 		
 END $$
 DELIMITER ;
-  
+GRANT EXECUTE ON PROCEDURE sp_publicar_definitivas TO Profesor;
+-- ----------------------------------------------------------------------------
+-- VER HORARIO PROFESOR
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_ver_horario_profesor;
+DELIMITER $$
+CREATE PROCEDURE sp_ver_horario_profesor(usuario VARCHAR(45))
+BEGIN
+	DECLARE usuario_cc INT;
+	SET usuario_cc = f_find_cc_from_user(usuario);
+    
+    SELECT Dia, Asignatura, HoraInicio, HoraFinal, Salon, Edificio
+    FROM vw_horario_profesor WHERE Semestre LIKE f_obtener_semestre() AND usuario_cc=Profesor_cc;
+    
+END $$
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_ver_horario_profesor TO Profesor;
 
 -- ROL ADMIN USUARIOS --------------------------------------------------------------------------------------------------------------------
 
