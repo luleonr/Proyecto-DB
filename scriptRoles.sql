@@ -54,7 +54,6 @@ GRANT SELECT ON vw_Estudiante_ver_datos_personales TO Estudiante;
 GRANT SELECT,UPDATE ON vw_Estudiante_modificar_datos_personales TO Estudiante;
 GRANT SELECT ON vw_Historia_academica TO Estudiante;
 GRANT SELECT ON vw_Horario TO Estudiante;
-GRANT SELECT ON vw_horarios TO Estudiante;
 
 DROP ROLE IF EXISTS Profesor;
 CREATE ROLE Profesor;
@@ -62,4 +61,4 @@ GRANT SELECT ON vw_Profesor_ver_datos_personales TO Profesor;
 GRANT SELECT,UPDATE ON vw_Profesor_modificar_datos_personales TO Profesor;
 GRANT SELECT ON vw_Profesor_ver_estudiante TO Profesor;
 GRANT INSERT,SELECT,UPDATE ON vw_evaluaciones_estudiante TO Profesor;
-GRANT SELECT ON vw_horarios TO Profesor;
+GRANT SELECT ON vw_horario_profesor TO Profesor;
