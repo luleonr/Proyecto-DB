@@ -2,9 +2,9 @@ USE academico;
 
 -- CREACION USUARIOS ESTUDIANTE --------------------------------------------------------
 DROP USER IF EXISTS 'cbarrerar'; 
-CALL create_user('cbarrerar', 'Estudiante');
+CALL sp_create_user('cbarrerar', 'Estudiante');
 DROP USER IF EXISTS 'luleonr'; 
-CALL create_user('luleonr', 'Estudiante');
+CALL sp_create_user('luleonr', 'Estudiante');
 
 -- CREACION USUARIOS PROFESORES -----------------------------------------------------------------------
 DROP USER IF EXISTS 'cbarrerar1'; 

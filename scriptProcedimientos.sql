@@ -148,6 +148,8 @@ END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_ver_lista_clase TO Profesor;
 
+-- CALL sp_ver_lista_clase('jcoleborn','2','1');
+
 -- ----------------------------------------------------------------------------
 -- VER CALIFICACIONES DE CLASE
 -- ----------------------------------------------------------------------------
@@ -506,11 +508,48 @@ DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_borrar_profesor TO Admin_usuarios;
 -- CALL sp_Admin_usuarios_borrar_profesor(80150116);
 
+-- ROL DECANO -------------------------------------------------------------------
+
+-- -----------------------------------------------------------------------------
+-- MOSTRAR DATOS ESTUDIANTES
+-- -----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Decano_mostrar_datos_personales_estudiantes;
+DELIMITER //
+CREATE PROCEDURE sp_Decano_mostrar_datos_personales_estudiantes()
+BEGIN
+  SELECT * FROM vw_Estudiante_ver_datos_personales;
+END //
+DELIMITER ;
+CALL sp_Decano_mostrar_datos_personales_estudiantes();
+
+-- -----------------------------------------------------------------------------
+-- MOSTRAR DATOS PROFESORES
+-- -----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Decano_mostrar_datos_personales_profesores;
+DELIMITER //
+CREATE PROCEDURE sp_Decano_mostrar_datos_personales_profesores()
+BEGIN
+  SELECT * FROM vw_Profesor_ver_datos_personales;
+END //
+DELIMITER ;
+CALL sp_Decano_mostrar_datos_personales_profesores();
+
+-- -----------------------------------------------------------------------------
+-- MOSTRAR DATOS PROGRAMAS
+-- -----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Decano_mostrar_programas;
+DELIMITER //
+CREATE PROCEDURE sp_Decano_mostrar_programas()
+BEGIN
+  SELECT * FROM vw_ver_programas;
+END //
+DELIMITER ;
+CALL sp_Decano_mostrar_programas();
 
 -- ---------------------------------------------------------------------------
 -- CREAR UN USUARIO CON SOLO INGRESAR EL USUARIO Y EL ROL QUE TIENE
 -- ----------------------------------------------------------------------------
-/*DROP PROCEDURE IF EXISTS sp_create_user;
+DROP PROCEDURE IF EXISTS sp_create_user;
 DELIMITER $$
 
 CREATE PROCEDURE sp_create_user(usuario VARCHAR(40), rol VARCHAR(40))
@@ -542,4 +581,4 @@ END $$
 
 DELIMITER ;
 
-*/
+

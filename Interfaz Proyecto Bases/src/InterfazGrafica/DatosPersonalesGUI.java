@@ -4,7 +4,6 @@
  */
 package InterfazGrafica;
 
-import java.awt.Dimension;
 
 /**
  *
@@ -34,8 +33,6 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         label_Nombre = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         label_Cedula = new javax.swing.JLabel();
@@ -50,6 +47,15 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         label_AñoIngreso = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        panel_Modificar = new javax.swing.JPanel();
+        label_Modificar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        label_Carrera = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 1000));
@@ -58,55 +64,111 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 2000));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("DATOS PERSONALES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 720, 100));
+        label_Nombre.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Nombre.setText("-------------------------------------------");
+        jPanel1.add(label_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
 
-        jLabel2.setText("NOMBRE");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel3.setText("Cédula");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
 
-        label_Nombre.setText("---------------------------");
-        jPanel1.add(label_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        label_Cedula.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Cedula.setText("-------------------------------------------");
+        jPanel1.add(label_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
-        jLabel3.setText("CEDULA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel4.setText("Dirección");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
 
-        label_Cedula.setText("-----------------------------");
-        jPanel1.add(label_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        label_Direccion.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Direccion.setText("-------------------------------------------");
+        jPanel1.add(label_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 260, -1));
 
-        jLabel4.setText("DIRECCIÓN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel5.setText("Teléfono fijo");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
-        label_Direccion.setText("-----------------------");
-        jPanel1.add(label_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 140, -1));
+        label_Tel_Fijo.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Tel_Fijo.setText("-------------------------------------------");
+        jPanel1.add(label_Tel_Fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
-        jLabel5.setText("TELEFONO FIJO");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel6.setText("Teléfono móvil");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
-        label_Tel_Fijo.setText("-----------------------");
-        jPanel1.add(label_Tel_Fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, -1, -1));
+        label_Tel_Movil.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Tel_Movil.setText("-------------------------------------------");
+        jPanel1.add(label_Tel_Movil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
-        jLabel6.setText("TELEFONO MOVIL");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel7.setText("Correo institucional");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
 
-        label_Tel_Movil.setText("------------------------- ");
-        jPanel1.add(label_Tel_Movil, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+        label_Correo_Institucional.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Correo_Institucional.setText("-------------------------------------------");
+        jPanel1.add(label_Correo_Institucional, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
-        jLabel7.setText("CORREO INSTITUCIONAL");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel8.setText("Año de ingreso");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
 
-        label_Correo_Institucional.setText("---------------------------");
-        jPanel1.add(label_Correo_Institucional, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 770, -1, -1));
-
-        jLabel8.setText("AÑO INGRESO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
-
-        label_AñoIngreso.setText("--------------------------");
-        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
+        label_AñoIngreso.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_AñoIngreso.setText("-------------------------------------------");
+        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 543, 970, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 970, 10));
+
+        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel9.setText("Importante");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel10.setText("alguna modificación pulsa en Modificar. ");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 30));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel11.setText("En este espacio podrás consultar tus datos personales. Si deseas hacer ");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 540, 30));
+
+        panel_Modificar.setBackground(new java.awt.Color(145, 179, 59));
+
+        label_Modificar.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        label_Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        label_Modificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_Modificar.setText("Modificar");
+
+        javax.swing.GroupLayout panel_ModificarLayout = new javax.swing.GroupLayout(panel_Modificar);
+        panel_Modificar.setLayout(panel_ModificarLayout);
+        panel_ModificarLayout.setHorizontalGroup(
+            panel_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(label_Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        panel_ModificarLayout.setVerticalGroup(
+            panel_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(label_Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(panel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 130, 40));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setText("Datos básicos:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel12.setText("Nombres y apellidos");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel2.setText("Carrera");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, -1, -1));
+
+        label_Carrera.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        label_Carrera.setText("-------------------------------------------");
+        jPanel1.add(label_Carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 620, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -129,6 +191,9 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -136,15 +201,19 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel label_AñoIngreso;
+    public javax.swing.JLabel label_Carrera;
     public javax.swing.JLabel label_Cedula;
     public javax.swing.JLabel label_Correo_Institucional;
     public javax.swing.JLabel label_Direccion;
+    private javax.swing.JLabel label_Modificar;
     public javax.swing.JLabel label_Nombre;
     public javax.swing.JLabel label_Tel_Fijo;
     public javax.swing.JLabel label_Tel_Movil;
+    private javax.swing.JPanel panel_Modificar;
     // End of variables declaration//GEN-END:variables
 }

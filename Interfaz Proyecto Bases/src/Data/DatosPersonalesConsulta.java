@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class DatosPersonalesQuery {
+public class DatosPersonalesConsulta {
     
     public static String Nombre;
     public static String Cedula;
@@ -24,18 +24,13 @@ public class DatosPersonalesQuery {
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
-       
-        String ID;
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("SELECT * FROM vw_Estudiante_ver_datos_personales "
-                    + "WHERE usuario = SUBSTRING_INDEX(CURRENT_USER (), '@', 1);"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_datos_personales(SUBSTRING_INDEX(CURRENT_USER(), '@', 1));"); // ejecutar consulta
 
             while(rows.next()){
-                
-                
-                ID = rows.getString("ID");
+                            
                 Cedula = rows.getString("Cedula");     
                 Nombre = rows.getString("Nombre");
                 Direccion = rows.getString("Direccion");
@@ -46,7 +41,6 @@ public class DatosPersonalesQuery {
                 Carrera = rows.getString("Carrera");
                
                 
-                /*System.out.println(ID);
                 System.out.println(Cedula);
                 System.out.println(Nombre);
                 System.out.println(Direccion);
@@ -56,11 +50,11 @@ public class DatosPersonalesQuery {
                 System.out.println(AñoIngreso);
                 System.out.println(Carrera);
                 System.out.println("");
-*/
+
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error");
+            System.out.println("Hubo un error en la conexión");
             ConexionSQL.desConexion(conn);
         }
     }

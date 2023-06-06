@@ -4,7 +4,7 @@
  */
 package InterfazGrafica;
 
-import Data.DatosPersonalesQuery;
+import Data.DatosPersonalesConsulta;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,6 +22,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      * Creates new form DatosEstudiante
      */
     public PantallaPrincipal() {
+        
         initComponents();
         setLocationRelativeTo(null);
         
@@ -46,7 +47,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Label_Icono_Usuario = new javax.swing.JLabel();
         Panel_Izquierda_Verde = new javax.swing.JPanel();
         Panel_Datos_Personales = new javax.swing.JPanel();
-        Label_Datos_Personales = new javax.swing.JLabel();
+        label_Datos_Personales = new javax.swing.JLabel();
         Panel_Informacion_Acad = new javax.swing.JPanel();
         Label_Informacion_Acad = new javax.swing.JLabel();
         Panel_Inscripcion = new javax.swing.JPanel();
@@ -102,7 +103,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Label_Usuario.setText("cbarrerar");
         Panel_Usuario.add(Label_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 60));
 
-        Label_Icono_Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoUsuario.png"))); // NOI18N
+        Label_Icono_Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoUsuarioPequeño.png"))); // NOI18N
         Label_Icono_Usuario.setText("jLabel8");
         Label_Icono_Usuario.setPreferredSize(new java.awt.Dimension(40, 40));
         Label_Icono_Usuario.setRequestFocusEnabled(false);
@@ -120,23 +121,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Panel_Datos_Personales.setPreferredSize(new java.awt.Dimension(343, 81));
         Panel_Datos_Personales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label_Datos_Personales.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        Label_Datos_Personales.setForeground(new java.awt.Color(255, 255, 255));
-        Label_Datos_Personales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Datos_Personales.setText("DATOS PERSONALES");
-        Label_Datos_Personales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_Datos_Personales.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_Datos_Personales.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        label_Datos_Personales.setForeground(new java.awt.Color(255, 255, 255));
+        label_Datos_Personales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_Datos_Personales.setText("DATOS PERSONALES");
+        label_Datos_Personales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_Datos_Personales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_Datos_PersonalesMouseClicked(evt);
+                label_Datos_PersonalesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Label_Datos_PersonalesMouseEntered(evt);
+                label_Datos_PersonalesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Label_Datos_PersonalesMouseExited(evt);
+                label_Datos_PersonalesMouseExited(evt);
             }
         });
-        Panel_Datos_Personales.add(Label_Datos_Personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
+        Panel_Datos_Personales.add(label_Datos_Personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
 
         Panel_Izquierda_Verde.add(Panel_Datos_Personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 108, -1, -1));
 
@@ -357,12 +358,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void Panel_UsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_UsuarioMouseEntered
         // TODO add your handling code here:
-        Panel_Usuario.setBackground(new Color(175,199,107));          
+        Panel_Usuario.setBackground(new Color(175,199,107));
     }//GEN-LAST:event_Panel_UsuarioMouseEntered
 
     private void Panel_UsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_UsuarioMouseExited
         // TODO add your handling code here:
-        Panel_Usuario.setBackground(new Color(145,179,59));        
+        Panel_Usuario.setBackground(new Color(145,179,59));
     }//GEN-LAST:event_Panel_UsuarioMouseExited
 
     private void Label_Informacion_AcadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Informacion_AcadMouseClicked
@@ -382,35 +383,36 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Panel_Informacion_Acad.setBackground(new Color(145,179,59));
     }//GEN-LAST:event_Label_Informacion_AcadMouseExited
 
-    private void Label_Datos_PersonalesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Datos_PersonalesMouseEntered
+    private void label_Datos_PersonalesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseEntered
         // TODO add your handling code here:
         Panel_Datos_Personales.setBackground(new Color(175,199,107));        
-    }//GEN-LAST:event_Label_Datos_PersonalesMouseEntered
+    }//GEN-LAST:event_label_Datos_PersonalesMouseEntered
 
-    private void Label_Datos_PersonalesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Datos_PersonalesMouseExited
+    private void label_Datos_PersonalesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseExited
         // TODO add your handling code here:
         Panel_Datos_Personales.setBackground(new Color(145,179,59));        
-    }//GEN-LAST:event_Label_Datos_PersonalesMouseExited
+    }//GEN-LAST:event_label_Datos_PersonalesMouseExited
 
-    private void Label_Datos_PersonalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Datos_PersonalesMouseClicked
+    private void label_Datos_PersonalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseClicked
         // TODO add your handling code here:
         mostrarDatos_Personales();
 
         
-    }//GEN-LAST:event_Label_Datos_PersonalesMouseClicked
+    }//GEN-LAST:event_label_Datos_PersonalesMouseClicked
 
         public void mostrarDatos_Personales(){
         DatosPersonalesGUI datosPersonales = new DatosPersonalesGUI();
         
-        DatosPersonalesQuery.mostrarDatos_Personales("Academico");
+        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
         
-        datosPersonales.label_AñoIngreso.setText(DatosPersonalesQuery.AñoIngreso);
-        datosPersonales.label_Cedula.setText(DatosPersonalesQuery.Cedula);
-        datosPersonales.label_Correo_Institucional.setText(DatosPersonalesQuery.Correo);
-        datosPersonales.label_Direccion.setText(DatosPersonalesQuery.Direccion);
-        datosPersonales.label_Nombre.setText(DatosPersonalesQuery.Nombre);
-        datosPersonales.label_Tel_Fijo.setText(DatosPersonalesQuery.Telefono_Fijo);
-        datosPersonales.label_Tel_Movil.setText(DatosPersonalesQuery.Telefono_Movil);
+        datosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
+        datosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
+        datosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
+        datosPersonales.label_Direccion.setText(DatosPersonalesConsulta.Direccion);
+        datosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
+        datosPersonales.label_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
+        datosPersonales.label_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
+        datosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
         
         mostrarPanel(datosPersonales);            
             
@@ -474,7 +476,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content;
-    private javax.swing.JLabel Label_Datos_Personales;
     private javax.swing.JLabel Label_Escudo;
     private javax.swing.JLabel Label_Icono_Usuario;
     private javax.swing.JLabel Label_Informacion_Acad;
@@ -495,6 +496,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel label_Datos_Personales;
     private javax.swing.JPanel panel_Principal;
     // End of variables declaration//GEN-END:variables
 }

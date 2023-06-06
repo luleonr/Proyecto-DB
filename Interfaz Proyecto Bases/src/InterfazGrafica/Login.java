@@ -5,11 +5,8 @@
 package InterfazGrafica;
 
 import java.awt.Color;
-import javax.swing.JOptionPane;
-import Data.Usuario;
 import Data.ConexionSQL;
 
-import InterfazGrafica.PantallaPrincipal;
 
 /**
  *
@@ -255,7 +252,7 @@ public class Login extends javax.swing.JFrame {
         if(ConexionSQL.confirmacion == true){
             Login.abrir_PantallaPrincipal();
         }else{
-            System.out.println("valemonda");
+            System.out.println("La contrasena o el usuario no son correctos");
         }
 
     }//GEN-LAST:event_Label_IngresarMouseClicked
