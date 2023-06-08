@@ -5,6 +5,10 @@ DROP USER IF EXISTS 'cbarrerar';
 CALL sp_create_user('cbarrerar', 'Estudiante');
 DROP USER IF EXISTS 'luleonr'; 
 CALL sp_create_user('luleonr', 'Estudiante');
+DROP USER IF EXISTS 'mcheshire'; 
+CALL sp_create_user('mcheshire', 'Estudiante');
+DROP USER IF EXISTS 'rathridge'; 
+CALL sp_create_user('rathridge', 'Estudiante');
 
 -- CREACION USUARIOS PROFESORES -----------------------------------------------------------------------
 DROP USER IF EXISTS 'cbarrerar1'; 

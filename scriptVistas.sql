@@ -31,8 +31,11 @@ SELECT DISTINCT histAcad_PAPA AS PAPA,histAcad_PAPPI AS PAPPI,
 histAcad_porcen_avance AS Porcentaje_Avance, histAcad_cred_adicionales AS Creditos_Adicionales, 
 histAcad_cup_creditos AS Cupo_Creditos, histAcad_cred_disponibles AS Creditos_Disponibles, 
 histAcad_cred_doble_titulacion AS Creditos_Doble_Titulacion, 
-histAcad_id_programa AS ID_Carrera ,histAcad_estudiante_cc AS Cedula, user_usuario AS usuario 
-FROM Historia_Academica JOIN Usuario ON histAcad_estudiante_cc = user_cc;
+histAcad_id_programa AS ID_Carrera , prog_nombre AS Carrera ,histAcad_estudiante_cc AS Cedula,
+facu_nombre AS Facultad, user_usuario AS usuario
+FROM Historia_Academica JOIN Usuario ON histAcad_estudiante_cc = user_cc
+JOIN Programa ON histAcad_id_programa = prog_id JOIN Departamento ON prog_id_departamento = depa_id
+JOIN Facultad ON depa_id_facultad = facu_id;
 
 -- SELECT * FROM  vw_Historia_academica;
 -- --------------------------------------------------------------------------------------------

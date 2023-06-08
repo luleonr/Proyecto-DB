@@ -33,9 +33,7 @@ BEGIN
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_actualizar_datos_personales TO Estudiante;
--- CALL sp_Estudiante_actualizar_datos_personales(
--- 'cbarrerar', 'Carrera 3D este # 85 - 24 sur', '3006747152','2058164'
--- );
+-- cache index
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HISTORIA ACADEMICA
