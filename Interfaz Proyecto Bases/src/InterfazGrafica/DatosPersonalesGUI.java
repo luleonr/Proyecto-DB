@@ -4,6 +4,12 @@
  */
 package InterfazGrafica;
 
+import Data.DatosPersonalesConsulta;
+import static InterfazGrafica.PantallaPrincipal.Content;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
+
 
 /**
  *
@@ -56,12 +62,15 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         label_Carrera = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 1000));
 
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1000, 2000));
+
         jPanel1.setBackground(new java.awt.Color(221, 221, 221));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 2000));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 3000));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         label_Nombre.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
@@ -78,11 +87,11 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel4.setText("Dirección");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
 
         label_Direccion.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_Direccion.setText("-------------------------------------------");
-        jPanel1.add(label_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 260, -1));
+        jPanel1.add(label_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 260, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel5.setText("Teléfono fijo");
@@ -90,15 +99,15 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
         label_Tel_Fijo.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_Tel_Fijo.setText("-------------------------------------------");
-        jPanel1.add(label_Tel_Fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        jPanel1.add(label_Tel_Fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel6.setText("Teléfono móvil");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
         label_Tel_Movil.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_Tel_Movil.setText("-------------------------------------------");
-        jPanel1.add(label_Tel_Movil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        jPanel1.add(label_Tel_Movil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel7.setText("Correo institucional");
@@ -110,11 +119,11 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel8.setText("Año de ingreso");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, -1, -1));
 
         label_AñoIngreso.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_AñoIngreso.setText("-------------------------------------------");
-        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, -1));
+        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,11 +144,24 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 540, 30));
 
         panel_Modificar.setBackground(new java.awt.Color(145, 179, 59));
+        panel_Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         label_Modificar.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         label_Modificar.setForeground(new java.awt.Color(255, 255, 255));
         label_Modificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_Modificar.setText("Modificar");
+        label_Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_ModificarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                label_ModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                label_ModificarMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_ModificarLayout = new javax.swing.GroupLayout(panel_Modificar);
         panel_Modificar.setLayout(panel_ModificarLayout);
@@ -164,11 +186,15 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel2.setText("Carrera");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, -1, -1));
 
         label_Carrera.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_Carrera.setText("-------------------------------------------");
-        jPanel1.add(label_Carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 620, -1, -1));
+        jPanel1.add(label_Carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 610, -1, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoUsuario.jpg"))); // NOI18N
+        jLabel13.setText("jLabel13");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 170, 200));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -176,24 +202,64 @@ public class DatosPersonalesGUI extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1007, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void label_ModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_ModificarMouseEntered
+        // TODO add your handling code here:
+        panel_Modificar.setBackground(new Color(175,199,107));    
+    }//GEN-LAST:event_label_ModificarMouseEntered
 
+    private void label_ModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_ModificarMouseExited
+        // TODO add your handling code here:
+        panel_Modificar.setBackground(new Color(145,179,59));            
+    }//GEN-LAST:event_label_ModificarMouseExited
+
+    private void label_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_ModificarMouseClicked
+        // TODO add your handling code here:       
+        abrirModificarDatos_Personales();
+               
+    }//GEN-LAST:event_label_ModificarMouseClicked
+        public static void abrirModificarDatos_Personales(){
+        ModificarDatosPersonalesGUI modificarDatosPersonales = new ModificarDatosPersonalesGUI();   
+        
+        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
+        
+        modificarDatosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
+        modificarDatosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
+        modificarDatosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
+        modificarDatosPersonales.cajaTexto_Direccion.setText(DatosPersonalesConsulta.Direccion);
+        modificarDatosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
+        modificarDatosPersonales.cajaTexto_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
+        modificarDatosPersonales.cajaTexto_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
+        modificarDatosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
+        
+        mostrarPanel(modificarDatosPersonales);            
+            
+        }
+        public static void mostrarPanel(JPanel panel){
+
+        panel.setSize(1007,2500); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
+        panel.setLocation(0,0);
+        
+        Content.removeAll();
+        Content.add(panel, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();        
+   
+    }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

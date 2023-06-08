@@ -1,7 +1,8 @@
 package Bussines;
 
 
-import Data.Prueba;
+import Data.ModificarDatosPersonales;
+import Data.DatosPersonalesConsulta;
 import InterfazGrafica.Login;
 
 
@@ -13,7 +14,7 @@ public class Main {
         
         String nombreBD = "Academico";
         
-        //Prueba.mostrarDatos(nombreBD);
         Login.ejecutar_Login();  
+        
     }
 }

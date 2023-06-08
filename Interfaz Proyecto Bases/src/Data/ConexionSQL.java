@@ -58,9 +58,9 @@ public class ConexionSQL{
     public static void  desConexion(Connection conexion){
         try{
            conexion.close();
-           /*System.out.println("-------------------------------------------------");
+           System.out.println("-------------------------------------------------");
            System.out.println("La desconexion de la BD ha sido exitosa");
-           System.out.println("-------------------------------------------------");*/
+           System.out.println("-------------------------------------------------");
         }catch(Exception e){
             System.out.println("Ha ocurrido un error al intentar desconectar la conexion de la BD: " + e.getMessage());
         }

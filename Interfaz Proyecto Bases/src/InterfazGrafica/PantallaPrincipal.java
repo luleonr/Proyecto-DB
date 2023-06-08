@@ -7,8 +7,6 @@ package InterfazGrafica;
 import Data.DatosPersonalesConsulta;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JPanel;
 
 /**
@@ -400,7 +398,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_label_Datos_PersonalesMouseClicked
 
-        public void mostrarDatos_Personales(){
+        public static void mostrarDatos_Personales(){
         DatosPersonalesGUI datosPersonales = new DatosPersonalesGUI();
         
         DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
@@ -419,9 +417,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     
     
-        public void mostrarPanel(JPanel panel){
+        public static void mostrarPanel(JPanel panel){
 
-        panel.setSize(1007,3000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
+        panel.setSize(1007,2500); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
         panel.setLocation(0,0);
         
         Content.removeAll();
@@ -475,7 +473,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Content;
+    public static javax.swing.JPanel Content;
     private javax.swing.JLabel Label_Escudo;
     private javax.swing.JLabel Label_Icono_Usuario;
     private javax.swing.JLabel Label_Informacion_Acad;

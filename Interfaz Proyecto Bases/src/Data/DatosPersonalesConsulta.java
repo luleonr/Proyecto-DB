@@ -20,7 +20,7 @@ public class DatosPersonalesConsulta {
     
     public static void mostrarDatos_Personales(String nombreBD){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);         
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
