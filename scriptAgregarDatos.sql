@@ -88,13 +88,13 @@ INSERT INTO Estudiante_posgrado (estudi_posg_cc, estudi_posg_prof_cc) VALUES (20
 -- -----------------------------------------------------
 
 INSERT INTO Facultad VALUES(1,'Artes');
-INSERT INTO Facultad VALUES(2,'Ciencias');
+INSERT INTO Facultad VALUES(2,'CIENCIAS');
 INSERT INTO Facultad VALUES(3,'Ciencias Agrarias');
 INSERT INTO Facultad VALUES(4,'Ciencias Económicas');
 INSERT INTO Facultad VALUES(5,'Ciencias Humanas');
 INSERT INTO Facultad VALUES(6,'Derecho, Ciencias Políticas y Sociales');
 INSERT INTO Facultad VALUES(7,'Enfermería');
-INSERT INTO Facultad VALUES(8,'Ingeniería');
+INSERT INTO Facultad VALUES(8,'INGENIERÍA');
 INSERT INTO Facultad VALUES(9,'Medicina');
 INSERT INTO Facultad VALUES(10,'Medicina Veterinaria y de Zootecnia');
 INSERT INTO Facultad VALUES(11,'Odontonlogía');
@@ -118,14 +118,14 @@ INSERT INTO Departamento VALUES(202,'Física y química',2);
 
 INSERT INTO Programa VALUES(80101,'Ingeniería Civil',801);
 INSERT INTO Programa VALUES(80102,'Ingeniería Agrícola',801);
-INSERT INTO Programa VALUES(80201,'Ingeniería de Sistemas y Computación',802);
+INSERT INTO Programa VALUES(80201,'INGENIERÍA DE SISTEMAS Y COMPUTACIÓN',802);
 INSERT INTO Programa VALUES(80202,'Ingeniería Industrial',802);
 INSERT INTO Programa VALUES(80301,'Ingeniería Eléctrica',803);
 INSERT INTO Programa VALUES(80302,'Ingeniería Electrónica',803);
 INSERT INTO Programa VALUES(80401,'Ingeniería Mecánica ',804);
 INSERT INTO Programa VALUES(80402,'Ingeniería Mecatrónica',804);
 INSERT INTO Programa VALUES(80502,'Ingeniería Química',805);
-INSERT INTO Programa VALUES(20101,'Estadística',201);
+INSERT INTO Programa VALUES(20101,'ESTADÍSTICA',201);
 
 -- -----------------------------------------------------
 -- Asignatura (asig_id, asig_nombre, asig_no_creditos, asig_componente, asig_descripcion, asig_id_departamento)
@@ -521,3 +521,9 @@ insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.68, 100, 3, '2023-1', 1010000009, 20101, 20);
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.81, 100, 3, '2023-1', 1010000009, 20101, 21);
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.65, 100, 3, '2023-1', 1010000009, 20101, 22);
+
+-- UPDATE Facultad SET facu_nombre = 'INGENIERÍA' WHERE facu_nombre = 'Ingeniería';
+-- UPDATE Facultad SET facu_nombre = 'CIENCIAS' WHERE facu_nombre = 'Ciencias';
+
+-- UPDATE Programa SET prog_nombre = 'INGENIERÍA DE SISTEMAS Y COMPUTACIÓN' WHERE prog_nombre = 'Ingeniería de Sistemas y Computación';
+-- UPDATE Programa SET prog_nombre = 'ESTADÍSTICA' WHERE prog_nombre = 'Estadística';
