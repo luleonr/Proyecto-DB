@@ -581,7 +581,7 @@ END $$
 DELIMITER ;
 
 
--- Rol Admin Historia Academica?
+-- Rol Admin Historia Academica
 -- -----------------------------------------------------------------------------
 -- ACTUALIZAR HISTORIA ACADEMICA DE ESTUDIANTE
 -- -----------------------------------------------------------------------------
@@ -634,4 +634,6 @@ BEGIN
     DROP TABLE nota_multiplicada_creditos;
 END //
 DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE sp_actualizar_historia_academica_estudiante TO Admin_his_acad;
 
