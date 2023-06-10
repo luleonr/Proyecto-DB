@@ -4,6 +4,7 @@
  */
 package InterfazGrafica;
 
+import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import java.awt.Color;
 import Data.ConexionSQL;
 
@@ -322,7 +323,7 @@ public class Login extends javax.swing.JFrame {
     }
     
     public static void abrir_PantallaPrincipal(){
-        PantallaPrincipal pantalla = new PantallaPrincipal();
+        PantallaPrincipalEstudGUI pantalla = new PantallaPrincipalEstudGUI();
         
         pantalla.Label_Usuario.setText(usuarioLogin);
         pantalla.setVisible(true);

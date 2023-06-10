@@ -2,8 +2,6 @@ package Data;
 
 // Primero se agrega al proyecto la libreria de jdbc
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 

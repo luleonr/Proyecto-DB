@@ -1,9 +1,11 @@
 package Bussines;
 
 
-import Data.ModificarDatosPersonales;
-import Data.DatosPersonalesConsulta;
+
+import Data.HistoriaAcademica;
+import Data.AsignaturasHistAcadConsulta;
 import InterfazGrafica.Login;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -13,8 +15,7 @@ public class Main {
         // TODO code application logic here
         
         String nombreBD = "Academico";
-        
         Login.ejecutar_Login();  
-        
+
     }
 }

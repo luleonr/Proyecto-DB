@@ -5,7 +5,7 @@
 package Data;
 
 import InterfazGrafica.Login;
-import InterfazGrafica.ModificarDatosPersonalesGUI;
+import InterfazGrafica.Estudiante.ModificarDatosPersonalesEstudGUI;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
