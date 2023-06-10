@@ -134,3 +134,13 @@ DROP VIEW IF EXISTS vw_ver_programas;
 CREATE VIEW vw_ver_Programas AS
 SELECT prog_nombre,depa_nombre, facu_nombre FROM Programa JOIN Departamento ON prog_id_departamento = depa_id 
 JOIN Facultad ON depa_id_facultad  = facu_id;
+
+-- ------------------------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_Citas_de_inscripcion;
+CREATE VIEW vw_Citas_de_inscripcion AS SELECT DISTINCT cit_inicio AS Inicio, cit_inicio AS Final, 
+prog_nombre AS Programa, facu_nombre AS Facultad, user_usuario AS Usuario FROM Cita JOIN Estudiante 
+ON cit_estudiante_cc=estud_cc JOIN persona ON estud_cc=per_cc JOIN Usuario ON estud_cc = user_cc JOIN Programa ON cit_id_programa=prog_id JOIN 
+Departamento ON prog_id_departamento=depa_id JOIN Facultad ON depa_id_facultad=facu_id;
+
+SELECT * FROM vw_Citas_de_inscripcion;
