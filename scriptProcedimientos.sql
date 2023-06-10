@@ -297,6 +297,7 @@ BEGIN
 END $$
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_publicar_definitivas TO Profesor;
+
 -- ----------------------------------------------------------------------------
 -- VER HORARIO PROFESOR
 -- ----------------------------------------------------------------------------
@@ -579,4 +580,60 @@ END $$
 
 DELIMITER ;
 
+
+-- Rol Admin Historia Academica
+-- -----------------------------------------------------------------------------
+-- ACTUALIZAR HISTORIA ACADEMICA DE ESTUDIANTE
+-- -----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_actualizar_historia_academica_estudiante;
+DELIMITER //
+CREATE PROCEDURE sp_actualizar_historia_academica_estudiante(estudUser VARCHAR(45), programaId INT)
+BEGIN
+    DECLARE semestreActual VARCHAR(10);
+    DECLARE estud INT;
+    DECLARE historiaAcademica INT;
+    DECLARE creditosPrograma INT;
+    DECLARE creditosInscritos INT;
+    DECLARE creditosAprobados INT;
+    DECLARE creditosAdicionales INT;
+	SET semestreActual = f_obtener_semestre();
+    SET estud = f_find_cc_from_user(estudUser);
+    -- SELECT per_cc INTO estud FROM persona WHERE per_correo_institucional LIKE estudUser;
+    SELECT histAcad_id INTO historiaAcademica FROM historia_academica WHERE histAcad_estudiante_cc=estud AND histAcad_id_programa=programaId;
+    IF programaID = 80201 THEN -- Ing de sistemas y computacion
+		SET creditosPrograma = 165;
+	END IF;
+    
+    CREATE TEMPORARY TABLE nota_multiplicada_creditos(
+    notaxcreditos DECIMAL(5,2),
+    creditos INT,
+    aprobado tinyint,
+    asignatura INT
+    );
+    INSERT INTO nota_multiplicada_creditos SELECT ponde_nota_final*asig_no_creditos AS aporte_pappa,asig_no_creditos AS creditos_asig,ponde_aprobado,asig_id FROM ponderado join asignatura on ponde_insc_id_asignatura=asig_id WHERE ponde_id_histAcad=historiaAcademica;
+    
+    SELECT SUM(creditos) INTO creditosInscritos FROM nota_multiplicada_creditos;
+    SELECT SUM(creditos) INTO creditosAprobados FROM nota_multiplicada_creditos WHERE aprobado = 1;
+	
+    SET creditosAdicionales = creditosAprobados*2;
+    IF creditosAdicionales > creditosPrograma/2 THEN
+		SET creditosAdicionales=creditosPrograma/2;
+	END IF;
+	IF creditosAdicionales > 80 THEN
+		SET creditosAdicionales=80;
+	END IF;
+    
+    UPDATE historia_academica 
+		SET histAcad_PAPA = (SELECT SUM(notaxcreditos)/creditosInscritos FROM nota_multiplicada_creditos),
+        histAcad_PAPPI = histAcad_PAPA,
+        histAcad_cred_adicionales = creditosAdicionales,
+		histAcad_cup_creditos=creditosPrograma-creditosInscritos+creditosAdicionales,
+        histAcad_porcen_avance = (creditosAprobados/creditosPrograma)*100
+	WHERE histAcad_id=historiaAcademica;
+    
+    DROP TABLE nota_multiplicada_creditos;
+END //
+DELIMITER ;
+
+GRANT EXECUTE ON PROCEDURE sp_actualizar_historia_academica_estudiante TO Admin_his_acad;
 
