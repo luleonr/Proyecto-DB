@@ -17,13 +17,25 @@ CREATE TRIGGER tr_creacion_usuario AFTER INSERT ON Persona
 $$
 DELIMITER ;
 
-DROP TRIGGER IF EXISTS tr_agregar_rol;
+DROP TRIGGER IF EXISTS tr_agregar_rol_estudiante;
 DELIMITER $$
-CREATE TRIGGER tr_agregar_rol AFTER INSERT ON Estudiante
+CREATE TRIGGER tr_agregar_rol_estudiante AFTER INSERT ON Estudiante
 	FOR EACH ROW
 	BEGIN 
     SET @cedula = NEW.estud_cc;
     UPDATE Usuario SET user_rol = 'Estudiante' WHERE user_cc = @cedula ;
+
+	END;
+$$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS tr_agregar_rol_profesor;
+DELIMITER $$
+CREATE TRIGGER tr_agregar_rol_profesor AFTER INSERT ON Profesor
+	FOR EACH ROW
+	BEGIN 
+    SET @cedula = NEW.prof_cc;
+    UPDATE Usuario SET user_rol = 'Profesor' WHERE user_cc = @cedula ;
 
 	END;
 $$
