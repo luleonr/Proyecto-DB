@@ -107,7 +107,7 @@ END //
 DELIMITER ;
 
 GRANT EXECUTE ON PROCEDURE sp_Profesor_mostrar_datos_personales TO Profesor;
-CALL sp_Profesor_mostrar_datos_personales('jcoleborn');
+-- CALL sp_Profesor_mostrar_datos_personales('jcoleborn');
 
 -- ----------------------------------------------------------------------------
 -- MODIFICAR DATOS PROFESOR
@@ -519,7 +519,7 @@ BEGIN
   SELECT * FROM vw_Estudiante_ver_datos_personales;
 END //
 DELIMITER ;
-CALL sp_Decano_mostrar_datos_personales_estudiantes();
+-- CALL sp_Decano_mostrar_datos_personales_estudiantes();
 
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS PROFESORES
@@ -531,7 +531,7 @@ BEGIN
   SELECT * FROM vw_Profesor_ver_datos_personales;
 END //
 DELIMITER ;
-CALL sp_Decano_mostrar_datos_personales_profesores();
+-- CALL sp_Decano_mostrar_datos_personales_profesores();
 
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS PROGRAMAS
@@ -543,7 +543,7 @@ BEGIN
   SELECT * FROM vw_ver_programas;
 END //
 DELIMITER ;
-CALL sp_Decano_mostrar_programas();
+-- CALL sp_Decano_mostrar_programas();
 
 -- ---------------------------------------------------------------------------
 -- CREAR UN USUARIO CON SOLO INGRESAR EL USUARIO Y EL ROL QUE TIENE

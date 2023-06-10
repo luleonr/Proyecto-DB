@@ -368,6 +368,7 @@ DROP TABLE IF EXISTS Usuario ;
 CREATE TABLE IF NOT EXISTS Usuario (
   user_cc INT NOT NULL,
   user_usuario VARCHAR(45) NOT NULL,
+  user_rol VARCHAR(45) NOT NULL DEFAULT '',
   user_contrasena VARCHAR(45) NOT NULL DEFAULT "1234",
   PRIMARY KEY (user_usuario),
   FOREIGN KEY (user_cc)
