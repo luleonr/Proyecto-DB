@@ -56,7 +56,8 @@ GRANT SELECT ON vw_ver_programas TO Decano;
 DROP ROLE IF EXISTS Estudiante;
 CREATE ROLE Estudiante;
 GRANT SELECT ON vw_Estudiante_ver_datos_personales TO Estudiante;
-GRANT SELECT,UPDATE ON vw_Estudiante_modificar_datos_personales TO Estudiante;
+GRANT SELECT,UPDATE(Direccion,Telefono_movil,Telefono_fijo) ON  vw_Estudiante_modificar_datos_personales TO Estudiante;
+GRANT SELECT ON vw_Estudiante_ver_programas TO Estudiante;
 GRANT SELECT ON vw_Historia_academica TO Estudiante;
 GRANT SELECT ON vw_Horario TO Estudiante;
 

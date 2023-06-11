@@ -25,6 +25,18 @@ FROM Persona JOIN Estudiante ON per_cc = estud_cc JOIN Usuario ON estud_cc = use
 -- SELECT * FROM vw_Estudiante_modificar_datos_personales;
 -- -------------------------------------------------------------------------------------------
 
+DROP VIEW IF EXISTS vw_Estudiante_ver_programas;
+
+CREATE VIEW vw_Estudiante_ver_programas AS 
+SELECT per_cc AS Cedula, user_usuario AS Usuario, prog_id AS Id_programa, prog_nombre AS Nombre_programa,
+ depa_nombre AS Nombre_departamento, facu_nombre AS Nombre_facultad FROM Persona JOIN Usuario ON per_cc=user_cc 
+JOIN Estudiante ON per_cc=estud_cc JOIN estudiante_has_programa ON per_cc=Estudiante_persona_cc JOIN Programa 
+ON Programa_id_programa=prog_id JOIN departamento ON prog_id_departamento=depa_id JOIN facultad ON depa_id_facultad=facu_id;
+
+-- SELECT * FROM vw_Estudiante_ver_programas;
+
+-- --------------------------------------------------------------------------
+
 DROP VIEW IF EXISTS vw_Historia_academica;
 CREATE VIEW vw_Historia_academica AS
 SELECT DISTINCT histAcad_PAPA AS PAPA,histAcad_PAPPI AS PAPPI,
@@ -129,17 +141,15 @@ ORDER BY horar_dia;
 
 
 -- ---------------------------------------------------------------------------------------------
-
 DROP VIEW IF EXISTS vw_ver_programas;
 CREATE VIEW vw_ver_Programas AS
 SELECT prog_nombre,depa_nombre, facu_nombre FROM Programa JOIN Departamento ON prog_id_departamento = depa_id 
 JOIN Facultad ON depa_id_facultad  = facu_id;
 
-<<<<<<< HEAD
+
 DROP VIEW IF EXISTS vw_rol_usuario;
 CREATE VIEW vw_rol_usuario AS
 SELECT user_usuario, user_rol FROM Usuario;
-=======
 -- ------------------------------------------------------------------------------------------------
 
 DROP VIEW IF EXISTS vw_Citas_de_inscripcion;
@@ -149,4 +159,3 @@ ON cit_estudiante_cc=estud_cc JOIN persona ON estud_cc=per_cc JOIN Usuario ON es
 Departamento ON prog_id_departamento=depa_id JOIN Facultad ON depa_id_facultad=facu_id;
 
 SELECT * FROM vw_Citas_de_inscripcion;
->>>>>>> 0c94c0ded7f7cd604dec0eaa298f8b6d9326f550

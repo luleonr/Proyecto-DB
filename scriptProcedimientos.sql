@@ -6,27 +6,30 @@ USE Academico;
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_mostrar_datos_personales(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_datos_personales()
 BEGIN
+  DECLARE user_ VARCHAR(45);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   SELECT * FROM vw_Estudiante_ver_datos_personales WHERE usuario = user_;
 END //
 DELIMITER ;
 
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_datos_personales TO Estudiante;
--- CALL sp_Estudiante_mostrar_datos_personales('cbarrerar');
+-- CALL sp_Estudiante_mostrar_datos_personales();
 
 -- ----------------------------------------------------------------------------
 -- MODIFICAR DATOS ESTUDIANTE
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_actualizar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_actualizar_datos_personales(
-  user_ CHAR(40), 
+CREATE PROCEDURE sp_Estudiante_actualizar_datos_personales( 
   Direccion_ VARCHAR(40), 
   Tel_Mov VARCHAR(40), 
   Tel_Fij VARCHAR(40)
 )
 BEGIN
+  DECLARE user_ VARCHAR(45);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   UPDATE vw_Estudiante_modificar_datos_personales 
   SET Direccion = Direccion_, Telefono_Movil = Tel_Mov, Telefono_Fijo = Tel_Fij
   WHERE usuario = user_;
@@ -34,6 +37,24 @@ END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_actualizar_datos_personales TO Estudiante;
 -- cache index
+-- CALL sp_Estudiante_actualizar_datos_personales();
+
+-- ---------------------------------------------------------------------------
+-- MOSTRAR PLANES DE ESTUDIO
+-- ----------------------------------------------------------------------------
+
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_planes;
+DELIMITER //
+CREATE PROCEDURE sp_Estudiante_mostrar_planes()
+BEGIN
+  DECLARE user_ VARCHAR(45);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  SELECT * FROM vw_Estudiante_ver_programas WHERE usuario = user_;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
+-- CALL sp_Estudiante_mostrar_planes();
+
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HISTORIA ACADEMICA
