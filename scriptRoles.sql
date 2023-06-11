@@ -60,6 +60,12 @@ GRANT SELECT,UPDATE(Direccion,Telefono_movil,Telefono_fijo) ON  vw_Estudiante_mo
 GRANT SELECT ON vw_Estudiante_ver_programas TO Estudiante;
 GRANT SELECT ON vw_Historia_academica TO Estudiante;
 GRANT SELECT ON vw_Horario TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_datos_personales TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_actualizar_datos_personales TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_historia_academica TO Estudiante;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
+
 
 DROP ROLE IF EXISTS Profesor;
 CREATE ROLE Profesor;
