@@ -548,10 +548,10 @@ DELIMITER ;
 -- ---------------------------------------------------------------------------
 -- CREAR UN USUARIO CON SOLO INGRESAR EL USUARIO Y EL ROL QUE TIENE
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS sp_create_user;
+DROP PROCEDURE IF EXISTS sp_crear_usuario;
 DELIMITER $$
 
-CREATE PROCEDURE sp_create_user(usuario VARCHAR(40), rol VARCHAR(40))
+CREATE PROCEDURE sp_crear_usuario(usuario VARCHAR(40), rol VARCHAR(40))
 BEGIN
     -- Asignar los valores a las variables locales
     SET @usuario1 = usuario;
@@ -637,3 +637,20 @@ DELIMITER ;
 
 GRANT EXECUTE ON PROCEDURE sp_actualizar_historia_academica_estudiante TO Admin_his_acad;
 
+-- ----------------------------------------------------------------------------------------------
+SET GLOBAL log_bin_trust_function_creators = 1;
+DROP FUNCTION IF EXISTS f_obtener_rol;
+DELIMITER $$
+CREATE FUNCTION f_obtener_rol(usuario VARCHAR(50)) RETURNS VARCHAR(10)
+BEGIN
+	SET @rol = MONTH(curdate());
+    
+	SELECT user_rol INTO @rol	
+	FROM vw_rol_usuario
+	WHERE user_usuario = usuario;
+  
+	RETURN @rol;
+END $$
+DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_obtener_rol TO Estudiante;
+GRANT EXECUTE ON FUNCTION f_obtener_rol TO Profesor;

@@ -134,3 +134,7 @@ DROP VIEW IF EXISTS vw_ver_programas;
 CREATE VIEW vw_ver_Programas AS
 SELECT prog_nombre,depa_nombre, facu_nombre FROM Programa JOIN Departamento ON prog_id_departamento = depa_id 
 JOIN Facultad ON depa_id_facultad  = facu_id;
+
+DROP VIEW IF EXISTS vw_rol_usuario;
+CREATE VIEW vw_rol_usuario AS
+SELECT user_usuario, user_rol FROM Usuario;
