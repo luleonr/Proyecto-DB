@@ -55,6 +55,23 @@ DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
 -- CALL sp_Estudiante_mostrar_planes();
 
+-- ---------------------------------------------------------------------------
+-- MOSTRAR HISTORIA ACADEMICA
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_asignaturas;
+DELIMITER //
+CREATE PROCEDURE sp_Estudiante_mostrar_asignaturas()
+BEGIN
+    DECLARE user_ VARCHAR(45);
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
+-- CALL sp_Estudiante_mostrar_asignaturas();
+
+
+
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HISTORIA ACADEMICA

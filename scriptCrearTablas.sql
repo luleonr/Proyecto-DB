@@ -105,7 +105,6 @@ CREATE TABLE Asignatura (
   asig_id INT NOT NULL AUTO_INCREMENT,
   asig_nombre VARCHAR(45) NOT NULL,
   asig_no_creditos INT NOT NULL,
-  asig_componente VARCHAR(45) NOT NULL,
   asig_descripcion VARCHAR(255) NULL,
   asig_id_departamento INT NOT NULL,
   PRIMARY KEY (asig_id),
@@ -164,6 +163,9 @@ CREATE TABLE Inscripcion (
   insc_id_asignatura INT NOT NULL,
   insc_id_programa INT NOT NULL,
   insc_no_grupo INT NOT NULL,
+  insc_nota_final DECIMAL(5,2) NULL,
+  insc_aprobado TINYINT NULL,
+  insc_id_histAcad INT NOT NULL,
   PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
     FOREIGN KEY (insc_estudiante_cc)
     REFERENCES Estudiante (estud_cc)
@@ -180,24 +182,27 @@ CREATE TABLE Inscripcion (
     FOREIGN KEY (insc_no_grupo)
     REFERENCES Grupo (grup_no_grupo)
     ON DELETE CASCADE
-    ON UPDATE CASCADE);
+    ON UPDATE CASCADE,
+    FOREIGN KEY (insc_id_histAcad)
+    REFERENCES Historia_Academica (histAcad_id)
+    );
 
 
 -- -----------------------------------------------------
--- Table Asignatura_has_Programa
+-- Table Asignatura_has_Departamento
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Asignatura_has_Programa;
+DROP TABLE IF EXISTS Asignatura_has_Departamento;
 
-CREATE TABLE Asignatura_has_Programa (
+CREATE TABLE Asignatura_has_Departamento (
   Asignatura_id_asignatura INT NOT NULL,
-  Programa_id_programa INT NOT NULL,
-  PRIMARY KEY (Asignatura_id_asignatura, Programa_id_programa),
+  Departamento_id_departamento INT NOT NULL,
+  PRIMARY KEY (Asignatura_id_asignatura, Departamento_id_departamento),
     FOREIGN KEY (Asignatura_id_asignatura)
     REFERENCES Asignatura (asig_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-    FOREIGN KEY (Programa_id_programa)
-    REFERENCES Programa (prog_id)
+    FOREIGN KEY (Departamento_id_departamento)
+    REFERENCES Departamento (depa_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -248,29 +253,6 @@ CREATE TABLE Historia_Academica (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
--- -----------------------------------------------------
--- Table Ponderado
--- -----------------------------------------------------
-DROP TABLE IF EXISTS Ponderado ;
-
-CREATE TABLE Ponderado (
-  ponde_insc_semestre VARCHAR(10) NOT NULL,
-  ponde_insc_estudiante_cc INT NOT NULL,
-  ponde_insc_id_programa INT NOT NULL,
-  ponde_insc_id_asignatura INT NOT NULL,
-  ponde_nota_final DECIMAL(5,2) NULL,
-  ponde_aprobado TINYINT NULL,
-  ponde_id_histAcad INT NOT NULL,
-  PRIMARY KEY (ponde_insc_semestre,  ponde_insc_estudiante_cc,  ponde_insc_id_programa,  ponde_insc_id_asignatura),
-    FOREIGN KEY (ponde_insc_semestre,  ponde_insc_estudiante_cc,  ponde_insc_id_programa,  ponde_insc_id_asignatura)
-    REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa ,insc_id_asignatura)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (ponde_id_histAcad)
-    REFERENCES Historia_Academica (histAcad_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE);
-
 
 -- -----------------------------------------------------
 -- Table Evaluación
@@ -288,26 +270,7 @@ CREATE TABLE Evaluacion (
   eval_ponde_insc_id_asignatura INT NOT NULL,
   PRIMARY KEY (eval_nombre, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura),
     FOREIGN KEY (eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura)
-    REFERENCES Ponderado (ponde_insc_semestre , ponde_insc_estudiante_cc, ponde_insc_id_programa , ponde_insc_id_asignatura)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE);
-
-
--- -----------------------------------------------------
--- Table Asignatura_has_Asignatura
--- -----------------------------------------------------
-DROP TABLE IF EXISTS Asignatura_has_Asignatura ;
-
-CREATE TABLE Asignatura_has_Asignatura (
-  Asignatura_id_asignatura INT NOT NULL,-- Asignatura
-  Asignatura_id_asignatura_pre INT NOT NULL,-- Asignatura prerequisito
-  PRIMARY KEY (Asignatura_id_asignatura),
-    FOREIGN KEY (Asignatura_id_asignatura)
-    REFERENCES Asignatura (asig_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (Asignatura_id_asignatura_pre)
-    REFERENCES Asignatura (asig_id)
+    REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa , insc_id_asignatura)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -393,4 +356,23 @@ CREATE TABLE Cita (
     REFERENCES Estudiante (estud_cc),
     FOREIGN KEY (cit_id_programa)
     REFERENCES Programa (prog_id)
+    );
+    
+    
+  -- -----------------------------------------------------
+-- Table Programa_has_Asignatura
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Programa_has_Asignatura ;
+
+CREATE TABLE Programa_has_Asignatura (
+  Programa_id_programa INT NOT NULL,
+  Asignatura_id_asignatura INT NOT NULL,
+  Asignatura_id_prerrequisito INT,
+  Tipologia VARCHAR(45),
+  FOREIGN KEY (Programa_id_programa)
+  REFERENCES Programa (prog_id),
+  FOREIGN KEY (Asignatura_id_asignatura)
+  REFERENCES Asignatura (asig_id),
+  FOREIGN KEY (Asignatura_id_prerrequisito)
+  REFERENCES Asignatura (asig_id)
     );

@@ -103,15 +103,13 @@ FROM Persona JOIN Profesor ON per_cc = prof_cc JOIN Usuario ON prof_cc = user_cc
 
 DROP VIEW IF EXISTS vw_Profesor_ver_estudiante;
 CREATE VIEW vw_Profesor_ver_estudiante AS 
-SELECT DISTINCT per_cc AS CC, per_nombre AS Nombre, per_correo_institucional AS Correo, ponde_insc_id_programa AS Programa_ID,
-ponde_nota_final AS Nota_final, ponde_aprobado AS Aprobado,
+SELECT DISTINCT per_cc AS CC, per_nombre AS Nombre, per_correo_institucional AS Correo, insc_id_programa AS Programa_ID,
+insc_nota_final AS Nota_final, insc_aprobado AS Aprobado,
 insc_id_asignatura AS Asignatura_ID,grup_no_grupo AS Grupo, 
 grup_prof_cc AS Profesor_CC, insc_semestre AS Semestre
 FROM persona JOIN estudiante ON estud_cc=per_cc 
 JOIN inscripcion ON insc_estudiante_cc=per_cc 
-JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id)
-JOIN ponderado ON (ponde_insc_semestre=insc_semestre AND ponde_insc_estudiante_cc=insc_estudiante_cc 
-AND ponde_insc_id_asignatura=insc_id_asignatura);
+JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id);
 
 -- SELECT * FROM vw_Profesor_ver_estudiante;
 
@@ -159,3 +157,13 @@ ON cit_estudiante_cc=estud_cc JOIN persona ON estud_cc=per_cc JOIN Usuario ON es
 Departamento ON prog_id_departamento=depa_id JOIN Facultad ON depa_id_facultad=facu_id;
 
 SELECT * FROM vw_Citas_de_inscripcion;
+
+-- ---------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_Asignaturas_cursadas;
+CREATE VIEW vw_Asignaturas_cursadas AS SELECT DISTINCT asig_nombre AS Asignatura, asig_id AS Codigo, asig_no_creditos 
+AS Creditos, Tipologia AS Tipologia, insc_semestre AS Periodo, insc_nota_final AS Calificacion, insc_aprobado AS Estado 
+, user_usuario AS Usuario FROM inscripcion JOIN Asignatura ON insc_id_asignatura=asig_id JOIN programa_has_asignatura ON 
+(insc_id_asignatura=Asignatura_id_asignatura AND insc_id_programa=Programa_id_programa) JOIN Usuario ON user_cc=insc_estudiante_cc;
+
+
+SELECT * FROM vw_Asignaturas_cursadas;
