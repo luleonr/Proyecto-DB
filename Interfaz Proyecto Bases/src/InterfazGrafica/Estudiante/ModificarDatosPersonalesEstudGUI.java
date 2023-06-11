@@ -5,13 +5,13 @@
 package InterfazGrafica.Estudiante;
 
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
-import Data.DatosPersonalesConsulta;
-import Data.ModificarDatosPersonales;
-import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.Content;
+import Data.DatosPersonalesEstud;
+import Data.ModificarDatosPersonalesEstud;
 import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.mostrarPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.ContentEstud;
 
 /**
  *
@@ -296,13 +296,13 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
 
     private void label_CancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_CancelarMouseClicked
         // TODO add your handling code here:
-        PantallaPrincipalEstudGUI.mostrarDatos_Personales();
+        PantallaPrincipalEstudGUI.mostrarDatos_PersonalesEstud();
     }//GEN-LAST:event_label_CancelarMouseClicked
 
     private void label_GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_GuardarMouseClicked
         // TODO add your handling code here:
         modificarDatos_Personales();
-        PantallaPrincipalEstudGUI.mostrarDatos_Personales();
+        PantallaPrincipalEstudGUI.mostrarDatos_PersonalesEstud();
     }//GEN-LAST:event_label_GuardarMouseClicked
 
         public void modificarDatos_Personales(){
@@ -310,7 +310,7 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
         String tel_fijo = cajaTexto_Tel_Fijo.getText();
         String tel_movil= cajaTexto_Tel_Movil.getText();
         
-        ModificarDatosPersonales.modificarDatos_Personales("Academico",direccion,tel_fijo,tel_movil);
+        ModificarDatosPersonalesEstud.modificarDatos_PersonalesEstud("Academico",direccion,tel_fijo,tel_movil);
         } 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

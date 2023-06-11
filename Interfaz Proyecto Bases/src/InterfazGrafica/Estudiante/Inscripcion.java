@@ -4,6 +4,9 @@
  */
 package InterfazGrafica.Estudiante;
 
+import Data.HistoriaAcademica;
+import java.awt.Color;
+
 /**
  *
  * @author krist
@@ -26,22 +29,89 @@ public class Inscripcion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        panelInscripcion = new javax.swing.JPanel();
+        labelCitaInsc = new javax.swing.JLabel();
+        labelCitaInsc2 = new javax.swing.JLabel();
+        labelCitaInsc3 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
+
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 611));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1007, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 611, Short.MAX_VALUE)
-        );
+        panelInscripcion.setBackground(new java.awt.Color(186, 186, 186));
+        panelInscripcion.setPreferredSize(new java.awt.Dimension(261, 263));
+        panelInscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelInscripcionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelInscripcionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelInscripcionMouseExited(evt);
+            }
+        });
+        panelInscripcion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelCitaInsc.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelCitaInsc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCitaInsc.setText("CANCELACIÓN");
+        labelCitaInsc.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        panelInscripcion.add(labelCitaInsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 237, 261, -1));
+
+        labelCitaInsc2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelCitaInsc2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCitaInsc2.setText("CITA DE");
+        labelCitaInsc2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        panelInscripcion.add(labelCitaInsc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 260, -1));
+
+        labelCitaInsc3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelCitaInsc3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCitaInsc3.setText("INSCRIPCIÓN /");
+        labelCitaInsc3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        panelInscripcion.add(labelCitaInsc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 210, 260, -1));
+
+        add(panelInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 39, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void panelInscripcionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInscripcionMouseEntered
+        // TODO add your handling code here:
+        panelInscripcion.setBackground(new Color(239,239,239));        
+    }//GEN-LAST:event_panelInscripcionMouseEntered
 
+    private void panelInscripcionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInscripcionMouseExited
+        // TODO add your handling code here:
+        panelInscripcion.setBackground(new Color(186,186,186));        
+    }//GEN-LAST:event_panelInscripcionMouseExited
+
+    private void panelInscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInscripcionMouseClicked
+        // TODO add your handling code here:
+        abrirInscripcion();
+        System.out.println("que vergas");
+    }//GEN-LAST:event_panelInscripcionMouseClicked
+
+        public void abrirInscripcion(){
+        InscripcionCancelacion inscripcion = new InscripcionCancelacion();   
+        
+        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+        
+        inscripcion.labelFacultad.setText(HistoriaAcademica.Carrera);
+            
+        inscripcion.comboBox_PlanEstudios.removeAllItems();
+        inscripcion.comboBox_PlanEstudios.addItem(HistoriaAcademica.ID_Carrera + "   " + HistoriaAcademica.Carrera);
+
+        // --------------------------------------------------------------------------------------------------
+
+        PantallaPrincipalEstudGUI.mostrarPanel(inscripcion);     
+        } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelCitaInsc;
+    private javax.swing.JLabel labelCitaInsc2;
+    private javax.swing.JLabel labelCitaInsc3;
+    private javax.swing.JPanel panelInscripcion;
     // End of variables declaration//GEN-END:variables
 }

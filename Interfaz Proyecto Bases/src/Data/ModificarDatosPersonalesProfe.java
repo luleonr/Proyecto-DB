@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  *
  * @author krist
  */
-public class ModificarDatosPersonales {   
+public class ModificarDatosPersonalesProfe {   
     
-    public static void modificarDatos_Personales(String nombreBD, String direccion,String telFijo, String telMovil){ 
+    public static void modificarDatos_PersonalesProfe(String nombreBD, String direccion,String telFijo, String telMovil){ 
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);                 
 
         System.out.println("");
@@ -29,7 +29,7 @@ public class ModificarDatosPersonales {
         
         try{
 
-            String query = "{CALL sp_Estudiante_actualizar_datos_personales(?, ?, ?, ?)}";
+            String query = "{CALL sp_Profesor_actualizar_datos_personales(?, ?, ?, ?)}";
             CallableStatement statement = conn.prepareCall(query);
             
             statement.setString(1, usuarioParametro);

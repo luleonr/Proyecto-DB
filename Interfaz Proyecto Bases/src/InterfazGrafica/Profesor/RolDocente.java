@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package InterfazGrafica.Estudiante;
+package InterfazGrafica.Profesor;
 
 
+import InterfazGrafica.Estudiante.*;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
-import Data.DatosPersonalesConsulta;
+import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
 import java.awt.BorderLayout;
@@ -21,7 +22,7 @@ import javax.swing.JScrollPane;
  *
  * @author krist
  */
-public class InformacionAcademica extends javax.swing.JPanel {
+public class RolDocente extends javax.swing.JPanel {
     
     public String nombreBD = "Academico";
     public static ArrayList<String> asignaturaList = new ArrayList<>();
@@ -31,7 +32,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
     public static ArrayList<String> notaList = new ArrayList<>();    
 
     
-    public InformacionAcademica() {
+    public RolDocente() {
         initComponents();  
     }
 
@@ -199,7 +200,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
         
         abrirHistoriaAcademica();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=5;i++){
+        for(int i = 0;i<=10;i++){
             HistoriaAcademicaEstudGUI.agregarPanelNuevoAsignaturas(asignaturaList.get(i),tipoList.get(i));
         }
 
@@ -217,7 +218,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
         asigHistAcad.mostrarCedula(nombreBD,tipoList);             
         abrirHorario();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=5;i++){
+        for(int i = 0;i<=2;i++){
             HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelLunes);
             HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelMartes);
             HorarioEstudGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioEstudGUI.panelMiercoles);

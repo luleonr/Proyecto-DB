@@ -2,27 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package InterfazGrafica.Estudiante;
+package InterfazGrafica.Profesor;
 
+import InterfazGrafica.Estudiante.*;
 import InterfazGrafica.Estudiante.ModificarDatosPersonalesEstudGUI;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
-import Data.DatosPersonalesConsulta;
-import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.Content;
+import Data.DatosPersonalesEstud;
+import Data.DatosPersonalesProfe;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.ContentEstud;
 
 
 /**
  *
  * @author krist
  */
-public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
+public class DatosPersonalesProfeGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form DatosPersonales
      */
-    public DatosPersonalesEstudGUI() {
+    public DatosPersonalesProfeGUI() {
 
         initComponents();
 
@@ -52,8 +54,6 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
         label_Tel_Movil = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         label_Correo_Institucional = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        label_AñoIngreso = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -62,8 +62,6 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
         label_Modificar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        label_Carrera = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
@@ -118,14 +116,6 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
         label_Correo_Institucional.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         label_Correo_Institucional.setText("-------------------------------------------");
         jPanel1.add(label_Correo_Institucional, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel8.setText("Año de ingreso");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, -1, -1));
-
-        label_AñoIngreso.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        label_AñoIngreso.setText("-------------------------------------------");
-        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -186,14 +176,6 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
         jLabel12.setText("Nombres y apellidos");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel2.setText("Carrera");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, -1, -1));
-
-        label_Carrera.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        label_Carrera.setText("-------------------------------------------");
-        jPanel1.add(label_Carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 610, -1, -1));
-
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoUsuario.jpg"))); // NOI18N
         jLabel13.setText("jLabel13");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 170, 200));
@@ -224,24 +206,22 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
 
     private void label_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_ModificarMouseClicked
         // TODO add your handling code here:       
-        abrirModificarDatos_Personales();
+        abrirModificarDatos_PersonalesProfe();
                
     }//GEN-LAST:event_label_ModificarMouseClicked
-        public static void abrirModificarDatos_Personales(){
-        ModificarDatosPersonalesEstudGUI modificarDatosPersonales = new ModificarDatosPersonalesEstudGUI();   
+        public static void abrirModificarDatos_PersonalesProfe(){
+        ModificarDatosPersonalesProfeGUI modificarDatosPersonales = new ModificarDatosPersonalesProfeGUI();   
         
-        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
+        DatosPersonalesProfe.mostrarDatos_PersonalesProf("Academico");
         
-        modificarDatosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
-        modificarDatosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
-        modificarDatosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
-        modificarDatosPersonales.cajaTexto_Direccion.setText(DatosPersonalesConsulta.Direccion);
-        modificarDatosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
-        modificarDatosPersonales.cajaTexto_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
-        modificarDatosPersonales.cajaTexto_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
-        modificarDatosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
+        modificarDatosPersonales.label_Cedula.setText(DatosPersonalesProfe.Cedula);
+        modificarDatosPersonales.label_Correo_Institucional.setText(DatosPersonalesProfe.Correo);
+        modificarDatosPersonales.cajaTexto_Direccion.setText(DatosPersonalesProfe.Direccion);
+        modificarDatosPersonales.label_Nombre.setText(DatosPersonalesProfe.Nombre);
+        modificarDatosPersonales.cajaTexto_Tel_Fijo.setText(DatosPersonalesProfe.Telefono_Fijo);
+        modificarDatosPersonales.cajaTexto_Tel_Movil.setText(DatosPersonalesProfe.Telefono_Movil);
         
-        PantallaPrincipalEstudGUI.mostrarPanel(modificarDatosPersonales);            
+        PantallaPrincipalProfGUI.mostrarPanel(modificarDatosPersonales);            
             
         }
 
@@ -252,19 +232,15 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JLabel label_AñoIngreso;
-    public javax.swing.JLabel label_Carrera;
     public javax.swing.JLabel label_Cedula;
     public javax.swing.JLabel label_Correo_Institucional;
     public javax.swing.JLabel label_Direccion;

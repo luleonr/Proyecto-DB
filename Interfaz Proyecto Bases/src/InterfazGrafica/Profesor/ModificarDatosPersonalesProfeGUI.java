@@ -2,27 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package InterfazGrafica.Estudiante;
+package InterfazGrafica.Profesor;
 
+import InterfazGrafica.Estudiante.*;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
-import Data.DatosPersonalesConsulta;
-import Data.ModificarDatosPersonales;
-import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.Content;
+import Data.DatosPersonalesEstud;
+import Data.ModificarDatosPersonalesEstud;
+import Data.ModificarDatosPersonalesProfe;
 import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.mostrarPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.ContentEstud;
 
 /**
  *
  * @author krist
  */
-public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
+public class ModificarDatosPersonalesProfeGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form ModificarDatosPersonalesGUI
      */
-    public ModificarDatosPersonalesEstudGUI() {
+    public ModificarDatosPersonalesProfeGUI() {
         initComponents();
     }
 
@@ -57,10 +59,6 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
         cajaTexto_Tel_Movil = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cajaTexto_Direccion = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        label_AñoIngreso = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        label_Carrera = new javax.swing.JLabel();
         panel_Guardar = new javax.swing.JPanel();
         label_Guardar = new javax.swing.JLabel();
         panel_Cancelar = new javax.swing.JPanel();
@@ -176,22 +174,6 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
         cajaTexto_Direccion.setPreferredSize(new java.awt.Dimension(258, 23));
         jPanel1.add(cajaTexto_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel14.setText("Año de ingreso");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, -1, -1));
-
-        label_AñoIngreso.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        label_AñoIngreso.setText("-------------------------------------------");
-        jPanel1.add(label_AñoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel16.setText("Carrera");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, -1, -1));
-
-        label_Carrera.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        label_Carrera.setText("-------------------------------------------");
-        jPanel1.add(label_Carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 610, -1, -1));
-
         panel_Guardar.setBackground(new java.awt.Color(145, 179, 59));
         panel_Guardar.setPreferredSize(new java.awt.Dimension(130, 40));
 
@@ -296,21 +278,21 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
 
     private void label_CancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_CancelarMouseClicked
         // TODO add your handling code here:
-        PantallaPrincipalEstudGUI.mostrarDatos_Personales();
+        PantallaPrincipalProfGUI.mostrarDatos_PersonalesProf();
     }//GEN-LAST:event_label_CancelarMouseClicked
 
     private void label_GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_GuardarMouseClicked
         // TODO add your handling code here:
-        modificarDatos_Personales();
-        PantallaPrincipalEstudGUI.mostrarDatos_Personales();
+        modificarDatos_PersonalesProf();
+        PantallaPrincipalProfGUI.mostrarDatos_PersonalesProf();
     }//GEN-LAST:event_label_GuardarMouseClicked
 
-        public void modificarDatos_Personales(){
+        public void modificarDatos_PersonalesProf(){
         String direccion = cajaTexto_Direccion.getText();
         String tel_fijo = cajaTexto_Tel_Fijo.getText();
         String tel_movil= cajaTexto_Tel_Movil.getText();
         
-        ModificarDatosPersonales.modificarDatos_Personales("Academico",direccion,tel_fijo,tel_movil);
+        ModificarDatosPersonalesProfe.modificarDatos_PersonalesProfe("Academico",direccion,tel_fijo,tel_movil);
         } 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,8 +303,6 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -335,9 +315,7 @@ public class ModificarDatosPersonalesEstudGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JLabel label_AñoIngreso;
     private javax.swing.JLabel label_Cancelar;
-    public javax.swing.JLabel label_Carrera;
     public javax.swing.JLabel label_Cedula;
     public javax.swing.JLabel label_Correo_Institucional;
     private javax.swing.JLabel label_Guardar;

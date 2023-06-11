@@ -4,7 +4,7 @@
  */
 package InterfazGrafica.Estudiante;
 
-import Data.DatosPersonalesConsulta;
+import Data.DatosPersonalesEstud;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -50,7 +50,7 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         Label_Informacion_Acad = new javax.swing.JLabel();
         Panel_Inscripcion = new javax.swing.JPanel();
         labelInscripcion = new javax.swing.JLabel();
-        Content = new javax.swing.JPanel();
+        ContentEstud = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -176,6 +176,12 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelInscripcionMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelInscripcionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelInscripcionMouseExited(evt);
+            }
         });
         Panel_Inscripcion.add(labelInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
 
@@ -183,21 +189,21 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
         panel_Principal.add(Panel_Izquierda_Verde, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Content.setBackground(new java.awt.Color(221, 221, 221));
-        Content.setPreferredSize(new java.awt.Dimension(1007, 611));
+        ContentEstud.setBackground(new java.awt.Color(221, 221, 221));
+        ContentEstud.setPreferredSize(new java.awt.Dimension(1007, 611));
 
-        javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
-        Content.setLayout(ContentLayout);
-        ContentLayout.setHorizontalGroup(
-            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ContentEstudLayout = new javax.swing.GroupLayout(ContentEstud);
+        ContentEstud.setLayout(ContentEstudLayout);
+        ContentEstudLayout.setHorizontalGroup(
+            ContentEstudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1007, Short.MAX_VALUE)
         );
-        ContentLayout.setVerticalGroup(
-            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ContentEstudLayout.setVerticalGroup(
+            ContentEstudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 611, Short.MAX_VALUE)
         );
 
-        panel_Principal.add(Content, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 84, -1, -1));
+        panel_Principal.add(ContentEstud, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 84, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,28 +271,41 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
     private void label_Datos_PersonalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseClicked
         // TODO add your handling code here:
-        mostrarDatos_Personales();
+        mostrarDatos_PersonalesEstud();
 
         
     }//GEN-LAST:event_label_Datos_PersonalesMouseClicked
 
     private void labelInscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInscripcionMouseClicked
         // TODO add your handling code here:
+        Inscripcion insc = new Inscripcion();
+        mostrarPanel(insc);
+        
     }//GEN-LAST:event_labelInscripcionMouseClicked
 
-        public static void mostrarDatos_Personales(){
+    private void labelInscripcionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInscripcionMouseEntered
+        // TODO add your handling code here:
+        Panel_Inscripcion.setBackground(new Color(175,199,107));
+    }//GEN-LAST:event_labelInscripcionMouseEntered
+
+    private void labelInscripcionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInscripcionMouseExited
+        // TODO add your handling code here:
+        Panel_Inscripcion.setBackground(new Color(145,179,59));         
+    }//GEN-LAST:event_labelInscripcionMouseExited
+
+        public static void mostrarDatos_PersonalesEstud(){
         DatosPersonalesEstudGUI datosPersonales = new DatosPersonalesEstudGUI();
         
-        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
+        DatosPersonalesEstud.mostrarDatos_PersonalesEstud("Academico");
         
-        datosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
-        datosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
-        datosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
-        datosPersonales.label_Direccion.setText(DatosPersonalesConsulta.Direccion);
-        datosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
-        datosPersonales.label_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
-        datosPersonales.label_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
-        datosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
+        datosPersonales.label_AñoIngreso.setText(DatosPersonalesEstud.AñoIngreso);
+        datosPersonales.label_Cedula.setText(DatosPersonalesEstud.Cedula);
+        datosPersonales.label_Correo_Institucional.setText(DatosPersonalesEstud.Correo);
+        datosPersonales.label_Direccion.setText(DatosPersonalesEstud.Direccion);
+        datosPersonales.label_Nombre.setText(DatosPersonalesEstud.Nombre);
+        datosPersonales.label_Tel_Fijo.setText(DatosPersonalesEstud.Telefono_Fijo);
+        datosPersonales.label_Tel_Movil.setText(DatosPersonalesEstud.Telefono_Movil);
+        datosPersonales.label_Carrera.setText(DatosPersonalesEstud.Carrera);
         
         mostrarPanel(datosPersonales);            
             
@@ -295,13 +314,13 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
     
         public static void mostrarPanel(JPanel panel){
 
-        panel.setSize(990,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
+        panel.setSize(1007,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
         panel.setLocation(0,0);
         
-        Content.removeAll();
-        Content.add(panel, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();        
+        ContentEstud.removeAll();
+        ContentEstud.add(panel, BorderLayout.CENTER);
+        ContentEstud.revalidate();
+        ContentEstud.repaint();        
    
     }
     
@@ -363,7 +382,7 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JPanel Content;
+    public static javax.swing.JPanel ContentEstud;
     private javax.swing.JLabel Label_Escudo;
     private javax.swing.JLabel Label_Icono_Usuario;
     private javax.swing.JLabel Label_Informacion_Acad;

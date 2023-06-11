@@ -7,6 +7,8 @@ package InterfazGrafica;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import java.awt.Color;
 import Data.ConexionSQL;
+import Data.Rol;
+import InterfazGrafica.Profesor.PantallaPrincipalProfGUI;
 
 
 /**
@@ -323,10 +325,21 @@ public class Login extends javax.swing.JFrame {
     }
     
     public static void abrir_PantallaPrincipal(){
-        PantallaPrincipalEstudGUI pantalla = new PantallaPrincipalEstudGUI();
         
-        pantalla.Label_Usuario.setText(usuarioLogin);
-        pantalla.setVisible(true);
+        if(Rol.mostrarRol("Academico").compareTo("Estudiante") == 0){
+            PantallaPrincipalEstudGUI pantalla = new PantallaPrincipalEstudGUI();
+
+            pantalla.Label_Usuario.setText(usuarioLogin);
+            pantalla.setVisible(true);
+           
+        }else{
+            PantallaPrincipalProfGUI pantalla = new PantallaPrincipalProfGUI();
+
+            pantalla.Label_Usuario.setText(usuarioLogin);
+            pantalla.setVisible(true);                
+        }
+
+    
 
     }
     

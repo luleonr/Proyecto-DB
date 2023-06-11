@@ -6,11 +6,11 @@ package InterfazGrafica.Estudiante;
 
 import InterfazGrafica.Estudiante.ModificarDatosPersonalesEstudGUI;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
-import Data.DatosPersonalesConsulta;
-import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.Content;
+import Data.DatosPersonalesEstud;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import static InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI.ContentEstud;
 
 
 /**
@@ -224,22 +224,22 @@ public class DatosPersonalesEstudGUI extends javax.swing.JPanel {
 
     private void label_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_ModificarMouseClicked
         // TODO add your handling code here:       
-        abrirModificarDatos_Personales();
+        abrirModificarDatos_PersonalesEstud();
                
     }//GEN-LAST:event_label_ModificarMouseClicked
-        public static void abrirModificarDatos_Personales(){
+        public static void abrirModificarDatos_PersonalesEstud(){
         ModificarDatosPersonalesEstudGUI modificarDatosPersonales = new ModificarDatosPersonalesEstudGUI();   
         
-        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
+        DatosPersonalesEstud.mostrarDatos_PersonalesEstud("Academico");
         
-        modificarDatosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
-        modificarDatosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
-        modificarDatosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
-        modificarDatosPersonales.cajaTexto_Direccion.setText(DatosPersonalesConsulta.Direccion);
-        modificarDatosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
-        modificarDatosPersonales.cajaTexto_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
-        modificarDatosPersonales.cajaTexto_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
-        modificarDatosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
+        modificarDatosPersonales.label_AñoIngreso.setText(DatosPersonalesEstud.AñoIngreso);
+        modificarDatosPersonales.label_Cedula.setText(DatosPersonalesEstud.Cedula);
+        modificarDatosPersonales.label_Correo_Institucional.setText(DatosPersonalesEstud.Correo);
+        modificarDatosPersonales.cajaTexto_Direccion.setText(DatosPersonalesEstud.Direccion);
+        modificarDatosPersonales.label_Nombre.setText(DatosPersonalesEstud.Nombre);
+        modificarDatosPersonales.cajaTexto_Tel_Fijo.setText(DatosPersonalesEstud.Telefono_Fijo);
+        modificarDatosPersonales.cajaTexto_Tel_Movil.setText(DatosPersonalesEstud.Telefono_Movil);
+        modificarDatosPersonales.label_Carrera.setText(DatosPersonalesEstud.Carrera);
         
         PantallaPrincipalEstudGUI.mostrarPanel(modificarDatosPersonales);            
             

@@ -4,6 +4,8 @@
  */
 package InterfazGrafica.Estudiante;
 
+import java.awt.Color;
+
 /**
  *
  * @author krist
@@ -29,7 +31,7 @@ public class HorarioDetalle extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        panelAtras = new javax.swing.JPanel();
         labelAtras = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -52,7 +54,6 @@ public class HorarioDetalle extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(880, 440));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(239, 239, 239));
@@ -65,8 +66,8 @@ public class HorarioDetalle extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel2.setText("MATERIA 1");
 
-        jPanel2.setBackground(new java.awt.Color(145, 179, 59));
-        jPanel2.setPreferredSize(new java.awt.Dimension(212, 55));
+        panelAtras.setBackground(new java.awt.Color(145, 179, 59));
+        panelAtras.setPreferredSize(new java.awt.Dimension(212, 55));
 
         labelAtras.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         labelAtras.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,19 +81,23 @@ public class HorarioDetalle extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelAtrasMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelAtrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelAtrasMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelAtrasLayout = new javax.swing.GroupLayout(panelAtras);
+        panelAtras.setLayout(panelAtrasLayout);
+        panelAtrasLayout.setHorizontalGroup(
+            panelAtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 123, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        panelAtrasLayout.setVerticalGroup(
+            panelAtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, Short.MAX_VALUE)
         );
 
         jSeparator1.setBackground(new java.awt.Color(186, 186, 186));
@@ -183,9 +188,6 @@ public class HorarioDetalle extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(333, 333, 333)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -202,7 +204,10 @@ public class HorarioDetalle extends javax.swing.JFrame {
                                 .addComponent(labelSalon)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelNombreSal))
-                            .addComponent(labelNombreEdif))))
+                            .addComponent(labelNombreEdif)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(376, 376, 376)
+                        .addComponent(panelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -246,8 +251,8 @@ public class HorarioDetalle extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(labelNombreProf))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(panelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -269,6 +274,16 @@ public class HorarioDetalle extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_labelAtrasMouseClicked
+
+    private void labelAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAtrasMouseEntered
+        // TODO add your handling code here:
+        panelAtras.setBackground(new Color(175,199,107));
+    }//GEN-LAST:event_labelAtrasMouseEntered
+
+    private void labelAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAtrasMouseExited
+        // TODO add your handling code here:
+        panelAtras.setBackground(new Color(145,179,59));        
+    }//GEN-LAST:event_labelAtrasMouseExited
 
     /**
      * @param args the command line arguments
@@ -316,7 +331,6 @@ public class HorarioDetalle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelAtras;
@@ -329,5 +343,6 @@ public class HorarioDetalle extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombreProf;
     private javax.swing.JLabel labelNombreSal;
     private javax.swing.JLabel labelSalon;
+    private javax.swing.JPanel panelAtras;
     // End of variables declaration//GEN-END:variables
 }

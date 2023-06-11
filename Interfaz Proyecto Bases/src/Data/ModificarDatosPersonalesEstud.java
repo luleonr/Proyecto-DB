@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  *
  * @author krist
  */
-public class ModificarDatosPersonales {   
+public class ModificarDatosPersonalesEstud {   
     
-    public static void modificarDatos_Personales(String nombreBD, String direccion,String telFijo, String telMovil){ 
+    public static void modificarDatos_PersonalesEstud(String nombreBD, String direccion,String telFijo, String telMovil){ 
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);                 
 
         System.out.println("");

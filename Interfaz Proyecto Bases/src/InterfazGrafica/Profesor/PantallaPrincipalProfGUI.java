@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package InterfazGrafica.Estudiante;
+package InterfazGrafica.Profesor;
 
-import Data.DatosPersonalesConsulta;
+import InterfazGrafica.Estudiante.*;
+import Data.DatosPersonalesEstud;
+import Data.DatosPersonalesProfe;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -13,13 +15,13 @@ import javax.swing.JPanel;
  *
  * @author krist
  */
-public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
+public class PantallaPrincipalProfGUI extends javax.swing.JFrame {
 
 
     /**
      * Creates new form DatosEstudiante
      */
-    public PantallaPrincipalEstudGUI() {
+    public PantallaPrincipalProfGUI() {
         
         initComponents();
         setLocationRelativeTo(null);
@@ -46,11 +48,9 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         Panel_Izquierda_Verde = new javax.swing.JPanel();
         Panel_Datos_Personales = new javax.swing.JPanel();
         label_Datos_Personales = new javax.swing.JLabel();
-        Panel_Informacion_Acad = new javax.swing.JPanel();
-        Label_Informacion_Acad = new javax.swing.JLabel();
-        Panel_Inscripcion = new javax.swing.JPanel();
-        labelInscripcion = new javax.swing.JLabel();
-        Content = new javax.swing.JPanel();
+        panelRolProfesor = new javax.swing.JPanel();
+        labelRolProfesor = new javax.swing.JLabel();
+        ContentProf = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -130,74 +130,48 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
         Panel_Izquierda_Verde.add(Panel_Datos_Personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 108, -1, -1));
 
-        Panel_Informacion_Acad.setBackground(new java.awt.Color(145, 179, 59));
-        Panel_Informacion_Acad.setPreferredSize(new java.awt.Dimension(343, 81));
-        Panel_Informacion_Acad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelRolProfesor.setBackground(new java.awt.Color(145, 179, 59));
+        panelRolProfesor.setPreferredSize(new java.awt.Dimension(343, 81));
+        panelRolProfesor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label_Informacion_Acad.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        Label_Informacion_Acad.setForeground(new java.awt.Color(255, 255, 255));
-        Label_Informacion_Acad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Informacion_Acad.setText("INFORMACIÓN ACADÉMICA");
-        Label_Informacion_Acad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_Informacion_Acad.setPreferredSize(new java.awt.Dimension(200, 26));
-        Label_Informacion_Acad.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelRolProfesor.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelRolProfesor.setForeground(new java.awt.Color(255, 255, 255));
+        labelRolProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelRolProfesor.setText("ROL PROFESOR");
+        labelRolProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelRolProfesor.setPreferredSize(new java.awt.Dimension(200, 26));
+        labelRolProfesor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_Informacion_AcadMouseClicked(evt);
+                labelRolProfesorMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Label_Informacion_AcadMouseEntered(evt);
+                labelRolProfesorMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Label_Informacion_AcadMouseExited(evt);
+                labelRolProfesorMouseExited(evt);
             }
         });
-        Panel_Informacion_Acad.add(Label_Informacion_Acad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
+        panelRolProfesor.add(labelRolProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
 
-        Panel_Izquierda_Verde.add(Panel_Informacion_Acad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
-
-        Panel_Inscripcion.setBackground(new java.awt.Color(145, 179, 59));
-        Panel_Inscripcion.setPreferredSize(new java.awt.Dimension(343, 81));
-        Panel_Inscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Panel_InscripcionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_InscripcionMouseExited(evt);
-            }
-        });
-        Panel_Inscripcion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        labelInscripcion.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelInscripcion.setForeground(new java.awt.Color(255, 255, 255));
-        labelInscripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInscripcion.setText("PROCESO DE INSCRIPCIÓN");
-        labelInscripcion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelInscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelInscripcionMouseClicked(evt);
-            }
-        });
-        Panel_Inscripcion.add(labelInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
-
-        Panel_Izquierda_Verde.add(Panel_Inscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 274, -1, -1));
+        Panel_Izquierda_Verde.add(panelRolProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
 
         panel_Principal.add(Panel_Izquierda_Verde, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Content.setBackground(new java.awt.Color(221, 221, 221));
-        Content.setPreferredSize(new java.awt.Dimension(1007, 611));
+        ContentProf.setBackground(new java.awt.Color(221, 221, 221));
+        ContentProf.setPreferredSize(new java.awt.Dimension(1007, 611));
 
-        javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
-        Content.setLayout(ContentLayout);
-        ContentLayout.setHorizontalGroup(
-            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ContentProfLayout = new javax.swing.GroupLayout(ContentProf);
+        ContentProf.setLayout(ContentProfLayout);
+        ContentProfLayout.setHorizontalGroup(
+            ContentProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1007, Short.MAX_VALUE)
         );
-        ContentLayout.setVerticalGroup(
-            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ContentProfLayout.setVerticalGroup(
+            ContentProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 611, Short.MAX_VALUE)
         );
 
-        panel_Principal.add(Content, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 84, -1, -1));
+        panel_Principal.add(ContentProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 84, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,16 +190,6 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Panel_InscripcionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_InscripcionMouseEntered
-        // TODO add your handling code here:
-        Panel_Inscripcion.setBackground(new Color(175,199,107));          
-    }//GEN-LAST:event_Panel_InscripcionMouseEntered
-
-    private void Panel_InscripcionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_InscripcionMouseExited
-        // TODO add your handling code here:
-        Panel_Inscripcion.setBackground(new Color(145,179,59));   
-    }//GEN-LAST:event_Panel_InscripcionMouseExited
-
     private void Panel_UsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_UsuarioMouseEntered
         // TODO add your handling code here:
         Panel_Usuario.setBackground(new Color(175,199,107));
@@ -236,22 +200,20 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         Panel_Usuario.setBackground(new Color(145,179,59));
     }//GEN-LAST:event_Panel_UsuarioMouseExited
 
-    private void Label_Informacion_AcadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Informacion_AcadMouseClicked
+    private void labelRolProfesorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRolProfesorMouseClicked
         // TODO add your handling code here:
-        InformacionAcademica infoAcad = new InformacionAcademica();
-        mostrarPanel(infoAcad);
 
-    }//GEN-LAST:event_Label_Informacion_AcadMouseClicked
+    }//GEN-LAST:event_labelRolProfesorMouseClicked
 
-    private void Label_Informacion_AcadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Informacion_AcadMouseEntered
+    private void labelRolProfesorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRolProfesorMouseEntered
         // TODO add your handling code here:
-        Panel_Informacion_Acad.setBackground(new Color(175,199,107));        
-    }//GEN-LAST:event_Label_Informacion_AcadMouseEntered
+        panelRolProfesor.setBackground(new Color(175,199,107));        
+    }//GEN-LAST:event_labelRolProfesorMouseEntered
 
-    private void Label_Informacion_AcadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Informacion_AcadMouseExited
+    private void labelRolProfesorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRolProfesorMouseExited
         // TODO add your handling code here:
-        Panel_Informacion_Acad.setBackground(new Color(145,179,59));
-    }//GEN-LAST:event_Label_Informacion_AcadMouseExited
+        panelRolProfesor.setBackground(new Color(145,179,59));
+    }//GEN-LAST:event_labelRolProfesorMouseExited
 
     private void label_Datos_PersonalesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseEntered
         // TODO add your handling code here:
@@ -265,50 +227,42 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
     private void label_Datos_PersonalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Datos_PersonalesMouseClicked
         // TODO add your handling code here:
-        mostrarDatos_Personales();
-
-        
+        mostrarDatos_PersonalesProf();
     }//GEN-LAST:event_label_Datos_PersonalesMouseClicked
 
-    private void labelInscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInscripcionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labelInscripcionMouseClicked
-
-        public static void mostrarDatos_Personales(){
-        DatosPersonalesEstudGUI datosPersonales = new DatosPersonalesEstudGUI();
+        public static void mostrarDatos_PersonalesProf(){
+        DatosPersonalesProfeGUI datosPersonalesProf = new DatosPersonalesProfeGUI();
         
-        DatosPersonalesConsulta.mostrarDatos_Personales("Academico");
+        DatosPersonalesProfe.mostrarDatos_PersonalesProf("Academico");
         
-        datosPersonales.label_AñoIngreso.setText(DatosPersonalesConsulta.AñoIngreso);
-        datosPersonales.label_Cedula.setText(DatosPersonalesConsulta.Cedula);
-        datosPersonales.label_Correo_Institucional.setText(DatosPersonalesConsulta.Correo);
-        datosPersonales.label_Direccion.setText(DatosPersonalesConsulta.Direccion);
-        datosPersonales.label_Nombre.setText(DatosPersonalesConsulta.Nombre);
-        datosPersonales.label_Tel_Fijo.setText(DatosPersonalesConsulta.Telefono_Fijo);
-        datosPersonales.label_Tel_Movil.setText(DatosPersonalesConsulta.Telefono_Movil);
-        datosPersonales.label_Carrera.setText(DatosPersonalesConsulta.Carrera);
+        datosPersonalesProf.label_Cedula.setText(DatosPersonalesProfe.Cedula);
+        datosPersonalesProf.label_Correo_Institucional.setText(DatosPersonalesProfe.Correo);
+        datosPersonalesProf.label_Direccion.setText(DatosPersonalesProfe.Direccion);
+        datosPersonalesProf.label_Nombre.setText(DatosPersonalesProfe.Nombre);
+        datosPersonalesProf.label_Tel_Fijo.setText(DatosPersonalesProfe.Telefono_Fijo);
+        datosPersonalesProf.label_Tel_Movil.setText(DatosPersonalesProfe.Telefono_Movil);
         
-        mostrarPanel(datosPersonales);            
+        mostrarPanel(datosPersonalesProf);            
             
         }
     
     
         public static void mostrarPanel(JPanel panel){
 
-        panel.setSize(990,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
+        panel.setSize(1007,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
         panel.setLocation(0,0);
         
-        Content.removeAll();
-        Content.add(panel, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();        
+        ContentProf.removeAll();
+        ContentProf.add(panel, BorderLayout.CENTER);
+        ContentProf.revalidate();
+        ContentProf.repaint();        
    
     }
     
     public static void ejecutar_pricipal(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipalEstudGUI().setVisible(true);
+                new PantallaPrincipalProfGUI().setVisible(true);
             }
         });
     } 
@@ -329,14 +283,30 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipalEstudGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipalProfGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipalEstudGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipalProfGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipalEstudGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipalProfGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipalEstudGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipalProfGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -357,26 +327,24 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipalEstudGUI().setVisible(true);
+                new PantallaPrincipalProfGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JPanel Content;
+    public static javax.swing.JPanel ContentProf;
     private javax.swing.JLabel Label_Escudo;
     private javax.swing.JLabel Label_Icono_Usuario;
-    private javax.swing.JLabel Label_Informacion_Acad;
     private javax.swing.JLabel Label_Portal_Servicios;
     public javax.swing.JLabel Label_Usuario;
     private javax.swing.JPanel Panel_Datos_Personales;
-    private javax.swing.JPanel Panel_Informacion_Acad;
-    private javax.swing.JPanel Panel_Inscripcion;
     private javax.swing.JPanel Panel_Izquierda_Verde;
     private javax.swing.JPanel Panel_Superior_Gris;
     private javax.swing.JPanel Panel_Usuario;
-    private javax.swing.JLabel labelInscripcion;
+    private javax.swing.JLabel labelRolProfesor;
     private javax.swing.JLabel label_Datos_Personales;
+    private javax.swing.JPanel panelRolProfesor;
     private javax.swing.JPanel panel_Principal;
     // End of variables declaration//GEN-END:variables
 }

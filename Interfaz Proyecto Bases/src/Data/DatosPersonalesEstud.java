@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class DatosPersonalesConsulta {
+public class DatosPersonalesEstud {
     
     public static String Nombre;
     public static String Cedula;
@@ -18,7 +18,7 @@ public class DatosPersonalesConsulta {
     public static String Carrera;
     
     
-    public static void mostrarDatos_Personales(String nombreBD){ 
+    public static void mostrarDatos_PersonalesEstud(String nombreBD){ 
         
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);         
         System.out.println("");
