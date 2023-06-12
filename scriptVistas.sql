@@ -119,11 +119,11 @@ DROP VIEW IF EXISTS vw_evaluaciones_estudiante;
 CREATE VIEW vw_evaluaciones_estudiante AS 
 SELECT DISTINCT per_cc AS CC, per_nombre AS Nombre,eval_nombre AS Actividad, eval_nota AS Puntaje, 
 eval_porcentaje AS Porcentaje,eval_calificacion_minima AS Calificacion_minima,
-eval_ponde_insc_id_asignatura AS Asignatura_ID, insc_no_grupo AS Grupo, grup_prof_cc AS Profesor_CC,
+eval_insc_id_asignatura AS Asignatura_ID, insc_no_grupo AS Grupo, grup_prof_cc AS Profesor_CC,
 insc_id_programa AS Programa, insc_semestre AS Semestre
-FROM evaluacion JOIN persona ON eval_ponde_insc_estudiante_cc=per_cc 
-JOIN inscripcion ON (eval_ponde_insc_estudiante_cc=insc_estudiante_cc AND eval_ponde_insc_id_programa=insc_id_programa 
-AND eval_ponde_insc_id_asignatura = insc_id_asignatura)
+FROM evaluacion JOIN persona ON eval_insc_semestre=per_cc 
+JOIN inscripcion ON (eval_insc_estudiante_cc=insc_estudiante_cc AND eval_insc_id_programa=insc_id_programa 
+AND eval_insc_id_asignatura = insc_id_asignatura)
 JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id) ORDER BY per_cc;
 
 -- -----------------------------------------------------------------------------------------
@@ -194,6 +194,28 @@ FROM vw_resumen_creditos GROUP BY ID_programa;
 SELECT * FROM vw_resumen_creditos_totales;
 
 -- ---------------------------------------------------------------------------------------------------
+SET GLOBAL log_bin_trust_function_creators = 1;
+DROP FUNCTION IF EXISTS f_obtener_semestre;
+DELIMITER $$
+CREATE FUNCTION f_obtener_semestre() RETURNS VARCHAR(10)
+BEGIN
+	SET @current_month = MONTH(curdate());
+    SET @current_year = YEAR(curdate());
+    IF @current_month <= 7 THEN
+		RETURN CONCAT(@current_year,'-1');
+	ELSE
+		RETURN CONCAT(@current_year,'-2');
+    END IF;
+END $$
+DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_obtener_semestre TO Profesor;
+GRANT EXECUTE ON FUNCTION f_obtener_semestre TO Estudiante;
+
+
+
+
+
+
 DROP VIEW IF EXISTS vw_resumen_creditos_totales_cursados;
 CREATE VIEW vw_resumen_creditos_totales_cursados AS SELECT DISTINCT Usuario,ID_programa,Tipologia, SUM(Creditos) AS Creditos_cursados FROM vw_Asignaturas_cursadas WHERE Periodo != f_obtener_semestre() GROUP BY Usuario, ID_programa, Tipologia
 UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Tipologia != 'Nivelacion' AND Periodo != f_obtener_semestre() GROUP BY ID_programa,Usuario
