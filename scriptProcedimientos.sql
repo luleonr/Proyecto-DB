@@ -162,7 +162,9 @@ CREATE PROCEDURE sp_Estudiante_mostrar_horario()
 BEGIN
 	DECLARE user_ VARCHAR(45);
 	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-	SELECT * FROM  vw_Horario WHERE usuario = user_ ORDER BY Hora_inicio ASC;
+	SELECT Dia, Hora_inicio, Hora_Final, Actividad, No_Grupo, Salon, Edificio, Sede, Semeste, 
+    MateriaID, MateriaNom, EdificoNom, SalonNom, ProfeNom, ProgramaNom FROM  vw_Horario WHERE 
+    usuario = user_ ORDER BY Hora_inicio ASC;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
