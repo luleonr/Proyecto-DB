@@ -153,42 +153,6 @@ CREATE TABLE Grupo (
 
 
 -- -----------------------------------------------------
--- Table Inscripcion
--- -----------------------------------------------------
-DROP TABLE IF EXISTS Inscripcion ;
-
-CREATE TABLE Inscripcion (
-  insc_semestre VARCHAR(10) NOT NULL,
-  insc_estudiante_cc INT NOT NULL,
-  insc_id_asignatura INT NOT NULL,
-  insc_id_programa INT NOT NULL,
-  insc_no_grupo INT NOT NULL,
-  insc_nota_final DECIMAL(5,2) NULL,
-  insc_aprobado TINYINT NULL,
-  insc_id_histAcad INT NOT NULL,
-  PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
-    FOREIGN KEY (insc_estudiante_cc)
-    REFERENCES Estudiante (estud_cc)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (insc_id_asignatura)
-    REFERENCES Asignatura (asig_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (insc_id_programa)
-    REFERENCES Programa (prog_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (insc_no_grupo)
-    REFERENCES Grupo (grup_no_grupo)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (insc_id_histAcad)
-    REFERENCES Historia_Academica (histAcad_id)
-    );
-
-
--- -----------------------------------------------------
 -- Table Asignatura_has_Departamento
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Asignatura_has_Departamento;
@@ -253,6 +217,40 @@ CREATE TABLE Historia_Academica (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
+-- -----------------------------------------------------
+-- Table Inscripcion
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Inscripcion ;
+
+CREATE TABLE Inscripcion (
+  insc_semestre VARCHAR(10) NOT NULL,
+  insc_estudiante_cc INT NOT NULL,
+  insc_id_asignatura INT NOT NULL,
+  insc_id_programa INT NOT NULL,
+  insc_no_grupo INT NOT NULL,
+  insc_nota_final DECIMAL(5,2) NULL,
+  insc_aprobado TINYINT NULL,
+  insc_id_histAcad INT NOT NULL,
+  PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
+    FOREIGN KEY (insc_estudiante_cc)
+    REFERENCES Estudiante (estud_cc)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (insc_id_asignatura)
+    REFERENCES Asignatura (asig_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (insc_id_programa)
+    REFERENCES Programa (prog_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (insc_no_grupo)
+    REFERENCES Grupo (grup_no_grupo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (insc_id_histAcad)
+    REFERENCES Historia_Academica (histAcad_id)
+    );
 
 -- -----------------------------------------------------
 -- Table Evaluación
