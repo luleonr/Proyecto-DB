@@ -348,7 +348,7 @@ BEGIN
 	DECLARE usuario_cc INT;
 	SET usuario_cc = f_find_cc_from_user(usuario);
     
-    SELECT Dia, Asignatura, HoraInicio, HoraFinal, Salon, Edificio
+    SELECT DISTINCT Dia, Asignatura, HoraInicio, HoraFinal, Salon, Edificio
     FROM vw_horario_profesor WHERE Semestre LIKE f_obtener_semestre() AND usuario_cc=Profesor_cc;
     
 END $$
