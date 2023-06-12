@@ -1,3 +1,5 @@
+@@ -1,841 +1,883 @@
+@@ -1,841 +1,873 @@
 USE Academico;
 
 -- ROL ESTUDIANTE --------------------------------------------------------------
@@ -26,6 +28,9 @@ CREATE PROCEDURE sp_Estudiante_actualizar_datos_personales(
   Direccion_ VARCHAR(40), 
   Tel_Mov VARCHAR(40), 
   Tel_Fij VARCHAR(40)
+  IN Direccion_ VARCHAR(40), 
+  IN Tel_Mov VARCHAR(40), 
+  IN Tel_Fij VARCHAR(40)
 )
 BEGIN
   DECLARE user_ VARCHAR(45);
@@ -50,6 +55,7 @@ BEGIN
   DECLARE user_ VARCHAR(45);
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   SELECT * FROM vw_Estudiante_ver_programas WHERE usuario = user_;
+  SELECT Id_programa, Nombre_programa FROM vw_Estudiante_ver_programas WHERE usuario = user_;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
@@ -57,14 +63,23 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HISTORIA ACADEMICA
+-- MOSTRAR ASIGNATURAS CURSADAS
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_asignaturas;
 DELIMITER //
 CREATE PROCEDURE sp_Estudiante_mostrar_asignaturas()
+CREATE PROCEDURE sp_Estudiante_mostrar_asignaturas(IN Programa INT)
 BEGIN
     DECLARE user_ VARCHAR(45);
+    DECLARE semestre_actual VARCHAR(10);
+    
     SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
 	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
+	   
+    SET semestre_actual = f_obtener_semestre();
+    
+	SELECT Asignatura, Codigo, Creditos, Tipologia, Periodo, Calificacion, Estado FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
+    AND Periodo != semestre_actual AND ID_Programa = Programa;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
@@ -79,12 +94,39 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_historia_academica;
 DELIMITER //
 CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica()
+CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica(IN Carrera INT)
 BEGIN
 	SELECT * FROM vw_Historia_academica WHERE usuario = SUBSTRING_INDEX(USER(), '@', 1);
+	DECLARE user_ VARCHAR(45);
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+    
+	SELECT ID_historia_academica, Estado, PAPA, PAPPI, Promedio_acumulado, Porcentaje_avance,
+    Creditos_adicionales, Cupo_creditos, Creditos_disponibles, Creditos_doble_titulacion FROM 
+    vw_Historia_academica WHERE usuario = user_ AND Carrera=ID_Carrera;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_historia_academica TO Estudiante;
 -- CALL sp_Estudiante_mostrar_historia_academica();
+
+-- ---------------------------------------------------------------------------
+-- MOSTRAR RESUMEN DE CREDITOS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Estudiante_Resumen_Creditos;
+DELIMITER //
+CREATE PROCEDURE sp_Estudiante_Resumen_Creditos(IN Carrera INT)
+BEGIN
+	DECLARE user_ VARCHAR(45);
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+    
+	SELECT Tipologia,IFNULL(creditos_totales,0) AS Exigidos,IFNULL(creditos_cursados,0) AS Cursados,IFNULL(creditos_aprobados,0) AS 
+    Aprobados,IFNULL(creditos_inscritos,0) AS Inscritos,IFNULL((creditos_totales-creditos_aprobados),creditos_totales) AS Pendientes FROM vw_resumen_creditos_totales LEFT JOIN vw_resumen_creditos_totales_cursados 
+    USING(Tipologia,ID_programa) LEFT JOIN vw_resumen_creditos_totales_aprobados USING(Tipologia,ID_programa) LEFT JOIN 
+    vw_resumen_creditos_totales_inscritos USING(Tipologia,ID_programa) WHERE vw_resumen_creditos_totales_cursados.Usuario=user_ AND vw_resumen_creditos_totales.ID_programa=Carrera;
+    
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_Resumen_Creditos TO Estudiante;
+-- CALL sp_Estudiante_Resumen_Creditos();
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HORARIO
@@ -121,6 +163,7 @@ BEGIN
 END $$
 DELIMITER ;
 GRANT EXECUTE ON FUNCTION f_obtener_semestre TO Profesor;
+GRANT EXECUTE ON FUNCTION f_obtener_semestre TO Estudiante;
 
 -- -----------------------------------------------------------------------------
 -- FUNCIÓN OBTENER CC DEL PROFESOR CON SU USUARIO

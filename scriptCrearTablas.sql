@@ -1,3 +1,5 @@
+@@ -1,378 +1,386 @@
+@@ -1,379 +1,384 @@
 DROP SCHEMA IF EXISTS Academico;
 CREATE SCHEMA Academico;
 USE Academico;
@@ -151,7 +153,6 @@ CREATE TABLE Grupo (
 	ON DELETE CASCADE
     ON UPDATE CASCADE);
 
-
 -- -----------------------------------------------------
 -- Table Asignatura_has_Departamento
 -- -----------------------------------------------------
@@ -197,9 +198,13 @@ DROP TABLE IF EXISTS Historia_Academica ;
 
 CREATE TABLE Historia_Academica (
   histAcad_id INT NOT NULL AUTO_INCREMENT,
+  histAcad_estado ENUM('Abierto','Cerrado') NOT NULL,
   histAcad_PAPA DECIMAL(5,2) NOT NULL,
   histAcad_PAPPI DECIMAL(5,2) NOT NULL,
+  histAcad_Promedio DECIMAL(5,2) NOT NULL,
   histAcad_porcen_avance DECIMAL(5,2) NOT NULL,
+  histAcad_cred_excedentes INT NOT NULL,
+  histAcad_cred_cancelados INT NOT NULL,
   histAcad_cred_adicionales INT NOT NULL,
   histAcad_cup_creditos INT NOT NULL,
   histAcad_cred_disponibles INT NOT NULL,
@@ -230,6 +235,7 @@ CREATE TABLE Inscripcion (
   insc_no_grupo INT NOT NULL,
   insc_nota_final DECIMAL(5,2) NULL,
   insc_aprobado TINYINT NULL,
+  insc_aprobado ENUM('Aprobado','Reprobado'),
   insc_id_histAcad INT NOT NULL,
   PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
     FOREIGN KEY (insc_estudiante_cc)
@@ -251,6 +257,9 @@ CREATE TABLE Inscripcion (
     FOREIGN KEY (insc_id_histAcad)
     REFERENCES Historia_Academica (histAcad_id)
     );
+
+
+
 
 -- -----------------------------------------------------
 -- Table Evaluación
@@ -367,10 +376,12 @@ CREATE TABLE Programa_has_Asignatura (
   Asignatura_id_asignatura INT NOT NULL,
   Asignatura_id_prerrequisito INT,
   Tipologia VARCHAR(45),
+  Tipologia ENUM('Disciplinar optativa','Fundamental obligatoria','Fundamental optativa',
+  'Disciplinar obligatoria','Libre elección','Trabajo de grado','Nivelación'),
   FOREIGN KEY (Programa_id_programa)
   REFERENCES Programa (prog_id),
   FOREIGN KEY (Asignatura_id_asignatura)
   REFERENCES Asignatura (asig_id),
   FOREIGN KEY (Asignatura_id_prerrequisito)
   REFERENCES Asignatura (asig_id)
-    );
+);

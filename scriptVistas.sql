@@ -39,15 +39,11 @@ ON Programa_id_programa=prog_id JOIN departamento ON prog_id_departamento=depa_i
 
 DROP VIEW IF EXISTS vw_Historia_academica;
 CREATE VIEW vw_Historia_academica AS
-SELECT DISTINCT histAcad_PAPA AS PAPA,histAcad_PAPPI AS PAPPI,
-histAcad_porcen_avance AS Porcentaje_Avance, histAcad_cred_adicionales AS Creditos_Adicionales, 
+SELECT DISTINCT histAcad_id AS ID_historia_academica, histAcad_semestre AS Semestre, histAcad_estado AS Estado, histAcad_PAPA AS PAPA,histAcad_PAPPI AS PAPPI,
+histAcad_Promedio AS Promedio_acumulado, histAcad_porcen_avance AS Porcentaje_Avance, histAcad_cred_excedentes AS Creditos_excedentes, histAcad_cred_cancelados AS Creditos_cancelados, histAcad_cred_adicionales AS Creditos_Adicionales, 
 histAcad_cup_creditos AS Cupo_Creditos, histAcad_cred_disponibles AS Creditos_Disponibles, 
-histAcad_cred_doble_titulacion AS Creditos_Doble_Titulacion, 
-histAcad_id_programa AS ID_Carrera , prog_nombre AS Carrera ,histAcad_estudiante_cc AS Cedula,
-facu_nombre AS Facultad, user_usuario AS usuario
-FROM Historia_Academica JOIN Usuario ON histAcad_estudiante_cc = user_cc
-JOIN Programa ON histAcad_id_programa = prog_id JOIN Departamento ON prog_id_departamento = depa_id
-JOIN Facultad ON depa_id_facultad = facu_id;
+histAcad_cred_doble_titulacion AS Creditos_Doble_Titulacion,histAcad_id_programa AS ID_Carrera, user_usuario AS usuario
+FROM Historia_Academica JOIN Usuario ON histAcad_estudiante_cc = user_cc;
 
 -- SELECT * FROM  vw_Historia_academica;
 -- --------------------------------------------------------------------------------------------
@@ -166,7 +162,7 @@ SELECT * FROM vw_Citas_de_inscripcion;
 DROP VIEW IF EXISTS vw_Asignaturas_cursadas;
 CREATE VIEW vw_Asignaturas_cursadas AS SELECT DISTINCT asig_nombre AS Asignatura, asig_id AS Codigo, asig_no_creditos 
 AS Creditos, Tipologia AS Tipologia, insc_semestre AS Periodo, insc_nota_final AS Calificacion, insc_aprobado AS Estado 
-, user_usuario AS Usuario FROM inscripcion JOIN Asignatura ON insc_id_asignatura=asig_id JOIN programa_has_asignatura ON 
+,user_usuario AS Usuario, insc_id_programa AS ID_programa FROM inscripcion JOIN Asignatura ON insc_id_asignatura=asig_id JOIN programa_has_asignatura ON  
 (insc_id_asignatura=Asignatura_id_asignatura AND insc_id_programa=Programa_id_programa) JOIN Usuario ON user_cc=insc_estudiante_cc;
 
 
@@ -183,3 +179,37 @@ FROM persona
 JOIN ponderado ON ponde_insc_estudiante_cc=per_cc
 JOIN asignatura ON asig_id=ponde_insc_id_asignatura
 JOIN programa ON ponde_insc_id_programa=prog_id;
+
+-- ---------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_resumen_creditos;
+CREATE VIEW vw_resumen_creditos AS SELECT DISTINCT Programa_id_programa AS ID_programa, Tipologia ,SUM(asig_no_creditos) 
+AS Creditos_totales FROM programa_has_asignatura JOIN asignatura ON asig_id=Asignatura_id_asignatura GROUP BY Programa_id_programa,Tipologia;
+
+DROP VIEW IF EXISTS vw_resumen_creditos_totales;
+CREATE VIEW vw_resumen_creditos_totales AS SELECT DISTINCT * FROM vw_resumen_creditos UNION ALL SELECT ID_programa,'TOTAL', SUM(creditos_totales) 
+FROM vw_resumen_creditos WHERE Tipologia != 'Nivelacion' GROUP BY ID_programa UNION ALL SELECT ID_programa,'TOTAL ESTUDIANTE', SUM(creditos_totales) 
+FROM vw_resumen_creditos GROUP BY ID_programa;
+
+SELECT * FROM vw_resumen_creditos_totales;
+
+-- ---------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_resumen_creditos_totales_cursados;
+CREATE VIEW vw_resumen_creditos_totales_cursados AS SELECT DISTINCT Usuario,ID_programa,Tipologia, SUM(Creditos) AS Creditos_cursados FROM vw_Asignaturas_cursadas WHERE Periodo != f_obtener_semestre() GROUP BY Usuario, ID_programa, Tipologia
+UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Tipologia != 'Nivelacion' AND Periodo != f_obtener_semestre() GROUP BY ID_programa,Usuario
+UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo != f_obtener_semestre() GROUP BY ID_programa,Usuario;
+
+SELECT * FROM vw_resumen_creditos_totales_cursados;
+-- ----------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_resumen_creditos_totales_aprobados;
+CREATE VIEW vw_resumen_creditos_totales_aprobados AS SELECT DISTINCT Usuario,ID_programa,Tipologia, SUM(Creditos) AS Creditos_aprobados FROM vw_Asignaturas_cursadas WHERE Periodo != f_obtener_semestre() AND Estado = 'Aprobado' GROUP BY Usuario, ID_programa, Tipologia
+UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Tipologia != 'Nivelacion' AND Periodo != f_obtener_semestre() AND Estado = 'Aprobado' GROUP BY ID_programa,Usuario
+UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo != f_obtener_semestre() AND Estado = 'Aprobado' GROUP BY ID_programa,Usuario;
+
+SELECT * FROM vw_resumen_creditos_totales_aprobados;
+-- ----------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_resumen_creditos_totales_inscritos;
+CREATE VIEW vw_resumen_creditos_totales_inscritos AS SELECT DISTINCT Usuario,ID_programa,Tipologia, SUM(Creditos) AS Creditos_inscritos FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY Usuario, ID_programa, Tipologia
+UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Tipologia != 'Nivelacion' AND Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario
+UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario;
+
+SELECT * FROM vw_resumen_creditos_totales_inscritos;
