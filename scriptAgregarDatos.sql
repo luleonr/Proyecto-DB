@@ -218,45 +218,30 @@ INSERT INTO Salon VALUES(305,null,'405');
 -- ------------------------------------
 -- Entidades de relación muchos a muchos
 -- ------------------------------------
-INSERT INTO Asignatura_has_Asignatura VALUES(5,2);
-INSERT INTO Asignatura_has_Asignatura VALUES(6,2);
-INSERT INTO Asignatura_has_Asignatura VALUES(7,2);
-INSERT INTO Asignatura_has_Asignatura VALUES(8,3);
-INSERT INTO Asignatura_has_Asignatura VALUES(9,5);
-INSERT INTO Asignatura_has_Asignatura VALUES(10,6);
-INSERT INTO Asignatura_has_Asignatura VALUES(11,7);
-INSERT INTO Asignatura_has_Asignatura VALUES(12,8);
-INSERT INTO Asignatura_has_Asignatura VALUES(13,1);
 
-INSERT INTO Asignatura_has_Asignatura VALUES(18,14);
-INSERT INTO Asignatura_has_Asignatura VALUES(16,15);
-INSERT INTO Asignatura_has_Asignatura VALUES(20,17);
-INSERT INTO Asignatura_has_Asignatura VALUES(21,19);
-INSERT INTO Asignatura_has_Asignatura VALUES(22,19);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (1,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (2,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (3,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (4,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (5,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (6,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (7,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (8,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (9,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (10,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (11,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (12,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (13,201);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (14,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (15,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (16,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (17,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (18,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (19,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (20,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (21,802);
+INSERT INTO Asignatura_has_Departamento (Asignatura_id_asignatura, Departamento_id_departamento) VALUES (22,802);
 
-
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (1,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (2,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (3,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (4,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (5,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (6,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (7,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (8,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (9,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (10,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (11,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (12,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (13,20101);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (14,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (15,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (16,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (17,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (18,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (19,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (20,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (21,80201);
-INSERT INTO Asignatura_has_Programa (Asignatura_id_asignatura, Programa_id_programa) VALUES (22,80201);
 
 
 insert into Estudiante_has_Programa (Estudiante_Persona_CC, Programa_id_programa) values (1010000001,80201);
@@ -393,137 +378,141 @@ insert into Horario (horar_dia, horar_hora_inicio, horar_hora_final, horar_grup_
 
 
 
--- Inscripción
--- Del programa de sistemas
-INSERT INTO Inscripcion VALUES ('2023-1',1010000001,7,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000001,8,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000001,9,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000003,4,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000003,5,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000003,7,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000004,6,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000004,7,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000004,8,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000004,9,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000008,9,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000008,10,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000008,11,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000010,7,80201,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000010,8,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000010,9,80201,2);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000010,10,80201,1);
--- Del programa de estadísica
-INSERT INTO Inscripcion VALUES ('2023-1',1010000002,14,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000002,15,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000002,16,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000005,14,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000005,15,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000005,16,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000006,14,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000006,16,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000006,17,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000007,18,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000007,19,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000007,21,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000009,20,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000009,21,20101,1);
-INSERT INTO Inscripcion VALUES ('2023-1',1010000009,22,20101,1);
+
 
 
 -- ------------------------------------
 -- Calificaciones
 -- ------------------------------------
 -- notas estudiantes de ing sistemas
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.2, 4.27, 37.2, 27, 151, 98, 0, 80201, 1010000001, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.29, 4.13, 33.12, 23, 151, 92, 0, 80201, 1010000003, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.85, 3.11, 26.63, 19, 151, 84, 0, 80201, 1010000004, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.35, 4.98, 31.76, 19, 151, 80, 0, 80201, 1010000008, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.28, 3.09, 32.1, 30, 151, 87, 0, 80201, 1010000010, '2023-1');
-
-
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000001, 80201, 7, 3.12, 1, 1);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000001, 80201, 8, 3.34, 1, 1);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000001, 80201, 9, 3.78, 1, 1);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.12, 100, 3, '2023-1', 1010000001, 80201, 7);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.34, 100, 3, '2023-1', 1010000001, 80201, 8);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.78, 100, 3, '2023-1', 1010000001, 80201, 9);
-
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000003, 80201, 4, 4.12, 1, 2);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000003, 80201, 5, 3.1, 1, 2);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000003, 80201, 7, 3.86, 1, 2);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.12, 100, 3, '2023-1', 1010000003, 80201, 4);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.1, 100, 3, '2023-1', 1010000003, 80201, 5);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.86, 100, 3, '2023-1', 1010000003, 80201, 7);
-
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000004, 80201, 6, 4.23, 1, 3);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000004, 80201, 7, 4.07, 1, 3);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000004, 80201, 8, 4.5, 1, 3);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000004, 80201, 9, 3.44, 1, 3);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.23, 100, 3, '2023-1', 1010000004, 80201, 6);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.07, 100, 3, '2023-1', 1010000004, 80201, 7);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.5, 100, 3, '2023-1', 1010000004, 80201, 8);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.44, 100, 3, '2023-1', 1010000004, 80201, 9);
-
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000008, 80201, 9, 4.05, 1, 4);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000008, 80201, 10, 3.08, 1, 4);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000008, 80201, 11, 3.23, 1, 4);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.05, 100, 3, '2023-1', 1010000008, 80201, 9);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.08, 100, 3, '2023-1', 1010000008, 80201, 10);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.23, 100, 3, '2023-1', 1010000008, 80201, 11);
-
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000010, 80201, 7, 4.0, 1, 5);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000010, 80201, 8, 4.04, 1, 5);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000010, 80201, 9, 4.34, 1, 5);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000010, 80201, 10, 3.02, 1, 5);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.0, 100, 3, '2023-1', 1010000010, 80201, 7);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.04, 100, 3, '2023-1', 1010000010, 80201, 8);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.34, 100, 3, '2023-1', 1010000010, 80201, 9);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.02, 100, 3, '2023-1', 1010000010, 80201, 10);
-
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.5,3.2, 4.27, 37.2, 27, 151, 98, 0, 80201, 1010000001, '2023-1');
+insert into historia_academica (histAcad_Promedio, histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.2,4.29, 4.13, 33.12, 23, 151, 92, 0, 80201, 1010000003, '2023-1');
+insert into historia_academica (histAcad_Promedio, histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.2,3.85, 3.11, 26.63, 19, 151, 84, 0, 80201, 1010000004, '2023-1');
+insert into historia_academica (histAcad_Promedio, histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.53,3.35, 4.98, 31.76, 19, 151, 80, 0, 80201, 1010000008, '2023-1');
+insert into historia_academica (histAcad_Promedio, histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (2.5, 4.28, 3.09, 32.1, 30, 151, 87, 0, 80201, 1010000010, '2023-1');
 -- notas estudiantes de estadística
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.24, 4.16, 27.89, 17, 151, 80, 0, 20101, 1010000002, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.29, 3.64, 25.6, 15, 151, 100, 0, 20101, 1010000005, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.42, 3.62, 33.8, 17, 151, 90, 0, 20101, 1010000006, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.15, 3.22, 23.67, 17, 151, 99, 0, 20101, 1010000007, '2023-1');
-insert into historia_academica (histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.05, 3.25, 39.02, 18, 151, 82, 0, 20101, 1010000009, '2023-1');
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.3,4.24, 4.16, 27.89, 17, 151, 80, 0, 20101, 1010000002, '2023-1');
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.35,4.29, 3.64, 25.6, 15, 151, 100, 0, 20101, 1010000005, '2023-1');
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (3.5,3.42, 3.62, 33.8, 17, 151, 90, 0, 20101, 1010000006, '2023-1');
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (4.5,4.15, 3.22, 23.67, 17, 151, 99, 0, 20101, 1010000007, '2023-1');
+insert into historia_academica (histAcad_Promedio,histAcad_PAPA, histAcad_PAPPI, histAcad_porcen_avance, histAcad_cred_adicionales, histAcad_cup_creditos, histAcad_cred_disponibles, histAcad_cred_doble_titulacion, histAcad_id_programa, histAcad_estudiante_cc, histAcad_semestre) values (5.2,3.05, 3.25, 39.02, 18, 151, 82, 0, 20101, 1010000009, '2023-1');
 
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000002, 20101, 14, 4.87, 1, 6);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000002, 20101, 15, 3.33, 1, 6);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000002, 20101, 16, 3.01, 1, 6);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.87, 100, 3, '2023-1', 1010000002, 20101, 14);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.33, 100, 3, '2023-1', 1010000002, 20101, 15);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.01, 100, 3, '2023-1', 1010000002, 20101, 16);
+-- Inscripción
+-- Del programa de sistemas
+INSERT INTO Inscripcion (insc_semestre,insc_estudiante_cc,insc_id_asignatura,insc_id_programa,insc_no_grupo,insc_id_histAcad) 
+VALUES ('2023-1',1010000001,7,80201,1,1);
+INSERT INTO Inscripcion (insc_semestre,insc_estudiante_cc,insc_id_asignatura,insc_id_programa,insc_no_grupo,insc_id_histAcad) 
+VALUES ('2023-1',1010000001,8,80201,2,1);
+INSERT INTO Inscripcion (insc_semestre,insc_estudiante_cc,insc_id_asignatura,insc_id_programa,insc_no_grupo,insc_id_histAcad) 
+VALUES ('2023-1',1010000001,9,80201,2,1);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000003, 4, 80201, 2, 2);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000003, 5, 80201, 2, 2);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000003, 7, 80201, 1, 2);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000004, 6, 80201, 1, 3);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000004, 7, 80201, 1, 3);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000004, 8, 80201, 2, 3);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000004, 9, 80201, 1, 3);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000008, 9, 80201, 2, 4);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000008, 10, 80201, 1, 4);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000008, 11, 80201, 1, 4);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000010, 7, 80201, 1, 5);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000010, 8, 80201, 2, 5);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000010, 9, 80201, 2, 5);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000010, 10, 80201, 1, 5);
+-- Del programa de estadísica
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000002, 14, 20101, 1,6);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000002, 15, 20101, 1, 6);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000002, 16, 20101, 1, 6);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000005, 14, 20101, 1, 7);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000005, 15, 20101, 1, 7);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000005, 16, 20101, 1, 7);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000006, 14, 20101, 1, 8);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000006, 16, 20101, 1, 8);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000006, 17, 20101, 1, 8);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000007, 18, 20101, 1, 9);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000007, 19, 20101, 1, 9);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000007, 21, 20101, 1, 9);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000009, 20, 20101, 1, 10);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000009, 21, 20101, 1, 10);
+INSERT INTO Inscripcion (insc_semestre, insc_estudiante_cc, insc_id_asignatura, insc_id_programa, insc_no_grupo, insc_id_histAcad) 
+VALUES ('2023-1', 1010000009, 22, 20101, 1, 10);
 
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000005, 20101, 14, 4.44, 1, 7);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000005, 20101, 15, 3.43, 1, 7);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000005, 20101, 16, 4.04, 1, 7);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.44, 100, 3, '2023-1', 1010000005, 20101, 14);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.43, 100, 3, '2023-1', 1010000005, 20101, 15);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.04, 100, 3, '2023-1', 1010000005, 20101, 16);
 
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000006, 20101, 14, 4.07, 1, 8);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000006, 20101, 16, 4.07, 1, 8);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000006, 20101, 17, 3.05, 1, 8);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.07, 100, 3, '2023-1', 1010000006, 20101, 14);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.07, 100, 3, '2023-1', 1010000006, 20101, 16);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.05, 100, 3, '2023-1', 1010000006, 20101, 17);
 
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000007, 20101, 18, 3.25, 1, 9);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000007, 20101, 19, 4.41, 1, 9);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000007, 20101, 21, 3.14, 1, 9);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.25, 100, 3, '2023-1', 1010000007, 20101, 18);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.41, 100, 3, '2023-1', 1010000007, 20101, 19);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.14, 100, 3, '2023-1', 1010000007, 20101, 21);
 
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000009, 20101, 20, 3.68, 1, 10);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000009, 20101, 21, 4.81, 1, 10);
-insert into ponderado (ponde_insc_semestre, ponde_insc_estudiante_cc, ponde_insc_id_programa, ponde_insc_id_asignatura, ponde_nota_final, ponde_aprobado, ponde_id_histAcad) values ('2023-1', 1010000009, 20101, 22, 4.65, 1, 10);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',3.68, 100, 3, '2023-1', 1010000009, 20101, 20);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.81, 100, 3, '2023-1', 1010000009, 20101, 21);
-insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc, eval_ponde_insc_id_programa, eval_ponde_insc_id_asignatura) values ('Nota1',4.65, 100, 3, '2023-1', 1010000009, 20101, 22);
+-- EVALUACION ----------------------------------------------------------------------------------------------
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.12, 100, 3, '2023-1', 1010000001, 80201, 7);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.34, 100, 3, '2023-1', 1010000001, 80201, 8);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.78, 100, 3, '2023-1', 1010000001, 80201, 9);
 
--- UPDATE Facultad SET facu_nombre = 'INGENIERÍA' WHERE facu_nombre = 'Ingeniería';
--- UPDATE Facultad SET facu_nombre = 'CIENCIAS' WHERE facu_nombre = 'Ciencias';
+INSERT INTO evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)
+VALUES ('Nota1', 4.12, 100, 3, '2023-1', 1010000003, 80201, 4);
 
--- UPDATE Programa SET prog_nombre = 'INGENIERÍA DE SISTEMAS Y COMPUTACIÓN' WHERE prog_nombre = 'Ingeniería de Sistemas y Computación';
--- UPDATE Programa SET prog_nombre = 'ESTADÍSTICA' WHERE prog_nombre = 'Estadística';
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.1, 100, 3, '2023-1', 1010000003, 80201, 5);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.86, 100, 3, '2023-1', 1010000003, 80201, 7);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.23, 100, 3, '2023-1', 1010000004, 80201, 6);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.07, 100, 3, '2023-1', 1010000004, 80201, 7);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.5, 100, 3, '2023-1', 1010000004, 80201, 8);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.44, 100, 3, '2023-1', 1010000004, 80201, 9);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.05, 100, 3, '2023-1', 1010000008, 80201, 9);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.08, 100, 3, '2023-1', 1010000008, 80201, 10);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.23, 100, 3, '2023-1', 1010000008, 80201, 11);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.0, 100, 3, '2023-1', 1010000010, 80201, 7);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.04, 100, 3, '2023-1', 1010000010, 80201, 8);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.34, 100, 3, '2023-1', 1010000010, 80201, 9);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.02, 100, 3, '2023-1', 1010000010, 80201, 10);
+
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.87, 100, 3, '2023-1', 1010000002, 20101, 14);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.33, 100, 3, '2023-1', 1010000002, 20101, 15);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.01, 100, 3, '2023-1', 1010000002, 20101, 16);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.44, 100, 3, '2023-1', 1010000005, 20101, 14);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.43, 100, 3, '2023-1', 1010000005, 20101, 15);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.04, 100, 3, '2023-1', 1010000005, 20101, 16);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.07, 100, 3, '2023-1', 1010000006, 20101, 14);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.07, 100, 3, '2023-1', 1010000006, 20101, 16);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.05, 100, 3, '2023-1', 1010000006, 20101, 17);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.25, 100, 3, '2023-1', 1010000007, 20101, 18);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.41, 100, 3, '2023-1', 1010000007, 20101, 19);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.14, 100, 3, '2023-1', 1010000007, 20101, 21);
+
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.68, 100, 3, '2023-1', 1010000009, 20101, 20);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.81, 100, 3, '2023-1', 1010000009, 20101, 21);
+insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',4.65, 100, 3, '2023-1', 1010000009, 20101, 22);
+
+
+
