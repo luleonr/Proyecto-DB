@@ -734,7 +734,7 @@ BEGIN
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Notas_definitivas TO Estudiante;
-CALL Notas_definitivas(1);
+-- CALL Notas_definitivas(1);
 
 
 -- ---------------------------------------------------------------------------
@@ -755,7 +755,7 @@ BEGIN
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Notas_materia TO Estudiante;
-CALL Notas_materia(1,1);
+-- CALL Notas_materia(1,1);
 
 
 
