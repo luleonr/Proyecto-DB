@@ -268,12 +268,12 @@ CREATE TABLE Evaluacion (
   eval_nota DECIMAL(5,2) NULL,
   eval_porcentaje DECIMAL(5,2) NOT NULL,
   eval_calificacion_minima DECIMAL(5,2) NOT NULL DEFAULT 3.00,
-  eval_ponde_insc_semestre VARCHAR(10) NOT NULL,
-  eval_ponde_insc_estudiante_cc INT NOT NULL,
-  eval_ponde_insc_id_programa INT NOT NULL,
-  eval_ponde_insc_id_asignatura INT NOT NULL,
-  PRIMARY KEY (eval_nombre, eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura),
-    FOREIGN KEY (eval_ponde_insc_semestre, eval_ponde_insc_estudiante_cc,  eval_ponde_insc_id_programa,eval_ponde_insc_id_asignatura)
+  eval_insc_semestre VARCHAR(10) NOT NULL,
+  eval_insc_estudiante_cc INT NOT NULL,
+  eval_insc_id_programa INT NOT NULL,
+  eval_insc_id_asignatura INT NOT NULL,
+  PRIMARY KEY (eval_nombre, eval_insc_semestre, eval_insc_estudiante_cc,  eval_insc_id_programa,eval_insc_id_asignatura),
+    FOREIGN KEY (insc_semestre, insc_estudiante_cc,  eval_insc_id_programa,eval_insc_id_asignatura)
     REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa , insc_id_asignatura)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
