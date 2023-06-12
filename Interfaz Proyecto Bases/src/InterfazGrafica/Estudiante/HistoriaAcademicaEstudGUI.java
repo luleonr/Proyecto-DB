@@ -27,12 +27,9 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
     public HistoriaAcademicaEstudGUI() {
         initComponents();   
-        panel_Asignaturas.setLayout(new BoxLayout(panel_Asignaturas, BoxLayout.Y_AXIS));
-        panelList = new ArrayList<>();
-
-        scrollpanelAsignaturas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollpanelAsignaturas.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        add(scrollpanelAsignaturas, BorderLayout.CENTER);        
+        panelList = new ArrayList<>();        
+        AgregarPanel(panel_Asignaturas, scrollpanelAsignaturas);
+      
     }
 
     /**
@@ -189,10 +186,10 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
+        labelCreditosDoble = new javax.swing.JLabel();
+        labelCreditosAdicionales = new javax.swing.JLabel();
+        labelCupoCreditos = new javax.swing.JLabel();
+        labelCreditosDisponibles = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 2500));
@@ -1353,24 +1350,24 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
         jPanel11.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jLabel58.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel58.setText("Créditos de estuido doble titulación");
+        jLabel58.setText("Créditos de estudio doble titulación");
         jPanel11.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
-        jLabel59.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel59.setText("100");
-        jPanel11.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+        labelCreditosDoble.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelCreditosDoble.setText("100");
+        jPanel11.add(labelCreditosDoble, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
-        jLabel60.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel60.setText("100");
-        jPanel11.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
+        labelCreditosAdicionales.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelCreditosAdicionales.setText("100");
+        jPanel11.add(labelCreditosAdicionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
 
-        jLabel61.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel61.setText("100");
-        jPanel11.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        labelCupoCreditos.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelCupoCreditos.setText("100");
+        jPanel11.add(labelCupoCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
-        jLabel62.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel62.setText("100");
-        jPanel11.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        labelCreditosDisponibles.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        labelCreditosDisponibles.setText("100");
+        jPanel11.add(labelCreditosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 1890, 480, 130));
 
@@ -1404,7 +1401,15 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
         panel_Asignaturas.revalidate();
         panel_Asignaturas.repaint();
     }      
-    
+        
+        public void AgregarPanel(JPanel panel, JScrollPane scrollpanel){
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        scrollpanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollpanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(scrollpanel, BorderLayout.CENTER);   
+            
+        }    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> comboBox_PlanEstudios;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -1461,11 +1466,7 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1498,6 +1499,10 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel labelAprobados7;
     private javax.swing.JLabel labelAprobados8;
     private javax.swing.JLabel labelAprobados9;
+    public javax.swing.JLabel labelCreditosAdicionales;
+    public javax.swing.JLabel labelCreditosDisponibles;
+    public javax.swing.JLabel labelCreditosDoble;
+    public javax.swing.JLabel labelCupoCreditos;
     private javax.swing.JLabel labelCursados1;
     private javax.swing.JLabel labelCursados2;
     private javax.swing.JLabel labelCursados3;
@@ -1534,7 +1539,7 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel labelPendientes7;
     private javax.swing.JLabel labelPendientes8;
     private javax.swing.JLabel labelPendientes9;
-    private javax.swing.JLabel labelPorcentajeAvance;
+    public javax.swing.JLabel labelPorcentajeAvance;
     public javax.swing.JLabel label_Carrera;
     public javax.swing.JLabel label_Facultad;
     private javax.swing.JLabel label_HisAcad;

@@ -78,26 +78,28 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_historia_academica;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica()
 BEGIN
-	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
+	SELECT * FROM vw_Historia_academica WHERE usuario = SUBSTRING_INDEX(USER(), '@', 1);
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_historia_academica TO Estudiante;
--- CALL sp_Estudiante_mostrar_historia_academica('mcheshire');
+-- CALL sp_Estudiante_mostrar_historia_academica();
 
 -- ---------------------------------------------------------------------------
 -- MOSTRAR HORARIO
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_horario;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_mostrar_horario(user_ CHAR(40))
+CREATE PROCEDURE sp_Estudiante_mostrar_horario()
 BEGIN
-	SELECT * FROM  vw_Horario WHERE usuario = user_;
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	SELECT * FROM  vw_Horario WHERE usuario = user_ ORDER BY Hora_inicio ASC;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
--- CALL sp_Estudiante_mostrar_horario('mcheshire');
+-- CALL sp_Estudiante_mostrar_horario();
 
 
 -- ROL PROFESOR ----------------------------------------------------------------------------------------------

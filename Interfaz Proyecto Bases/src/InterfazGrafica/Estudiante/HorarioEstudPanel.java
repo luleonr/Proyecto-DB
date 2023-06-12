@@ -33,7 +33,11 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelHorario = new javax.swing.JLabel();
         labelMateria = new javax.swing.JLabel();
+        labelSalon = new javax.swing.JLabel();
+        labelEdificio = new javax.swing.JLabel();
+        labelPeriodo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setMaximumSize(new java.awt.Dimension(130, 45));
@@ -41,40 +45,52 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(130, 45));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelMateria.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        labelMateria.setText("7:00 Materia 1 bsfgfhff");
-        labelMateria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelMateria.setMaximumSize(new java.awt.Dimension(130, 45));
-        labelMateria.setMinimumSize(new java.awt.Dimension(130, 45));
-        labelMateria.setPreferredSize(new java.awt.Dimension(130, 45));
-        labelMateria.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelHorario.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        labelHorario.setText("7:00 Materia 1 bsfgfhff");
+        labelHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelHorario.setMaximumSize(new java.awt.Dimension(130, 45));
+        labelHorario.setMinimumSize(new java.awt.Dimension(130, 45));
+        labelHorario.setPreferredSize(new java.awt.Dimension(130, 45));
+        labelHorario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelMateriaMouseClicked(evt);
+                labelHorarioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelMateriaMouseEntered(evt);
+                labelHorarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelMateriaMouseExited(evt);
+                labelHorarioMouseExited(evt);
             }
         });
-        add(labelMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        labelMateria.setText("Materia");
+        add(labelMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+
+        labelSalon.setText("Salon");
+        add(labelSalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        labelEdificio.setText("Edificio");
+        add(labelEdificio, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
+
+        labelPeriodo.setText("Periodo");
+        add(labelPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labelMateriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMateriaMouseEntered
+    private void labelHorarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHorarioMouseEntered
         // TODO add your handling code here:
-        colorViejo = labelMateria.getForeground();
-        labelMateria.setBackground(new Color(145,179,59));
-        labelMateria.setForeground(new Color(145,179,59));
-    }//GEN-LAST:event_labelMateriaMouseEntered
+        colorViejo = labelHorario.getForeground();
+        labelHorario.setBackground(new Color(145,179,59));
+        labelHorario.setForeground(new Color(145,179,59));
+    }//GEN-LAST:event_labelHorarioMouseEntered
 
-    private void labelMateriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMateriaMouseExited
+    private void labelHorarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHorarioMouseExited
         // TODO add your handling code here:
-        labelMateria.setBackground(colorViejo);
-        labelMateria.setForeground(colorViejo);
-    }//GEN-LAST:event_labelMateriaMouseExited
+        labelHorario.setBackground(colorViejo);
+        labelHorario.setForeground(colorViejo);
+    }//GEN-LAST:event_labelHorarioMouseExited
 
-    private void labelMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMateriaMouseClicked
+    private void labelHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHorarioMouseClicked
         // TODO add your handling code here:
         HorarioDetalle horar = new HorarioDetalle();
         horar.setVisible(true);
@@ -83,14 +99,23 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
 
         horar.setLocation(400, 175);   
         
+        horar.labelMateria.setText(labelMateria.getText());
+        horar.labelSalon.setText(labelSalon.getText());
+        horar.labelEdificio.setText(labelEdificio.getText());
+        horar.labelPeriodo.setText(labelPeriodo.getText());
+        
         HistoriaAcademica.mostrarHistoria_Academica("Academico");
         
         horar.labelCarrera.setText(HistoriaAcademica.Carrera);
         
-    }//GEN-LAST:event_labelMateriaMouseClicked
+    }//GEN-LAST:event_labelHorarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel labelEdificio;
+    public javax.swing.JLabel labelHorario;
     public javax.swing.JLabel labelMateria;
+    public javax.swing.JLabel labelPeriodo;
+    public javax.swing.JLabel labelSalon;
     // End of variables declaration//GEN-END:variables
 }

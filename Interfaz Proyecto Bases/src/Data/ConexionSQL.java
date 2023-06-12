@@ -22,9 +22,9 @@ public class ConexionSQL{
         try{
             // Intentamos ver la libreria que descargamos para conector java con mysql esta correctamente cargada en el proyecto
             Class.forName(driver);
-            System.out.println("-------------------------------------------------");
+            /*System.out.println("-------------------------------------------------");
             System.out.println("Driver ha sido cargado con exito");
-            System.out.println("-------------------------------------------------");
+            System.out.println("-------------------------------------------------");*/
             try{
                 // vamos a intentar ejecutar una conexion
                 //el url funciona  jdbc:mysql:// + host_name / puerto /  nombreBD: 
@@ -56,9 +56,9 @@ public class ConexionSQL{
     public static void  desConexion(Connection conexion){
         try{
            conexion.close();
-           System.out.println("-------------------------------------------------");
+           /*System.out.println("-------------------------------------------------");
            System.out.println("La desconexion de la BD ha sido exitosa");
-           System.out.println("-------------------------------------------------");
+           System.out.println("-------------------------------------------------");*/
         }catch(Exception e){
             System.out.println("Ha ocurrido un error al intentar desconectar la conexion de la BD: " + e.getMessage());
         }

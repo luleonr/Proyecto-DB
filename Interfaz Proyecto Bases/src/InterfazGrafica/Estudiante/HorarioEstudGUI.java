@@ -152,26 +152,34 @@ public class HorarioEstudGUI extends javax.swing.JPanel {
         jSeparator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(186, 186, 186)));
         jSeparator6.setPreferredSize(new java.awt.Dimension(2, 320));
 
+        panelLunes.setBackground(new java.awt.Color(221, 221, 221));
         panelLunes.setPreferredSize(new java.awt.Dimension(130, 260));
         panelLunes.setLayout(new javax.swing.BoxLayout(panelLunes, javax.swing.BoxLayout.LINE_AXIS));
+
+        scrollpanelLunes.setBackground(new java.awt.Color(221, 221, 221));
         panelLunes.add(scrollpanelLunes);
 
+        panelMartes.setBackground(new java.awt.Color(221, 221, 221));
         panelMartes.setPreferredSize(new java.awt.Dimension(130, 100));
         panelMartes.setLayout(new javax.swing.BoxLayout(panelMartes, javax.swing.BoxLayout.LINE_AXIS));
         panelMartes.add(scrollpanelMartes);
 
+        panelMiercoles.setBackground(new java.awt.Color(221, 221, 221));
         panelMiercoles.setPreferredSize(new java.awt.Dimension(130, 100));
         panelMiercoles.setLayout(new javax.swing.BoxLayout(panelMiercoles, javax.swing.BoxLayout.LINE_AXIS));
         panelMiercoles.add(scrollpanelMiercoles);
 
+        panelJueves.setBackground(new java.awt.Color(221, 221, 221));
         panelJueves.setPreferredSize(new java.awt.Dimension(130, 100));
         panelJueves.setLayout(new javax.swing.BoxLayout(panelJueves, javax.swing.BoxLayout.LINE_AXIS));
         panelJueves.add(scrollpanelJueves);
 
+        panelViernes.setBackground(new java.awt.Color(221, 221, 221));
         panelViernes.setPreferredSize(new java.awt.Dimension(130, 100));
         panelViernes.setLayout(new javax.swing.BoxLayout(panelViernes, javax.swing.BoxLayout.LINE_AXIS));
         panelViernes.add(scrollpanelViernes);
 
+        panelSabado.setBackground(new java.awt.Color(221, 221, 221));
         panelSabado.setPreferredSize(new java.awt.Dimension(130, 100));
         panelSabado.setLayout(new javax.swing.BoxLayout(panelSabado, javax.swing.BoxLayout.LINE_AXIS));
         panelSabado.add(scrollpanelSabado);
@@ -271,15 +279,19 @@ public class HorarioEstudGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoHorario(String materia, JPanel panelDia) {
+        public static void agregarPanelNuevoHorario(String hora, String materia,String salon,String edificio,String semestre, JPanel panelDia) {
         HorarioEstudPanel panel = new HorarioEstudPanel();
         panel.setPreferredSize(new Dimension(130, 45));
         panel.setMaximumSize(new Dimension(130,45));
         panel.setMinimumSize(new Dimension(130,45));
         panel.setBackground(new Color(221,221,221));
 
+        panel.labelHorario.setText(hora +":00  "+ materia);
         panel.labelMateria.setText(materia);
-
+        panel.labelSalon.setText(salon);
+        panel.labelEdificio.setText(edificio);
+        panel.labelPeriodo.setText(semestre);
+        
         panelList.add(panel);
         panelDia.add(panel);
         panelDia.revalidate();

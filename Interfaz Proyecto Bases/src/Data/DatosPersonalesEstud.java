@@ -1,6 +1,6 @@
 package Data;
 
-import InterfazGrafica.Login;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,7 +20,8 @@ public class DatosPersonalesEstud {
     
     public static void mostrarDatos_PersonalesEstud(String nombreBD){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);         
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);         
+        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234");       
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -41,14 +42,14 @@ public class DatosPersonalesEstud {
                 Carrera = rows.getString("Carrera");
                
                 
-                System.out.println(Cedula);
+                /*System.out.println(Cedula);
                 System.out.println(Nombre);
                 System.out.println(Direccion);
                 System.out.println(Telefono_Movil);
                 System.out.println(Telefono_Fijo);
                 System.out.println(Correo);
                 System.out.println(AñoIngreso);
-                System.out.println(Carrera);
+                System.out.println(Carrera);*/
                 System.out.println("");
 
             }

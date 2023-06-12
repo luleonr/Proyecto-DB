@@ -3,20 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/InscripcionProximaCita.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/HistoriaAcademicaEstudGUI.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/HistoriaAcadAsigDetalle.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/InscripcionCancelacion.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/InscripcionFrame.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Login.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/RolDocente.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Bussines/Main.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/PantallaPrincipalEstudGUI.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/HorarioEstudPanel.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/HorarioDetalleProfe.java</file>
             <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/InformacionAcademica.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/ListaDeClase.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/ListaDeClaseDetalle.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/Inscripcion.java</file>
-            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/PantallaPrincipalProfGUI.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/HorarioEstudGUI.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/HorarioEstud.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/HorarioDetalle.java</file>
         </group>
     </open-files>
 </project-private>

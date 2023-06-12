@@ -4,6 +4,8 @@
  */
 package InterfazGrafica.Estudiante;
 
+import InterfazGrafica.Profesor.*;
+import InterfazGrafica.Estudiante.*;
 import java.awt.Color;
 
 /**
@@ -30,7 +32,7 @@ public class HorarioDetalle extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelMateria = new javax.swing.JLabel();
         panelAtras = new javax.swing.JPanel();
         labelAtras = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -39,17 +41,19 @@ public class HorarioDetalle extends javax.swing.JFrame {
         labelNombreEdif = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        labelCarrera = new javax.swing.JLabel();
         labelFecha = new javax.swing.JLabel();
         labelHora = new javax.swing.JLabel();
-        labelSalon = new javax.swing.JLabel();
+        labelEdificio = new javax.swing.JLabel();
         labelNombreSal = new javax.swing.JLabel();
-        labelAño = new javax.swing.JLabel();
+        labelPeriodo = new javax.swing.JLabel();
         labelGrupo = new javax.swing.JLabel();
+        labelSalon1 = new javax.swing.JLabel();
+        labelSalon = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        labelCarrera = new javax.swing.JLabel();
         labelNombreProf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,8 +67,8 @@ public class HorarioDetalle extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("0121512");
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel2.setText("MATERIA 1");
+        labelMateria.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelMateria.setText("MATERIA 1");
 
         panelAtras.setBackground(new java.awt.Color(145, 179, 59));
         panelAtras.setPreferredSize(new java.awt.Dimension(212, 55));
@@ -120,20 +124,11 @@ public class HorarioDetalle extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(186, 186, 186));
         jSeparator2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(186, 186, 186)));
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        jLabel8.setText("Plan:");
-
         jLabel9.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         jLabel9.setText("Actividad:");
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         jLabel10.setText("Grupo:");
-
-        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        jLabel11.setText("Profesor");
-
-        labelCarrera.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        labelCarrera.setText("CARRERA");
 
         labelFecha.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         labelFecha.setText("Fecha");
@@ -141,17 +136,32 @@ public class HorarioDetalle extends javax.swing.JFrame {
         labelHora.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         labelHora.setText("Hora");
 
-        labelSalon.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        labelSalon.setText("EdifSalon");
+        labelEdificio.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        labelEdificio.setText("405");
 
         labelNombreSal.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         labelNombreSal.setText("NombreSalon");
 
-        labelAño.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        labelAño.setText("2023-1S");
+        labelPeriodo.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        labelPeriodo.setText("2023-1S");
 
         labelGrupo.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         labelGrupo.setText("Grupo 5 ( )");
+
+        labelSalon1.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        labelSalon1.setText("-");
+
+        labelSalon.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        labelSalon.setText("405");
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        jLabel2.setText("Plan:");
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        jLabel3.setText("Profesor:");
+
+        labelCarrera.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        labelCarrera.setText("CARRERA");
 
         labelNombreProf.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         labelNombreProf.setText("NombreProfesor");
@@ -168,19 +178,19 @@ public class HorarioDetalle extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
-                                .addGap(38, 38, 38)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(36, 36, 36)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelNombreProf, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelNombreProf, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(labelGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                        .addComponent(labelMateria))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -195,16 +205,20 @@ public class HorarioDetalle extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelAño)
+                            .addComponent(labelPeriodo)
+                            .addComponent(labelNombreEdif)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(labelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(labelEdificio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelSalon1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelSalon)
                                 .addGap(18, 18, 18)
-                                .addComponent(labelNombreSal))
-                            .addComponent(labelNombreEdif)))
+                                .addComponent(labelNombreSal))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(376, 376, 376)
                         .addComponent(panelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -216,7 +230,7 @@ public class HorarioDetalle extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(labelMateria))
                 .addGap(6, 6, 6)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -227,33 +241,38 @@ public class HorarioDetalle extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(labelSalon)
-                    .addComponent(labelNombreSal))
+                    .addComponent(labelEdificio)
+                    .addComponent(labelNombreSal)
+                    .addComponent(labelSalon1)
+                    .addComponent(labelSalon))
                 .addGap(6, 6, 6)
                 .addComponent(labelNombreEdif)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(labelAño))
+                    .addComponent(labelPeriodo))
                 .addGap(27, 27, 27)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(jLabel2)
                     .addComponent(labelCarrera))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(labelGrupo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(labelNombreProf))
-                .addGap(27, 27, 27)
-                .addComponent(panelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(panelAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelGrupo)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(labelNombreProf))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,6 +330,9 @@ public class HorarioDetalle extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HorarioDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -323,26 +345,28 @@ public class HorarioDetalle extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelAtras;
-    private javax.swing.JLabel labelAño;
     public javax.swing.JLabel labelCarrera;
+    public javax.swing.JLabel labelEdificio;
     private javax.swing.JLabel labelFecha;
-    private javax.swing.JLabel labelGrupo;
+    public javax.swing.JLabel labelGrupo;
     private javax.swing.JLabel labelHora;
-    private javax.swing.JLabel labelNombreEdif;
-    private javax.swing.JLabel labelNombreProf;
-    private javax.swing.JLabel labelNombreSal;
-    private javax.swing.JLabel labelSalon;
+    public javax.swing.JLabel labelMateria;
+    public javax.swing.JLabel labelNombreEdif;
+    public javax.swing.JLabel labelNombreProf;
+    public javax.swing.JLabel labelNombreSal;
+    public javax.swing.JLabel labelPeriodo;
+    public javax.swing.JLabel labelSalon;
+    private javax.swing.JLabel labelSalon1;
     private javax.swing.JPanel panelAtras;
     // End of variables declaration//GEN-END:variables
 }
