@@ -1,5 +1,3 @@
-@@ -1,378 +1,386 @@
-@@ -1,379 +1,384 @@
 DROP SCHEMA IF EXISTS Academico;
 CREATE SCHEMA Academico;
 USE Academico;
@@ -234,7 +232,6 @@ CREATE TABLE Inscripcion (
   insc_id_programa INT NOT NULL,
   insc_no_grupo INT NOT NULL,
   insc_nota_final DECIMAL(5,2) NULL,
-  insc_aprobado TINYINT NULL,
   insc_aprobado ENUM('Aprobado','Reprobado'),
   insc_id_histAcad INT NOT NULL,
   PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
@@ -375,7 +372,6 @@ CREATE TABLE Programa_has_Asignatura (
   Programa_id_programa INT NOT NULL,
   Asignatura_id_asignatura INT NOT NULL,
   Asignatura_id_prerrequisito INT,
-  Tipologia VARCHAR(45),
   Tipologia ENUM('Disciplinar optativa','Fundamental obligatoria','Fundamental optativa',
   'Disciplinar obligatoria','Libre elección','Trabajo de grado','Nivelación'),
   FOREIGN KEY (Programa_id_programa)

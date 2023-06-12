@@ -1,7 +1,3 @@
-@@ -1,841 +1,883 @@
-@@ -1,841 +1,873 @@
-USE Academico;
-
 -- ROL ESTUDIANTE --------------------------------------------------------------
 -- -----------------------------------------------------------------------------
 -- MOSTRAR DATOS ESTUDIANTE
@@ -25,9 +21,6 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_datos_personales TO Estudiante;
 DROP PROCEDURE IF EXISTS sp_Estudiante_actualizar_datos_personales;
 DELIMITER //
 CREATE PROCEDURE sp_Estudiante_actualizar_datos_personales( 
-  Direccion_ VARCHAR(40), 
-  Tel_Mov VARCHAR(40), 
-  Tel_Fij VARCHAR(40)
   IN Direccion_ VARCHAR(40), 
   IN Tel_Mov VARCHAR(40), 
   IN Tel_Fij VARCHAR(40)
@@ -62,12 +55,10 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
 -- CALL sp_Estudiante_mostrar_planes();
 
 -- ---------------------------------------------------------------------------
--- MOSTRAR HISTORIA ACADEMICA
 -- MOSTRAR ASIGNATURAS CURSADAS
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_asignaturas;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_mostrar_asignaturas()
 CREATE PROCEDURE sp_Estudiante_mostrar_asignaturas(IN Programa INT)
 BEGIN
     DECLARE user_ VARCHAR(45);
@@ -93,10 +84,8 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_historia_academica;
 DELIMITER //
-CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica()
 CREATE PROCEDURE sp_Estudiante_mostrar_historia_academica(IN Carrera INT)
 BEGIN
-	SELECT * FROM vw_Historia_academica WHERE usuario = SUBSTRING_INDEX(USER(), '@', 1);
 	DECLARE user_ VARCHAR(45);
     SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
     
