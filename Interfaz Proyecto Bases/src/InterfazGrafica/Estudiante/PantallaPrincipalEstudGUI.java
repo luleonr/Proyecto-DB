@@ -4,6 +4,7 @@
  */
 package InterfazGrafica.Estudiante;
 
+import InterfazGrafica.Inscripcion.Inscripcion;
 import Data.DatosPersonalesEstud;
 import InterfazGrafica.CerrarSesion;
 import java.awt.BorderLayout;
