@@ -326,7 +326,8 @@ public class Login extends javax.swing.JFrame {
     }
     
     public static void abrir_PantallaPrincipal(){
-        
+    
+
         if(Rol.mostrarRol("Academico").compareTo("Estudiante") == 0){
             PantallaPrincipalEstudGUI pantalla = new PantallaPrincipalEstudGUI();
 

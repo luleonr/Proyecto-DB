@@ -25,7 +25,7 @@ public class DatosPersonalesProfe {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_Profesor_mostrar_datos_personales(SUBSTRING_INDEX(CURRENT_USER(), '@', 1));"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_Profesor_mostrar_datos_personales();"); // ejecutar consulta
 
             while(rows.next()){
                             

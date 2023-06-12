@@ -172,14 +172,16 @@ GRANT EXECUTE ON FUNCTION f_find_cc_from_user TO Profesor;
 -- -----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Profesor_mostrar_datos_personales;
 DELIMITER //
-CREATE PROCEDURE sp_Profesor_mostrar_datos_personales(IN user_ CHAR(40))
+CREATE PROCEDURE sp_Profesor_mostrar_datos_personales()
 BEGIN
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   SELECT * FROM vw_Profesor_ver_datos_personales WHERE usuario = user_;
 END //
 DELIMITER ;
 
 GRANT EXECUTE ON PROCEDURE sp_Profesor_mostrar_datos_personales TO Profesor;
--- CALL sp_Profesor_mostrar_datos_personales('jcoleborn');
+-- CALL sp_Profesor_mostrar_datos_personales();
 
 -- ----------------------------------------------------------------------------
 -- MODIFICAR DATOS PROFESOR
@@ -683,7 +685,7 @@ GRANT EXECUTE ON PROCEDURE Inscribir_materia TO Estudiante;
 -- ---------------------------------------------------------------------------
 -- NOTAS DEFINITIVAS
 -- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Notas_definitivas;
+/*DROP PROCEDURE IF EXISTS Notas_definitivas;
 DELIMITER //
 CREATE PROCEDURE Notas_definitivas(Semestre VARCHAR(10))
 BEGIN
@@ -699,7 +701,7 @@ END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Notas_definitivas TO Estudiante;
 CALL Notas_definitivas(1);
-
+*/
 
 -- ---------------------------------------------------------------------------
 -- NOTAS POR MATERIA
@@ -719,7 +721,7 @@ BEGIN
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Notas_materia TO Estudiante;
-CALL Notas_materia(1,1);
+-- CALL Notas_materia(1,1);
 
 
 
@@ -857,15 +859,16 @@ GRANT EXECUTE ON PROCEDURE sp_actualizar_historia_academica_estudiante TO Admin_
 SET GLOBAL log_bin_trust_function_creators = 1;
 DROP FUNCTION IF EXISTS f_obtener_rol;
 DELIMITER $$
-CREATE FUNCTION f_obtener_rol(usuario VARCHAR(50)) RETURNS VARCHAR(10)
+CREATE FUNCTION f_obtener_rol() RETURNS VARCHAR(10)
 BEGIN
-	SET @rol = MONTH(curdate());
-    
-	SELECT user_rol INTO @rol	
-	FROM vw_rol_usuario
-	WHERE user_usuario = usuario;
+    DECLARE rol_val VARCHAR(50);
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);    
+    SELECT user_rol INTO rol_val
+    FROM vw_rol_usuario
+    WHERE user_usuario = user_;
   
-	RETURN @rol;
+    RETURN rol_val;
 END $$
 DELIMITER ;
 GRANT EXECUTE ON FUNCTION f_obtener_rol TO Estudiante;

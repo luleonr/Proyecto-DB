@@ -22,7 +22,6 @@ public class ModificarDatosPersonalesEstud {
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);                 
 
         System.out.println("");
-        String usuarioParametro = Login.usuarioLogin;
         String direccionParametro = direccion;
         String tel_fijoParametro = telFijo;
         String tel_movParametro = telMovil;
@@ -30,13 +29,12 @@ public class ModificarDatosPersonalesEstud {
         
         try{
 
-            String query = "{CALL sp_Estudiante_actualizar_datos_personales(?, ?, ?, ?)}";
+            String query = "{CALL sp_Estudiante_actualizar_datos_personales(?, ?, ?)}";
             CallableStatement statement = conn.prepareCall(query);
             
-            statement.setString(1, usuarioParametro);
-            statement.setString(2, direccionParametro);
-            statement.setString(3, tel_movParametro);
-            statement.setString(4, tel_fijoParametro);
+            statement.setString(1, direccionParametro);
+            statement.setString(2, tel_movParametro);
+            statement.setString(3, tel_fijoParametro);
             
             statement.execute();
             

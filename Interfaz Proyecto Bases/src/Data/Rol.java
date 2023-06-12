@@ -30,7 +30,7 @@ public class Rol {
               
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("SELECT f_obtener_rol(SUBSTRING_INDEX(CURRENT_USER(), '@', 1));"); // ejecutar consulta
+            rows = declaracion.executeQuery("SELECT f_obtener_rol();"); // ejecutar consulta
             
             while(rows.next()){
                 Rol = rows.getString(1);

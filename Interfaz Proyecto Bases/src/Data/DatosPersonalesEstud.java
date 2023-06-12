@@ -1,6 +1,7 @@
 package Data;
 
 
+import InterfazGrafica.Login;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,8 +21,7 @@ public class DatosPersonalesEstud {
     
     public static void mostrarDatos_PersonalesEstud(String nombreBD){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);         
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234");       
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);             
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
