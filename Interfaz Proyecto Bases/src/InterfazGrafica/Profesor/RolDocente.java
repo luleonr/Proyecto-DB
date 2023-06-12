@@ -25,11 +25,14 @@ import javax.swing.JScrollPane;
 public class RolDocente extends javax.swing.JPanel {
     
     public String nombreBD = "Academico";
+    public static ArrayList<String> cedulaList = new ArrayList<>();
+    public static ArrayList<String> nombreList = new ArrayList<>();
+
     public static ArrayList<String> asignaturaList = new ArrayList<>();
     public static ArrayList<String> creditosList = new ArrayList<>();
     public static ArrayList<String> tipoList = new ArrayList<>();
     public static ArrayList<String> periodoList = new ArrayList<>();
-    public static ArrayList<String> notaList = new ArrayList<>();    
+    public static ArrayList<String> notaList = new ArrayList<>();   
 
     
     public RolDocente() {
@@ -45,8 +48,8 @@ public class RolDocente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_HistoriaAcademica = new javax.swing.JPanel();
-        label_HistoriaAcademica = new javax.swing.JLabel();
+        panelListaClase = new javax.swing.JPanel();
+        labelListaClase = new javax.swing.JLabel();
         panel_Calificaciones = new javax.swing.JPanel();
         label_Calificaciones = new javax.swing.JLabel();
         panel_Horario = new javax.swing.JPanel();
@@ -56,39 +59,39 @@ public class RolDocente extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1007, 611));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel_HistoriaAcademica.setBackground(new java.awt.Color(186, 186, 186));
-        panel_HistoriaAcademica.setPreferredSize(new java.awt.Dimension(261, 263));
+        panelListaClase.setBackground(new java.awt.Color(186, 186, 186));
+        panelListaClase.setPreferredSize(new java.awt.Dimension(261, 263));
 
-        label_HistoriaAcademica.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        label_HistoriaAcademica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_HistoriaAcademica.setText("HISTORIA ACADÉMICA");
-        label_HistoriaAcademica.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        label_HistoriaAcademica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        label_HistoriaAcademica.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label_HistoriaAcademica.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelListaClase.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        labelListaClase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelListaClase.setText("LISTAS DE CLASE");
+        labelListaClase.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelListaClase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelListaClase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelListaClase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_HistoriaAcademicaMouseClicked(evt);
+                labelListaClaseMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                label_HistoriaAcademicaMouseEntered(evt);
+                labelListaClaseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                label_HistoriaAcademicaMouseExited(evt);
+                labelListaClaseMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout panel_HistoriaAcademicaLayout = new javax.swing.GroupLayout(panel_HistoriaAcademica);
-        panel_HistoriaAcademica.setLayout(panel_HistoriaAcademicaLayout);
-        panel_HistoriaAcademicaLayout.setHorizontalGroup(
-            panel_HistoriaAcademicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label_HistoriaAcademica, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout panelListaClaseLayout = new javax.swing.GroupLayout(panelListaClase);
+        panelListaClase.setLayout(panelListaClaseLayout);
+        panelListaClaseLayout.setHorizontalGroup(
+            panelListaClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelListaClase, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        panel_HistoriaAcademicaLayout.setVerticalGroup(
-            panel_HistoriaAcademicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label_HistoriaAcademica, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+        panelListaClaseLayout.setVerticalGroup(
+            panelListaClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelListaClase, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
         );
 
-        add(panel_HistoriaAcademica, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 39, -1, -1));
+        add(panelListaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 39, -1, -1));
 
         panel_Calificaciones.setBackground(new java.awt.Color(186, 186, 186));
         panel_Calificaciones.setPreferredSize(new java.awt.Dimension(261, 263));
@@ -159,15 +162,15 @@ public class RolDocente extends javax.swing.JPanel {
         add(panel_Horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 39, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void label_HistoriaAcademicaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HistoriaAcademicaMouseEntered
+    private void labelListaClaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaClaseMouseEntered
         // TODO add your handling code here:
-        panel_HistoriaAcademica.setBackground(new Color(239,239,239));
-    }//GEN-LAST:event_label_HistoriaAcademicaMouseEntered
+        panelListaClase.setBackground(new Color(239,239,239));
+    }//GEN-LAST:event_labelListaClaseMouseEntered
 
-    private void label_HistoriaAcademicaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HistoriaAcademicaMouseExited
+    private void labelListaClaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaClaseMouseExited
         // TODO add your handling code here:
-        panel_HistoriaAcademica.setBackground(new Color(186,186,186));
-    }//GEN-LAST:event_label_HistoriaAcademicaMouseExited
+        panelListaClase.setBackground(new Color(186,186,186));
+    }//GEN-LAST:event_labelListaClaseMouseExited
 
     private void label_CalificacionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_CalificacionesMouseExited
         // TODO add your handling code here:
@@ -190,91 +193,89 @@ public class RolDocente extends javax.swing.JPanel {
         panel_Horario.setBackground(new Color(186,186,186));
     }//GEN-LAST:event_label_HorarioMouseExited
 
-    private void label_HistoriaAcademicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HistoriaAcademicaMouseClicked
+    private void labelListaClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaClaseMouseClicked
         // TODO add your handling code here:
         //Rellenar las materias que el estudiante ya vio
         AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
+        asigHistAcad.mostrarCedula(nombreBD,nombreList);
+        asigHistAcad.mostrarUsuarios(nombreBD,cedulaList);
         
         
-        abrirHistoriaAcademica();
+        abrirListaClase();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=10;i++){
-            HistoriaAcademicaEstudGUI.agregarPanelNuevoAsignaturas(asignaturaList.get(i),tipoList.get(i));
+        for(int i = 0;i<=15;i++){
+            ListaDeClase.agregarPanelNuevoLista(cedulaList.get(i),nombreList.get(i));
         }
 
-    }//GEN-LAST:event_label_HistoriaAcademicaMouseClicked
+    }//GEN-LAST:event_labelListaClaseMouseClicked
 
     private void label_CalificacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_CalificacionesMouseClicked
-        // TODO add your handling code here:
-        abrirCalificaciones();        
+        // TODO add your handling code here: 
+        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
+        asigHistAcad.mostrarCedula(nombreBD,nombreList);
+        asigHistAcad.mostrarUsuarios(nombreBD,cedulaList);    
+        abrirCalificaciones();
+        //Agregar las materias al panel para visualizarlas
+        for(int i = 0;i<=15;i++){
+            CalificacionesDocente.agregarPanelNuevoLista(nombreList.get(i),cedulaList.get(i));
+        }        
     }//GEN-LAST:event_label_CalificacionesMouseClicked
 
     private void label_HorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HorarioMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:     
         AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
         asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
         asigHistAcad.mostrarCedula(nombreBD,tipoList);             
         abrirHorario();
         //Agregar las materias al panel para visualizarlas
         for(int i = 0;i<=2;i++){
-            HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelLunes);
-            HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelMartes);
-            HorarioEstudGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioEstudGUI.panelMiercoles);
-            HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelJueves);
-            HorarioEstudGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioEstudGUI.panelViernes);
-            HorarioEstudGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioEstudGUI.panelSabado);            
-        }
+            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelLunes);
+            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelMartes);
+            HorarioProfeGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioProfeGUI.panelMiercoles);
+            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelJueves);
+            HorarioProfeGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioProfeGUI.panelViernes);
+            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelSabado);            
+        }    
     }//GEN-LAST:event_label_HorarioMouseClicked
 
-        public void abrirHistoriaAcademica(){
-        HistoriaAcademicaEstudGUI histAcad = new HistoriaAcademicaEstudGUI();   
+        public void abrirListaClase(){
+        ListaDeClase listClase = new ListaDeClase();   
         
         HistoriaAcademica.mostrarHistoria_Academica("Academico");
         
-        histAcad.label_Carrera.setText(HistoriaAcademica.Carrera);
-        histAcad.label_Facultad.setText(HistoriaAcademica.Facultad);
-        histAcad.label_PAPA.setText(HistoriaAcademica.PAPA);
-        histAcad.label_PAPPI.setText(HistoriaAcademica.PAPPI);
-        
-        histAcad.comboBox_PlanEstudios.removeAllItems();
-        histAcad.comboBox_PlanEstudios.addItem(HistoriaAcademica.ID_Carrera + "   " + HistoriaAcademica.Carrera);
         
         // --------------------------------------------------------------------------------------------------
 
-        PantallaPrincipalEstudGUI.mostrarPanel(histAcad);     
+        PantallaPrincipalProfGUI.mostrarPanel(listClase);     
         }
         
         public void abrirCalificaciones(){
-        CalificacionesEstudGUI calificaciones = new CalificacionesEstudGUI();   
+        CalificacionesDocente calificaciones = new CalificacionesDocente();   
         
         HistoriaAcademica.mostrarHistoria_Academica("Academico");    
-        calificaciones.labelCarrera.setText(HistoriaAcademica.Carrera);
      
         // --------------------------------------------------------------------------------------------------
 
-        PantallaPrincipalEstudGUI.mostrarPanel(calificaciones);     
+        PantallaPrincipalProfGUI.mostrarPanel(calificaciones);     
         } 
                 
         public void abrirHorario(){
-        HorarioEstudGUI horario = new HorarioEstudGUI();   
+        HorarioProfeGUI horario = new HorarioProfeGUI();   
         
         HistoriaAcademica.mostrarHistoria_Academica("Academico");
         
-        horario.labelCarrera.setText(HistoriaAcademica.Carrera);
             
         // --------------------------------------------------------------------------------------------------
 
-        PantallaPrincipalEstudGUI.mostrarPanel(horario);     
+        PantallaPrincipalProfGUI.mostrarPanel(horario);     
         }       
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel labelListaClase;
     private javax.swing.JLabel label_Calificaciones;
-    private javax.swing.JLabel label_HistoriaAcademica;
     private javax.swing.JLabel label_Horario;
+    private javax.swing.JPanel panelListaClase;
     private javax.swing.JPanel panel_Calificaciones;
-    private javax.swing.JPanel panel_HistoriaAcademica;
     private javax.swing.JPanel panel_Horario;
     // End of variables declaration//GEN-END:variables
 }

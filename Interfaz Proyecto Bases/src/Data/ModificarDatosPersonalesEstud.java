@@ -27,6 +27,7 @@ public class ModificarDatosPersonalesEstud {
         String tel_fijoParametro = telFijo;
         String tel_movParametro = telMovil;
         
+        
         try{
 
             String query = "{CALL sp_Estudiante_actualizar_datos_personales(?, ?, ?, ?)}";

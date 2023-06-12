@@ -202,7 +202,8 @@ public class PantallaPrincipalProfGUI extends javax.swing.JFrame {
 
     private void labelRolProfesorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRolProfesorMouseClicked
         // TODO add your handling code here:
-
+        RolDocente rolDocente = new RolDocente();
+        mostrarPanel(rolDocente);        
     }//GEN-LAST:event_labelRolProfesorMouseClicked
 
     private void labelRolProfesorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRolProfesorMouseEntered
@@ -231,33 +232,32 @@ public class PantallaPrincipalProfGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_label_Datos_PersonalesMouseClicked
 
         public static void mostrarDatos_PersonalesProf(){
-        DatosPersonalesProfeGUI datosPersonalesProf = new DatosPersonalesProfeGUI();
-        
-        DatosPersonalesProfe.mostrarDatos_PersonalesProf("Academico");
-        
-        datosPersonalesProf.label_Cedula.setText(DatosPersonalesProfe.Cedula);
-        datosPersonalesProf.label_Correo_Institucional.setText(DatosPersonalesProfe.Correo);
-        datosPersonalesProf.label_Direccion.setText(DatosPersonalesProfe.Direccion);
-        datosPersonalesProf.label_Nombre.setText(DatosPersonalesProfe.Nombre);
-        datosPersonalesProf.label_Tel_Fijo.setText(DatosPersonalesProfe.Telefono_Fijo);
-        datosPersonalesProf.label_Tel_Movil.setText(DatosPersonalesProfe.Telefono_Movil);
-        
-        mostrarPanel(datosPersonalesProf);            
+            DatosPersonalesProfeGUI datosPersonalesProf = new DatosPersonalesProfeGUI();
+
+            DatosPersonalesProfe.mostrarDatos_PersonalesProf("Academico");
+
+            datosPersonalesProf.label_Cedula.setText(DatosPersonalesProfe.Cedula);
+            datosPersonalesProf.label_Correo_Institucional.setText(DatosPersonalesProfe.Correo);
+            datosPersonalesProf.label_Direccion.setText(DatosPersonalesProfe.Direccion);
+            datosPersonalesProf.label_Nombre.setText(DatosPersonalesProfe.Nombre);
+            datosPersonalesProf.label_Tel_Fijo.setText(DatosPersonalesProfe.Telefono_Fijo);
+            datosPersonalesProf.label_Tel_Movil.setText(DatosPersonalesProfe.Telefono_Movil);
+
+            mostrarPanel(datosPersonalesProf);            
             
         }
-    
-    
+           
         public static void mostrarPanel(JPanel panel){
 
-        panel.setSize(1007,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
-        panel.setLocation(0,0);
-        
-        ContentProf.removeAll();
-        ContentProf.add(panel, BorderLayout.CENTER);
-        ContentProf.revalidate();
-        ContentProf.repaint();        
+            panel.setSize(1007,1000); //Tener cuidado! debe tener el mismo tamaño del content para que esteticamente se vea bien
+            panel.setLocation(0,0);
+
+            ContentProf.removeAll();
+            ContentProf.add(panel, BorderLayout.CENTER);
+            ContentProf.revalidate();
+            ContentProf.repaint();        
    
-    }
+        }
     
     public static void ejecutar_pricipal(){
         java.awt.EventQueue.invokeLater(new Runnable() {

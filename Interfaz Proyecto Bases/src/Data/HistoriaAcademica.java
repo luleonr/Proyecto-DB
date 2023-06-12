@@ -30,7 +30,7 @@ public class HistoriaAcademica {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_historia_academica(SUBSTRING_INDEX(CURRENT_USER(), '@', 1));"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_historia_academica(SUBSTRING_INDEX();"); // ejecutar consulta
 
             while(rows.next()){
                             

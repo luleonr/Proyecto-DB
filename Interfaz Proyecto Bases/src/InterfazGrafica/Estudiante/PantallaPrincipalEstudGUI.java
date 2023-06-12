@@ -5,6 +5,7 @@
 package InterfazGrafica.Estudiante;
 
 import Data.DatosPersonalesEstud;
+import InterfazGrafica.CerrarSesion;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -19,11 +20,12 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
     /**
      * Creates new form DatosEstudiante
      */
+    public static CerrarSesion cerrar = new CerrarSesion();    
     public PantallaPrincipalEstudGUI() {
         
         initComponents();
         setLocationRelativeTo(null);
-        
+
 
     }
 
@@ -77,6 +79,9 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         Panel_Usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_Usuario.setPreferredSize(new java.awt.Dimension(328, 60));
         Panel_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_UsuarioMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Panel_UsuarioMouseEntered(evt);
             }
@@ -239,7 +244,8 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
     private void Panel_UsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_UsuarioMouseExited
         // TODO add your handling code here:
-        Panel_Usuario.setBackground(new Color(145,179,59));
+        Panel_Usuario.setBackground(new Color(145,179,59));    
+        cerrar.setVisible(false);
     }//GEN-LAST:event_Panel_UsuarioMouseExited
 
     private void Label_Informacion_AcadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_Informacion_AcadMouseClicked
@@ -290,8 +296,18 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
 
     private void labelInscripcionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInscripcionMouseExited
         // TODO add your handling code here:
-        Panel_Inscripcion.setBackground(new Color(145,179,59));         
+        Panel_Inscripcion.setBackground(new Color(145,179,59));   
+
     }//GEN-LAST:event_labelInscripcionMouseExited
+
+    private void Panel_UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_UsuarioMouseClicked
+        // TODO add your handling code here:
+        cerrar.setVisible(true);
+        //horar.setLocationRelativeTo(null);
+        cerrar.setDefaultCloseOperation(cerrar.DISPOSE_ON_CLOSE);
+
+        cerrar.setLocation(1030, 89); 
+    }//GEN-LAST:event_Panel_UsuarioMouseClicked
 
         public static void mostrarDatos_PersonalesEstud(){
         DatosPersonalesEstudGUI datosPersonales = new DatosPersonalesEstudGUI();

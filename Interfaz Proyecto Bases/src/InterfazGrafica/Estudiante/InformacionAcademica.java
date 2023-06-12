@@ -94,7 +94,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
 
         label_Calificaciones.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         label_Calificaciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_Calificaciones.setText("CALIFICACIONES");
+        label_Calificaciones.setText("MIS CALIFICACIONES");
         label_Calificaciones.setToolTipText("");
         label_Calificaciones.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         label_Calificaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -129,7 +129,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
 
         label_Horario.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         label_Horario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_Horario.setText("HORARIO");
+        label_Horario.setText("MI HORARIO");
         label_Horario.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         label_Horario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         label_Horario.addMouseListener(new java.awt.event.MouseAdapter() {

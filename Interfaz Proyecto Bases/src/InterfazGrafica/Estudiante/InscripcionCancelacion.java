@@ -4,6 +4,15 @@
  */
 package InterfazGrafica.Estudiante;
 
+import Data.HistoriaAcademica;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author krist
@@ -13,8 +22,14 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
     /**
      * Creates new form InscripcionCancelacion
      */
+    public static ArrayList<JPanel> panelList; 
+    
     public InscripcionCancelacion() {
         initComponents();
+        panelList = new ArrayList<>();
+        
+        AgregarPanel(panelProximaCita,scrollpanelProximaCita); 
+        AgregarPanel(panelCitaVencida,scrollpanelCitaVencida);         
     }
 
     /**
@@ -30,16 +45,16 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        labelFacultad = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         comboBox_PlanEstudios = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        labelCarrera = new javax.swing.JLabel();
+        panelProximaCita = new javax.swing.JPanel();
+        scrollpanelProximaCita = new javax.swing.JScrollPane();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        panelCitaVencida = new javax.swing.JPanel();
+        scrollpanelCitaVencida = new javax.swing.JScrollPane();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 2500));
@@ -51,17 +66,13 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
-        jLabel1.setText("Citas activas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jLabel1.setText("Citas vencidas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setPreferredSize(new java.awt.Dimension(970, 10));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-
-        labelFacultad.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelFacultad.setText("FACULTAD");
-        jPanel1.add(labelFacultad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Plan de estudios");
@@ -83,44 +94,30 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
         jSeparator2.setPreferredSize(new java.awt.Dimension(970, 10));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        labelCarrera.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelCarrera.setText("CARRERA");
-        jPanel1.add(labelCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        panelProximaCita.setMaximumSize(new java.awt.Dimension(860, 360));
+        panelProximaCita.setMinimumSize(new java.awt.Dimension(860, 360));
+        panelProximaCita.setPreferredSize(new java.awt.Dimension(860, 360));
+        panelProximaCita.setLayout(new javax.swing.BoxLayout(panelProximaCita, javax.swing.BoxLayout.LINE_AXIS));
+        panelProximaCita.add(scrollpanelProximaCita);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel4.setText("FACULTAD DE");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        jPanel1.add(panelProximaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(186, 186, 186));
+        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
+        jLabel4.setText("Mi próxima cita");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel5.setText("Fecha:");
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setPreferredSize(new java.awt.Dimension(970, 10));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel6.setText("Fecha:");
+        panelCitaVencida.setMaximumSize(new java.awt.Dimension(860, 900));
+        panelCitaVencida.setMinimumSize(new java.awt.Dimension(860, 900));
+        panelCitaVencida.setPreferredSize(new java.awt.Dimension(860, 900));
+        panelCitaVencida.setLayout(new javax.swing.BoxLayout(panelCitaVencida, javax.swing.BoxLayout.LINE_AXIS));
+        panelCitaVencida.add(scrollpanelCitaVencida);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5))
-                .addContainerGap(426, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 500, 90));
+        jPanel1.add(panelCitaVencida, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, -1, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -135,22 +132,76 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+        
+        public static void agregarPanelNuevoCitas(String materia, JPanel panel1, String fecha) {
+            InscripcionProximaCita panel = new InscripcionProximaCita();
+            panel.setPreferredSize(new Dimension(860, 90));
+            panel.setMaximumSize(new Dimension(860,90));
+            panel.setMinimumSize(new Dimension(860,90));
+            panel.setBackground(new Color(221,221,221));
 
 
+            HistoriaAcademica.mostrarHistoria_Academica("Academico");        
+            panel.labelFechaInicial.setText(materia);
+            panel.labelCarrera.setText(HistoriaAcademica.Carrera);
+            panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelIdCarrera.setText("(" + HistoriaAcademica.ID_Carrera + ")");
+
+            if(fecha.compareTo("12") == 0){
+                panel.panelAcceder.setVisible(true);
+            }else{
+                panel.panelAcceder.setVisible(false);
+            }
+
+            panelList.add(panel);
+            panel1.add(panel);
+            panel1.revalidate();
+            panel1.repaint();
+        }
+        
+        
+        public static void agregarPanelNuevoCitasVencidas(String materia, JPanel panel1) {
+            InscripcionCitaVencida panel = new InscripcionCitaVencida();
+            panel.setPreferredSize(new Dimension(860, 90));
+            panel.setMaximumSize(new Dimension(860,90));
+            panel.setMinimumSize(new Dimension(860,90));
+            panel.setBackground(new Color(221,221,221));
+
+
+            HistoriaAcademica.mostrarHistoria_Academica("Academico");        
+            panel.labelFechaInicial.setText(materia);
+            panel.labelCarrera.setText(HistoriaAcademica.Carrera);
+            panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelIdCarrera.setText("(" + HistoriaAcademica.ID_Carrera + ")");
+
+            panelList.add(panel);
+            panel1.add(panel);
+            panel1.revalidate();
+            panel1.repaint();
+        }
+        
+        public void AgregarPanel(JPanel panel, JScrollPane scrollpanel){
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        scrollpanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollpanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(scrollpanel, BorderLayout.CENTER);   
+            
+        }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> comboBox_PlanEstudios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JLabel labelCarrera;
-    public javax.swing.JLabel labelFacultad;
+    private javax.swing.JSeparator jSeparator3;
+    public static javax.swing.JPanel panelCitaVencida;
+    public static javax.swing.JPanel panelProximaCita;
+    private javax.swing.JScrollPane scrollpanelCitaVencida;
+    private javax.swing.JScrollPane scrollpanelProximaCita;
     // End of variables declaration//GEN-END:variables
 }

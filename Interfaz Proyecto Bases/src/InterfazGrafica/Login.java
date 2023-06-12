@@ -254,6 +254,7 @@ public class Login extends javax.swing.JFrame {
         ConexionSQL.conexion("Academico",usuarioLogin , contraseñaLogin);
         if(ConexionSQL.confirmacion == true){
             Login.abrir_PantallaPrincipal();
+            this.dispose();
         }else{
             System.out.println("La contrasena o el usuario no son correctos");
         }

@@ -10,13 +10,13 @@ import java.awt.Color;
  *
  * @author krist
  */
-public class HistoriaAcadAsigPanel extends javax.swing.JPanel {
+public class HistoriaAcadAsigDetalle extends javax.swing.JPanel {
 
     /**
      * Creates new form panel
      */
     public Color colorViejo;
-    public HistoriaAcadAsigPanel() {
+    public HistoriaAcadAsigDetalle() {
         initComponents();
     }
 

@@ -4,8 +4,11 @@
  */
 package InterfazGrafica.Estudiante;
 
+import Data.AsignaturasHistAcadConsulta;
 import Data.HistoriaAcademica;
+import static InterfazGrafica.Estudiante.InformacionAcademica.asignaturaList;
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +19,10 @@ public class Inscripcion extends javax.swing.JPanel {
     /**
      * Creates new form Inscripcion
      */
+    public String nombreBD = "Academico";
+    public static ArrayList<String> asignaturaList = new ArrayList<>();
+    public static ArrayList<String> citaVencidaList = new ArrayList<>();    
+    
     public Inscripcion() {
         initComponents();
     }
@@ -42,6 +49,7 @@ public class Inscripcion extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelInscripcion.setBackground(new java.awt.Color(186, 186, 186));
+        panelInscripcion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelInscripcion.setPreferredSize(new java.awt.Dimension(261, 263));
         panelInscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,8 +97,18 @@ public class Inscripcion extends javax.swing.JPanel {
 
     private void panelInscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInscripcionMouseClicked
         // TODO add your handling code here:
+        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
+        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
+        asigHistAcad.mostrarUsuarios(nombreBD,citaVencidaList);           
+        String[] fecha = {"12","12","13","13"};
         abrirInscripcion();
-        System.out.println("que vergas");
+        //Agregar las materias al panel para visualizarlas
+        for(int i = 0;i<=3;i++){
+            InscripcionCancelacion.agregarPanelNuevoCitas(asignaturaList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
+        }        
+        for(int i = 0;i<=9;i++){
+            InscripcionCancelacion.agregarPanelNuevoCitasVencidas(citaVencidaList.get(i),InscripcionCancelacion.panelCitaVencida);        
+        }                
     }//GEN-LAST:event_panelInscripcionMouseClicked
 
         public void abrirInscripcion(){
@@ -98,8 +116,7 @@ public class Inscripcion extends javax.swing.JPanel {
         
         HistoriaAcademica.mostrarHistoria_Academica("Academico");
         
-        inscripcion.labelFacultad.setText(HistoriaAcademica.Carrera);
-            
+        
         inscripcion.comboBox_PlanEstudios.removeAllItems();
         inscripcion.comboBox_PlanEstudios.addItem(HistoriaAcademica.ID_Carrera + "   " + HistoriaAcademica.Carrera);
 

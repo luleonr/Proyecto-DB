@@ -4,7 +4,7 @@
  */
 package InterfazGrafica.Estudiante;
 
-import InterfazGrafica.Estudiante.HistoriaAcadAsigPanel;
+import InterfazGrafica.Estudiante.HistoriaAcadAsigDetalle;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -182,7 +182,7 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
         jPanel9 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jLabel53 = new javax.swing.JLabel();
+        labelPorcentajeAvance = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
@@ -209,7 +209,8 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 970, 10));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(970, 5));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Plan de estudios");
@@ -1293,20 +1294,20 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
         jPanel10.setBackground(new java.awt.Color(145, 179, 59));
         jPanel10.setPreferredSize(new java.awt.Dimension(50, 35));
 
-        jLabel53.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel53.setText("0");
+        labelPorcentajeAvance.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        labelPorcentajeAvance.setForeground(new java.awt.Color(255, 255, 255));
+        labelPorcentajeAvance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelPorcentajeAvance.setText("0");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(labelPorcentajeAvance, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+            .addComponent(labelPorcentajeAvance, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -1388,7 +1389,7 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
         public static void agregarPanelNuevoAsignaturas(String materia , String tipo) {
-        HistoriaAcadAsigPanel panel = new HistoriaAcadAsigPanel();
+        HistoriaAcadAsigDetalle panel = new HistoriaAcadAsigDetalle();
         panel.setPreferredSize(new Dimension(910, 40));
         panel.setMaximumSize(new Dimension(910,40));
         panel.setMinimumSize(new Dimension(910,40));
@@ -1455,7 +1456,6 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
@@ -1534,6 +1534,7 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
     private javax.swing.JLabel labelPendientes7;
     private javax.swing.JLabel labelPendientes8;
     private javax.swing.JLabel labelPendientes9;
+    private javax.swing.JLabel labelPorcentajeAvance;
     public javax.swing.JLabel label_Carrera;
     public javax.swing.JLabel label_Facultad;
     private javax.swing.JLabel label_HisAcad;
