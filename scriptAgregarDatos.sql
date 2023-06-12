@@ -131,38 +131,38 @@ INSERT INTO Programa VALUES(20101,'ESTADÍSTICA',201);
 -- Asignatura (asig_id, asig_nombre, asig_no_creditos, asig_componente, asig_descripcion, asig_id_departamento)
 -- -----------------------------------------------------
 
-INSERT INTO Asignatura VALUES (1, "Cálculo diferencial", 4 ,"Fundamentación" ,null, 802);
-INSERT INTO Asignatura VALUES (2, "Introducción a la ingeniería de sistemas", 3 ,"Disciplinar" ,null, 802);
-INSERT INTO Asignatura VALUES (3, "Programación de computadores", 3 ,"Disciplinar" ,null, 802);
-INSERT INTO Asignatura VALUES (4, "Pensamiento sistémico", 3 ,"Disciplinar" ,null, 802);
+INSERT INTO Asignatura VALUES (1, "Cálculo diferencial", 4   ,null, 802);
+INSERT INTO Asignatura VALUES (2, "Introducción a la ingeniería de sistemas", 3  ,null, 802);
+INSERT INTO Asignatura VALUES (3, "Programación de computadores", 3  ,null, 802);
+INSERT INTO Asignatura VALUES (4, "Pensamiento sistémico", 3  ,null, 802);
 
-INSERT INTO Asignatura VALUES (5, "Fundamentos de mecánica",4 ,"Fundamentación" ,null ,202);
-INSERT INTO Asignatura VALUES (6, "Cálculo integral",4 ,"Fundamentación" ,null ,201);
-INSERT INTO Asignatura VALUES (7, "Álgebra lineal",4 ,"Fundamentación" ,null ,201);
-INSERT INTO Asignatura VALUES (8, "Programación orientada a objetos",3 ,"Disciplinar" ,null ,802);
+INSERT INTO Asignatura VALUES (5, "Fundamentos de mecánica",4   ,null ,202);
+INSERT INTO Asignatura VALUES (6, "Cálculo integral",4   ,null ,201);
+INSERT INTO Asignatura VALUES (7, "Álgebra lineal",4   ,null ,201);
+INSERT INTO Asignatura VALUES (8, "Programación orientada a objetos",3  ,null ,802);
 
-INSERT INTO Asignatura VALUES (9, "Fundamentos de electricidad y magnetismo",4 ,"Fundamentación" ,null ,202);
-INSERT INTO Asignatura VALUES (10, "Cálculo en varias variables",4 ,"Fundamentación" ,null ,201);
-INSERT INTO Asignatura VALUES (11, "Matemáticas discretas I",4 ,"Fundamentación" ,null ,201);
-INSERT INTO Asignatura VALUES (12, "Bases de datos",3 ,"Disciplinar" ,null ,802);
-INSERT INTO Asignatura VALUES (13, "Elementos de computadores",3 ,"Disciplinar" ,null ,802); 
+INSERT INTO Asignatura VALUES (9, "Fundamentos de electricidad y magnetismo",4   ,null ,202);
+INSERT INTO Asignatura VALUES (10, "Cálculo en varias variables",4   ,null ,201);
+INSERT INTO Asignatura VALUES (11, "Matemáticas discretas I",4   ,null ,201);
+INSERT INTO Asignatura VALUES (12, "Bases de datos",3  ,null ,802);
+INSERT INTO Asignatura VALUES (13, "Elementos de computadores",3  ,null ,802); 
 
 
-INSERT INTO Asignatura VALUES (14,"Fundamentos de matemáticas",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (15,"Cálculo diferencial en una variable",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (16,"Estadística descriptiva y exploratoria",4,"Disciplinar",null,201);
-INSERT INTO Asignatura VALUES (17,"Álgebra lineal básica",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (18,"Sistemas numéricos",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (19,"Cálculo integral en una variable",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (20,"Álgebra matricial",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (21,"Probabilidad",4,"Fundamentación",null,201);
-INSERT INTO Asignatura VALUES (22,"Cálculo vectorial",4,"Fundamentación",null,201);
+INSERT INTO Asignatura VALUES (14,"Fundamentos de matemáticas",4 ,null,201);
+INSERT INTO Asignatura VALUES (15,"Cálculo diferencial en una variable",4 ,null,201);
+INSERT INTO Asignatura VALUES (16,"Estadística descriptiva y exploratoria",4,null,201);
+INSERT INTO Asignatura VALUES (17,"Álgebra lineal básica",4 ,null,201);
+INSERT INTO Asignatura VALUES (18,"Sistemas numéricos",4 ,null,201);
+INSERT INTO Asignatura VALUES (19,"Cálculo integral en una variable",4 ,null,201);
+INSERT INTO Asignatura VALUES (20,"Álgebra matricial",4 ,null,201);
+INSERT INTO Asignatura VALUES (21,"Probabilidad",4 ,null,201);
+INSERT INTO Asignatura VALUES (22,"Cálculo vectorial",4 ,null,201);
 
-INSERT INTO Asignatura VALUES (23, "Probabilidad y estadística fundamental",3 ,"Fundamentación" ,null ,802); 
-INSERT INTO Asignatura VALUES (24, "Ingeníeria económica",3 ,"Fundamentación" ,null ,802); 
-INSERT INTO Asignatura VALUES (25, "Matemáticas discretas II",4 ,"Fundamentación" ,null ,802); 
-INSERT INTO Asignatura VALUES (26, "Estructuras de datos",3 ,"Disciplinar" ,null ,802); 
-INSERT INTO Asignatura VALUES (27, "Arquitectura de computadores",3 ,"Disciplinar" ,null ,802); 
+INSERT INTO Asignatura VALUES (23, "Probabilidad y estadística fundamental",3   ,null ,802); 
+INSERT INTO Asignatura VALUES (24, "Ingeníeria económica",3   ,null ,802); 
+INSERT INTO Asignatura VALUES (25, "Matemáticas discretas II",4   ,null ,802); 
+INSERT INTO Asignatura VALUES (26, "Estructuras de datos",3  ,null ,802); 
+INSERT INTO Asignatura VALUES (27, "Arquitectura de computadores",3  ,null ,802); 
 
 
 INSERT INTO Edificio VALUES(401,'Julio Garavito','Bogotá');
