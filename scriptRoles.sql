@@ -22,7 +22,6 @@ GRANT INSERT,SELECT,UPDATE,DELETE ON Facultad TO Admin_programa;
 DROP ROLE IF EXISTS Admin_asignatura;
 CREATE ROLE Admin_asignatura;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Asignatura TO Admin_asignatura;
-GRANT INSERT,SELECT,UPDATE,DELETE ON Asignatura_has_Asignatura TO Admin_asignatura;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Grupo TO Admin_asignatura;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Horario TO Admin_asignatura;
 GRANT SELECT ON Departamento TO Admin_asignatura;
@@ -40,7 +39,6 @@ GRANT INSERT,SELECT,UPDATE,DELETE ON Edificio TO Admin_edificios;
 DROP ROLE IF EXISTS Admin_his_acad;
 CREATE ROLE Admin_his_acad;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Historia_Academica TO Admin_his_acad;
-GRANT INSERT,SELECT,UPDATE,DELETE ON Ponderado TO Admin_his_acad;
 GRANT INSERT,SELECT,UPDATE,DELETE ON Evaluacion TO Admin_his_acad;
 
 DROP ROLE IF EXISTS Admin_inscripciones;
