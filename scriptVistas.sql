@@ -171,3 +171,15 @@ AS Creditos, Tipologia AS Tipologia, insc_semestre AS Periodo, insc_nota_final A
 
 
 SELECT * FROM vw_Asignaturas_cursadas;
+
+-- ---------------------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_definitivas_estudiante;
+CREATE VIEW vw_definitivas_estudiante AS
+SELECT DISTINCT per_cc AS CC, prog_id AS id_programa, prog_nombre AS programa,
+asig_id AS id_asignatura, asig_nombre AS asignatura, ponde_nota_final AS nota_final,
+ponde_aprobado AS aprobado, ponde_insc_semestre AS semestre
+FROM persona
+JOIN ponderado ON ponde_insc_estudiante_cc=per_cc
+JOIN asignatura ON asig_id=ponde_insc_id_asignatura
+JOIN programa ON ponde_insc_id_programa=prog_id;
