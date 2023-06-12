@@ -473,8 +473,7 @@ insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificaci
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.34, 100, 3, '2023-1', 1010000001, 80201, 8);
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',3.78, 100, 3, '2023-1', 1010000001, 80201, 9);
 
-INSERT INTO evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)
-VALUES ('Nota1', 4.12, 100, 3, '2023-1', 1010000003, 80201, 4);
+INSERT INTO evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) VALUES ('Nota1', 4.12, 100, 3, '2023-1', 1010000003, 80201, 4);
 
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.1, 100, 3, '2023-1', 1010000003, 80201, 5);
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',3.86, 100, 3, '2023-1', 1010000003, 80201, 7);
