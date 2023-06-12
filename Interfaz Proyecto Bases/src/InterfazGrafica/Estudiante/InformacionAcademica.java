@@ -43,7 +43,13 @@ public class InformacionAcademica extends javax.swing.JPanel {
     public static ArrayList<String> salonList = new ArrayList<>();
     public static ArrayList<String> edificioList = new ArrayList<>();
     public static ArrayList<String> semestreList = new ArrayList<>();
-    public static ArrayList<String> materiaList = new ArrayList<>();       
+    public static ArrayList<String> materiaList = new ArrayList<>();
+    public static ArrayList<String> EdifNomList = new ArrayList<>();
+    public static ArrayList<String> SalonNomList = new ArrayList<>();
+    public static ArrayList<String> ProfeNomList = new ArrayList<>();  
+    public static ArrayList<String> MateriaIDList = new ArrayList<>(); 
+    public static ArrayList<String> SedeList = new ArrayList<>();     
+    
     public static Map<String, JPanel> diaPanelMap = new HashMap<>();
     
     public InformacionAcademica() {
@@ -229,10 +235,19 @@ public class InformacionAcademica extends javax.swing.JPanel {
         // TODO add your handling code here:
         HorarioEstud.mostrarHorarioDia(nombreBD, diaList);     
         HorarioEstud.mostrarHorarioHoraInicio(nombreBD,horaInicioList);
-        HorarioEstud.mostrarHorarioMateria(nombreBD, materiaList);   
+        HorarioEstud.mostrarHorarioHoraFinal(nombreBD,horaFinalList);
+        HorarioEstud.mostrarHorarioActividad(nombreBD,actividadList);
+        HorarioEstud.mostrarHorarioGrupo(nombreBD,noGrupoList);         
         HorarioEstud.mostrarHorarioSalon(nombreBD,salonList);
         HorarioEstud.mostrarHorarioEdificio(nombreBD,edificioList);        
         HorarioEstud.mostrarHorarioSemestre(nombreBD, semestreList);
+        HorarioEstud.mostrarHorarioMateria(nombreBD, materiaList);   
+        HorarioEstud.mostrarHorarioEdificioNom(nombreBD,EdifNomList);         
+        HorarioEstud.mostrarHorarioSalonNom(nombreBD,SalonNomList);
+        HorarioEstud.mostrarHorarioProfeNom(nombreBD,ProfeNomList);
+        HorarioEstud.mostrarHorarioMateriaID(nombreBD,MateriaIDList);
+        HorarioEstud.mostrarHorarioSede(nombreBD,SedeList);        
+
         abrirHorario();
         //Agregar las materias al panel para visualizarlas
         // Crear el mapa para mapear días de la semana a los paneles correspondientes
@@ -250,8 +265,9 @@ public class InformacionAcademica extends javax.swing.JPanel {
             // Verificar si el día existe en el mapa
             if (diaPanelMap.containsKey(dia)) {
                 JPanel panel = diaPanelMap.get(dia);
-                HorarioEstudGUI.agregarPanelNuevoHorario(horaInicioList.get(i), materiaList.get(i),
-                        salonList.get(i),edificioList.get(i),semestreList.get(i), panel);
+                HorarioEstudGUI.agregarPanelNuevoHorario(horaInicioList.get(i), horaFinalList.get(i), materiaList.get(i),
+                        salonList.get(i),edificioList.get(i),EdifNomList.get(i),SalonNomList.get(i),semestreList.get(i),
+                        actividadList.get(i),noGrupoList.get(i),ProfeNomList.get(i),MateriaIDList.get(i), SedeList.get(i),panel);
             }
         }
 

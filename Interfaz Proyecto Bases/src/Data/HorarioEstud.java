@@ -1,6 +1,7 @@
 package Data;
 
 
+import InterfazGrafica.Login;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,12 +19,16 @@ public class HorarioEstud {
     public static String Edificio;
     public static String Semestre;
     public static String Materia;
+    public static String EdificioNom;
+    public static String SalonNom;
+    public static String ProfeNom;
+    public static String MateriaID;
+    public static String Sede;    
     
 
     public static void mostrarHorario(String nombreBD){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -43,6 +48,10 @@ public class HorarioEstud {
                 Edificio = rows.getString("Edificio");
                 Semestre = rows.getString("Semeste");
                 Materia = rows.getString("MateriaNom");
+                EdificioNom = rows.getString("EdificoNom");
+                SalonNom = rows.getString("SalonNom");
+                ProfeNom = rows.getString("ProfeNom"); 
+                MateriaID = rows.getString("MateriaID");
                 
                 System.out.println(Dia);
                 System.out.println(Hora_inicio);
@@ -53,6 +62,10 @@ public class HorarioEstud {
                 System.out.println(Edificio);
                 System.out.println(Semestre);
                 System.out.println(Materia);
+                System.out.println(EdificioNom);
+                System.out.println(SalonNom);
+                System.out.println(ProfeNom);
+                System.out.println(MateriaID);
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
@@ -63,8 +76,7 @@ public class HorarioEstud {
     
     public static ArrayList<String> mostrarHorarioDia(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -89,8 +101,7 @@ public class HorarioEstud {
     
     public static ArrayList<String> mostrarHorarioHoraInicio(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -115,8 +126,7 @@ public class HorarioEstud {
     
     public static ArrayList<String> mostrarHorarioHoraFinal(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -141,8 +151,7 @@ public class HorarioEstud {
 
     public static ArrayList<String> mostrarHorarioActividad(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -167,8 +176,7 @@ public class HorarioEstud {
 
     public static ArrayList<String> mostrarHorarioGrupo(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -193,8 +201,7 @@ public class HorarioEstud {
 
     public static ArrayList<String> mostrarHorarioSalon(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -219,8 +226,7 @@ public class HorarioEstud {
     
     public static ArrayList<String> mostrarHorarioEdificio(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -245,8 +251,7 @@ public class HorarioEstud {
 
     public static ArrayList<String> mostrarHorarioSemestre(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -271,8 +276,7 @@ public class HorarioEstud {
 
     public static ArrayList<String> mostrarHorarioMateria(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
-        Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -293,5 +297,131 @@ public class HorarioEstud {
             ConexionSQL.desConexion(conn);
         }
         return lista;
-    }     
+    }  
+    
+    public static ArrayList<String> mostrarHorarioSalonNom(String nombreBD, ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_horario();"); // ejecutar consulta
+
+            while(rows.next()){  
+                
+                SalonNom = rows.getString("SalonNom");
+                lista.add(SalonNom);
+   
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }
+ 
+    public static ArrayList<String> mostrarHorarioEdificioNom(String nombreBD, ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_horario();"); // ejecutar consulta
+
+            while(rows.next()){  
+                
+                EdificioNom = rows.getString("EdificoNom");
+                lista.add(EdificioNom);
+                System.out.println(EdificioNom);
+   
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }    
+    
+    public static ArrayList<String> mostrarHorarioProfeNom(String nombreBD, ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_horario();"); // ejecutar consulta
+
+            while(rows.next()){  
+                
+                ProfeNom = rows.getString("ProfeNom");
+                lista.add(ProfeNom);
+   
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }  
+    
+    public static ArrayList<String> mostrarHorarioMateriaID(String nombreBD, ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_horario();"); // ejecutar consulta
+
+            while(rows.next()){  
+                
+                MateriaID = rows.getString("MateriaID");
+                lista.add(MateriaID);;
+   
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }
+    
+    public static ArrayList<String> mostrarHorarioSede(String nombreBD, ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin); 
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_horario();"); // ejecutar consulta
+
+            while(rows.next()){  
+                
+                Sede = rows.getString("Sede");
+                lista.add(Sede);;
+   
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }    
 }

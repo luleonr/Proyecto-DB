@@ -8,6 +8,7 @@ import Data.HistoriaAcademica;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.HashSet;
 
 /**
  *
@@ -38,6 +39,15 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
         labelSalon = new javax.swing.JLabel();
         labelEdificio = new javax.swing.JLabel();
         labelPeriodo = new javax.swing.JLabel();
+        labelHoraInicio = new javax.swing.JLabel();
+        labelHoraFinal = new javax.swing.JLabel();
+        labelSalonNom = new javax.swing.JLabel();
+        labelEdifNom = new javax.swing.JLabel();
+        labelGrupo = new javax.swing.JLabel();
+        labelActividad = new javax.swing.JLabel();
+        labelProfeNom = new javax.swing.JLabel();
+        labelMateriaID = new javax.swing.JLabel();
+        labelSede = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setMaximumSize(new java.awt.Dimension(130, 45));
@@ -65,16 +75,43 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
         add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         labelMateria.setText("Materia");
-        add(labelMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        add(labelMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
 
         labelSalon.setText("Salon");
-        add(labelSalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+        add(labelSalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, -1, -1));
 
         labelEdificio.setText("Edificio");
-        add(labelEdificio, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
+        add(labelEdificio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
         labelPeriodo.setText("Periodo");
-        add(labelPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
+        add(labelPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, -1));
+
+        labelHoraInicio.setText("horaInicio");
+        add(labelHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, -1));
+
+        labelHoraFinal.setText("horaFinal");
+        add(labelHoraFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
+
+        labelSalonNom.setText("Nomsalon");
+        add(labelSalonNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, -1));
+
+        labelEdifNom.setText("EdifNom");
+        add(labelEdifNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
+
+        labelGrupo.setText("Grupo");
+        add(labelGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
+
+        labelActividad.setText("Actividad");
+        add(labelActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));
+
+        labelProfeNom.setText("ProfeNom");
+        add(labelProfeNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, -1, -1));
+
+        labelMateriaID.setText("IdMateria");
+        add(labelMateriaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+
+        labelSede.setText("Sede");
+        add(labelSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHorarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHorarioMouseEntered
@@ -99,10 +136,25 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
 
         horar.setLocation(400, 175);   
         
+        horar.labelMateriaID.setText(labelMateriaID.getText());
         horar.labelMateria.setText(labelMateria.getText());
+        
+        horar.labelHoraInicio.setText(labelHoraInicio.getText());
+        horar.labelHoraFinal.setText(labelHoraFinal.getText());
+        
         horar.labelSalon.setText(labelSalon.getText());
         horar.labelEdificio.setText(labelEdificio.getText());
+        horar.labelEdificio1.setText(labelEdificio.getText());
+        horar.labelNombreEdif.setText(labelEdifNom.getText());
+        horar.labelNombreSal.setText(labelSalonNom.getText());
+               
         horar.labelPeriodo.setText(labelPeriodo.getText());
+        
+        horar.labelActividad.setText(labelActividad.getText());
+        horar.labelGrupo.setText(labelGrupo.getText());
+        
+        horar.labelProfeNom.setText(labelProfeNom.getText());        
+        horar.labelSede.setText(labelSede.getText());
         
         HistoriaAcademica.mostrarHistoria_Academica("Academico");
         
@@ -112,10 +164,19 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel labelActividad;
+    public javax.swing.JLabel labelEdifNom;
     public javax.swing.JLabel labelEdificio;
+    public javax.swing.JLabel labelGrupo;
+    public javax.swing.JLabel labelHoraFinal;
+    public javax.swing.JLabel labelHoraInicio;
     public javax.swing.JLabel labelHorario;
     public javax.swing.JLabel labelMateria;
+    public javax.swing.JLabel labelMateriaID;
     public javax.swing.JLabel labelPeriodo;
+    public javax.swing.JLabel labelProfeNom;
     public javax.swing.JLabel labelSalon;
+    public javax.swing.JLabel labelSalonNom;
+    public javax.swing.JLabel labelSede;
     // End of variables declaration//GEN-END:variables
 }

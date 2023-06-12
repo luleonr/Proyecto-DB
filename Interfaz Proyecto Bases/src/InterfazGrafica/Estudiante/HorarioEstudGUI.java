@@ -279,7 +279,9 @@ public class HorarioEstudGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoHorario(String hora, String materia,String salon,String edificio,String semestre, JPanel panelDia) {
+        public static void agregarPanelNuevoHorario(String hora, String horaF, String materia,String salon,String edificio,
+                String edificioNom, String salonNom ,String semestre, String actividad,String noGrupo, String profNom,
+                String materiaID, String sede, JPanel panelDia) {
         HorarioEstudPanel panel = new HorarioEstudPanel();
         panel.setPreferredSize(new Dimension(130, 45));
         panel.setMaximumSize(new Dimension(130,45));
@@ -287,10 +289,24 @@ public class HorarioEstudGUI extends javax.swing.JPanel {
         panel.setBackground(new Color(221,221,221));
 
         panel.labelHorario.setText(hora +":00  "+ materia);
+        
+        panel.labelHoraInicio.setText(hora +":00H");
+        panel.labelHoraFinal.setText(horaF + ":00H");
+        
         panel.labelMateria.setText(materia);
+        
         panel.labelSalon.setText(salon);
         panel.labelEdificio.setText(edificio);
+        panel.labelSalonNom.setText(salonNom);
+        panel.labelEdifNom.setText(edificioNom);
+        
         panel.labelPeriodo.setText(semestre);
+        panel.labelActividad.setText(actividad);
+        
+        panel.labelGrupo.setText("Grupo " + noGrupo);
+        panel.labelProfeNom.setText(profNom);
+        panel.labelMateriaID.setText(materiaID);
+        panel.labelSede.setText("SEDE " + sede);
         
         panelList.add(panel);
         panelDia.add(panel);

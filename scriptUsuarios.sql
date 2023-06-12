@@ -7,6 +7,8 @@ DROP USER IF EXISTS 'luleonr';
 CALL sp_crear_usuario('luleonr', 'Estudiante');
 DROP USER IF EXISTS 'mcheshire'; 
 CALL sp_crear_usuario('mcheshire', 'Estudiante');
+DROP USER IF EXISTS 'gmcgovern'; 
+CALL sp_crear_usuario('gmcgovern', 'Estudiante');
 DROP USER IF EXISTS 'rathridge'; 
 CALL sp_crear_usuario('rathridge', 'Estudiante');
 
