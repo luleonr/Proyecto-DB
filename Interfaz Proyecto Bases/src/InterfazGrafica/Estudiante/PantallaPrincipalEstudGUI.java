@@ -305,7 +305,7 @@ public class PantallaPrincipalEstudGUI extends javax.swing.JFrame {
         cerrar.setVisible(true);
         //horar.setLocationRelativeTo(null);
         cerrar.setDefaultCloseOperation(cerrar.DISPOSE_ON_CLOSE);
-
+        cerrar.miframe = this; 
         cerrar.setLocation(1030, 89); 
     }//GEN-LAST:event_Panel_UsuarioMouseClicked
 

@@ -4,6 +4,7 @@
  */
 package InterfazGrafica.Estudiante;
 
+import static InterfazGrafica.Estudiante.InscripcionFrameSinCita.mostrar_Bienvenida;
 import static InterfazGrafica.Login.usuarioLogin;
 import java.awt.Color;
 
@@ -189,10 +190,8 @@ public class InscripcionProximaCita extends javax.swing.JPanel {
         // TODO add your handling code here:
         InscripcionFrame inscripcion = new InscripcionFrame();
 
-        inscripcion.Label_Usuario.setText(usuarioLogin);
-        inscripcion.setVisible(true);        
-        
-        
+        inscripcion.setVisible(true); 
+     
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered

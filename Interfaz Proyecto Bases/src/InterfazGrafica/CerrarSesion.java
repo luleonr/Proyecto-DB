@@ -5,6 +5,7 @@
 package InterfazGrafica;
 
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,6 +16,7 @@ public class CerrarSesion extends javax.swing.JFrame {
     /**
      * Creates new form CerrarSesion
      */
+    public static JFrame miframe;
     public CerrarSesion() {
         initComponents();
     }
@@ -35,7 +37,6 @@ public class CerrarSesion extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(250, 60));
         setMinimumSize(new java.awt.Dimension(250, 60));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(250, 60));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -101,12 +102,14 @@ public class CerrarSesion extends javax.swing.JFrame {
     private void labelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCerrarSesionMouseClicked
         // TODO add your handling code here:
         Login.ejecutar_Login();
-        System.out.println("alb?"); 
-        //FrameUtils.disposeFrame(PantallaPrincipalEstudGUI);
-        
-        //PantallaPrincipalEstudGUI.setVisible(false);        
+        metodoStatic();
+        this.dispose();
     }//GEN-LAST:event_labelCerrarSesionMouseClicked
-
+ 
+    public static void metodoStatic(){
+        miframe.dispose(); // Cerrar la instancia de InscripcionFrame
+        
+    }
     /**
      * @param args the command line arguments
      */
