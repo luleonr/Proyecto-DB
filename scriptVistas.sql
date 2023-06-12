@@ -56,10 +56,14 @@ DROP VIEW IF EXISTS vw_Horario;
 CREATE VIEW vw_Horario AS
 SELECT DISTINCT horar_dia AS Dia, horar_hora_inicio AS Hora_inicio, horar_hora_final AS Hora_Final,
 horar_actividad AS Actividad, horar_grup_no_grupo AS No_Grupo,
-horar_sal_id AS Salon, horar_sal_edif_id  AS Edificio, insc_semestre AS Semeste, insc_estudiante_cc AS CEDULA,
-asig_nombre AS MateriaNom, user_usuario AS usuario
+horar_sal_id AS Salon, horar_sal_edif_id  AS Edificio,edif_sede AS Sede, insc_semestre AS Semeste, insc_estudiante_cc AS CEDULA,
+insc_id_asignatura AS MateriaID, asig_nombre AS MateriaNom, edif_nombre AS EdificoNom ,  sal_nombre AS SalonNom, 
+per_nombre AS ProfeNom, user_usuario AS usuario
 FROM Horario JOIN Inscripcion ON insc_no_grupo = horar_grup_no_grupo AND insc_id_asignatura =horar_grup_asig_id
-JOIN Asignatura ON horar_grup_asig_id = asig_id JOIN Usuario ON  insc_estudiante_cc = user_cc;
+JOIN Asignatura ON horar_grup_asig_id = asig_id JOIN Usuario ON  insc_estudiante_cc = user_cc 
+JOIN Edificio ON edif_id = horar_sal_edif_id JOIN Salon ON sal_id = horar_sal_id 
+JOIN Grupo ON grup_no_grupo = horar_grup_no_grupo AND grup_asig_id = horar_grup_asig_id  AND grup_semestre = insc_semestre
+JOIN Persona ON grup_prof_cc = per_cc;
 
 -- SELECT * FROM  vw_Horario;
 -- ------------------------------------------------------------------------

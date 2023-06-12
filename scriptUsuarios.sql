@@ -11,6 +11,8 @@ DROP USER IF EXISTS 'gmcgovern';
 CALL sp_crear_usuario('gmcgovern', 'Estudiante');
 DROP USER IF EXISTS 'rathridge'; 
 CALL sp_crear_usuario('rathridge', 'Estudiante');
+DROP USER IF EXISTS 'dkimply'; 
+CALL sp_crear_usuario('dkimply', 'Estudiante');
 
 -- CREACION USUARIOS PROFESORES -----------------------------------------------------------------------
 DROP USER IF EXISTS 'fzack'; 
