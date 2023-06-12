@@ -273,7 +273,7 @@ CREATE TABLE Evaluacion (
   eval_insc_id_programa INT NOT NULL,
   eval_insc_id_asignatura INT NOT NULL,
   PRIMARY KEY (eval_nombre, eval_insc_semestre, eval_insc_estudiante_cc,  eval_insc_id_programa,eval_insc_id_asignatura),
-    FOREIGN KEY (insc_semestre, insc_estudiante_cc,  eval_insc_id_programa,eval_insc_id_asignatura)
+    FOREIGN KEY (eval_insc_semestre, eval_insc_estudiante_cc,  eval_insc_id_programa,eval_insc_id_asignatura)
     REFERENCES Inscripcion (insc_semestre , insc_estudiante_cc, insc_id_programa , insc_id_asignatura)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
