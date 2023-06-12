@@ -232,7 +232,7 @@ CREATE TABLE Inscripcion (
   insc_id_programa INT NOT NULL,
   insc_no_grupo INT NOT NULL,
   insc_nota_final DECIMAL(5,2) NULL,
-  insc_aprobado ENUM('Aprobado','Reprobado'),
+  insc_aprobado ENUM('Aprobado','Reprobado','Sin definitiva'),
   insc_id_histAcad INT NOT NULL,
   PRIMARY KEY (insc_semestre, insc_estudiante_cc, insc_id_programa, insc_id_asignatura),
     FOREIGN KEY (insc_estudiante_cc)

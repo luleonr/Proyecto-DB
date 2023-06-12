@@ -118,6 +118,42 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_Resumen_Creditos TO Estudiante;
 -- CALL sp_Estudiante_Resumen_Creditos();
 
 -- ---------------------------------------------------------------------------
+-- MOSTRAR CALIFICACIONES POR SEMESTRE
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_calificaciones;
+DELIMITER //
+CREATE PROCEDURE sp_Estudiante_mostrar_calificaciones(IN Semestre VARCHAR(10),IN Carrera INT)
+BEGIN
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+    
+	SELECT Asignatura, Codigo, Calificacion, Estado FROM  vw_asignaturas_cursadas WHERE usuario = user_ AND Carrera=ID_programa AND Periodo=Semestre;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_calificaciones TO Estudiante;
+-- CALL sp_Estudiante_mostrar_calificaciones();
+
+-- ---------------------------------------------------------------------------
+-- MOSTRAR CALIFICACIONES POR MATERIA
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_evaluaciones;
+DELIMITER //
+CREATE PROCEDURE sp_Estudiante_mostrar_evaluaciones(IN Semestre VARCHAR(10),IN Carrera INT,IN Materia INT)
+BEGIN
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);	
+    
+	SELECT Asignatura, Codigo, Creditos, Tipologia, Periodo, Calificacion, Estado, eval_nombre AS
+    Evaluacion, eval_nota AS Calificacion, eval_porcentaje AS Porcentaje, eval_calificacion_minima 
+    AS Calificacion_minima FROM vw_Asignaturas_cursadas JOIN usuario ON user_usuario=Usuario JOIN 
+    evaluacion ON user_cc=eval_insc_estudiante_cc WHERE Periodo=Semestre AND ID_programa=Carrera AND Codigo=Materia;
+    
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_evaluaciones TO Estudiante;
+-- CALL sp_Estudiante_mostrar_evaluaciones();
+
+-- ---------------------------------------------------------------------------
 -- MOSTRAR HORARIO
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS sp_Estudiante_mostrar_horario;
