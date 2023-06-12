@@ -135,10 +135,10 @@ JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id) 
 DROP VIEW IF EXISTS vw_horario_profesor;
 CREATE VIEW vw_horario_profesor AS 
 SELECT horar_dia AS Dia, horar_hora_inicio AS HoraInicio, horar_hora_final AS HoraFinal, horar_actividad AS Actividad,
-horar_grup_asig_id AS Asignatura_ID, asig_nombre AS Asignatura,horar_grup_no_grupo AS Grupo,
+horar_grup_asig_id AS Asignatura_ID, asig_nombre AS Asignatura,horar_grup_no_grupo AS Grupo,edif_sede AS Sede, edif_nombre AS EdificoNom,
 horar_sal_id AS Salon, horar_sal_edif_id AS Edificio, grup_prof_cc AS Profesor_cc, insc_semestre AS Semestre, insc_estudiante_cc AS Estudiante_cc
 FROM horario join Asignatura on (horar_grup_asig_id=asig_id) join grupo ON (asig_id=grup_asig_id)
-join inscripcion on (insc_id_asignatura=asig_id AND grup_no_grupo=insc_no_grupo)
+join inscripcion on (insc_id_asignatura=asig_id AND grup_no_grupo=insc_no_grupo) JOIN Edificio ON edif_id = horar_sal_edif_id
 ORDER BY horar_dia;
 
 

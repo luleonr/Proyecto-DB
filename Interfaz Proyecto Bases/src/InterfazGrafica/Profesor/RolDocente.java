@@ -10,10 +10,13 @@ import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
+import Data.HorarioProf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -33,6 +36,22 @@ public class RolDocente extends javax.swing.JPanel {
     public static ArrayList<String> tipoList = new ArrayList<>();
     public static ArrayList<String> periodoList = new ArrayList<>();
     public static ArrayList<String> notaList = new ArrayList<>();   
+
+    //Horario
+    public static ArrayList<String> diaList = new ArrayList<>();
+    public static ArrayList<String> horaInicioList = new ArrayList<>();
+    public static ArrayList<String> horaFinalList = new ArrayList<>();
+    public static ArrayList<String> actividadList = new ArrayList<>();
+    public static ArrayList<String> noGrupoList = new ArrayList<>();
+    public static ArrayList<String> salonList = new ArrayList<>();
+    public static ArrayList<String> edificioList = new ArrayList<>();
+    public static ArrayList<String> semestreList = new ArrayList<>();
+    public static ArrayList<String> materiaList = new ArrayList<>();
+    public static ArrayList<String> EdifNomList = new ArrayList<>();  
+    public static ArrayList<String> MateriaIDList = new ArrayList<>(); 
+    public static ArrayList<String> SedeList = new ArrayList<>();     
+    
+    public static Map<String, JPanel> diaPanelMap = new HashMap<>();
 
     
     public RolDocente() {
@@ -223,19 +242,41 @@ public class RolDocente extends javax.swing.JPanel {
 
     private void label_HorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HorarioMouseClicked
         // TODO add your handling code here:     
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);             
+        HorarioProf.mostrarHorarioDia(nombreBD, diaList);     
+        HorarioProf.mostrarHorarioHoraInicio(nombreBD,horaInicioList);
+        HorarioProf.mostrarHorarioHoraFinal(nombreBD,horaFinalList);
+        HorarioProf.mostrarHorarioActividad(nombreBD,actividadList);
+        HorarioProf.mostrarHorarioGrupo(nombreBD,noGrupoList);         
+        HorarioProf.mostrarHorarioSalon(nombreBD,salonList);
+        HorarioProf.mostrarHorarioEdificio(nombreBD,edificioList);        
+        HorarioProf.mostrarHorarioSemestre(nombreBD, semestreList);
+        HorarioProf.mostrarHorarioMateria(nombreBD, materiaList);   
+        HorarioProf.mostrarHorarioEdificioNom(nombreBD,EdifNomList);         
+        HorarioProf.mostrarHorarioMateriaID(nombreBD,MateriaIDList);
+        HorarioProf.mostrarHorarioSede(nombreBD,SedeList);        
+
         abrirHorario();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=2;i++){
-            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelLunes);
-            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelMartes);
-            HorarioProfeGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioProfeGUI.panelMiercoles);
-            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelJueves);
-            HorarioProfeGUI.agregarPanelNuevoHorario(tipoList.get(i),HorarioProfeGUI.panelViernes);
-            HorarioProfeGUI.agregarPanelNuevoHorario(asignaturaList.get(i),HorarioProfeGUI.panelSabado);            
-        }    
+        // Crear el mapa para mapear días de la semana a los paneles correspondientes
+        diaPanelMap.put("Lunes", HorarioProfeGUI.panelLunes);
+        diaPanelMap.put("Martes", HorarioProfeGUI.panelMartes);
+        diaPanelMap.put("Miércoles", HorarioProfeGUI.panelMiercoles);
+        diaPanelMap.put("Jueves", HorarioProfeGUI.panelJueves);
+        diaPanelMap.put("Viernes", HorarioProfeGUI.panelViernes);
+        diaPanelMap.put("Sábado", HorarioProfeGUI.panelSabado);
+
+        // Iterar sobre la lista de horarios
+        for (int i = 0; i < horaInicioList.size(); i++) {
+            String dia = diaList.get(i);
+
+            // Verificar si el día existe en el mapa
+            if (diaPanelMap.containsKey(dia)) {
+                JPanel panel = diaPanelMap.get(dia);
+                HorarioProfeGUI.agregarPanelNuevoHorario(horaInicioList.get(i), horaFinalList.get(i), materiaList.get(i),
+                        salonList.get(i),edificioList.get(i),EdifNomList.get(i),semestreList.get(i),
+                        actividadList.get(i),noGrupoList.get(i),MateriaIDList.get(i), SedeList.get(i),panel);
+            }
+        }   
     }//GEN-LAST:event_label_HorarioMouseClicked
 
         public void abrirListaClase(){
