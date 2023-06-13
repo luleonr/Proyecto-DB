@@ -47,8 +47,7 @@ CREATE PROCEDURE sp_Estudiante_mostrar_planes()
 BEGIN
   DECLARE user_ VARCHAR(45);
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-  SELECT * FROM vw_Estudiante_ver_programas WHERE usuario = user_;
-  SELECT Id_programa, Nombre_programa FROM vw_Estudiante_ver_programas WHERE usuario = user_;
+  SELECT Id_programa, Nombre_programa, ID_Departamento, Nombre_departamento, ID_Facultad, Nombre_facultad FROM vw_Estudiante_ver_programas WHERE usuario = user_;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;
@@ -162,11 +161,113 @@ CREATE PROCEDURE sp_Estudiante_mostrar_horario()
 BEGIN
 	DECLARE user_ VARCHAR(45);
 	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-	SELECT * FROM  vw_Horario WHERE usuario = user_ ORDER BY Hora_inicio ASC;
+	SELECT Dia, Hora_inicio, Hora_Final, Actividad, No_Grupo, Salon, Edificio, Sede, Semeste, 
+    MateriaID, MateriaNom, EdificoNom, SalonNom, ProfeNom, ProgramaNom FROM  vw_Horario WHERE 
+    usuario = user_ ORDER BY Hora_inicio ASC;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 -- CALL sp_Estudiante_mostrar_horario();
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS ACTIVAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_activas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_activas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now();
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now() AND Program=Programa;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_activas TO Estudiante;
+-- CALL Estudiante_mirar_citas_activas(null);
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS PRÓXIMAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_proximas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_proximas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now();
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now() AND Program=Programa;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_proximas TO Estudiante;
+-- CALL Estudiante_mirar_citas_proximas(null);
+
+-- ---------------------------------------------------------------------------
+-- CONSULTAR CITAS VENCIDAS
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_vencidas;
+DELIMITER //
+CREATE PROCEDURE Estudiante_mirar_citas_vencidas(
+  Program VARCHAR(45)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Program = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() LIMIT 5;
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() AND Program=Programa LIMIT 5;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_vencidas TO Estudiante;
+-- CALL Estudiante_mirar_citas_vencidas(null);
+
+-- ---------------------------------------------------------------------------
+-- ASIGNATURAS PENDIENTES POR CURSAR
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_asignaturas_pendientes;
+DELIMITER //
+CREATE PROCEDURE Estudiante_asignaturas_pendientes(
+  IN Program INT,
+  IN Tipo VARCHAR(25)
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  IF Tipo = NULL THEN 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() LIMIT 5;
+  ELSE 
+	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() AND Program=Programa LIMIT 5;
+  END IF ;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_asignaturas_pendientes TO Estudiante;
+-- CALL Estudiante_asignaturas_pendientes();
+
+-- ---------------------------------------------------------------------------
+-- ACCEDER A LA CITA
+-- ----------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 -- ROL PROFESOR ----------------------------------------------------------------------------------------------
@@ -617,71 +718,6 @@ DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Admin_usuarios_borrar_profesor TO Admin_usuarios;
 -- CALL sp_Admin_usuarios_borrar_profesor(80150116);
 
--- ---------------------------------------------------------------------------
--- CONSULTAR CITAS ACTIVAS
--- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_activas;
-DELIMITER //
-CREATE PROCEDURE Estudiante_mirar_citas_activas(
-  Program VARCHAR(45)
-)
-BEGIN
-  DECLARE user_ VARCHAR(40);
-  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-  
-  IF Program = NULL THEN 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now();
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now() AND Program=Programa;
-  END IF ;
-END //
-DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_activas TO Estudiante;
-CALL Estudiante_mirar_citas_activas(null);
-
--- ---------------------------------------------------------------------------
--- CONSULTAR CITAS PRÓXIMAS
--- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_proximas;
-DELIMITER //
-CREATE PROCEDURE Estudiante_mirar_citas_proximas(
-  Program VARCHAR(45)
-)
-BEGIN
-  DECLARE user_ VARCHAR(40);
-  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-  
-  IF Program = NULL THEN 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now();
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now() AND Program=Programa;
-  END IF ;
-END //
-DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_proximas TO Estudiante;
-CALL Estudiante_mirar_citas_proximas(null);
-
--- ---------------------------------------------------------------------------
--- CONSULTAR CITAS VENCIDAS
--- ----------------------------------------------------------------------------
-DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_vencidas;
-DELIMITER //
-CREATE PROCEDURE Estudiante_mirar_citas_vencidas(
-  Program VARCHAR(45)
-)
-BEGIN
-  DECLARE user_ VARCHAR(40);
-  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-  
-  IF Program = NULL THEN 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now();
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final>now() AND Program=Programa;
-  END IF ;
-END //
-DELIMITER ;
-GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_vencidas TO Estudiante;
-CALL Estudiante_mirar_citas_vencidas(null);
 
 -- ---------------------------------------------------------------------------
 -- CONSULTAR PROGRAMAS DEL ESTUDIANTE
@@ -736,8 +772,13 @@ BEGIN
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Notas_definitivas TO Estudiante;
+<<<<<<< HEAD
 CALL Notas_definitivas(1);
 */
+=======
+-- CALL Notas_definitivas(1);
+
+>>>>>>> e06acc3dbe93a1afd37bcb7b9051983fbf2cef4a
 
 -- ---------------------------------------------------------------------------
 -- NOTAS POR MATERIA

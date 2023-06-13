@@ -28,8 +28,8 @@ FROM Persona JOIN Estudiante ON per_cc = estud_cc JOIN Usuario ON estud_cc = use
 DROP VIEW IF EXISTS vw_Estudiante_ver_programas;
 
 CREATE VIEW vw_Estudiante_ver_programas AS 
-SELECT per_cc AS Cedula, user_usuario AS Usuario, prog_id AS Id_programa, prog_nombre AS Nombre_programa,
- depa_nombre AS Nombre_departamento, facu_nombre AS Nombre_facultad FROM Persona JOIN Usuario ON per_cc=user_cc 
+SELECT per_cc AS Cedula, user_usuario AS Usuario, prog_id AS Id_programa, prog_nombre AS Nombre_programa, depa_id AS ID_departamento,
+ depa_nombre AS Nombre_departamento, facu_id AS ID_Facultad, facu_nombre AS Nombre_facultad FROM Persona JOIN Usuario ON per_cc=user_cc 
 JOIN Estudiante ON per_cc=estud_cc JOIN estudiante_has_programa ON per_cc=Estudiante_persona_cc JOIN Programa 
 ON Programa_id_programa=prog_id JOIN departamento ON prog_id_departamento=depa_id JOIN facultad ON depa_id_facultad=facu_id;
 
@@ -54,12 +54,12 @@ SELECT DISTINCT horar_dia AS Dia, horar_hora_inicio AS Hora_inicio, horar_hora_f
 horar_actividad AS Actividad, horar_grup_no_grupo AS No_Grupo,
 horar_sal_id AS Salon, horar_sal_edif_id  AS Edificio,edif_sede AS Sede, insc_semestre AS Semeste, insc_estudiante_cc AS CEDULA,
 insc_id_asignatura AS MateriaID, asig_nombre AS MateriaNom, edif_nombre AS EdificoNom ,  sal_nombre AS SalonNom, 
-per_nombre AS ProfeNom, user_usuario AS usuario
+per_nombre AS ProfeNom, prog_nombre AS ProgramaNom, user_usuario AS usuario
 FROM Horario JOIN Inscripcion ON insc_no_grupo = horar_grup_no_grupo AND insc_id_asignatura =horar_grup_asig_id
 JOIN Asignatura ON horar_grup_asig_id = asig_id JOIN Usuario ON  insc_estudiante_cc = user_cc 
 JOIN Edificio ON edif_id = horar_sal_edif_id JOIN Salon ON sal_id = horar_sal_id 
 JOIN Grupo ON grup_no_grupo = horar_grup_no_grupo AND grup_asig_id = horar_grup_asig_id  AND grup_semestre = insc_semestre
-JOIN Persona ON grup_prof_cc = per_cc;
+JOIN Persona ON grup_prof_cc = per_cc JOIN Programa ON prog_id=insc_id_programa;
 
 -- SELECT * FROM  vw_Horario;
 -- ------------------------------------------------------------------------
@@ -236,3 +236,4 @@ UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_
 UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario;
 
 SELECT * FROM vw_resumen_creditos_totales_inscritos;
+
