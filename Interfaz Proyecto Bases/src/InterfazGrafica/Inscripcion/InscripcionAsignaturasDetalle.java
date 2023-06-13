@@ -30,10 +30,12 @@ public class InscripcionAsignaturasDetalle extends javax.swing.JPanel {
         labelNombreMateria = new javax.swing.JLabel();
         labelMateriaID = new javax.swing.JLabel();
         labelCuposLibres = new javax.swing.JLabel();
-        labelMateriaID2 = new javax.swing.JLabel();
+        labelTipologia = new javax.swing.JLabel();
         labelMateriaID3 = new javax.swing.JLabel();
         labelCreditos = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        labelMateriaID4 = new javax.swing.JLabel();
+        labelMateriaID5 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1160, 50));
         setMinimumSize(new java.awt.Dimension(1160, 50));
@@ -68,11 +70,11 @@ public class InscripcionAsignaturasDetalle extends javax.swing.JPanel {
 
         labelCuposLibres.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCuposLibres.setText("99");
-        add(labelCuposLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 31, -1, -1));
+        add(labelCuposLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, -1));
 
-        labelMateriaID2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        labelMateriaID2.setText("Cupos libres:");
-        add(labelMateriaID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 31, -1, -1));
+        labelTipologia.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        labelTipologia.setText("Tipología:");
+        add(labelTipologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         labelMateriaID3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelMateriaID3.setText("Créditos");
@@ -85,6 +87,14 @@ public class InscripcionAsignaturasDetalle extends javax.swing.JPanel {
         jCheckBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(221, 221, 211)));
         jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1105, 6, 36, 32));
+
+        labelMateriaID4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        labelMateriaID4.setText("Cupos libres:");
+        add(labelMateriaID4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+
+        labelMateriaID5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        labelMateriaID5.setText("Tipología:");
+        add(labelMateriaID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -94,8 +104,10 @@ public class InscripcionAsignaturasDetalle extends javax.swing.JPanel {
     public javax.swing.JLabel labelCreditos;
     public javax.swing.JLabel labelCuposLibres;
     public javax.swing.JLabel labelMateriaID;
-    private javax.swing.JLabel labelMateriaID2;
     private javax.swing.JLabel labelMateriaID3;
+    private javax.swing.JLabel labelMateriaID4;
+    private javax.swing.JLabel labelMateriaID5;
     public javax.swing.JLabel labelNombreMateria;
+    private javax.swing.JLabel labelTipologia;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ import Data.Calificaciones;
 import Data.CitasInscripcionActivas;
 import Data.HorarioEstud;
 import Data.HorarioProf;
+import Data.InformacionMateria;
 import Data.Materia;
 import Data.ProgramaEstudiante;
 import Data.ResumenCreditos;
@@ -62,5 +63,15 @@ public class Main {
         //Calificaciones.mostrarCalificaciones(nombreBD, "2023-1", "20101");
         
         //CitasInscripcionActivas.mostrarCitasActivas(nombreBD);
+        
+        /*InformacionMateria.mostrarInfoMateria(nombreBD, "20101", "7");
+        
+               InformacionMateria.mostrarAsignatura(nombreBD, "20101", "7", ExigidosCList);
+        
+            for(int i = 0; i<ExigidosCList.size();i++){
+              System.out.println(ExigidosCList.get(i));
+                System.out.println(
+                        "indice = " + i);
+            }   */
     }
 }

@@ -4,6 +4,10 @@
  */
 package InterfazGrafica.Inscripcion;
 
+import Data.Materia;
+import static InterfazGrafica.Inscripcion.InscripcionFrame.asignaturaList;
+import static InterfazGrafica.Inscripcion.InscripcionFrame.creditosList;
+import static InterfazGrafica.Inscripcion.InscripcionFrame.tipoList;
 import InterfazGrafica.Inscripcion.InscripcionLibreEleccionDetalle;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,6 +26,14 @@ public class InscripcionLibreEleccion extends javax.swing.JPanel {
     /**
      * Creates new form PlanEstudiosAsignatura
      */
+    
+    public String nombreBD = "Academico";
+    public static ArrayList<String> asignaturaList = new ArrayList<>();
+    public static ArrayList<String> creditosList = new ArrayList<>();
+    public static ArrayList<String> tipoList = new ArrayList<>();
+    public static ArrayList<String> periodoList = new ArrayList<>();
+    public static ArrayList<String> notaList = new ArrayList<>();     
+    
     public static ArrayList<JPanel> panelList;    
     public InscripcionLibreEleccion() {
         initComponents();
@@ -456,6 +468,15 @@ public class InscripcionLibreEleccion extends javax.swing.JPanel {
 
     private void labelBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBuscarMouseClicked
         // TODO add your handling code here:
+        Materia.mostrarIDMateria(nombreBD, tipoList);
+        Materia.mostrarMateria(nombreBD, asignaturaList);
+        Materia.mostrarCreditos(nombreBD, creditosList);
+
+        //Agregar las materias al panel para visualizarlas
+        for(int i = 0;i<1;i++){
+            InscripcionLibreEleccion.agregarPanelNuevoAsignaturaLibreEleccion(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
+        }         
+        
     }//GEN-LAST:event_labelBuscarMouseClicked
 
     private void labelBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBuscarMouseEntered

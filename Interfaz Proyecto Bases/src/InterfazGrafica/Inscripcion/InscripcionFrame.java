@@ -32,6 +32,9 @@ public class InscripcionFrame extends javax.swing.JFrame {
     public static ArrayList<String> tipoList = new ArrayList<>();
     public static ArrayList<String> periodoList = new ArrayList<>();
     public static ArrayList<String> notaList = new ArrayList<>();     
+    
+    
+    
     public InscripcionFrame() {
         
         initComponents();
@@ -412,16 +415,16 @@ public class InscripcionFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Rellenar las materias que el estudiante ya vio
 
-        Materia.mostrarIDMateria(nombreBD, tipoList);
+        /*Materia.mostrarIDMateria(nombreBD, tipoList);
         Materia.mostrarMateria(nombreBD, asignaturaList);
-        Materia.mostrarCreditos(nombreBD, creditosList);        
+        Materia.mostrarCreditos(nombreBD, creditosList); */       
         
         mostrar_LibreEleccion();
         
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=2;i++){
+        /*for(int i = 0;i<=2;i++){
             InscripcionLibreEleccion.agregarPanelNuevoAsignaturaLibreEleccion(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
-        } 
+        } */
     }//GEN-LAST:event_panelLibreEleccMouseClicked
 
     private void panelGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGuardarMouseClicked

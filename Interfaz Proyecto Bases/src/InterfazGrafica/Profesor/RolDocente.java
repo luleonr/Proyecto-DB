@@ -233,11 +233,7 @@ public class RolDocente extends javax.swing.JPanel {
         ListaClase.mostrarCedula(nombreBD,cedulaClaseList);
         ListaClase.mostrarNombre(nombreBD,nombreClaseList);
         ListaClase.mostrarCarrera(nombreBD,carreraClaseList);   
-        
-        /*AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,cedulaClaseList);
-        asigHistAcad.mostrarUsuarios(nombreBD,nombreClaseList);*/
-        
+                
         
         abrirListaClase();
         //Agregar las materias al panel para visualizarlas
