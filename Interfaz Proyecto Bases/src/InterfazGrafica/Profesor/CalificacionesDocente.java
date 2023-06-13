@@ -4,6 +4,7 @@
  */
 package InterfazGrafica.Profesor;
 
+import static InterfazGrafica.Profesor.CalificacionesDocentePanel.DtextNota1;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,13 +23,19 @@ public class CalificacionesDocente extends javax.swing.JPanel {
      * Creates new form ListaDeClase
      */
     public static ArrayList<JPanel> panelList;
+    public static ArrayList<JPanel> panelconnotaList;
+    public static ArrayList<JPanel> panelconnotaListAux;    
     public static Color[] panelColors = {new Color(239,239,239), new Color(186,186,186)};
     public static int colorIndex = 0; 
+    public static int contador = 20;
     
     public CalificacionesDocente() {
         initComponents();
-        panelList = new ArrayList<>();        
-        AgregarPanel(panelListaNotas,scrollpanelListaNotas);        
+        panelList = new ArrayList<>();    
+        panelconnotaList = new ArrayList<>(); 
+        panelconnotaListAux = new ArrayList<>();         
+        AgregarPanel(panelListaNotas,scrollpanelListaNotas);   
+        AgregarPanel(panelListaNotas1,scrollpanelListaNotas1);           
     }
 
     /**
@@ -65,6 +72,8 @@ public class CalificacionesDocente extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         panelListaNotas = new javax.swing.JPanel();
         scrollpanelListaNotas = new javax.swing.JScrollPane();
+        panelListaNotas1 = new javax.swing.JPanel();
+        scrollpanelListaNotas1 = new javax.swing.JScrollPane();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 1500));
@@ -131,13 +140,13 @@ public class CalificacionesDocente extends javax.swing.JPanel {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jComboBox1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cálculo Diferencial", "Bases de Datos", "Estructuras de Datos", "Matemáticas Discretas" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNATURA", "Cálculo Diferencial", "Bases de Datos", "Estructuras de Datos", "Matemáticas Discretas" }));
         jComboBox1.setBorder(null);
         jComboBox1.setPreferredSize(new java.awt.Dimension(220, 32));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jComboBox2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GRUPO" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GRUPO", "1", "2", "3", "4", "5" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(110, 32));
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 110, -1));
 
@@ -216,15 +225,13 @@ public class CalificacionesDocente extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 930, 40));
@@ -233,6 +240,11 @@ public class CalificacionesDocente extends javax.swing.JPanel {
         panelListaNotas.add(scrollpanelListaNotas);
 
         jPanel1.add(panelListaNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 930, 520));
+
+        panelListaNotas1.setLayout(new javax.swing.BoxLayout(panelListaNotas1, javax.swing.BoxLayout.LINE_AXIS));
+        panelListaNotas1.add(scrollpanelListaNotas1);
+
+        jPanel1.add(panelListaNotas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 930, 520));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -250,22 +262,79 @@ public class CalificacionesDocente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoLista(String materia , String tipo) {
+        public static void agregarPanelNuevoLista(String cedula , String nombre, String nota1, String por1,
+                String nota2, String por2, String nota3, String por3) {
         CalificacionesDocenteDetalle panel = new CalificacionesDocenteDetalle();
         panel.setPreferredSize(new Dimension(930, 20));
         panel.setMaximumSize(new Dimension(930,20));
         panel.setMinimumSize(new Dimension(930,20));
         panel.setBackground(panelColors[colorIndex]);
 
-        panel.labelCedula.setText(materia);
-        panel.labelNombre.setText(tipo);
+        panel.labelCedula.setText(cedula);
+        panel.labelNombre.setText(nombre);
+        panel.labelNota1.setText(nota1);
+        panel.labelNota2.setText(nota2);
+        panel.labelNota3.setText(nota3);
+        panel.labelPorcent1.setText(por1);
+        panel.labelPorcent2.setText(por2);
+        panel.labelPorcent3.setText(por3); 
 
         colorIndex = (colorIndex + 1) % panelColors.length;
+
+
         panelList.add(panel);
-        panelListaNotas.add(panel);
+        System.out.println(panelList.size());
+        System.out.println(panelconnotaList.size());
+
+        panelListaNotas.add(panel);       
         panelListaNotas.revalidate();
-        panelListaNotas.repaint();
+        panelListaNotas.repaint();              
+        
+            
     }      
+        
+        public static void agregarPanelNuevoListaConNota(String cedula , String nombre, String nota1, String por1,
+                String nota2, String por2, String nota3, String por3) {
+        CalificacionesDocenteDetalle panel = new CalificacionesDocenteDetalle();
+        panel.setPreferredSize(new Dimension(930, 20));
+        panel.setMaximumSize(new Dimension(930,20));
+        panel.setMinimumSize(new Dimension(930,20));
+        panel.setBackground(panelColors[colorIndex]);
+
+        panel.labelCedula.setText(cedula);
+        panel.labelNombre.setText(nombre);
+        panel.labelNota1.setText(nota1);
+        panel.labelNota2.setText(nota2);
+        panel.labelNota3.setText(nota3);
+        panel.labelPorcent1.setText(por1);
+        panel.labelPorcent2.setText(por2);
+        panel.labelPorcent3.setText(por3);        
+        
+        colorIndex = (colorIndex + 1) % panelColors.length;
+        
+        panelconnotaList.add(panel);
+        System.out.println(panelList.size());
+        System.out.println(panelconnotaList.size());
+
+        
+        if (panelconnotaList.size()== contador){
+            
+            for( int  i = 0;i<10;i++){
+                panelListaNotas1.remove(0);                
+            }
+
+            contador +=10;
+            
+        }
+      
+
+        
+        panelListaNotas.removeAll();
+        panelListaNotas.setVisible(false);
+        panelListaNotas1.add(panel);
+        panelListaNotas1.revalidate();
+        panelListaNotas1.repaint();
+    }         
     
         public void AgregarPanel(JPanel panel, JScrollPane scrollpanel){
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -299,7 +368,9 @@ public class CalificacionesDocente extends javax.swing.JPanel {
     public static javax.swing.JSeparator jSeparator6;
     public static javax.swing.JSeparator jSeparator7;
     public static javax.swing.JSeparator jSeparator8;
-    private static javax.swing.JPanel panelListaNotas;
+    public static javax.swing.JPanel panelListaNotas;
+    public static javax.swing.JPanel panelListaNotas1;
     private javax.swing.JScrollPane scrollpanelListaNotas;
+    private javax.swing.JScrollPane scrollpanelListaNotas1;
     // End of variables declaration//GEN-END:variables
 }

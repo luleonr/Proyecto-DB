@@ -11,6 +11,7 @@ import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
 import Data.HorarioProf;
+import Data.ListaClase;
 import Data.ProgramaEstudiante;
 import static InterfazGrafica.Inscripcion.InscripcionCancelacion.nombreBD;
 import java.awt.BorderLayout;
@@ -30,8 +31,19 @@ import javax.swing.JScrollPane;
 public class RolDocente extends javax.swing.JPanel {
     
     public String nombreBD = "Academico";
-    public static ArrayList<String> cedulaList = new ArrayList<>();
-    public static ArrayList<String> nombreList = new ArrayList<>();
+    //calificaciones
+    
+    public static String[] textNota1 = new String[15];
+    public static String[] textNota2 = new String[15];
+    public static String[] textNota3 = new String[15];   
+    public static String[] textPorcent1 = new String[15]; 
+    public static String[] textPorcent2 = new String[15]; 
+    public static String[] textPorcent3 = new String[15];
+        
+    public static ArrayList<String> nombreClaseList = new ArrayList<>();
+    public static ArrayList<String> cedulaClaseList = new ArrayList<>();
+    public static ArrayList<String> carreraClaseList = new ArrayList<>();
+    public static ArrayList<String> correoClaseList = new ArrayList<>();    
 
     public static ArrayList<String> asignaturaList = new ArrayList<>();
     public static ArrayList<String> creditosList = new ArrayList<>();
@@ -217,29 +229,28 @@ public class RolDocente extends javax.swing.JPanel {
     private void labelListaClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaClaseMouseClicked
         // TODO add your handling code here:
         //Rellenar las materias que el estudiante ya vio
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,nombreList);
-        asigHistAcad.mostrarUsuarios(nombreBD,cedulaList);
+        ListaClase.mostrarCorreo(nombreBD,correoClaseList);
+        ListaClase.mostrarCedula(nombreBD,cedulaClaseList);
+        ListaClase.mostrarNombre(nombreBD,nombreClaseList);
+        ListaClase.mostrarCarrera(nombreBD,carreraClaseList);   
+        
+        /*AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
+        asigHistAcad.mostrarCedula(nombreBD,cedulaClaseList);
+        asigHistAcad.mostrarUsuarios(nombreBD,nombreClaseList);*/
         
         
         abrirListaClase();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=15;i++){
-            ListaDeClase.agregarPanelNuevoLista(cedulaList.get(i),nombreList.get(i));
+        for(int i = 0;i<10;i++){
+            ListaDeClase.agregarPanelNuevoLista(cedulaClaseList.get(i),nombreClaseList.get(i),correoClaseList.get(i),
+                    carreraClaseList.get(i));
         }
 
     }//GEN-LAST:event_labelListaClaseMouseClicked
 
     private void label_CalificacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_CalificacionesMouseClicked
         // TODO add your handling code here: 
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,nombreList);
-        asigHistAcad.mostrarUsuarios(nombreBD,cedulaList);    
-        abrirCalificaciones();
-        //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=15;i++){
-            CalificacionesDocente.agregarPanelNuevoLista(nombreList.get(i),cedulaList.get(i));
-        }        
+        finalLista();
     }//GEN-LAST:event_label_CalificacionesMouseClicked
 
     private void label_HorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HorarioMouseClicked
@@ -247,15 +258,15 @@ public class RolDocente extends javax.swing.JPanel {
         HorarioProf.mostrarHorarioDia(nombreBD, diaList);     
         HorarioProf.mostrarHorarioHoraInicio(nombreBD,horaInicioList);
         HorarioProf.mostrarHorarioHoraFinal(nombreBD,horaFinalList);
-        HorarioProf.mostrarHorarioActividad(nombreBD,actividadList);
-        HorarioProf.mostrarHorarioGrupo(nombreBD,noGrupoList);         
+        //HorarioProf.mostrarHorarioActividad(nombreBD,actividadList);
+        //HorarioProf.mostrarHorarioGrupo(nombreBD,noGrupoList);         
         HorarioProf.mostrarHorarioSalon(nombreBD,salonList);
         HorarioProf.mostrarHorarioEdificio(nombreBD,edificioList);        
-        HorarioProf.mostrarHorarioSemestre(nombreBD, semestreList);
+        //HorarioProf.mostrarHorarioSemestre(nombreBD, semestreList);
         HorarioProf.mostrarHorarioMateria(nombreBD, materiaList);   
-        HorarioProf.mostrarHorarioEdificioNom(nombreBD,EdifNomList);         
-        HorarioProf.mostrarHorarioMateriaID(nombreBD,MateriaIDList);
-        HorarioProf.mostrarHorarioSede(nombreBD,SedeList);        
+        //HorarioProf.mostrarHorarioEdificioNom(nombreBD,EdifNomList);         
+        //HorarioProf.mostrarHorarioMateriaID(nombreBD,MateriaIDList);
+        //HorarioProf.mostrarHorarioSede(nombreBD,SedeList);        
 
         abrirHorario();
         //Agregar las materias al panel para visualizarlas
@@ -275,18 +286,39 @@ public class RolDocente extends javax.swing.JPanel {
             if (diaPanelMap.containsKey(dia)) {
                 JPanel panel = diaPanelMap.get(dia);
                 HorarioProfeGUI.agregarPanelNuevoHorario(horaInicioList.get(i), horaFinalList.get(i), materiaList.get(i),
-                        salonList.get(i),edificioList.get(i),EdifNomList.get(i),semestreList.get(i),
-                        actividadList.get(i),noGrupoList.get(i),MateriaIDList.get(i), SedeList.get(i),panel);
+                        salonList.get(i),edificioList.get(i),panel);
             }
         }   
     }//GEN-LAST:event_label_HorarioMouseClicked
 
+        public void finalLista(){
+            ListaClase.mostrarCedula(nombreBD,cedulaClaseList);
+            ListaClase.mostrarNombre(nombreBD,nombreClaseList);
+
+
+            for (int i = 0; i < textNota1.length; i++) {
+                textNota1[i] = "0";
+                textNota2[i] = "0";
+                textNota3[i] = "0";
+                textPorcent1[i] = "0";
+                textPorcent2[i] = "0";
+                textPorcent3[i] = "0";
+            }        
+    ;         
+            abrirCalificaciones();
+            //Agregar las materias al panel para visualizarlas
+            CalificacionesDocente.panelListaNotas.removeAll();
+            CalificacionesDocente.panelListaNotas1.removeAll();
+            for(int i = 0;i<10;i++){
+                CalificacionesDocente.agregarPanelNuevoLista(cedulaClaseList.get(i),nombreClaseList.get(i),
+                        textNota1[i],textPorcent1[i],
+                        textNota2[i],textPorcent2[i],
+                        textNota3[i],textPorcent3[i]);
+            }              
+        }
+        
         public void abrirListaClase(){
         ListaDeClase listClase = new ListaDeClase();   
-        
-            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
-            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
-        
         
         // --------------------------------------------------------------------------------------------------
 
@@ -296,8 +328,6 @@ public class RolDocente extends javax.swing.JPanel {
         public void abrirCalificaciones(){
         CalificacionesDocente calificaciones = new CalificacionesDocente();   
         
-            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
-            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa); 
      
         // --------------------------------------------------------------------------------------------------
 

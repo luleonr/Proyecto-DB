@@ -332,15 +332,70 @@ public class InformacionAcademica extends javax.swing.JPanel {
         //ResumenCreditos
         ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);
         ResumenCreditos.mostrarExigidos(nombreBD,ProgramaEstudiante.Id_programa, ExigidosCList);
-            /*histAcad.labelExigidos1.setText(ExigidosCList.get(0));
-            histAcad.labelExigidos2.setText(ExigidosCList.get(1));
-            histAcad.labelExigidos3.setText(ExigidosCList.get(2));
-            histAcad.labelExigidos4.setText(ExigidosCList.get(3));
-            /*histAcad.labelExigidos5.setText(ExigidosCList.get(4));
-            histAcad.labelExigidos6.setText(ExigidosCList.get(5));
-            histAcad.labelExigidos7.setText(ExigidosCList.get(6));
-            histAcad.labelExigidos8.setText(ExigidosCList.get(7));
-            histAcad.labelExigidos9.setText(ExigidosCList.get(8));  */          
+        ResumenCreditos.mostrarAprobados(nombreBD,ProgramaEstudiante.Id_programa, AprobadosCList);
+        ResumenCreditos.mostrarPendientes(nombreBD,ProgramaEstudiante.Id_programa, PendientesCList);
+        ResumenCreditos.mostrarInscritos(nombreBD,ProgramaEstudiante.Id_programa, InscritosCList);
+        ResumenCreditos.mostrarCursados(nombreBD,ProgramaEstudiante.Id_programa, CursadosCList);        
+        
+ 
+            //Exigidos
+            histAcad.labelExigidos1.setText(ExigidosCList.get(2));
+            //histAcad.labelExigidos2.setText(ExigidosCList.get(1));
+            histAcad.labelExigidos3.setText(ExigidosCList.get(1));
+            histAcad.labelExigidos4.setText(ExigidosCList.get(0));
+            //histAcad.labelExigidos5.setText(ExigidosCList.get(4));
+            //histAcad.labelExigidos6.setText(ExigidosCList.get(5));
+            histAcad.labelExigidos7.setText(ExigidosCList.get(3));
+            //histAcad.labelExigidos8.setText(ExigidosCList.get(7));
+            histAcad.labelExigidos9.setText(ExigidosCList.get(4)); 
+            
+            //Aprobados
+            histAcad.labelAprobados1.setText(AprobadosCList.get(2));
+            //histAcad.labelAprobados2.setText(AprobadosCList.get(1));
+            histAcad.labelAprobados3.setText(AprobadosCList.get(1));
+            histAcad.labelAprobados4.setText(AprobadosCList.get(0));
+            //histAcad.labelAprobados5.setText(AprobadosCList.get(4));
+            //histAcad.labelAprobados6.setText(AprobadosCList.get(5));
+            histAcad.labelAprobados7.setText(AprobadosCList.get(3));
+            //histAcad.labelAprobados8.setText(AprobadosCList.get(7));
+            histAcad.labelAprobados9.setText(AprobadosCList.get(4));
+
+            //Pendientes
+            // Cambiar los nombres de los componentes y la lista
+            histAcad.labelPendientes1.setText(PendientesCList.get(2));
+            //histAcad.labelPendientes2.setText(PendienteCList.get(1));
+            histAcad.labelPendientes3.setText(PendientesCList.get(1));
+            histAcad.labelPendientes4.setText(PendientesCList.get(0));
+            //histAcad.labelPendientes5.setText(PendienteCList.get(4));
+            //histAcad.labelPendientes6.setText(PendienteCList.get(5));
+            histAcad.labelPendientes7.setText(PendientesCList.get(3));
+            //histAcad.labelPendientes8.setText(PendienteCList.get(7));
+            histAcad.labelPendientes9.setText(PendientesCList.get(4));
+
+            //Inscritos
+            // Cambiar los nombres de los componentes y la lista
+            histAcad.labelInscritos1.setText(InscritosCList.get(2));
+            //histAcad.labelInscritos2.setText(InscritosCList.get(1));
+            histAcad.labelInscritos3.setText(InscritosCList.get(1));
+            histAcad.labelInscritos4.setText(InscritosCList.get(0));
+            //histAcad.labelInscritos5.setText(InscritosCList.get(4));
+            //histAcad.labelInscritos6.setText(InscritosCList.get(5));
+            histAcad.labelInscritos7.setText(InscritosCList.get(3));
+            //histAcad.labelInscritos8.setText(InscritosCList.get(7));
+            histAcad.labelInscritos9.setText(InscritosCList.get(4));
+            
+            //Cursados
+            // Cambiar los nombres de los componentes y la lista
+            histAcad.labelCursados1.setText(CursadosCList.get(2));
+            //histAcad.labelCursados2.setText(CursadosCList.get(1));
+            histAcad.labelCursados3.setText(CursadosCList.get(1));
+            histAcad.labelCursados4.setText(CursadosCList.get(0));
+            //histAcad.labelCursados5.setText(CursadosCList.get(4));
+            //histAcad.labelCursados6.setText(CursadosCList.get(5));
+            histAcad.labelCursados7.setText(CursadosCList.get(3));
+            //histAcad.labelCursados8.setText(CursadosCList.get(7));
+            histAcad.labelCursados9.setText(CursadosCList.get(4));
+            
         // --------------------------------------------------------------------------------------------------
 
         PantallaPrincipalEstudGUI.mostrarPanel(histAcad);     

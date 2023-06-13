@@ -19,9 +19,8 @@ import javax.swing.JLabel;
 
 public class Main {
     
-    public static ArrayList<String> IDList = new ArrayList<>();
-    public static ArrayList<String> MateriaList = new ArrayList<>();
-    public static ArrayList<String> CreditosList = new ArrayList<>();
+    public static ArrayList<String> TipologiaCList = new ArrayList<>();
+    public static ArrayList<String> ExigidosCList = new ArrayList<>();
     
     public static void main(String[] args) {
         // TODO code application logic here
@@ -41,19 +40,16 @@ public class Main {
         String nombreBD = "Academico";
         Login.ejecutar_Login();
         
+        //ResumenCreditos.mostrarResumenCreditos(nombreBD, "20101");
+        
+        /*ResumenCreditos.mostrarPendientes(nombreBD,"20101", ExigidosCList);     
+        
+            for(int i = 0; i<ExigidosCList.size();i++){
+              System.out.println(ExigidosCList.get(i));
+                System.out.println(
+                        "indice = " + i);
+            }*/
 
-        Materia.mostrarIDMateria(nombreBD,IDList);
-        Materia.mostrarCreditos(nombreBD, CreditosList);
-        Materia.mostrarMateria(nombreBD, MateriaList);
-        for(int i = 0; i<IDList.size();i++){
-            
-            System.out.println(IDList.get(i));
-            System.out.println(CreditosList.get(i));
-            System.out.println(MateriaList.get(i));            
-        }
-            
-        /*ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);
-        HistoriaAcademica.mostrarHistoria_Academica(nombreBD, ProgramaEstudiante.Id_programa);
-        System.out.println(ProgramaEstudiante.Id_programa);*/
+        
     }
 }

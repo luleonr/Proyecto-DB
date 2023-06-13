@@ -115,13 +115,11 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelCedula.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCedula.setText("1000256145");
         labelCedula.setPreferredSize(new java.awt.Dimension(145, 17));
         add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         labelNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNombre.setText("1000256145");
         labelNombre.setMaximumSize(new java.awt.Dimension(269, 17));
         labelNombre.setMinimumSize(new java.awt.Dimension(269, 17));
         labelNombre.setPreferredSize(new java.awt.Dimension(269, 17));
@@ -129,7 +127,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelNota1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNota1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota1.setText("1.0");
         labelNota1.setMaximumSize(new java.awt.Dimension(269, 17));
         labelNota1.setMinimumSize(new java.awt.Dimension(269, 17));
         labelNota1.setPreferredSize(new java.awt.Dimension(76, 17));
@@ -137,7 +134,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelPorcent1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPorcent1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPorcent1.setText("50");
         labelPorcent1.setMaximumSize(new java.awt.Dimension(269, 17));
         labelPorcent1.setMinimumSize(new java.awt.Dimension(269, 17));
         labelPorcent1.setPreferredSize(new java.awt.Dimension(30, 17));
@@ -145,7 +141,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelNota2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNota2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota2.setText("5,0");
         labelNota2.setMaximumSize(new java.awt.Dimension(269, 17));
         labelNota2.setMinimumSize(new java.awt.Dimension(269, 17));
         labelNota2.setPreferredSize(new java.awt.Dimension(76, 17));
@@ -153,7 +148,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelPorcent2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPorcent2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPorcent2.setText("35");
         labelPorcent2.setMaximumSize(new java.awt.Dimension(269, 17));
         labelPorcent2.setMinimumSize(new java.awt.Dimension(269, 17));
         labelPorcent2.setPreferredSize(new java.awt.Dimension(30, 17));
@@ -161,7 +155,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelNota3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNota3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota3.setText("4.8");
         labelNota3.setMaximumSize(new java.awt.Dimension(269, 17));
         labelNota3.setMinimumSize(new java.awt.Dimension(269, 17));
         labelNota3.setPreferredSize(new java.awt.Dimension(76, 17));
@@ -169,7 +162,6 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         labelPorcent3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPorcent3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPorcent3.setText("50");
         labelPorcent3.setMaximumSize(new java.awt.Dimension(269, 17));
         labelPorcent3.setMinimumSize(new java.awt.Dimension(269, 17));
         labelPorcent3.setPreferredSize(new java.awt.Dimension(30, 17));
@@ -189,15 +181,18 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
             HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
             
         califDocent.labelNombre.setText(labelNombre.getText());
+        califDocent.labelCedula.setText(labelCedula.getText());
         
-        califDocent.textNota1.setText(labelNota1.getText());
-        califDocent.textPorcent1.setText(labelPorcent1.getText());    
+        califDocent.CtextNota1.setText(labelNota1.getText());
+        califDocent.CtextPorcent1.setText(labelPorcent1.getText());    
         
-        califDocent.textNota2.setText(labelNota2.getText());
-        califDocent.textPorcent2.setText(labelPorcent2.getText());    
+        califDocent.CtextNota2.setText(labelNota2.getText());
+        califDocent.CtextPorcent2.setText(labelPorcent2.getText());    
 
-        califDocent.textNota3.setText(labelNota3.getText());
-        califDocent.textPorcent3.setText(labelPorcent3.getText());            
+        califDocent.CtextNota3.setText(labelNota3.getText());
+        califDocent.CtextPorcent3.setText(labelPorcent3.getText());  
+        
+        
              
     }//GEN-LAST:event_formMouseClicked
 

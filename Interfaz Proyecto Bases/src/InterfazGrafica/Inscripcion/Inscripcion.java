@@ -4,9 +4,6 @@
  */
 package InterfazGrafica.Inscripcion;
 
-import static Bussines.Main.CreditosList;
-import static Bussines.Main.IDList;
-import static Bussines.Main.MateriaList;
 import InterfazGrafica.Inscripcion.InscripcionCancelacion;
 import Data.AsignaturasHistAcadConsulta;
 import Data.CitasInscripcionActivas;

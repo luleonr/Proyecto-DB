@@ -761,27 +761,27 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
         labelExigidos2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelExigidos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelExigidos2.setText("21");
+        labelExigidos2.setText("0");
         panelFundametalObli.add(labelExigidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 110, 30));
 
         labelAprobados2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelAprobados2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAprobados2.setText("21");
+        labelAprobados2.setText("0");
         panelFundametalObli.add(labelAprobados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 110, 30));
 
         labelPendientes2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPendientes2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPendientes2.setText("21");
+        labelPendientes2.setText("0");
         panelFundametalObli.add(labelPendientes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 110, 30));
 
         labelInscritos2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelInscritos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInscritos2.setText("21");
+        labelInscritos2.setText("0");
         panelFundametalObli.add(labelInscritos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 130, 30));
 
         labelCursados2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCursados2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCursados2.setText("21");
+        labelCursados2.setText("0");
         panelFundametalObli.add(labelCursados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 120, 30));
 
         panelCreditos.add(panelFundametalObli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 910, -1));
@@ -920,23 +920,23 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
         labelExigidos5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelExigidos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelExigidos5.setText("21");
+        labelExigidos5.setText("0");
 
         labelAprobados5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelAprobados5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAprobados5.setText("21");
+        labelAprobados5.setText("0");
 
         labelPendientes5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPendientes5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPendientes5.setText("21");
+        labelPendientes5.setText("0");
 
         labelInscritos5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelInscritos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInscritos5.setText("21");
+        labelInscritos5.setText("0");
 
         labelCursados5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCursados5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCursados5.setText("21");
+        labelCursados5.setText("0");
 
         javax.swing.GroupLayout panelLibreLayout = new javax.swing.GroupLayout(panelLibre);
         panelLibre.setLayout(panelLibreLayout);
@@ -980,23 +980,23 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
         labelExigidos6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelExigidos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelExigidos6.setText("21");
+        labelExigidos6.setText("0");
 
         labelAprobados6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelAprobados6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAprobados6.setText("21");
+        labelAprobados6.setText("0");
 
         labelPendientes6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPendientes6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPendientes6.setText("21");
+        labelPendientes6.setText("0");
 
         labelInscritos6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelInscritos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInscritos6.setText("21");
+        labelInscritos6.setText("0");
 
         labelCursados6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCursados6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCursados6.setText("21");
+        labelCursados6.setText("0");
 
         javax.swing.GroupLayout panelTrabajoGradoLayout = new javax.swing.GroupLayout(panelTrabajoGrado);
         panelTrabajoGrado.setLayout(panelTrabajoGradoLayout);
@@ -1100,23 +1100,23 @@ public class HistoriaAcademicaEstudGUI extends javax.swing.JPanel {
 
         labelExigidos8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelExigidos8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelExigidos8.setText("21");
+        labelExigidos8.setText("0");
 
         labelAprobados8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelAprobados8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAprobados8.setText("21");
+        labelAprobados8.setText("0");
 
         labelPendientes8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPendientes8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPendientes8.setText("21");
+        labelPendientes8.setText("0");
 
         labelInscritos8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelInscritos8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInscritos8.setText("21");
+        labelInscritos8.setText("0");
 
         labelCursados8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCursados8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCursados8.setText("21");
+        labelCursados8.setText("0");
 
         javax.swing.GroupLayout panelNivelacionLayout = new javax.swing.GroupLayout(panelNivelacion);
         panelNivelacion.setLayout(panelNivelacionLayout);

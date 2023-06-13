@@ -68,7 +68,7 @@ BEGIN
     SET semestre_actual = f_obtener_semestre();
     
 	SELECT Asignatura, Codigo, Creditos, Tipologia, Periodo, Calificacion, Estado FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
-    AND Periodo != semestre_actual AND ID_Programa = Programa;
+    /*AND Periodo != semestre_actual*/ AND ID_Programa = Programa;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_asignaturas TO Estudiante;
@@ -861,10 +861,10 @@ GRANT EXECUTE ON PROCEDURE Notas_definitivas TO Estudiante;
 <<<<<<< HEAD
 CALL Notas_definitivas(1);
 */
-=======
+/*=======
 -- CALL Notas_definitivas(1);
 
->>>>>>> e06acc3dbe93a1afd37bcb7b9051983fbf2cef4a
+>>>>>>> e06acc3dbe93a1afd37bcb7b9051983fbf2cef4a*/
 
 -- ---------------------------------------------------------------------------
 -- NOTAS POR MATERIA
@@ -1036,3 +1036,21 @@ END $$
 DELIMITER ;
 GRANT EXECUTE ON FUNCTION f_obtener_rol TO Estudiante;
 GRANT EXECUTE ON FUNCTION f_obtener_rol TO Profesor;
+
+
+--- --------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS lista_de_clase;
+
+DELIMITER //
+
+CREATE PROCEDURE lista_de_clase()
+BEGIN
+    SELECT per_nombre, per_correo_institucional, Estudiante_persona_cc, prog_nombre
+    FROM Persona
+    JOIN Estudiante ON per_cc = estud_cc
+    JOIN Estudiante_has_Programa ON Estudiante_persona_cc = per_cc
+    JOIN Programa ON Programa_id_programa = prog_id;
+END //
+
+DELIMITER ;
+GRANT EXECUTE ON FUNCTION lista_de_clase TO Profesor;

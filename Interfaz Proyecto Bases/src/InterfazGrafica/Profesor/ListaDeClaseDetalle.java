@@ -56,19 +56,16 @@ public class ListaDeClaseDetalle extends javax.swing.JPanel {
 
         labelCedula.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCedula.setText("1000256145");
         labelCedula.setPreferredSize(new java.awt.Dimension(145, 17));
         add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         labelNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNombre.setText("1000256145");
         labelNombre.setPreferredSize(new java.awt.Dimension(240, 17));
         add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 0, -1, -1));
 
         labelCarrera.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCarrera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCarrera.setText("1000256145");
         labelCarrera.setMaximumSize(new java.awt.Dimension(200, 17));
         labelCarrera.setMinimumSize(new java.awt.Dimension(200, 17));
         labelCarrera.setPreferredSize(new java.awt.Dimension(200, 17));
@@ -76,7 +73,6 @@ public class ListaDeClaseDetalle extends javax.swing.JPanel {
 
         labelCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCorreo.setText("1000256145");
         labelCorreo.setMaximumSize(new java.awt.Dimension(183, 17));
         labelCorreo.setMinimumSize(new java.awt.Dimension(183, 17));
         labelCorreo.setPreferredSize(new java.awt.Dimension(183, 17));
@@ -84,7 +80,6 @@ public class ListaDeClaseDetalle extends javax.swing.JPanel {
 
         labelNota.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota.setText("1000256145");
         labelNota.setMaximumSize(new java.awt.Dimension(90, 17));
         labelNota.setMinimumSize(new java.awt.Dimension(90, 17));
         labelNota.setPreferredSize(new java.awt.Dimension(90, 17));

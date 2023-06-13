@@ -34,22 +34,23 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
-                Dia = rows.getString("Dia");   
+                Dia = rows.getString("Dia");  
+                Materia = rows.getString("Asignatura");                
                 Hora_inicio = rows.getString("HoraInicio");  
                 Hora_Final = rows.getString("HoraFinal");
                 Actividad = rows.getString("Actividad");
-                No_Grupo = rows.getString("Grupo");
-                Sede = rows.getString("Sede");
+                //No_Grupo = rows.getString("Grupo");
+                //Sede = rows.getString("Sede");
                 Salon = rows.getString("Salon");
                 Edificio = rows.getString("Edificio");
-                Semestre = rows.getString("Semestre");
-                Materia = rows.getString("Asignatura");
-                EdificioNom = rows.getString("EdificoNom");
-                MateriaID = rows.getString("Asignatura_ID");
+                //Semestre = rows.getString("Semestre");
+
+                //EdificioNom = rows.getString("EdificoNom");
+                //MateriaID = rows.getString("Asignatura_ID");
                 
                 /*System.out.println(Dia);
                 System.out.println(Hora_inicio);
@@ -80,7 +81,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -105,7 +106,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){
                                 
@@ -130,7 +131,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){
                                 
@@ -155,7 +156,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){
                                 
@@ -180,7 +181,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){
                                 
@@ -205,7 +206,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){
                                 
@@ -230,7 +231,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -255,7 +256,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -280,7 +281,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -305,7 +306,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -330,7 +331,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -356,7 +357,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 
@@ -381,7 +382,7 @@ public class HorarioProf {
         
         try{
             declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor();"); // ejecutar consulta
+            rows = declaracion.executeQuery("CALL sp_ver_horario_profesor(SUBSTRING_INDEX(CURRENT_USER(), '@', 1) );"); // ejecutar consulta
 
             while(rows.next()){  
                 

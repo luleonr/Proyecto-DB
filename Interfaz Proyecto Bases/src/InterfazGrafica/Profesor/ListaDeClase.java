@@ -49,8 +49,8 @@ public class ListaDeClase extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboboxAsig = new javax.swing.JComboBox<>();
+        comboboxGrup = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -106,16 +106,16 @@ public class ListaDeClase extends javax.swing.JPanel {
         jLabel2.setText("Selecciona la materia de la que quieres la lista");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cálculo Diferencial", "Bases de Datos", "Estructuras de Datos", "Matemáticas Discretas" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.setPreferredSize(new java.awt.Dimension(220, 32));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        comboboxAsig.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        comboboxAsig.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ASIGNATURA", "Cálculo Diferencial", "Bases de Datos", "Estructuras de Datos", "Matemáticas Discretas" }));
+        comboboxAsig.setBorder(null);
+        comboboxAsig.setPreferredSize(new java.awt.Dimension(220, 32));
+        jPanel1.add(comboboxAsig, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GRUPO" }));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(110, 32));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 110, -1));
+        comboboxGrup.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        comboboxGrup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GRUPO", "1", "2", "3", "4", "5" }));
+        comboboxGrup.setPreferredSize(new java.awt.Dimension(110, 32));
+        jPanel1.add(comboboxGrup, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 110, -1));
 
         jPanel2.setMaximumSize(new java.awt.Dimension(930, 40));
         jPanel2.setMinimumSize(new java.awt.Dimension(930, 40));
@@ -195,15 +195,17 @@ public class ListaDeClase extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoLista(String materia , String tipo) {
+        public static void agregarPanelNuevoLista(String cedula , String nombre, String correo, String carrera) {
         ListaDeClaseDetalle panel = new ListaDeClaseDetalle();
         panel.setPreferredSize(new Dimension(930, 20));
         panel.setMaximumSize(new Dimension(930,20));
         panel.setMinimumSize(new Dimension(930,20));
         panel.setBackground(panelColors[colorIndex]);
 
-        panel.labelCedula.setText(materia);
-        panel.labelNombre.setText(tipo);
+        panel.labelCedula.setText(cedula);
+        panel.labelNombre.setText(nombre);
+        panel.labelCorreo.setText(correo);
+        panel.labelCarrera.setText(carrera);
 
         colorIndex = (colorIndex + 1) % panelColors.length;
         panelList.add(panel);
@@ -221,8 +223,8 @@ public class ListaDeClase extends javax.swing.JPanel {
             
         }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JComboBox<String> comboboxAsig;
+    public javax.swing.JComboBox<String> comboboxGrup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

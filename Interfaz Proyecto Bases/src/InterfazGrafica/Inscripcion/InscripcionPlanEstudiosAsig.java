@@ -107,7 +107,7 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 75, -1, 60));
 
         jComboBox1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "20101 ESTADÍSCTICA" }));
         jComboBox1.setBorder(null);
         jComboBox1.setPreferredSize(new java.awt.Dimension(430, 32));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 155, -1, -1));

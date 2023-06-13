@@ -4,8 +4,18 @@
  */
 package InterfazGrafica.Profesor;
 
+import Data.ListaClase;
 import InterfazGrafica.Estudiante.*;
+import static InterfazGrafica.Profesor.RolDocente.cedulaClaseList;
+import static InterfazGrafica.Profesor.RolDocente.nombreClaseList;
+import static InterfazGrafica.Profesor.RolDocente.textNota1;
+import static InterfazGrafica.Profesor.RolDocente.textNota2;
+import static InterfazGrafica.Profesor.RolDocente.textNota3;
+import static InterfazGrafica.Profesor.RolDocente.textPorcent1;
+import static InterfazGrafica.Profesor.RolDocente.textPorcent2;
+import static InterfazGrafica.Profesor.RolDocente.textPorcent3;
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +26,17 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
     /**
      * Creates new form HorarioDetalle
      */
+    public String nombreBD = "Academico";
+    public static ArrayList<String> nombreClaseList = new ArrayList<>();
+    public static ArrayList<String> cedulaClaseList = new ArrayList<>(); 
+    
+    public static String[] DtextNota1 = new String[15];
+    public static String[] DtextNota2 = new String[15];
+    public static String[] DtextNota3 = new String[15];   
+    public static String[] DtextPorcent1 = new String[15]; 
+    public static String[] DtextPorcent2 = new String[15]; 
+    public static String[] DtextPorcent3 = new String[15];
+    
     public CalificacionesDocentePanel() {
         initComponents();
     }
@@ -44,12 +65,12 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        textNota1 = new javax.swing.JTextField();
-        textPorcent1 = new javax.swing.JTextField();
-        textNota2 = new javax.swing.JTextField();
-        textPorcent3 = new javax.swing.JTextField();
-        textNota3 = new javax.swing.JTextField();
-        textPorcent2 = new javax.swing.JTextField();
+        CtextNota1 = new javax.swing.JTextField();
+        CtextPorcent1 = new javax.swing.JTextField();
+        CtextNota2 = new javax.swing.JTextField();
+        CtextPorcent3 = new javax.swing.JTextField();
+        CtextNota3 = new javax.swing.JTextField();
+        CtextPorcent2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -192,35 +213,35 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
         jLabel6.setPreferredSize(new java.awt.Dimension(30, 40));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, -1, -1));
 
-        textNota1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textNota1.setText("4.5");
-        textNota1.setPreferredSize(new java.awt.Dimension(64, 30));
-        jPanel1.add(textNota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 129, 76, -1));
+        CtextNota1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextNota1.setText("4.5");
+        CtextNota1.setPreferredSize(new java.awt.Dimension(64, 30));
+        jPanel1.add(CtextNota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 129, 76, -1));
 
-        textPorcent1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textPorcent1.setText("30");
-        textPorcent1.setPreferredSize(new java.awt.Dimension(32, 30));
-        jPanel1.add(textPorcent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 129, -1, -1));
+        CtextPorcent1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextPorcent1.setText("30");
+        CtextPorcent1.setPreferredSize(new java.awt.Dimension(32, 30));
+        jPanel1.add(CtextPorcent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 129, -1, -1));
 
-        textNota2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textNota2.setText("4.0");
-        textNota2.setPreferredSize(new java.awt.Dimension(64, 30));
-        jPanel1.add(textNota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 129, 76, -1));
+        CtextNota2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextNota2.setText("4.0");
+        CtextNota2.setPreferredSize(new java.awt.Dimension(64, 30));
+        jPanel1.add(CtextNota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 129, 76, -1));
 
-        textPorcent3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textPorcent3.setText("50");
-        textPorcent3.setPreferredSize(new java.awt.Dimension(32, 30));
-        jPanel1.add(textPorcent3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, -1, -1));
+        CtextPorcent3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextPorcent3.setText("50");
+        CtextPorcent3.setPreferredSize(new java.awt.Dimension(32, 30));
+        jPanel1.add(CtextPorcent3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, -1, -1));
 
-        textNota3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textNota3.setText("5.0");
-        textNota3.setPreferredSize(new java.awt.Dimension(64, 30));
-        jPanel1.add(textNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 129, 76, -1));
+        CtextNota3.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextNota3.setText("5.0");
+        CtextNota3.setPreferredSize(new java.awt.Dimension(64, 30));
+        jPanel1.add(CtextNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 129, 76, -1));
 
-        textPorcent2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        textPorcent2.setText("20");
-        textPorcent2.setPreferredSize(new java.awt.Dimension(32, 30));
-        jPanel1.add(textPorcent2, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 129, -1, -1));
+        CtextPorcent2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        CtextPorcent2.setText("20");
+        CtextPorcent2.setPreferredSize(new java.awt.Dimension(32, 30));
+        jPanel1.add(CtextPorcent2, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 129, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,6 +274,34 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
 
     private void labelGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuardarMouseClicked
         // TODO add your handling code here:
+        
+        ListaClase.mostrarCedula(nombreBD,cedulaClaseList);
+        ListaClase.mostrarNombre(nombreBD,nombreClaseList);
+
+        //Agregar las materias al panel para visualizarlas
+        this.dispose();  
+        
+        for (int i = 0; i < 10; i++) {
+            if(labelNombre.getText().compareTo(nombreClaseList.get(i)) == 0){
+                textNota1[i] = CtextNota1.getText();
+                textNota2[i] = CtextNota2.getText();
+                textNota3[i] = CtextNota3.getText();
+                textPorcent1[i] = CtextPorcent1.getText();
+                textPorcent2[i] = CtextPorcent1.getText();
+                textPorcent3[i] = CtextPorcent1.getText();
+               
+            }else{
+            }
+        }  
+        
+        for(int i = 0;i<10;i++){
+            CalificacionesDocente.agregarPanelNuevoListaConNota(cedulaClaseList.get(i),nombreClaseList.get(i),
+                    textNota1[i],textPorcent1[i],
+                    textNota2[i],textPorcent2[i],
+                    textNota3[i],textPorcent3[i]);
+        }    
+
+   
     }//GEN-LAST:event_labelGuardarMouseClicked
 
     private void labelGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuardarMouseEntered
@@ -264,7 +313,7 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelGuardar.setBackground(new Color(145,179,59));          
     }//GEN-LAST:event_labelGuardarMouseExited
-
+        
     /**
      * @param args the command line arguments
      */
@@ -304,6 +353,12 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField CtextNota1;
+    public javax.swing.JTextField CtextNota2;
+    public javax.swing.JTextField CtextNota3;
+    public javax.swing.JTextField CtextPorcent1;
+    public javax.swing.JTextField CtextPorcent2;
+    public javax.swing.JTextField CtextPorcent3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -319,11 +374,5 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
     public javax.swing.JLabel labelNombre;
     private javax.swing.JPanel panelAtras;
     private javax.swing.JPanel panelGuardar;
-    public javax.swing.JTextField textNota1;
-    public javax.swing.JTextField textNota2;
-    public javax.swing.JTextField textNota3;
-    public javax.swing.JTextField textPorcent1;
-    public javax.swing.JTextField textPorcent2;
-    public javax.swing.JTextField textPorcent3;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,8 +24,8 @@ public class ResumenCreditos {
     
     public static void mostrarResumenCreditos(String nombreBD, String carrera){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
 
         System.out.println("");
         String carreraParametro = carrera;   
@@ -49,6 +49,7 @@ public class ResumenCreditos {
                 Pendientes = rows.getString("Pendientes"); 
                 
                 System.out.println(Tipologia);
+                System.out.println(Exigidos);
                 System.out.println("funciona");
                 System.out.println("");
                 
@@ -62,13 +63,13 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarExigidos(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
@@ -85,7 +86,7 @@ public class ResumenCreditos {
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexion de cretidos Exigidos");
             ConexionSQL.desConexion(conn);
         }
         return lista;
@@ -93,13 +94,14 @@ public class ResumenCreditos {
 
     public static ArrayList<String> mostrarCursados(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
@@ -112,7 +114,7 @@ public class ResumenCreditos {
                             
                 Cursados = rows.getString("Cursados"); 
                 System.out.println(Cursados);
-                //lista.add(Cursados);
+                lista.add(Cursados);
 
             }
             ConexionSQL.desConexion(conn);
@@ -125,13 +127,14 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarAprobados(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
@@ -156,13 +159,14 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarTipologia(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");   
 
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
@@ -187,13 +191,14 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarInscritos(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
 
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
@@ -218,13 +223,14 @@ public class ResumenCreditos {
 
     public static ArrayList<String> mostrarPendientes(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
 
         System.out.println("");
         String carreraParametro = carrera;   
         
         try{
-            String query = "{CALL sp_Estudiante_mostrar_asignaturas(?)}";
+            String query = "{CALL sp_Estudiante_Resumen_Creditos(?)}";
 
             
             CallableStatement statement = conn.prepareCall(query);
