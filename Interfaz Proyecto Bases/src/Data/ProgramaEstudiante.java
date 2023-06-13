@@ -21,8 +21,8 @@ public class ProgramaEstudiante {
     
     public static void mostrarProgramaEstudiante(String nombreBD){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");          
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;

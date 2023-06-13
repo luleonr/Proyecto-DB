@@ -24,8 +24,8 @@ public class ResumenCreditos {
     
     public static void mostrarResumenCreditos(String nombreBD, String carrera){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
 
         System.out.println("");
         String carreraParametro = carrera;   
@@ -63,8 +63,8 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarExigidos(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
         System.out.println("");
         String carreraParametro = carrera;   
         
@@ -94,8 +94,8 @@ public class ResumenCreditos {
 
     public static ArrayList<String> mostrarCursados(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");   
         
         System.out.println("");
         String carreraParametro = carrera;   
@@ -127,8 +127,8 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarAprobados(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
         
         System.out.println("");
         String carreraParametro = carrera;   
@@ -159,8 +159,8 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarTipologia(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");   
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");    
 
         System.out.println("");
         String carreraParametro = carrera;   
@@ -191,8 +191,8 @@ public class ResumenCreditos {
     
     public static ArrayList<String> mostrarInscritos(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");    
 
         System.out.println("");
         String carreraParametro = carrera;   
@@ -223,8 +223,8 @@ public class ResumenCreditos {
 
     public static ArrayList<String> mostrarPendientes(String nombreBD, String carrera, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
 
         System.out.println("");
         String carreraParametro = carrera;   

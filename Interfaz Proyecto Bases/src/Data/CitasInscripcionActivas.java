@@ -22,23 +22,19 @@ public class CitasInscripcionActivas {
 
     
     
-    public static void mostrarCitasActivas(String nombreBD, String carrera){ 
+    public static void mostrarCitasActivas(String nombreBD){ 
         
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
-
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");           
         System.out.println("");
-        String carreraParametro = carrera;   
+        Statement declaracion ; 
+        ResultSet rows;
+        System.out.println("");  
         
         try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
-
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
-
-            ResultSet rows = statement.executeQuery();            
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL Estudiante_mirar_citas_activas();"); // ejecutar consulta
+                      
 
             while(rows.next()){
                 Inicio = rows.getString("Inicio");            
@@ -48,172 +44,133 @@ public class CitasInscripcionActivas {
                 Usuario = rows.getString("Usuario");
                 
                 System.out.println(Inicio);
+                System.out.println(Final);
+                System.out.println(Programa);
+                System.out.println(Facultad);
+                System.out.println(Usuario);                
                 System.out.println("funciona");
                 System.out.println("");
                 
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión ResumenCreditos");
+            System.out.println("Hubo un error en la conexión Cita Activa");
             ConexionSQL.desConexion(conn);
         }
     }
-    
-    public static ArrayList<String> mostrarFinal(String nombreBD, String carrera, ArrayList<String> lista){ 
-        
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
 
+    public static ArrayList<String> mostrarInicio(String nombreBD,ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");             
         System.out.println("");
-        String carreraParametro = carrera;   
+        Statement declaracion ; 
+        ResultSet rows;
+        System.out.println("");  
         
         try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
-
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
-
-            ResultSet rows = statement.executeQuery();            
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL Estudiante_mirar_citas_activas();"); // ejecutar consulta
+                      
 
             while(rows.next()){
-                            
-                Final = rows.getString("Final");     
-                lista.add(Final);
-
+                Inicio = rows.getString("Inicio");            
+                System.out.println(Inicio);
+                lista.add(Inicio);
+                
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión Cita Activa");
             ConexionSQL.desConexion(conn);
         }
         return lista;
-    }
-
-    public static ArrayList<String> mostrarPrograma(String nombreBD, String carrera, ArrayList<String> lista){ 
+    }   
+    
+    public static ArrayList<String> mostrarFinal(String nombreBD,ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");              
         System.out.println("");
-        String carreraParametro = carrera;   
+        Statement declaracion ; 
+        ResultSet rows;
+        System.out.println("");  
         
         try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL Estudiante_mirar_citas_activas();"); // ejecutar consulta
+                      
 
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
+            while(rows.next()){            
+                Final = rows.getString("Final");     
+                System.out.println(Final);
+                lista.add(Final);
+                
+            }
+            ConexionSQL.desConexion(conn);
+        }catch(Exception e){
+            System.out.println("Hubo un error en la conexión Cita Activa");
+            ConexionSQL.desConexion(conn);
+        }
+        return lista;
+    }    
 
-            ResultSet rows = statement.executeQuery();            
+    public static ArrayList<String> mostrarPrograma(String nombreBD,ArrayList<String> lista){ 
+        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");             
+        System.out.println("");
+        Statement declaracion ; 
+        ResultSet rows;
+        System.out.println("");  
+        
+        try{
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL Estudiante_mirar_citas_activas();"); // ejecutar consulta
+                      
 
             while(rows.next()){
-                            
+                
                 Programa = rows.getString("Programa"); 
                 System.out.println(Programa);
-                //lista.add(Programa);
-
+                lista.add(Programa);
+                
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión Cita Activa");
             ConexionSQL.desConexion(conn);
         }
         return lista;
     }    
     
-    public static ArrayList<String> mostrarFacultad(String nombreBD, String carrera, ArrayList<String> lista){ 
+    public static ArrayList<String> mostrarFacultad(String nombreBD,ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");            
         System.out.println("");
-        String carreraParametro = carrera;   
+        Statement declaracion ; 
+        ResultSet rows;
+        System.out.println("");  
         
         try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
-
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
-
-            ResultSet rows = statement.executeQuery();            
+            declaracion = conn.createStatement();
+            rows = declaracion.executeQuery("CALL Estudiante_mirar_citas_activas();"); // ejecutar consulta
+                      
 
             while(rows.next()){
-                            
-                Facultad = rows.getString("Facultad");     
+
+                Facultad = rows.getString("Facultad");;
+                System.out.println(Facultad);
                 lista.add(Facultad);
-
+                
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión Cita Activa");
             ConexionSQL.desConexion(conn);
         }
         return lista;
     }    
-    
-    public static ArrayList<String> mostrarInicio(String nombreBD, String carrera, ArrayList<String> lista){ 
-        
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
 
-        System.out.println("");
-        String carreraParametro = carrera;   
-        
-        try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
-
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
-
-            ResultSet rows = statement.executeQuery();            
-
-            while(rows.next()){
-                            
-                Inicio = rows.getString("Inicio");     
-                lista.add(Inicio);
-
-            }
-            ConexionSQL.desConexion(conn);
-        }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
-            ConexionSQL.desConexion(conn);
-        }
-        return lista;
-    } 
-    
-    public static ArrayList<String> mostrarUsuario(String nombreBD, String carrera, ArrayList<String> lista){ 
-        
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
-        System.out.println("");
-        String carreraParametro = carrera;   
-        
-        try{
-            String query = "{CALL Estudiante_mirar_citas_activas(?)}";
-
-            
-            CallableStatement statement = conn.prepareCall(query);
-            
-            statement.setString(1, carreraParametro);
-
-            ResultSet rows = statement.executeQuery();            
-
-            while(rows.next()){
-                            
-                Usuario = rows.getString("Usuario");     
-                lista.add(Usuario);
-
-            }
-            ConexionSQL.desConexion(conn);
-        }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
-            ConexionSQL.desConexion(conn);
-        }
-        return lista;
-    }    
-  
-   
 }

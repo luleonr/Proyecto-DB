@@ -4,6 +4,8 @@ package Bussines;
 
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
+import Data.Calificaciones;
+import Data.CitasInscripcionActivas;
 import Data.HorarioEstud;
 import Data.HorarioProf;
 import Data.Materia;
@@ -50,6 +52,15 @@ public class Main {
                         "indice = " + i);
             }*/
 
+        /*Calificaciones.mostrarAsignatura(nombreBD, "2023-1", "20101", ExigidosCList);
         
+            for(int i = 0; i<ExigidosCList.size();i++){
+              System.out.println(ExigidosCList.get(i));
+                System.out.println(
+                        "indice = " + i);
+            }    */   
+        //Calificaciones.mostrarCalificaciones(nombreBD, "2023-1", "20101");
+        
+        //CitasInscripcionActivas.mostrarCitasActivas(nombreBD);
     }
 }

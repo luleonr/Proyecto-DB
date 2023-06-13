@@ -24,8 +24,8 @@ public class HistoriaAcademica {
     
     public static void mostrarHistoria_Academica(String nombreBD,String carrera){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");
         System.out.println("");
         String carreraParametro = carrera;        
         

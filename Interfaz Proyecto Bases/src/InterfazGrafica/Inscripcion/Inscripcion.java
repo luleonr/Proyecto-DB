@@ -132,43 +132,48 @@ public class Inscripcion extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD); 
-        CitasInscripcionActivas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioCAList);        
-        CitasInscripcionActivas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalCAList);
-        CitasInscripcionActivas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaCAList);
-        CitasInscripcionActivas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadCAList);
-        CitasInscripcionActivas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioCAList);      
+        CitasInscripcionActivas.mostrarInicio(nombreBD, InicioCAList);        
+        CitasInscripcionActivas.mostrarFinal(nombreBD, FinalCAList);
+        CitasInscripcionActivas.mostrarPrograma(nombreBD, ProgramaCAList);
+        CitasInscripcionActivas.mostrarFacultad(nombreBD, FacultadCAList);   
         
-        CitasInscripcionProximas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioPRList);        
-        CitasInscripcionProximas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalPRList);
-        CitasInscripcionProximas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaPRList);
-        CitasInscripcionProximas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadPRList);
-        CitasInscripcionProximas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioPRList);   
+        CitasInscripcionProximas.mostrarInicio(nombreBD, InicioPRList);        
+        CitasInscripcionProximas.mostrarFinal(nombreBD, FinalPRList);
+        CitasInscripcionProximas.mostrarPrograma(nombreBD, ProgramaPRList);
+        CitasInscripcionProximas.mostrarFacultad(nombreBD, FacultadPRList);
+  
 
-        CitasInscripcionVencidas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioVEList);        
-        CitasInscripcionVencidas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalVEList);
-        CitasInscripcionVencidas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaVEList);
-        CitasInscripcionVencidas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadVEList);
-        CitasInscripcionVencidas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioVEList);    
+        CitasInscripcionVencidas.mostrarInicio(nombreBD, InicioVEList);        
+        CitasInscripcionVencidas.mostrarFinal(nombreBD, FinalVEList);
+        CitasInscripcionVencidas.mostrarPrograma(nombreBD, ProgramaVEList);
+        CitasInscripcionVencidas.mostrarFacultad(nombreBD, FacultadVEList);
+
         
         abrirInscripcion();
-        /*//Agregar las materias al panel para visualizarlas
+        String[] fecha = {"12","12","12","12","12","12","12","12",};
+        String[] fecha1 = {"13","13","13","13","13","13","13","13",};        
+        //Agregar las materias al panel para visualizarlas
         for(int i = 0;i<InicioCAList.size();i++){
             InscripcionCancelacion.agregarPanelNuevoCitas(InicioCAList.get(i),FinalCAList.get(i),
                     ProgramaCAList.get(i),FacultadCAList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
+        }
+        for(int i = 0;i<InicioVEList.size();i++){
+            InscripcionCancelacion.agregarPanelNuevoCitasProximas(InicioPRList.get(i),FinalPRList.get(i),
+                    ProgramaPRList.get(i),FacultadPRList.get(i) ,InscripcionCancelacion.panelProximaCita,fecha1[i] );        
         }        
         for(int i = 0;i<InicioVEList.size();i++){
             InscripcionCancelacion.agregarPanelNuevoCitasVencidas(InicioVEList.get(i),FinalVEList.get(i),
                     ProgramaVEList.get(i),FacultadVEList.get(i) ,InscripcionCancelacion.panelCitaVencida);        
-        }*/         
+        }       
         
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
+        /*AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
         asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
         asigHistAcad.mostrarUsuarios(nombreBD,citaVencidaList); 
         
         Materia.mostrarIDMateria(nombreBD,IDList);
         Materia.mostrarCreditos(nombreBD, CreditosList);
         Materia.mostrarMateria(nombreBD, MateriaList);        
-        String[] fecha = {"12","12","13","13"};
+
         
         
         for(int i = 0;i<4;i++){
@@ -177,7 +182,7 @@ public class Inscripcion extends javax.swing.JPanel {
         for(int i = 0;i<10;i++){
             InscripcionCancelacion.agregarPanelNuevoCitasVencidasAux(citaVencidaList.get(i),InscripcionCancelacion.panelCitaVencida);  
         }
-
+        */
         for(int i = 0; i<citaVencidaList.size();i++){
             
             System.out.println(IDList.get(i));

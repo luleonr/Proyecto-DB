@@ -20,7 +20,7 @@ public class Calificaciones {
 
     
     
-    public static void mostrarAsignaturasCursadas(String nombreBD, String carrera, String semestre){ 
+    public static void mostrarCalificaciones(String nombreBD, String semestre, String carrera){ 
         
         Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
         //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
@@ -46,21 +46,26 @@ public class Calificaciones {
                 Calificacion = rows.getString("Calificacion");
                 Estado = rows.getString("Estado");
                 
+                System.out.println(Asignatura);
+                System.out.println(Codigo);
+                System.out.println(Calificacion);
+                System.out.println(Estado);
                 System.out.println("funciona");
                 System.out.println("");
                 
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión ResumenCreditos");
+            System.out.println("Hubo un error en la conexión Calificaciones");
             ConexionSQL.desConexion(conn);
         }
     }
     
-    public static ArrayList<String> mostrarAsignatura(String nombreBD, String carrera,String semestre, ArrayList<String> lista){ 
+    public static ArrayList<String> mostrarAsignatura(String nombreBD,String semestre,String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        
         System.out.println("");
         String carreraParametro = carrera;   
         String semestreParametro = semestre;        
@@ -83,16 +88,17 @@ public class Calificaciones {
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión de asig");
             ConexionSQL.desConexion(conn);
         }
         return lista;
     }
 
-    public static ArrayList<String> mostrarCodigo(String nombreBD, String carrera,String semestre, ArrayList<String> lista){ 
+    public static ArrayList<String> mostrarCodigo(String nombreBD,String semestre,String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
+        
         System.out.println("");
         String carreraParametro = carrera;   
         String semestreParametro = semestre;
@@ -111,20 +117,21 @@ public class Calificaciones {
                             
                 Codigo = rows.getString("Codigo"); 
                 System.out.println(Codigo);
-                //lista.add(Codigo);
+                lista.add(Codigo);
 
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión de codigo");
             ConexionSQL.desConexion(conn);
         }
         return lista;
     }    
     
-    public static ArrayList<String> mostrarCalificacion(String nombreBD, String carrera,String semestre, ArrayList<String> lista){ 
+    public static ArrayList<String> mostrarCalificacion(String nombreBD,String semestre,String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234"); 
 
         System.out.println("");
         String carreraParametro = carrera;   
@@ -154,9 +161,10 @@ public class Calificaciones {
         return lista;
     }    
         
-    public static ArrayList<String> mostrarEstado(String nombreBD, String carrera,String semestre, ArrayList<String> lista){ 
+    public static ArrayList<String> mostrarEstado(String nombreBD,String semestre,String carrera, ArrayList<String> lista){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");   
 
         System.out.println("");
         String carreraParametro = carrera;   

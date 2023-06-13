@@ -407,12 +407,27 @@ public class InformacionAcademica extends javax.swing.JPanel {
         String Periodo = calificaciones.comboboxPeriodo.getSelectedItem().toString();
         ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
         HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
-        Calificaciones.mostrarAsignatura(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, AsignaturaCaList);
-        Calificaciones.mostrarCalificacion(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, CalificacionCaList);
-        Calificaciones.mostrarCodigo(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, CodigoCaList);
-        Calificaciones.mostrarEstado(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, EstadoCaList);        
+        
+        Calificaciones.mostrarAsignatura(nombreBD,"2023-1",ProgramaEstudiante.Id_programa, AsignaturaCaList);
+        Calificaciones.mostrarCalificacion(nombreBD,"2023-1", ProgramaEstudiante.Id_programa, CalificacionCaList);
+        Calificaciones.mostrarCodigo(nombreBD,"2023-1", ProgramaEstudiante.Id_programa, CodigoCaList);
+        Calificaciones.mostrarEstado(nombreBD,"2023-1", ProgramaEstudiante.Id_programa, EstadoCaList);   
+        
+  
         calificaciones.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
-        //calificaciones.labelMateria1.setText(AsignaturaCaList.get(0));
+        
+        calificaciones.labelMateria1.setText(AsignaturaCaList.get(0));
+        calificaciones.labelMateria2.setText(AsignaturaCaList.get(1));
+        calificaciones.labelMateria3.setText(AsignaturaCaList.get(2));
+        
+        calificaciones.labelNota1.setText(CalificacionCaList.get(0) + "  "+  EstadoCaList.get(0));
+        calificaciones.labelNota2.setText(CalificacionCaList.get(1) + "  "+  EstadoCaList.get(1));
+        calificaciones.labelNota3.setText(CalificacionCaList.get(2) + "  "+  EstadoCaList.get(2));
+        
+        //calificaciones.labelIDMateria1.setText(CodigoCaList.get(0));
+        //calificaciones.labelIDMateria2.setText(CodigoCaList.get(1));
+        //calificaciones.labelIDMateria3.setText(CodigoCaList.get(2));
+              
             System.out.println(Periodo);
         // --------------------------------------------------------------------------------------------------
 

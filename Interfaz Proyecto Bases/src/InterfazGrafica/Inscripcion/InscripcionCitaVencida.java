@@ -36,12 +36,7 @@ public class InscripcionCitaVencida extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         labelFechaInicial = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         labelFechaFinal = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        labelHoraInicial = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        labelHoraFinal = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setMaximumSize(new java.awt.Dimension(860, 90));
@@ -75,29 +70,9 @@ public class InscripcionCitaVencida extends javax.swing.JPanel {
         labelFechaInicial.setText("30/05/2023");
         jPanel1.add(labelFechaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel4.setText("-");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 0, -1, -1));
-
         labelFechaFinal.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         labelFechaFinal.setText("30/05/2023");
-        jPanel1.add(labelFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 0, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel3.setText("Hora:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 23, -1, -1));
-
-        labelHoraInicial.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        labelHoraInicial.setText("15:30");
-        jPanel1.add(labelHoraInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 23, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel6.setText("-");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 23, -1, -1));
-
-        labelHoraFinal.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        labelHoraFinal.setText("15:30");
-        jPanel1.add(labelHoraFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 23, -1, -1));
+        jPanel1.add(labelFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,17 +122,12 @@ public class InscripcionCitaVencida extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel labelCarrera;
     private javax.swing.JLabel labelCarrera1;
     public javax.swing.JLabel labelFacultad;
     public javax.swing.JLabel labelFechaFinal;
     public javax.swing.JLabel labelFechaInicial;
-    public javax.swing.JLabel labelHoraFinal;
-    public javax.swing.JLabel labelHoraInicial;
     public javax.swing.JLabel labelIdCarrera;
     // End of variables declaration//GEN-END:variables
 }

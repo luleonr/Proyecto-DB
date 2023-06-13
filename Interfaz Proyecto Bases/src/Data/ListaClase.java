@@ -1,5 +1,6 @@
 package Data;
 
+import InterfazGrafica.Login;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -14,8 +15,8 @@ public class ListaClase {
     public static String prog_nombre;
     
     public static ArrayList<String> mostrarCorreo(String nombreBD, ArrayList<String> lista){ 
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"root","2000");         
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");           
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -37,8 +38,8 @@ public class ListaClase {
     }
     
     public static ArrayList<String> mostrarNombre(String nombreBD, ArrayList<String> lista){ 
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"root","2000");         
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");           
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -61,8 +62,8 @@ public class ListaClase {
 
     public static ArrayList<String> mostrarCedula(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"root","2000");         
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");          
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
@@ -85,8 +86,8 @@ public class ListaClase {
     
     public static ArrayList<String> mostrarCarrera(String nombreBD, ArrayList<String> lista){ 
         
-        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
-        Connection conn = ConexionSQL.conexion(nombreBD,"root","2000");         
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);
+        //Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");          
         System.out.println("");
         Statement declaracion ; 
         ResultSet rows;
