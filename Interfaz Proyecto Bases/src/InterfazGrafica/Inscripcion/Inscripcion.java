@@ -4,12 +4,16 @@
  */
 package InterfazGrafica.Inscripcion;
 
+import static Bussines.Main.CreditosList;
+import static Bussines.Main.IDList;
+import static Bussines.Main.MateriaList;
 import InterfazGrafica.Inscripcion.InscripcionCancelacion;
 import Data.AsignaturasHistAcadConsulta;
 import Data.CitasInscripcionActivas;
 import Data.CitasInscripcionProximas;
 import Data.CitasInscripcionVencidas;
 import Data.HistoriaAcademica;
+import Data.Materia;
 import Data.ProgramaEstudiante;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import static InterfazGrafica.Estudiante.InformacionAcademica.asignaturaList;
@@ -49,6 +53,11 @@ public class Inscripcion extends javax.swing.JPanel {
     public static ArrayList<String> ProgramaVEList = new ArrayList<>();
     public static ArrayList<String> FacultadVEList = new ArrayList<>();
     public static ArrayList<String> UsuarioVEList = new ArrayList<>();    
+    
+    //Ejemplos
+    public static ArrayList<String> IDList = new ArrayList<>();
+    public static ArrayList<String> MateriaList = new ArrayList<>();
+    public static ArrayList<String> CreditosList = new ArrayList<>();    
     
     public Inscripcion() {
         initComponents();
@@ -142,15 +151,10 @@ public class Inscripcion extends javax.swing.JPanel {
         CitasInscripcionVencidas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalVEList);
         CitasInscripcionVencidas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaVEList);
         CitasInscripcionVencidas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadVEList);
-        CitasInscripcionVencidas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioVEList);           
+        CitasInscripcionVencidas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioVEList);    
         
-        
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
-        asigHistAcad.mostrarUsuarios(nombreBD,citaVencidaList);           
-        String[] fecha = {"12","12","13","13"};
         abrirInscripcion();
-        //Agregar las materias al panel para visualizarlas
+        /*//Agregar las materias al panel para visualizarlas
         for(int i = 0;i<InicioCAList.size();i++){
             InscripcionCancelacion.agregarPanelNuevoCitas(InicioCAList.get(i),FinalCAList.get(i),
                     ProgramaCAList.get(i),FacultadCAList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
@@ -158,7 +162,32 @@ public class Inscripcion extends javax.swing.JPanel {
         for(int i = 0;i<InicioVEList.size();i++){
             InscripcionCancelacion.agregarPanelNuevoCitasVencidas(InicioVEList.get(i),FinalVEList.get(i),
                     ProgramaVEList.get(i),FacultadVEList.get(i) ,InscripcionCancelacion.panelCitaVencida);        
-        }                
+        }*/         
+        
+        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
+        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
+        asigHistAcad.mostrarUsuarios(nombreBD,citaVencidaList); 
+        
+        Materia.mostrarIDMateria(nombreBD,IDList);
+        Materia.mostrarCreditos(nombreBD, CreditosList);
+        Materia.mostrarMateria(nombreBD, MateriaList);        
+        String[] fecha = {"12","12","13","13"};
+        
+        
+        for(int i = 0;i<4;i++){
+            InscripcionCancelacion.agregarPanelNuevoCitasAux(CreditosList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
+        }        
+        for(int i = 0;i<10;i++){
+            InscripcionCancelacion.agregarPanelNuevoCitasVencidasAux(citaVencidaList.get(i),InscripcionCancelacion.panelCitaVencida);  
+        }
+
+        for(int i = 0; i<citaVencidaList.size();i++){
+            
+            System.out.println(IDList.get(i));
+            System.out.println(CreditosList.get(i));
+            System.out.println(MateriaList.get(i));            
+        }        
+        
     }//GEN-LAST:event_panelInscripcionMouseClicked
 
         public void abrirInscripcion(){

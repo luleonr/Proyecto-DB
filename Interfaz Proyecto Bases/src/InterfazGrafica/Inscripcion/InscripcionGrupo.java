@@ -369,7 +369,7 @@ public class InscripcionGrupo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoAsignaturaGrupos(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturaGrupos(String materia , String tipo, String credito) {
         InscripcionSeleccionarGrupoDetalle panel = new InscripcionSeleccionarGrupoDetalle();
         panel.setPreferredSize(new Dimension(1160, 125));
         panel.setMaximumSize(new Dimension(1160,125));
@@ -378,6 +378,7 @@ public class InscripcionGrupo extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
+        panel.labelCreditos.setText(credito);
 
 
         panelList.add(panel);

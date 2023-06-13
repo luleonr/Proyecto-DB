@@ -187,6 +187,58 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             panel1.repaint();
         }
         
+        public static void agregarPanelNuevoCitasAux(String fechainicial, JPanel panel1, String fecha) {
+            InscripcionProximaCita panel = new InscripcionProximaCita();
+            panel.setPreferredSize(new Dimension(860, 90));
+            panel.setMaximumSize(new Dimension(860,90));
+            panel.setMinimumSize(new Dimension(860,90));
+            panel.setBackground(new Color(221,221,221));
+
+
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+        
+            panel.labelFechaInicial.setText(fechainicial);
+            panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
+            panel.labelFacultad.setText(ProgramaEstudiante.Nombre_facultad);
+            panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");
+            
+
+            if(fecha.compareTo("12") == 0){
+                panel.panelAcceder.setVisible(true);
+            }else{
+                panel.panelAcceder.setVisible(false);
+            }
+
+            panelList.add(panel);
+            panel1.add(panel);
+            panel1.revalidate();
+            panel1.repaint();
+        }
+        
+        
+        public static void agregarPanelNuevoCitasVencidasAux(String fechainicial, JPanel panel1) {
+            InscripcionCitaVencida panel = new InscripcionCitaVencida();
+            panel.setPreferredSize(new Dimension(860, 90));
+            panel.setMaximumSize(new Dimension(860,90));
+            panel.setMinimumSize(new Dimension(860,90));
+            panel.setBackground(new Color(221,221,221));
+
+
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+        
+            panel.labelFechaInicial.setText(fechainicial);
+            panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
+            //panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");
+
+            panelList.add(panel);
+            panel1.add(panel);
+            panel1.revalidate();
+            panel1.repaint();
+        }        
+        
         public void AgregarPanel(JPanel panel, JScrollPane scrollpanel){
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 

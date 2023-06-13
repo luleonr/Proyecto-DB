@@ -468,7 +468,7 @@ public class InscripcionLibreEleccion extends javax.swing.JPanel {
         panelBuscar.setBackground(new Color(145,179,59));
     }//GEN-LAST:event_labelBuscarMouseExited
 
-        public static void agregarPanelNuevoAsignaturaLibreEleccion(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturaLibreEleccion(String materia , String tipo, String credito) {
         InscripcionLibreEleccionDetalle panel = new InscripcionLibreEleccionDetalle();
         panel.setPreferredSize(new Dimension(900, 125));
         panel.setMaximumSize(new Dimension(900,125));
@@ -477,6 +477,7 @@ public class InscripcionLibreEleccion extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
+        panel.labelCreditos.setText(credito);
 
 
         panelList.add(panel);

@@ -248,7 +248,7 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public static void agregarPanelNuevoAsignaturaDisciplinarOptativa(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturaDisciplinarOptativa(String materia , String tipo, String credito) {
         InscripcionAsignaturasDetalle panel = new InscripcionAsignaturasDetalle();
         panel.setPreferredSize(new Dimension(1160, 50));
         panel.setMaximumSize(new Dimension(1160,50));
@@ -257,14 +257,14 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
-
+        panel.labelCreditos.setText(credito);
 
         panelList.add(panel);
         panelDisciplinarOptativa.add(panel);
         panelDisciplinarOptativa.revalidate();
         panelDisciplinarOptativa.repaint();
     }      
-        public static void agregarPanelNuevoAsignaturasFundObligatoria(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturasFundObligatoria(String materia , String tipo, String credito) {
         InscripcionAsignaturasDetalle panel = new InscripcionAsignaturasDetalle();
         panel.setPreferredSize(new Dimension(1160, 50));
         panel.setMaximumSize(new Dimension(1160,50));
@@ -273,14 +273,14 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
-
+        panel.labelCreditos.setText(credito);
 
         panelList.add(panel);
         panelFundObligatoria.add(panel);
         panelFundObligatoria.revalidate();
         panelFundObligatoria.repaint();
     }  
-        public static void agregarPanelNuevoAsignaturasFundOptativa(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturasFundOptativa(String materia , String tipo, String credito) {
         InscripcionAsignaturasDetalle panel = new InscripcionAsignaturasDetalle();
         panel.setPreferredSize(new Dimension(1160, 50));
         panel.setMaximumSize(new Dimension(1160,50));
@@ -289,7 +289,7 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
-
+        panel.labelCreditos.setText(credito);
 
         panelList.add(panel);
         panelFundOptativa.add(panel);
@@ -297,7 +297,7 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
         panelFundOptativa.repaint();
     }  
         
-        public static void agregarPanelNuevoAsignaturasDisciplinarObligatoria(String materia , String tipo) {
+        public static void agregarPanelNuevoAsignaturasDisciplinarObligatoria(String materia , String tipo, String credito) {
         InscripcionAsignaturasDetalle panel = new InscripcionAsignaturasDetalle();
         panel.setPreferredSize(new Dimension(1160, 50));
         panel.setMaximumSize(new Dimension(1160,50));
@@ -306,6 +306,7 @@ public class InscripcionPlanEstudiosAsig extends javax.swing.JPanel {
 
         panel.labelNombreMateria.setText(materia);
         panel.labelMateriaID.setText(tipo);
+        panel.labelCreditos.setText(credito);
 
 
         panelList.add(panel);

@@ -10,6 +10,7 @@ import InterfazGrafica.Inscripcion.InscripcionLibreEleccion;
 import InterfazGrafica.Inscripcion.InscripcionPlanEstudiosAsig;
 import Data.AsignaturasHistAcadConsulta;
 import Data.DatosPersonalesEstud;
+import Data.Materia;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -353,15 +354,16 @@ public class InscripcionFrame extends javax.swing.JFrame {
 
     private void panelSelecionGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSelecionGrupoMouseClicked
         // TODO add your handling code here:
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
+
+        Materia.mostrarIDMateria(nombreBD, tipoList);
+        Materia.mostrarMateria(nombreBD, asignaturaList);
+        Materia.mostrarCreditos(nombreBD, creditosList);
         
         mostrar_Grupo();
         
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=10;i++){
-            InscripcionGrupo.agregarPanelNuevoAsignaturaGrupos(asignaturaList.get(i),tipoList.get(i));
+        for(int i = 0;i<=3;i++){
+            InscripcionGrupo.agregarPanelNuevoAsignaturaGrupos(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         }          
     }//GEN-LAST:event_panelSelecionGrupoMouseClicked
 
@@ -384,39 +386,41 @@ public class InscripcionFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //Rellenar las materias que el estudiante ya vio
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
+        Materia.mostrarIDMateria(nombreBD, tipoList);
+        Materia.mostrarMateria(nombreBD, asignaturaList);
+        Materia.mostrarCreditos(nombreBD, creditosList);
+        //asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
         
        
         mostrar_PlanEstudios_Asignatura();
         //Agregar las materias al panel para visualizarlas
         for(int i = 0;i<=10;i++){
-            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturaDisciplinarOptativa(asignaturaList.get(i),tipoList.get(i));
+            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturaDisciplinarOptativa(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         }     
         for(int i = 0;i<=10;i++){
-            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasFundObligatoria(asignaturaList.get(i),tipoList.get(i));
+            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasFundObligatoria(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         }
         for(int i = 0;i<=10;i++){
-            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasFundOptativa(asignaturaList.get(i),tipoList.get(i));
+            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasFundOptativa(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         }
         for(int i = 0;i<=10;i++){
-            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasDisciplinarObligatoria(asignaturaList.get(i),tipoList.get(i));
+            InscripcionPlanEstudiosAsig.agregarPanelNuevoAsignaturasDisciplinarObligatoria(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         }        
     }//GEN-LAST:event_panelSelecionPlanyAsigMouseClicked
 
     private void panelLibreEleccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLibreEleccMouseClicked
         // TODO add your handling code here:
         //Rellenar las materias que el estudiante ya vio
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);        
+
+        Materia.mostrarIDMateria(nombreBD, tipoList);
+        Materia.mostrarMateria(nombreBD, asignaturaList);
+        Materia.mostrarCreditos(nombreBD, creditosList);        
         
         mostrar_LibreEleccion();
         
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=10;i++){
-            InscripcionLibreEleccion.agregarPanelNuevoAsignaturaLibreEleccion(asignaturaList.get(i),tipoList.get(i));
+        for(int i = 0;i<=2;i++){
+            InscripcionLibreEleccion.agregarPanelNuevoAsignaturaLibreEleccion(asignaturaList.get(i),tipoList.get(i),creditosList.get(i));
         } 
     }//GEN-LAST:event_panelLibreEleccMouseClicked
 
