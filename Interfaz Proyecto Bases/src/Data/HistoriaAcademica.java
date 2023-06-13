@@ -2,6 +2,7 @@ package Data;
 
 import InterfazGrafica.Estudiante.HistoriaAcademicaEstudGUI;
 import InterfazGrafica.Login;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,54 +10,62 @@ import java.sql.Statement;
 
 public class HistoriaAcademica {
     
+    public static String ID_historia_academica;
+    public static String Estado;
     public static String PAPA;
     public static String PAPPI;
+    public static String Promedio_acumulado;    
     public static String Porcentaje_Avance;
     public static String Creditos_Adici;
     public static String Cupo_Creditos;
     public static String Creditos_Dispo;
     public static String Creditos_Doble;
-    public static String ID_Carrera;
-    public static String Carrera;
-    public static String Facultad;
     
     
-    public static void mostrarHistoria_Academica(String nombreBD){ 
+    public static void mostrarHistoria_Academica(String nombreBD,String carrera){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);     
-        //Connection conn = ConexionSQL.conexion(nombreBD,"mcheshire","1234");        
+        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+
         System.out.println("");
-        Statement declaracion ; 
-        ResultSet rows;
+        String carreraParametro = carrera;        
+        
+        //Statement declaracion ; 
+        //sResultSet rows;
         
         try{
-            declaracion = conn.createStatement();
-            rows = declaracion.executeQuery("CALL sp_Estudiante_mostrar_historia_academica();"); // ejecutar consulta
+            String query = "{CALL sp_Estudiante_mostrar_historia_academica(?)}";
+            //declaracion = conn.createStatement();
+            //rows = declaracion.executeQuery("{CALL sp_Estudiante_mostrar_historia_academica(?)}"); // ejecutar consulta
+            
+            CallableStatement statement = conn.prepareCall(query);
+            
+            statement.setString(1, carreraParametro);
 
+            ResultSet rows = statement.executeQuery();
             while(rows.next()){
-                            
+                 
+                ID_historia_academica = rows.getString("ID_historia_academica");
+                Estado = rows.getString("Estado");
                 PAPA = rows.getString("PAPA");     
                 PAPPI = rows.getString("PAPPI");
-                Porcentaje_Avance = rows.getString("Porcentaje_Avance");
-                Creditos_Adici = rows.getString("Creditos_Adicionales");
-                Cupo_Creditos = rows.getString("Cupo_Creditos");
-                Creditos_Dispo = rows.getString("Creditos_Disponibles");
-                Creditos_Doble = rows.getString("Creditos_Doble_Titulacion");
-                ID_Carrera = rows.getString("ID_Carrera");
-                Carrera = rows.getString("Carrera");
-                Facultad = rows.getString("Facultad");
-                            
-                /*System.out.println(PAPA);
+                Promedio_acumulado = rows.getString("Promedio_acumulado");
+                Porcentaje_Avance = rows.getString("Porcentaje_avance");
+                Creditos_Adici = rows.getString("Creditos_adicionales");
+                Cupo_Creditos = rows.getString("Cupo_creditos");
+                Creditos_Dispo = rows.getString("Creditos_disponibles");
+                Creditos_Doble = rows.getString("Creditos_doble_titulacion");
+                     
+                System.out.println(ID_historia_academica);
+                System.out.println(Estado);
+                System.out.println(PAPA);
                 System.out.println(PAPPI);
+                System.out.println(Promedio_acumulado);
                 System.out.println(Porcentaje_Avance);
                 System.out.println(Creditos_Adici);
                 System.out.println(Cupo_Creditos);
                 System.out.println(Creditos_Dispo);
                 System.out.println(Creditos_Doble);
-                System.out.println(ID_Carrera);
-                System.out.println(Carrera);
-                System.out.println(Facultad);
-                System.out.println("");*/
+                System.out.println("");
 
             }
             ConexionSQL.desConexion(conn);

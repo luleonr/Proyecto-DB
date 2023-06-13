@@ -7,6 +7,7 @@ package InterfazGrafica.Inscripcion;
 import InterfazGrafica.Inscripcion.InscripcionCancelacion;
 import Data.AsignaturasHistAcadConsulta;
 import Data.HistoriaAcademica;
+import Data.ProgramaEstudiante;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import static InterfazGrafica.Estudiante.InformacionAcademica.asignaturaList;
 import java.awt.Color;
@@ -116,11 +117,12 @@ public class Inscripcion extends javax.swing.JPanel {
         public void abrirInscripcion(){
         InscripcionCancelacion inscripcion = new InscripcionCancelacion();   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
         
         inscripcion.comboBox_PlanEstudios.removeAllItems();
-        inscripcion.comboBox_PlanEstudios.addItem(HistoriaAcademica.ID_Carrera + "   " + HistoriaAcademica.Carrera);
+        inscripcion.comboBox_PlanEstudios.addItem(ProgramaEstudiante.Id_programa + "   " + ProgramaEstudiante.Nombre_programa);
 
         // --------------------------------------------------------------------------------------------------
 

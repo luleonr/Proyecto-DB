@@ -7,6 +7,7 @@ package InterfazGrafica.Inscripcion;
 import InterfazGrafica.Inscripcion.InscripcionCitaVencida;
 import InterfazGrafica.Inscripcion.InscripcionProximaCita;
 import Data.HistoriaAcademica;
+import Data.ProgramaEstudiante;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,7 +26,7 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
      * Creates new form InscripcionCancelacion
      */
     public static ArrayList<JPanel> panelList; 
-    
+    public static String nombreBD = "Academico";
     public InscripcionCancelacion() {
         initComponents();
         panelList = new ArrayList<>();
@@ -143,11 +144,13 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             panel.setBackground(new Color(221,221,221));
 
 
-            HistoriaAcademica.mostrarHistoria_Academica("Academico");        
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+        
             panel.labelFechaInicial.setText(materia);
-            panel.labelCarrera.setText(HistoriaAcademica.Carrera);
-            panel.labelFacultad.setText(HistoriaAcademica.Facultad);
-            panel.labelIdCarrera.setText("(" + HistoriaAcademica.ID_Carrera + ")");
+            panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
+            //panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");
 
             if(fecha.compareTo("12") == 0){
                 panel.panelAcceder.setVisible(true);
@@ -170,11 +173,13 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             panel.setBackground(new Color(221,221,221));
 
 
-            HistoriaAcademica.mostrarHistoria_Academica("Academico");        
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+        
             panel.labelFechaInicial.setText(materia);
-            panel.labelCarrera.setText(HistoriaAcademica.Carrera);
-            panel.labelFacultad.setText(HistoriaAcademica.Facultad);
-            panel.labelIdCarrera.setText("(" + HistoriaAcademica.ID_Carrera + ")");
+            panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
+            //panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");
 
             panelList.add(panel);
             panel1.add(panel);

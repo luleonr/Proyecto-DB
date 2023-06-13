@@ -5,6 +5,8 @@
 package InterfazGrafica.Profesor;
 
 import Data.HistoriaAcademica;
+import Data.ProgramaEstudiante;
+import static InterfazGrafica.Inscripcion.InscripcionCancelacion.nombreBD;
 import java.awt.Color;
 
 /**
@@ -183,7 +185,9 @@ public class CalificacionesDocenteDetalle extends javax.swing.JPanel {
 
         califDocent.setLocation(400, 175);   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+            
         califDocent.labelNombre.setText(labelNombre.getText());
         
         califDocent.textNota1.setText(labelNota1.getText());

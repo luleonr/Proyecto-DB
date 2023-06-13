@@ -6,6 +6,7 @@ import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
 import Data.HorarioEstud;
 import Data.HorarioProf;
+import Data.ProgramaEstudiante;
 import Data.Rol;
 import InterfazGrafica.Login;
 import java.util.ArrayList;
@@ -31,6 +32,10 @@ public class Main {
         System.out.println("Hora actual: " + año + "-" + mes + "-" + dia);*/
         
         String nombreBD = "Academico";
-        Login.ejecutar_Login();  
+        Login.ejecutar_Login();
+
+        /*ProgramaEstudiante.mostrarDatos_PersonalesEstud(nombreBD);
+        HistoriaAcademica.mostrarHistoria_Academica(nombreBD, ProgramaEstudiante.Id_programa);
+        System.out.println(ProgramaEstudiante.Id_programa);*/
     }
 }

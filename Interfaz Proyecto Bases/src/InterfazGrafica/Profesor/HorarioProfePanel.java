@@ -6,6 +6,8 @@ package InterfazGrafica.Profesor;
 
 import InterfazGrafica.Estudiante.*;
 import Data.HistoriaAcademica;
+import Data.ProgramaEstudiante;
+import static InterfazGrafica.Inscripcion.InscripcionCancelacion.nombreBD;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -156,7 +158,8 @@ public class HorarioProfePanel extends javax.swing.JPanel {
         
         horar.labelSede.setText(labelSede.getText());
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
 
         

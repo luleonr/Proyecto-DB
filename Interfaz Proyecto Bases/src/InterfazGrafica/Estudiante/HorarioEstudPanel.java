@@ -5,6 +5,7 @@
 package InterfazGrafica.Estudiante;
 
 import Data.HistoriaAcademica;
+import Data.ProgramaEstudiante;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -19,7 +20,7 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
     /**
      * Creates new form HorarioEstudPanel
      */
-    
+    public String nombreBD = "Academico";    
     public static Color colorViejo;       
     public HorarioEstudPanel() {
         initComponents();
@@ -156,9 +157,10 @@ public class HorarioEstudPanel extends javax.swing.JPanel {
         horar.labelProfeNom.setText(labelProfeNom.getText());        
         horar.labelSede.setText(labelSede.getText());
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
-        horar.labelCarrera.setText(HistoriaAcademica.Carrera);
+        horar.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
         
     }//GEN-LAST:event_labelHorarioMouseClicked
 

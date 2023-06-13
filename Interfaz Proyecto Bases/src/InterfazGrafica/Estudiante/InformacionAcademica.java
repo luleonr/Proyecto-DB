@@ -10,6 +10,7 @@ import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
 import Data.HorarioEstud;
+import Data.ProgramaEstudiante;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -276,23 +277,25 @@ public class InformacionAcademica extends javax.swing.JPanel {
 
         public void abrirHistoriaAcademica(){
         HistoriaAcademicaEstudGUI histAcad = new HistoriaAcademicaEstudGUI();   
-        
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
-        
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
 
+        histAcad.labelIDHistoria.setText(HistoriaAcademica.ID_historia_academica);
+        histAcad.labelEstado.setText(HistoriaAcademica.Estado);
         histAcad.label_PAPA.setText(HistoriaAcademica.PAPA);
         histAcad.label_PAPPI.setText(HistoriaAcademica.PAPPI);
+        histAcad.labelPromedioAcumulado.setText(HistoriaAcademica.Promedio_acumulado);
         histAcad.labelPorcentajeAvance.setText(HistoriaAcademica.Porcentaje_Avance);
         histAcad.labelCreditosAdicionales.setText(HistoriaAcademica.Creditos_Adici);
         histAcad.labelCupoCreditos.setText(HistoriaAcademica.Cupo_Creditos);
         histAcad.labelCreditosDisponibles.setText(HistoriaAcademica.Creditos_Dispo);
-        histAcad.labelCreditosDoble.setText(HistoriaAcademica.Cupo_Creditos);
+        histAcad.labelCreditosDoble.setText(HistoriaAcademica.Creditos_Doble);
         
-        histAcad.label_Carrera.setText(HistoriaAcademica.Carrera);
-        histAcad.label_Facultad.setText(HistoriaAcademica.Facultad);
+        histAcad.label_Carrera.setText(ProgramaEstudiante.Nombre_programa);
+        
         
         histAcad.comboBox_PlanEstudios.removeAllItems();
-        histAcad.comboBox_PlanEstudios.addItem(HistoriaAcademica.ID_Carrera + "   " + HistoriaAcademica.Carrera);
+        histAcad.comboBox_PlanEstudios.addItem(ProgramaEstudiante.Id_programa + "   " + ProgramaEstudiante.Nombre_programa);
         
         // --------------------------------------------------------------------------------------------------
 
@@ -301,9 +304,11 @@ public class InformacionAcademica extends javax.swing.JPanel {
         
         public void abrirCalificaciones(){
         CalificacionesEstudGUI calificaciones = new CalificacionesEstudGUI();   
+
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");    
-        calificaciones.labelCarrera.setText(HistoriaAcademica.Carrera);
+        calificaciones.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
      
         // --------------------------------------------------------------------------------------------------
 
@@ -313,9 +318,10 @@ public class InformacionAcademica extends javax.swing.JPanel {
         public void abrirHorario(){
         HorarioEstudGUI horario = new HorarioEstudGUI();   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
-        horario.labelCarrera.setText(HistoriaAcademica.Carrera);
+        horario.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
             
         // --------------------------------------------------------------------------------------------------
 

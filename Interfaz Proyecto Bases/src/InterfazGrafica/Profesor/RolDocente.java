@@ -11,6 +11,8 @@ import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
 import Data.HorarioProf;
+import Data.ProgramaEstudiante;
+import static InterfazGrafica.Inscripcion.InscripcionCancelacion.nombreBD;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -282,7 +284,8 @@ public class RolDocente extends javax.swing.JPanel {
         public void abrirListaClase(){
         ListaDeClase listClase = new ListaDeClase();   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
         
         // --------------------------------------------------------------------------------------------------
@@ -293,7 +296,8 @@ public class RolDocente extends javax.swing.JPanel {
         public void abrirCalificaciones(){
         CalificacionesDocente calificaciones = new CalificacionesDocente();   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");    
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa); 
      
         // --------------------------------------------------------------------------------------------------
 
@@ -303,7 +307,8 @@ public class RolDocente extends javax.swing.JPanel {
         public void abrirHorario(){
         HorarioProfeGUI horario = new HorarioProfeGUI();   
         
-        HistoriaAcademica.mostrarHistoria_Academica("Academico");
+            ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
+            HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
             
         // --------------------------------------------------------------------------------------------------
