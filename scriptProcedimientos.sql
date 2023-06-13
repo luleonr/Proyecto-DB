@@ -64,7 +64,6 @@ BEGIN
     DECLARE semestre_actual VARCHAR(10);
     
     SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
 	   
     SET semestre_actual = f_obtener_semestre();
     
@@ -249,9 +248,15 @@ BEGIN
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   
   IF Tipo = NULL THEN 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() LIMIT 5;
+	SELECT Asignatura,Codigo,Tipologia,Creditos, SUM(grup_cupos) AS Cupos_disponibles FROM vw_Programa_Asignaturas
+    JOIN grupo ON grup_asig_id=Asignatura AND grup_semestre=f_obtener_semestre() WHERE programa=program AND Tipologia != 'Libre eleccion'
+    AND Codigo NOT IN (SELECT Codigo FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
+    AND Periodo != f_obtener_semestre() AND ID_Programa = Program) GROUP BY Programa,Asignatura,Codigo,Tipologia,Creditos;
   ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() AND Program=Programa LIMIT 5;
+	SELECT Asignatura,Codigo,Tipologia,Creditos, SUM(grup_cupos) AS Cupos_disponibles FROM vw_Programa_Asignaturas
+    JOIN grupo ON grup_asig_id=Asignatura AND grup_semestre=f_obtener_semestre() WHERE programa=program AND Tipologia = Tipo
+    AND Codigo NOT IN (SELECT Codigo FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
+    AND Periodo != f_obtener_semestre() AND ID_Programa = Program) GROUP BY Programa,Asignatura,Codigo,Tipologia,Creditos;
   END IF ;
 END //
 DELIMITER ;

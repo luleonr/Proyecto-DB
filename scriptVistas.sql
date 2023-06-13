@@ -236,4 +236,9 @@ UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_
 UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario;
 
 SELECT * FROM vw_resumen_creditos_totales_inscritos;
+-- ----------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_Programa_Asignaturas;
+CREATE VIEW vw_Programa_Asignaturas AS SELECT DISTINCT Programa_id_programa AS Programa, asig_nombre AS Asignatura, asig_id AS Codigo, Tipologia, 
+asig_no_creditos AS Creditos FROM Programa_has_asignatura JOIN asignatura ON asig_id=Asignatura_id_asignatura ;
 
+SELECT * FROM vw_Programa_Asignaturas;
