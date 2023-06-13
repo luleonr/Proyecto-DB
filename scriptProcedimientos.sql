@@ -291,8 +291,76 @@ GRANT EXECUTE ON PROCEDURE Estudiante_info_asignatura TO Estudiante;
 
 -- ---------------------------------------------------------------------------
 -- ACCEDER A LA CITA
+-- Realizar una inscripción
 -- ----------------------------------------------------------------------------
+-- FUNCION PARA VALIDAR INSCRIPCION
+DROP FUNCTION IF EXISTS f_validar_inscripcion;
+DELIMITER $$
+CREATE FUNCTION f_validar_inscripcion() RETURNS BOOLEAN
+BEGIN
+	DECLARE user_ VARCHAR(40);
+	DECLARE total INT;
+    DECLARE Cruce INT;
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	
+    
+    SELECT COUNT(*) INTO total FROM vw_asignaturas_cursadas JOIN inscripcion ON Codigo=insc_id_asignatura 
+    JOIN grupo ON insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id JOIN horario ON 
+    Codigo=horar_grup_asig_id AND insc_no_grupo=horar_grup_no_grupo WHERE Periodo = f_obtener_semestre() AND Usuario=user_;
+	
+    SELECT COUNT(*) INTO cruce FROM vw_asignaturas_cursadas JOIN inscripcion ON Codigo=insc_id_asignatura 
+    JOIN grupo ON insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id JOIN horario ON 
+    Codigo=horar_grup_asig_id AND insc_no_grupo=horar_grup_no_grupo WHERE Periodo = f_obtener_semestre() 
+    AND Usuario=user_ GROUP BY horar_dia,horar_hora_inicio,horar_hora_final;
+    
+    IF Total != cruce THEN
+		RETURN FALSE;
+	ELSEIF total = cruce THEN
+		RETURN TRUE;
+	END IF;
+    
+END $$
+DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_validar_inscripcion TO Profesor;
 
+
+
+
+DROP PROCEDURE IF EXISTS Estudiante_inscribir_asignatura;
+DELIMITER //
+CREATE PROCEDURE Estudiante_inscribir_asignatura(
+  IN Program INT,
+  IN Materia INT,
+  IN Grupo INT
+)
+BEGIN
+	DECLARE user_ VARCHAR(40);
+    DECLARE Cedula INT;
+    DECLARE Hist INT;
+    DECLARE Valido boolean;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+    
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	SELECT user_cc INTO Cedula FROM usuario WHERE user_usuario=user_; 
+    SELECT histAcad_id INTO Hist FROM historia_academica WHERE histAcad_estudiante_cc=Cedula;
+    
+    START TRANSACTION;
+    
+    INSERT INTO inscripcion(insc_semestre,insc_estudiante_cc,insc_id_asignatura,insc_id_programa,insc_no_grupo,insc_id_histAcad)
+    VALUES (f_obtener_semestre(),Cedula,Materia,Program,Grupo,Hist); 
+    
+    SET Valido=f_validar_inscripcion();
+    IF NOT Valido THEN 
+		ROLLBACK;
+	END IF;
+	COMMIT;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_inscribir_asignatura TO Estudiante;
+-- CALL Estudiante_inscribir_asignatura();
 
 
 

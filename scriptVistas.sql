@@ -61,7 +61,7 @@ JOIN Edificio ON edif_id = horar_sal_edif_id JOIN Salon ON sal_id = horar_sal_id
 JOIN Grupo ON grup_no_grupo = horar_grup_no_grupo AND grup_asig_id = horar_grup_asig_id  AND grup_semestre = insc_semestre
 JOIN Persona ON grup_prof_cc = per_cc JOIN Programa ON prog_id=insc_id_programa;
 
--- SELECT * FROM  vw_Horario;
+ SELECT * FROM  vw_Horario;
 -- ------------------------------------------------------------------------
 
 DROP VIEW IF EXISTS vw_Profesor_ver_datos_personales;
