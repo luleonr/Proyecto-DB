@@ -108,7 +108,7 @@ BEGIN
 	SELECT Tipologia,IFNULL(creditos_totales,0) AS Exigidos,IFNULL(creditos_cursados,0) AS Cursados,IFNULL(creditos_aprobados,0) AS 
     Aprobados,IFNULL(creditos_inscritos,0) AS Inscritos,IFNULL((creditos_totales-creditos_aprobados),creditos_totales) AS Pendientes FROM vw_resumen_creditos_totales LEFT JOIN vw_resumen_creditos_totales_cursados 
     USING(Tipologia,ID_programa) LEFT JOIN vw_resumen_creditos_totales_aprobados USING(Tipologia,ID_programa) LEFT JOIN 
-    vw_resumen_creditos_totales_inscritos USING(Tipologia,ID_programa) WHERE vw_resumen_creditos_totales_cursados.Usuario=user_ AND vw_resumen_creditos_totales.ID_programa=Carrera;
+    vw_resumen_creditos_totales_inscritos USING(Tipologia,ID_programa) WHERE vw_resumen_creditos_totales_inscritos.Usuario='dkimply' AND vw_resumen_creditos_totales.ID_programa=20101;
     
 END //
 DELIMITER ;

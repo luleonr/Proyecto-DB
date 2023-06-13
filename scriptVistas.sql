@@ -151,7 +151,7 @@ SELECT user_usuario, user_rol FROM Usuario;
 -- ------------------------------------------------------------------------------------------------
 
 DROP VIEW IF EXISTS vw_Citas_de_inscripcion;
-CREATE VIEW vw_Citas_de_inscripcion AS SELECT DISTINCT cit_inicio AS Inicio, cit_inicio AS Final, 
+CREATE VIEW vw_Citas_de_inscripcion AS SELECT DISTINCT cit_inicio AS Inicio, cit_final AS Final, 
 prog_nombre AS Programa, facu_nombre AS Facultad, user_usuario AS Usuario FROM Cita JOIN Estudiante 
 ON cit_estudiante_cc=estud_cc JOIN persona ON estud_cc=per_cc JOIN Usuario ON estud_cc = user_cc JOIN Programa ON cit_id_programa=prog_id JOIN 
 Departamento ON prog_id_departamento=depa_id JOIN Facultad ON depa_id_facultad=facu_id;

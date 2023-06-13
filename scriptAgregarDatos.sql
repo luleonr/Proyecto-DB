@@ -513,5 +513,18 @@ insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificaci
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura)  values ('Nota1',4.81, 100, 3, '2023-1', 1010000009, 20101, 21);
 insert into evaluacion (eval_nombre, eval_nota, eval_porcentaje, eval_calificacion_minima, eval_insc_semestre, eval_insc_estudiante_cc, eval_insc_id_programa, eval_insc_id_asignatura) values ('Nota1',4.65, 100, 3, '2023-1', 1010000009, 20101, 22);
 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,7,'Disciplinar obligatoria'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,8,'Fundamental obligatoria'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,9,'Disciplinar optativa'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,10,'Libre elección'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,14,'Disciplinar obligatoria'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,16,'Fundamental optativa'); 
+insert into programa_has_asignatura(Programa_id_programa,Asignatura_id_asignatura,Tipologia) values (20101,17,'Disciplinar optativa'); 
+
+insert into cita VALUES ('2023-06-18 14:00:00','2023-06-18 15:00:00',1010000006,20101); 
+insert into cita VALUES ('2023-06-20 14:00:00','2023-06-20 15:00:00',1010000006,20101); 
+insert into cita VALUES ('2023-06-12 14:00:00','2023-06-12 15:00:00',1010000006,20101);
+insert into cita VALUES ('2023-06-10 14:00:00','2023-06-10 15:00:00',1010000006,20101);
+insert into cita VALUES ('2023-06-01 12:00:00','2023-06-30 12:00:00',1010000006,20101);
 
 
