@@ -264,6 +264,32 @@ GRANT EXECUTE ON PROCEDURE Estudiante_asignaturas_pendientes TO Estudiante;
 -- CALL Estudiante_asignaturas_pendientes();
 
 -- ---------------------------------------------------------------------------
+-- INFO ASIGNATURAS PENDIENTES
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_info_asignatura;
+DELIMITER //
+CREATE PROCEDURE Estudiante_info_asignatura(
+  IN Program INT,
+  IN Materia INT
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  SELECT Asignatura,Codigo,Tipologia,Creditos,Nombre_programa,Nombre_facultad,asig_descripcion AS Descripcion,
+  grup_no_grupo AS Grupo_num, grup_cupos AS Cupos,per_nombre AS Nombre_profesor, grup_semestre AS Semestre, horar_dia AS Dia,
+  horar_hora_inicio AS Inicio, horar_hora_final AS Final, horar_actividad AS Actividad, horar_sal_id AS ID_salon,
+  sal_nombre AS Salon, edif_id AS ID_Edificio, edif_nombre AS Edificio FROM vw_Programa_Asignaturas JOIN vw_Estudiante_ver_programas
+  ON Id_programa=Programa JOIN asignatura ON Codigo=asig_id JOIN grupo ON Codigo=grup_asig_id JOIN Persona ON grup_prof_cc=per_cc JOIN
+  horario ON horar_grup_asig_id=grup_asig_id AND grup_no_grupo=horar_grup_no_grupo JOIN salon ON horar_sal_id=sal_id JOIN edificio ON
+  edif_id=horar_sal_edif_id WHERE Programa=Program AND Materia=Codigo;
+  
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_info_asignatura TO Estudiante;
+-- CALL Estudiante_info_asignatura();
+
+-- ---------------------------------------------------------------------------
 -- ACCEDER A LA CITA
 -- ----------------------------------------------------------------------------
 
