@@ -28,8 +28,8 @@ FROM Persona JOIN Estudiante ON per_cc = estud_cc JOIN Usuario ON estud_cc = use
 DROP VIEW IF EXISTS vw_Estudiante_ver_programas;
 
 CREATE VIEW vw_Estudiante_ver_programas AS 
-SELECT per_cc AS Cedula, user_usuario AS Usuario, prog_id AS Id_programa, prog_nombre AS Nombre_programa,
- depa_nombre AS Nombre_departamento, facu_nombre AS Nombre_facultad FROM Persona JOIN Usuario ON per_cc=user_cc 
+SELECT per_cc AS Cedula, user_usuario AS Usuario, prog_id AS Id_programa, prog_nombre AS Nombre_programa, depa_id AS ID_departamento,
+ depa_nombre AS Nombre_departamento, facu_id AS ID_Facultad, facu_nombre AS Nombre_facultad FROM Persona JOIN Usuario ON per_cc=user_cc 
 JOIN Estudiante ON per_cc=estud_cc JOIN estudiante_has_programa ON per_cc=Estudiante_persona_cc JOIN Programa 
 ON Programa_id_programa=prog_id JOIN departamento ON prog_id_departamento=depa_id JOIN facultad ON depa_id_facultad=facu_id;
 
@@ -236,3 +236,4 @@ UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_
 UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario;
 
 SELECT * FROM vw_resumen_creditos_totales_inscritos;
+
