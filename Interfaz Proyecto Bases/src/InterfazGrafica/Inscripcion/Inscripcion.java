@@ -6,6 +6,9 @@ package InterfazGrafica.Inscripcion;
 
 import InterfazGrafica.Inscripcion.InscripcionCancelacion;
 import Data.AsignaturasHistAcadConsulta;
+import Data.CitasInscripcionActivas;
+import Data.CitasInscripcionProximas;
+import Data.CitasInscripcionVencidas;
 import Data.HistoriaAcademica;
 import Data.ProgramaEstudiante;
 import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
@@ -24,7 +27,28 @@ public class Inscripcion extends javax.swing.JPanel {
      */
     public String nombreBD = "Academico";
     public static ArrayList<String> asignaturaList = new ArrayList<>();
-    public static ArrayList<String> citaVencidaList = new ArrayList<>();    
+    public static ArrayList<String> citaVencidaList = new ArrayList<>();  
+    
+    //Citas Activas
+    public static ArrayList<String> InicioCAList = new ArrayList<>();
+    public static ArrayList<String> FinalCAList = new ArrayList<>();
+    public static ArrayList<String> ProgramaCAList = new ArrayList<>();
+    public static ArrayList<String> FacultadCAList = new ArrayList<>();
+    public static ArrayList<String> UsuarioCAList = new ArrayList<>(); 
+    
+    //Citas Proximas
+    public static ArrayList<String> InicioPRList = new ArrayList<>();
+    public static ArrayList<String> FinalPRList = new ArrayList<>();
+    public static ArrayList<String> ProgramaPRList = new ArrayList<>();
+    public static ArrayList<String> FacultadPRList = new ArrayList<>();
+    public static ArrayList<String> UsuarioPRList = new ArrayList<>();
+    
+    //Citas Vencidas
+    public static ArrayList<String> InicioVEList = new ArrayList<>();
+    public static ArrayList<String> FinalVEList = new ArrayList<>();
+    public static ArrayList<String> ProgramaVEList = new ArrayList<>();
+    public static ArrayList<String> FacultadVEList = new ArrayList<>();
+    public static ArrayList<String> UsuarioVEList = new ArrayList<>();    
     
     public Inscripcion() {
         initComponents();
@@ -100,17 +124,40 @@ public class Inscripcion extends javax.swing.JPanel {
 
     private void panelInscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInscripcionMouseClicked
         // TODO add your handling code here:
+        
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD); 
+        CitasInscripcionActivas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioCAList);        
+        CitasInscripcionActivas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalCAList);
+        CitasInscripcionActivas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaCAList);
+        CitasInscripcionActivas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadCAList);
+        CitasInscripcionActivas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioCAList);      
+        
+        CitasInscripcionProximas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioPRList);        
+        CitasInscripcionProximas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalPRList);
+        CitasInscripcionProximas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaPRList);
+        CitasInscripcionProximas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadPRList);
+        CitasInscripcionProximas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioPRList);   
+
+        CitasInscripcionVencidas.mostrarInicio(nombreBD, ProgramaEstudiante.Id_programa, InicioVEList);        
+        CitasInscripcionVencidas.mostrarFinal(nombreBD, ProgramaEstudiante.Id_programa, FinalVEList);
+        CitasInscripcionVencidas.mostrarPrograma(nombreBD, ProgramaEstudiante.Id_programa, ProgramaVEList);
+        CitasInscripcionVencidas.mostrarFacultad(nombreBD, ProgramaEstudiante.Id_programa, FacultadVEList);
+        CitasInscripcionVencidas.mostrarUsuario(nombreBD, ProgramaEstudiante.Id_programa, UsuarioVEList);           
+        
+        
         AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
         asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);   
         asigHistAcad.mostrarUsuarios(nombreBD,citaVencidaList);           
         String[] fecha = {"12","12","13","13"};
         abrirInscripcion();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=3;i++){
-            InscripcionCancelacion.agregarPanelNuevoCitas(asignaturaList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
+        for(int i = 0;i<InicioCAList.size();i++){
+            InscripcionCancelacion.agregarPanelNuevoCitas(InicioCAList.get(i),FinalCAList.get(i),
+                    ProgramaCAList.get(i),FacultadCAList.get(i),InscripcionCancelacion.panelProximaCita,fecha[i] );        
         }        
-        for(int i = 0;i<=9;i++){
-            InscripcionCancelacion.agregarPanelNuevoCitasVencidas(citaVencidaList.get(i),InscripcionCancelacion.panelCitaVencida);        
+        for(int i = 0;i<InicioVEList.size();i++){
+            InscripcionCancelacion.agregarPanelNuevoCitasVencidas(InicioVEList.get(i),FinalVEList.get(i),
+                    ProgramaVEList.get(i),FacultadVEList.get(i) ,InscripcionCancelacion.panelCitaVencida);        
         }                
     }//GEN-LAST:event_panelInscripcionMouseClicked
 

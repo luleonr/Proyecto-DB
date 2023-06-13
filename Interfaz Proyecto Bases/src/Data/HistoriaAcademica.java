@@ -24,8 +24,8 @@ public class HistoriaAcademica {
     
     public static void mostrarHistoria_Academica(String nombreBD,String carrera){ 
         
-        Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
-
+        //Connection conn = ConexionSQL.conexion(nombreBD,Login.usuarioLogin,Login.contraseñaLogin);  
+        Connection conn = ConexionSQL.conexion(nombreBD,"dkimply","1234");  
         System.out.println("");
         String carreraParametro = carrera;        
         
@@ -70,7 +70,7 @@ public class HistoriaAcademica {
             }
             ConexionSQL.desConexion(conn);
         }catch(Exception e){
-            System.out.println("Hubo un error en la conexión");
+            System.out.println("Hubo un error en la conexión de Historia Academica");
             ConexionSQL.desConexion(conn);
         }
     }

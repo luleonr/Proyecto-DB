@@ -9,8 +9,11 @@ import InterfazGrafica.Estudiante.PantallaPrincipalEstudGUI;
 import Data.DatosPersonalesEstud;
 import Data.HistoriaAcademica;
 import Data.AsignaturasHistAcadConsulta;
+import Data.Calificaciones;
 import Data.HorarioEstud;
+import Data.MostrarAsignaturasHistoriaAcad;
 import Data.ProgramaEstudiante;
+import Data.ResumenCreditos;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -33,7 +36,30 @@ public class InformacionAcademica extends javax.swing.JPanel {
     public static ArrayList<String> tipoList = new ArrayList<>();
     public static ArrayList<String> periodoList = new ArrayList<>();
     public static ArrayList<String> notaList = new ArrayList<>();    
+    
+    //MateriasHistoriaAcademica
+    public static ArrayList<String> AsignaturaVistaList = new ArrayList<>();
+    public static ArrayList<String> CodigoVistaList = new ArrayList<>();
+    public static ArrayList<String> CreditosVistaList = new ArrayList<>();
+    public static ArrayList<String> TipologiaVistaList = new ArrayList<>();
+    public static ArrayList<String> PeriodoVistaList = new ArrayList<>();
+    public static ArrayList<String> CalificacionVistaList = new ArrayList<>();
+    public static ArrayList<String> EstadoVistaList = new ArrayList<>();    
+    
+    
+    //ResumenCreditos
+    public static ArrayList<String> TipologiaCList = new ArrayList<>();
+    public static ArrayList<String> ExigidosCList = new ArrayList<>();
+    public static ArrayList<String> CursadosCList = new ArrayList<>();
+    public static ArrayList<String> AprobadosCList = new ArrayList<>();
+    public static ArrayList<String> InscritosCList = new ArrayList<>();
+    public static ArrayList<String> PendientesCList = new ArrayList<>();
 
+    //Calificaciones
+    public static ArrayList<String> AsignaturaCaList = new ArrayList<>();
+    public static ArrayList<String> CodigoCaList = new ArrayList<>();
+    public static ArrayList<String> CalificacionCaList = new ArrayList<>();
+    public static ArrayList<String> EstadoCaList = new ArrayList<>();    
     
     //Horario
     public static ArrayList<String> diaList = new ArrayList<>();
@@ -214,15 +240,20 @@ public class InformacionAcademica extends javax.swing.JPanel {
     private void label_HistoriaAcademicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_HistoriaAcademicaMouseClicked
         // TODO add your handling code here:
         //Rellenar las materias que el estudiante ya vio
-        AsignaturasHistAcadConsulta asigHistAcad = new AsignaturasHistAcadConsulta();
-        asigHistAcad.mostrarCedula(nombreBD,tipoList);
-        asigHistAcad.mostrarUsuarios(nombreBD,asignaturaList);
-        
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);  
+        MostrarAsignaturasHistoriaAcad.mostrarAsignatura(nombreBD,ProgramaEstudiante.Id_programa,AsignaturaVistaList);
+        MostrarAsignaturasHistoriaAcad.mostrarCodigo(nombreBD,ProgramaEstudiante.Id_programa,CodigoVistaList);        
+        MostrarAsignaturasHistoriaAcad.mostrarCreditos(nombreBD, ProgramaEstudiante.Id_programa, CreditosVistaList);
+        MostrarAsignaturasHistoriaAcad.mostrarTipologia(nombreBD, ProgramaEstudiante.Id_programa, TipologiaVistaList);
+        MostrarAsignaturasHistoriaAcad.mostrarPeriodo(nombreBD, ProgramaEstudiante.Id_programa, PeriodoVistaList);
+        MostrarAsignaturasHistoriaAcad.mostrarCalificacion(nombreBD, ProgramaEstudiante.Id_programa, CalificacionVistaList);
+        MostrarAsignaturasHistoriaAcad.mostrarEstado(nombreBD, ProgramaEstudiante.Id_programa, EstadoVistaList);
        
         abrirHistoriaAcademica();
         //Agregar las materias al panel para visualizarlas
-        for(int i = 0;i<=10;i++){
-            HistoriaAcademicaEstudGUI.agregarPanelNuevoAsignaturas(asignaturaList.get(i),tipoList.get(i));
+        for(int i = 0;i< AsignaturaVistaList.size();i++){
+            HistoriaAcademicaEstudGUI.agregarPanelNuevoAsignaturas(AsignaturaVistaList.get(i),CodigoVistaList.get(i),CreditosVistaList.get(i),
+                    TipologiaVistaList.get(i),PeriodoVistaList.get(i),CalificacionVistaList.get(i),EstadoVistaList.get(i));
         }
 
     }//GEN-LAST:event_label_HistoriaAcademicaMouseClicked
@@ -292,11 +323,24 @@ public class InformacionAcademica extends javax.swing.JPanel {
         histAcad.labelCreditosDoble.setText(HistoriaAcademica.Creditos_Doble);
         
         histAcad.label_Carrera.setText(ProgramaEstudiante.Nombre_programa);
-        
-        
+        histAcad.label_Facultad.setText(ProgramaEstudiante.Nombre_facultad);
+       
         histAcad.comboBox_PlanEstudios.removeAllItems();
         histAcad.comboBox_PlanEstudios.addItem(ProgramaEstudiante.Id_programa + "   " + ProgramaEstudiante.Nombre_programa);
         
+        
+        //ResumenCreditos
+        ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);
+        ResumenCreditos.mostrarExigidos(nombreBD,ProgramaEstudiante.Id_programa, ExigidosCList);
+            /*histAcad.labelExigidos1.setText(ExigidosCList.get(0));
+            histAcad.labelExigidos2.setText(ExigidosCList.get(1));
+            histAcad.labelExigidos3.setText(ExigidosCList.get(2));
+            histAcad.labelExigidos4.setText(ExigidosCList.get(3));
+            /*histAcad.labelExigidos5.setText(ExigidosCList.get(4));
+            histAcad.labelExigidos6.setText(ExigidosCList.get(5));
+            histAcad.labelExigidos7.setText(ExigidosCList.get(6));
+            histAcad.labelExigidos8.setText(ExigidosCList.get(7));
+            histAcad.labelExigidos9.setText(ExigidosCList.get(8));  */          
         // --------------------------------------------------------------------------------------------------
 
         PantallaPrincipalEstudGUI.mostrarPanel(histAcad);     
@@ -304,12 +348,17 @@ public class InformacionAcademica extends javax.swing.JPanel {
         
         public void abrirCalificaciones(){
         CalificacionesEstudGUI calificaciones = new CalificacionesEstudGUI();   
-
+        
+        String Periodo = calificaciones.comboboxPeriodo.getSelectedItem().toString();
         ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
         HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
-        
+        Calificaciones.mostrarAsignatura(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, AsignaturaCaList);
+        Calificaciones.mostrarCalificacion(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, CalificacionCaList);
+        Calificaciones.mostrarCodigo(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, CodigoCaList);
+        Calificaciones.mostrarEstado(nombreBD, ProgramaEstudiante.Nombre_programa,Periodo, EstadoCaList);        
         calificaciones.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
-     
+        //calificaciones.labelMateria1.setText(AsignaturaCaList.get(0));
+            System.out.println(Periodo);
         // --------------------------------------------------------------------------------------------------
 
         PantallaPrincipalEstudGUI.mostrarPanel(calificaciones);     
@@ -319,7 +368,7 @@ public class InformacionAcademica extends javax.swing.JPanel {
         HorarioEstudGUI horario = new HorarioEstudGUI();   
         
         ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
-        HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
+        //HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
         horario.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
             

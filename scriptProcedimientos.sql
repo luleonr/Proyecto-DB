@@ -326,15 +326,16 @@ GRANT EXECUTE ON PROCEDURE sp_Profesor_mostrar_datos_personales TO Profesor;
 DROP PROCEDURE IF EXISTS sp_Profesor_actualizar_datos_personales;
 DELIMITER //
 CREATE PROCEDURE sp_Profesor_actualizar_datos_personales(
-  user_ CHAR(40), 
   Direccion_ VARCHAR(40), 
   Tel_Mov VARCHAR(40), 
   Tel_Fij VARCHAR(40)
 )
 BEGIN
+	DECLARE user_ VARCHAR(45);
+	SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   UPDATE vw_Profesor_modificar_datos_personales 
   SET Direccion = Direccion_, Telefono_Movil = Tel_Mov, Telefono_Fijo = Tel_Fij
-  WHERE usuario = user_;
+  WHERE usuario = SUBSTRING_INDEX(USER(), '@', 1);
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE sp_Profesor_actualizar_datos_personales TO Profesor;

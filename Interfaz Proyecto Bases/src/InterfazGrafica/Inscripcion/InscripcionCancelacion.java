@@ -136,7 +136,7 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
         
-        public static void agregarPanelNuevoCitas(String materia, JPanel panel1, String fecha) {
+        public static void agregarPanelNuevoCitas(String fechainicial,String fechafinal,String programa, String facultad, JPanel panel1, String fecha) {
             InscripcionProximaCita panel = new InscripcionProximaCita();
             panel.setPreferredSize(new Dimension(860, 90));
             panel.setMaximumSize(new Dimension(860,90));
@@ -147,9 +147,9 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
             HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
-            panel.labelFechaInicial.setText(materia);
+            panel.labelFechaInicial.setText(fechainicial);
             panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
-            //panel.labelFacultad.setText(HistoriaAcademica.Facultad);
+            panel.labelFacultad.setText(ProgramaEstudiante.Nombre_facultad);
             panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");
 
             if(fecha.compareTo("12") == 0){
@@ -165,7 +165,7 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
         }
         
         
-        public static void agregarPanelNuevoCitasVencidas(String materia, JPanel panel1) {
+        public static void agregarPanelNuevoCitasVencidas(String fechainicial,String fechafinal,String programa, String facultad, JPanel panel1) {
             InscripcionCitaVencida panel = new InscripcionCitaVencida();
             panel.setPreferredSize(new Dimension(860, 90));
             panel.setMaximumSize(new Dimension(860,90));
@@ -176,7 +176,7 @@ public class InscripcionCancelacion extends javax.swing.JPanel {
             ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);       
             HistoriaAcademica.mostrarHistoria_Academica("Academico",ProgramaEstudiante.Id_programa);
         
-            panel.labelFechaInicial.setText(materia);
+            panel.labelFechaInicial.setText(fechainicial);
             panel.labelCarrera.setText(ProgramaEstudiante.Nombre_programa);
             //panel.labelFacultad.setText(HistoriaAcademica.Facultad);
             panel.labelIdCarrera.setText("(" + ProgramaEstudiante.Id_programa + ")");

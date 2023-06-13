@@ -7,11 +7,13 @@ import Data.AsignaturasHistAcadConsulta;
 import Data.HorarioEstud;
 import Data.HorarioProf;
 import Data.ProgramaEstudiante;
+import Data.ResumenCreditos;
 import Data.Rol;
 import InterfazGrafica.Login;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JLabel;
 
 
 public class Main {
@@ -33,8 +35,9 @@ public class Main {
         
         String nombreBD = "Academico";
         Login.ejecutar_Login();
+        
 
-        /*ProgramaEstudiante.mostrarDatos_PersonalesEstud(nombreBD);
+        /*ProgramaEstudiante.mostrarProgramaEstudiante(nombreBD);
         HistoriaAcademica.mostrarHistoria_Academica(nombreBD, ProgramaEstudiante.Id_programa);
         System.out.println(ProgramaEstudiante.Id_programa);*/
     }
