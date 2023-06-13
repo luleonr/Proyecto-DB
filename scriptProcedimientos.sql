@@ -64,7 +64,6 @@ BEGIN
     DECLARE semestre_actual VARCHAR(10);
     
     SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
-	SELECT * FROM vw_Historia_academica WHERE usuario = user_;
 	   
     SET semestre_actual = f_obtener_semestre();
     
@@ -249,9 +248,15 @@ BEGIN
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   
   IF Tipo = NULL THEN 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() LIMIT 5;
+	SELECT Asignatura,Codigo,Tipologia,Creditos, SUM(grup_cupos) AS Cupos_disponibles FROM vw_Programa_Asignaturas
+    JOIN grupo ON grup_asig_id=Asignatura AND grup_semestre=f_obtener_semestre() WHERE programa=program AND Tipologia != 'Libre eleccion'
+    AND Codigo NOT IN (SELECT Codigo FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
+    AND Periodo != f_obtener_semestre() AND ID_Programa = Program) GROUP BY Programa,Asignatura,Codigo,Tipologia,Creditos;
   ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() AND Program=Programa LIMIT 5;
+	SELECT Asignatura,Codigo,Tipologia,Creditos, SUM(grup_cupos) AS Cupos_disponibles FROM vw_Programa_Asignaturas
+    JOIN grupo ON grup_asig_id=Asignatura AND grup_semestre=f_obtener_semestre() WHERE programa=program AND Tipologia = Tipo
+    AND Codigo NOT IN (SELECT Codigo FROM  vw_Asignaturas_cursadas WHERE usuario = user_ 
+    AND Periodo != f_obtener_semestre() AND ID_Programa = Program) GROUP BY Programa,Asignatura,Codigo,Tipologia,Creditos;
   END IF ;
 END //
 DELIMITER ;
@@ -259,9 +264,103 @@ GRANT EXECUTE ON PROCEDURE Estudiante_asignaturas_pendientes TO Estudiante;
 -- CALL Estudiante_asignaturas_pendientes();
 
 -- ---------------------------------------------------------------------------
--- ACCEDER A LA CITA
+-- INFO ASIGNATURAS PENDIENTES
 -- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS Estudiante_info_asignatura;
+DELIMITER //
+CREATE PROCEDURE Estudiante_info_asignatura(
+  IN Program INT,
+  IN Materia INT
+)
+BEGIN
+  DECLARE user_ VARCHAR(40);
+  SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+  
+  SELECT Asignatura,Codigo,Tipologia,Creditos,Nombre_programa,Nombre_facultad,asig_descripcion AS Descripcion,
+  grup_no_grupo AS Grupo_num, grup_cupos AS Cupos,per_nombre AS Nombre_profesor, grup_semestre AS Semestre, horar_dia AS Dia,
+  horar_hora_inicio AS Inicio, horar_hora_final AS Final, horar_actividad AS Actividad, horar_sal_id AS ID_salon,
+  sal_nombre AS Salon, edif_id AS ID_Edificio, edif_nombre AS Edificio FROM vw_Programa_Asignaturas JOIN vw_Estudiante_ver_programas
+  ON Id_programa=Programa JOIN asignatura ON Codigo=asig_id JOIN grupo ON Codigo=grup_asig_id JOIN Persona ON grup_prof_cc=per_cc JOIN
+  horario ON horar_grup_asig_id=grup_asig_id AND grup_no_grupo=horar_grup_no_grupo JOIN salon ON horar_sal_id=sal_id JOIN edificio ON
+  edif_id=horar_sal_edif_id WHERE Programa=Program AND Materia=Codigo;
+  
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_info_asignatura TO Estudiante;
+-- CALL Estudiante_info_asignatura();
 
+-- ---------------------------------------------------------------------------
+-- ACCEDER A LA CITA
+-- Realizar una inscripción
+-- ----------------------------------------------------------------------------
+-- FUNCION PARA VALIDAR INSCRIPCION
+DROP FUNCTION IF EXISTS f_validar_inscripcion;
+DELIMITER $$
+CREATE FUNCTION f_validar_inscripcion() RETURNS BOOLEAN
+BEGIN
+	DECLARE user_ VARCHAR(40);
+	DECLARE total INT;
+    DECLARE Cruce INT;
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	
+    
+    SELECT COUNT(*) INTO total FROM vw_asignaturas_cursadas JOIN inscripcion ON Codigo=insc_id_asignatura 
+    JOIN grupo ON insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id JOIN horario ON 
+    Codigo=horar_grup_asig_id AND insc_no_grupo=horar_grup_no_grupo WHERE Periodo = f_obtener_semestre() AND Usuario=user_;
+	
+    SELECT COUNT(*) INTO cruce FROM vw_asignaturas_cursadas JOIN inscripcion ON Codigo=insc_id_asignatura 
+    JOIN grupo ON insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id JOIN horario ON 
+    Codigo=horar_grup_asig_id AND insc_no_grupo=horar_grup_no_grupo WHERE Periodo = f_obtener_semestre() 
+    AND Usuario=user_ GROUP BY horar_dia,horar_hora_inicio,horar_hora_final;
+    
+    IF Total != cruce THEN
+		RETURN FALSE;
+	ELSEIF total = cruce THEN
+		RETURN TRUE;
+	END IF;
+    
+END $$
+DELIMITER ;
+GRANT EXECUTE ON FUNCTION f_validar_inscripcion TO Profesor;
+
+
+
+
+DROP PROCEDURE IF EXISTS Estudiante_inscribir_asignatura;
+DELIMITER //
+CREATE PROCEDURE Estudiante_inscribir_asignatura(
+  IN Program INT,
+  IN Materia INT,
+  IN Grupo INT
+)
+BEGIN
+	DECLARE user_ VARCHAR(40);
+    DECLARE Cedula INT;
+    DECLARE Hist INT;
+    DECLARE Valido boolean;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+    
+    SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
+	SELECT user_cc INTO Cedula FROM usuario WHERE user_usuario=user_; 
+    SELECT histAcad_id INTO Hist FROM historia_academica WHERE histAcad_estudiante_cc=Cedula;
+    
+    START TRANSACTION;
+    
+    INSERT INTO inscripcion(insc_semestre,insc_estudiante_cc,insc_id_asignatura,insc_id_programa,insc_no_grupo,insc_id_histAcad)
+    VALUES (f_obtener_semestre(),Cedula,Materia,Program,Grupo,Hist); 
+    
+    SET Valido=f_validar_inscripcion();
+    IF NOT Valido THEN 
+		ROLLBACK;
+	END IF;
+	COMMIT;
+END //
+DELIMITER ;
+GRANT EXECUTE ON PROCEDURE Estudiante_inscribir_asignatura TO Estudiante;
+-- CALL Estudiante_inscribir_asignatura();
 
 
 

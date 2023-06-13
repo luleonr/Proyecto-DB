@@ -61,7 +61,7 @@ JOIN Edificio ON edif_id = horar_sal_edif_id JOIN Salon ON sal_id = horar_sal_id
 JOIN Grupo ON grup_no_grupo = horar_grup_no_grupo AND grup_asig_id = horar_grup_asig_id  AND grup_semestre = insc_semestre
 JOIN Persona ON grup_prof_cc = per_cc JOIN Programa ON prog_id=insc_id_programa;
 
--- SELECT * FROM  vw_Horario;
+ SELECT * FROM  vw_Horario;
 -- ------------------------------------------------------------------------
 
 DROP VIEW IF EXISTS vw_Profesor_ver_datos_personales;
@@ -236,4 +236,9 @@ UNION ALL SELECT Usuario,ID_programa,'TOTAL', SUM(Creditos) FROM vw_Asignaturas_
 UNION ALL SELECT Usuario,ID_programa,'TOTAL ESTUDIANTE', SUM(Creditos) FROM vw_Asignaturas_cursadas WHERE Periodo = f_obtener_semestre() GROUP BY ID_programa,Usuario;
 
 SELECT * FROM vw_resumen_creditos_totales_inscritos;
+-- ----------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS vw_Programa_Asignaturas;
+CREATE VIEW vw_Programa_Asignaturas AS SELECT DISTINCT Programa_id_programa AS Programa, asig_nombre AS Asignatura, asig_id AS Codigo, Tipologia, 
+asig_no_creditos AS Creditos FROM Programa_has_asignatura JOIN asignatura ON asig_id=Asignatura_id_asignatura ;
 
+SELECT * FROM vw_Programa_Asignaturas;
