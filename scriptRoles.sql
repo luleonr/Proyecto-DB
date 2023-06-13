@@ -59,6 +59,7 @@ GRANT SELECT ON vw_Estudiante_ver_programas TO Estudiante;
 GRANT SELECT ON vw_Historia_academica TO Estudiante;
 GRANT SELECT ON vw_Horario TO Estudiante;
 GRANT SELECT ON vw_definitivas_estudiante TO Estudiante;
+GRANT SELECT ON vw_Citas_de_inscripcion TO Estudiante;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_datos_personales TO Estudiante;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_actualizar_datos_personales TO Estudiante;
 GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_planes TO Estudiante;

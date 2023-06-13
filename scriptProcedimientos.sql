@@ -174,17 +174,12 @@ GRANT EXECUTE ON PROCEDURE sp_Estudiante_mostrar_horario TO Estudiante;
 DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_activas;
 DELIMITER //
 CREATE PROCEDURE Estudiante_mirar_citas_activas(
-  Program VARCHAR(45)
 )
 BEGIN
   DECLARE user_ VARCHAR(40);
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   
-  IF Program = NULL THEN 
 	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now();
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio<=now() AND Final>=now() AND Program=Programa;
-  END IF ;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_activas TO Estudiante;
@@ -196,17 +191,13 @@ GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_activas TO Estudiante;
 DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_proximas;
 DELIMITER //
 CREATE PROCEDURE Estudiante_mirar_citas_proximas(
-  Program VARCHAR(45)
 )
 BEGIN
   DECLARE user_ VARCHAR(40);
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   
-  IF Program = NULL THEN 
 	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now();
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Inicio>now() AND Program=Programa;
-  END IF ;
+
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_proximas TO Estudiante;
@@ -218,17 +209,12 @@ GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_proximas TO Estudiante;
 DROP PROCEDURE IF EXISTS Estudiante_mirar_citas_vencidas;
 DELIMITER //
 CREATE PROCEDURE Estudiante_mirar_citas_vencidas(
-  Program VARCHAR(45)
 )
 BEGIN
   DECLARE user_ VARCHAR(40);
   SET user_ = SUBSTRING_INDEX(USER(), '@', 1);
   
-  IF Program = NULL THEN 
 	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() LIMIT 5;
-  ELSE 
-	SELECT * FROM vw_Citas_de_inscripcion WHERE Usuario = user_ AND Final<now() AND Program=Programa LIMIT 5;
-  END IF ;
 END //
 DELIMITER ;
 GRANT EXECUTE ON PROCEDURE Estudiante_mirar_citas_vencidas TO Estudiante;
