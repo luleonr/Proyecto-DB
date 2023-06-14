@@ -4,7 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Bussines/Main.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/ListaClase.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/CalificacionesDocentePanel.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/InformacionAcademica.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/ListaDeClase.java</file>
             <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/InformacionMateria.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/Materia.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Estudiante/CalificacionesEstudGUI.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/CalificacionesDocente.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/HorarioProf.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/InterfazGrafica/Profesor/RolDocente.java</file>
+            <file>file:/C:/Users/krist/Desktop/Cristian/Ingenieria/Data_Bases/Project_Part_III/Interfaz%20Proyecto%20Bases/src/Data/HorarioEstud.java</file>
         </group>
     </open-files>
 </project-private>

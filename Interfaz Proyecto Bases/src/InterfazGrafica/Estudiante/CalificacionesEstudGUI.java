@@ -38,29 +38,15 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
         labelNota2 = new javax.swing.JLabel();
         panelNota3 = new javax.swing.JPanel();
         labelNota3 = new javax.swing.JLabel();
-        panelNota4 = new javax.swing.JPanel();
-        labelNota4 = new javax.swing.JLabel();
-        panelNota5 = new javax.swing.JPanel();
-        labelNota5 = new javax.swing.JLabel();
-        panelNota6 = new javax.swing.JPanel();
-        labelNota6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         labelMateria2 = new javax.swing.JLabel();
         labelIDMateria1 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         labelMateria1 = new javax.swing.JLabel();
         labelMateria3 = new javax.swing.JLabel();
-        labelMateria4 = new javax.swing.JLabel();
-        labelMateria5 = new javax.swing.JLabel();
-        labelMateria6 = new javax.swing.JLabel();
         labelIDMateria2 = new javax.swing.JLabel();
         labelIDMateria3 = new javax.swing.JLabel();
-        labelIDMateria4 = new javax.swing.JLabel();
-        labelIDMateria5 = new javax.swing.JLabel();
-        labelIDMateria6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 221, 221));
         setPreferredSize(new java.awt.Dimension(1007, 611));
@@ -155,69 +141,6 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
 
         add(panelNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
 
-        panelNota4.setBackground(new java.awt.Color(145, 179, 59));
-        panelNota4.setPreferredSize(new java.awt.Dimension(210, 40));
-
-        labelNota4.setFont(new java.awt.Font("Arial Black", 0, 17)); // NOI18N
-        labelNota4.setForeground(new java.awt.Color(255, 255, 255));
-        labelNota4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota4.setText("SIN DEFINITIVA");
-
-        javax.swing.GroupLayout panelNota4Layout = new javax.swing.GroupLayout(panelNota4);
-        panelNota4.setLayout(panelNota4Layout);
-        panelNota4Layout.setHorizontalGroup(
-            panelNota4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota4, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-        );
-        panelNota4Layout.setVerticalGroup(
-            panelNota4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        add(panelNota4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, -1, -1));
-
-        panelNota5.setBackground(new java.awt.Color(145, 179, 59));
-        panelNota5.setPreferredSize(new java.awt.Dimension(210, 40));
-
-        labelNota5.setFont(new java.awt.Font("Arial Black", 0, 17)); // NOI18N
-        labelNota5.setForeground(new java.awt.Color(255, 255, 255));
-        labelNota5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota5.setText("SIN DEFINITIVA");
-
-        javax.swing.GroupLayout panelNota5Layout = new javax.swing.GroupLayout(panelNota5);
-        panelNota5.setLayout(panelNota5Layout);
-        panelNota5Layout.setHorizontalGroup(
-            panelNota5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-        );
-        panelNota5Layout.setVerticalGroup(
-            panelNota5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        add(panelNota5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 470, -1, -1));
-
-        panelNota6.setBackground(new java.awt.Color(145, 179, 59));
-        panelNota6.setPreferredSize(new java.awt.Dimension(210, 40));
-
-        labelNota6.setFont(new java.awt.Font("Arial Black", 0, 17)); // NOI18N
-        labelNota6.setForeground(new java.awt.Color(255, 255, 255));
-        labelNota6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNota6.setText("SIN DEFINITIVA");
-
-        javax.swing.GroupLayout panelNota6Layout = new javax.swing.GroupLayout(panelNota6);
-        panelNota6.setLayout(panelNota6Layout);
-        panelNota6Layout.setHorizontalGroup(
-            panelNota6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota6, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-        );
-        panelNota6Layout.setVerticalGroup(
-            panelNota6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelNota6, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        add(panelNota6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, -1, -1));
-
         jSeparator2.setBackground(new java.awt.Color(186, 186, 186));
         jSeparator2.setForeground(new java.awt.Color(186, 186, 186));
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 244, 800, -1));
@@ -243,14 +166,6 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
         jSeparator4.setForeground(new java.awt.Color(186, 186, 186));
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 384, 700, -1));
 
-        jSeparator5.setBackground(new java.awt.Color(186, 186, 186));
-        jSeparator5.setForeground(new java.awt.Color(186, 186, 186));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 454, 700, -1));
-
-        jSeparator6.setBackground(new java.awt.Color(186, 186, 186));
-        jSeparator6.setForeground(new java.awt.Color(186, 186, 186));
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 524, 700, -1));
-
         labelMateria1.setBackground(new java.awt.Color(145, 179, 59));
         labelMateria1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         labelMateria1.setForeground(new java.awt.Color(145, 179, 59));
@@ -262,24 +177,6 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
         labelMateria3.setForeground(new java.awt.Color(145, 179, 59));
         labelMateria3.setText("Materia 1 ");
         add(labelMateria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 380, -1));
-
-        labelMateria4.setBackground(new java.awt.Color(145, 179, 59));
-        labelMateria4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelMateria4.setForeground(new java.awt.Color(145, 179, 59));
-        labelMateria4.setText("Materia 1 ");
-        add(labelMateria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 380, -1));
-
-        labelMateria5.setBackground(new java.awt.Color(145, 179, 59));
-        labelMateria5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelMateria5.setForeground(new java.awt.Color(145, 179, 59));
-        labelMateria5.setText("Materia 1 ");
-        add(labelMateria5, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 475, 380, -1));
-
-        labelMateria6.setBackground(new java.awt.Color(145, 179, 59));
-        labelMateria6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelMateria6.setForeground(new java.awt.Color(145, 179, 59));
-        labelMateria6.setText("Materia 1 ");
-        add(labelMateria6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 380, -1));
 
         labelIDMateria2.setBackground(new java.awt.Color(145, 179, 59));
         labelIDMateria2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -294,27 +191,6 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
         labelIDMateria3.setText("(001241 )");
         labelIDMateria3.setPreferredSize(new java.awt.Dimension(99, 26));
         add(labelIDMateria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
-
-        labelIDMateria4.setBackground(new java.awt.Color(145, 179, 59));
-        labelIDMateria4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelIDMateria4.setForeground(new java.awt.Color(145, 179, 59));
-        labelIDMateria4.setText("(001241 )");
-        labelIDMateria4.setPreferredSize(new java.awt.Dimension(99, 26));
-        add(labelIDMateria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
-
-        labelIDMateria5.setBackground(new java.awt.Color(145, 179, 59));
-        labelIDMateria5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelIDMateria5.setForeground(new java.awt.Color(145, 179, 59));
-        labelIDMateria5.setText("(001241 )");
-        labelIDMateria5.setPreferredSize(new java.awt.Dimension(99, 26));
-        add(labelIDMateria5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 475, -1, -1));
-
-        labelIDMateria6.setBackground(new java.awt.Color(145, 179, 59));
-        labelIDMateria6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        labelIDMateria6.setForeground(new java.awt.Color(145, 179, 59));
-        labelIDMateria6.setText("(001241 )");
-        labelIDMateria6.setPreferredSize(new java.awt.Dimension(99, 26));
-        add(labelIDMateria6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 550, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -327,32 +203,18 @@ public class CalificacionesEstudGUI extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     public javax.swing.JLabel labelCarrera;
     public javax.swing.JLabel labelIDMateria1;
     public javax.swing.JLabel labelIDMateria2;
     public javax.swing.JLabel labelIDMateria3;
-    public javax.swing.JLabel labelIDMateria4;
-    public javax.swing.JLabel labelIDMateria5;
-    public javax.swing.JLabel labelIDMateria6;
     public javax.swing.JLabel labelMateria1;
     public javax.swing.JLabel labelMateria2;
     public javax.swing.JLabel labelMateria3;
-    public javax.swing.JLabel labelMateria4;
-    public javax.swing.JLabel labelMateria5;
-    public javax.swing.JLabel labelMateria6;
     public javax.swing.JLabel labelNota1;
     public javax.swing.JLabel labelNota2;
     public javax.swing.JLabel labelNota3;
-    public javax.swing.JLabel labelNota4;
-    public javax.swing.JLabel labelNota5;
-    public javax.swing.JLabel labelNota6;
     private javax.swing.JPanel panelNota1;
     private javax.swing.JPanel panelNota2;
     private javax.swing.JPanel panelNota3;
-    private javax.swing.JPanel panelNota4;
-    private javax.swing.JPanel panelNota5;
-    private javax.swing.JPanel panelNota6;
     // End of variables declaration//GEN-END:variables
 }

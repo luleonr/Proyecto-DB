@@ -287,8 +287,8 @@ public class CalificacionesDocentePanel extends javax.swing.JFrame {
                 textNota2[i] = CtextNota2.getText();
                 textNota3[i] = CtextNota3.getText();
                 textPorcent1[i] = CtextPorcent1.getText();
-                textPorcent2[i] = CtextPorcent1.getText();
-                textPorcent3[i] = CtextPorcent1.getText();
+                textPorcent2[i] = CtextPorcent2.getText();
+                textPorcent3[i] = CtextPorcent3.getText();
                
             }else{
             }

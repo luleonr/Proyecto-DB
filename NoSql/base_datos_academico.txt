@@ -1,0 +1,210 @@
+use academico
+
+// -----------------------------------------------------
+// Table Persona
+// ------------------------------------------------------
+
+db.Persona.insertOne({
+    _id: 1,
+    per_cc: 1010000001,
+    per_nombre: "Cristian Barrera",
+    per_direccion: "Transversal 5C Este # 23 42",
+    per_tel_movil: "300657574",
+    per_correo_institucional: "cbarrerar@unal.edu.co"
+});
+
+db.Persona.insertOne({
+    _id: 2,
+    per_cc: 80150101,
+    per_nombre: "Jordan Coleborn",
+    per_direccion: "88920 Lerdahl Court",
+    per_tel_movil: "146116267",
+    per_correo_institucional: "jcoleborn@unal.edu.co"
+});
+
+
+// -----------------------------------------------------
+// Table Profesor
+// ------------------------------------------------------
+
+
+db.Profesor.insertOne({
+    _id: 1,
+    prof_cc: 80150101,
+    prof_oficina: '405-401'
+});
+
+
+// -----------------------------------------------------
+// Table Estudiante
+// ------------------------------------------------------
+
+
+db.Estudiante.insertOne({
+    _id: 3,
+    estud_cc: 1010000001,
+    estud_año_ingreso: '2022-07-01',
+    estud_tutor_prof_cc: 80150101,
+    estud_programa_id: 80201,
+    historia_academica: [
+        {
+            histAcad_Promedio: 4.0,
+            histAcad_PAPA: 4.5,
+            histAcad_PAPPI: 4.27,
+            histAcad_porcen_avance: 37.2,
+            histAcad_cred_adicionales: 27,
+            histAcad_cup_creditos: 151,
+            histAcad_cred_disponibles: 98,
+            histAcad_cred_doble_titulacion: 0,
+            histAcad_id_programa: 80201,
+            inscripcion: [
+                {
+                    insc_semestre: '2023-1',
+                    insc_id_asignatura: 1,
+                    insc_no_grupo: 1,
+                    insc_nota_final: 4.0,
+                    insc_aprobado: 'Aprobado',
+                    evaluacion: [
+                        {
+                            eval_nombre: 'Parcial 1',
+                            eval_nota: 4.0,
+                            eval_porcentaje: 50,
+                            eval_calificacion_minima: 3
+                        },
+                        {
+                            eval_nombre: 'Parcial 2',
+                            eval_nota: 4.0,
+                            eval_porcentaje: 50,
+                            eval_calificacion_minima: 3
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+});
+
+
+
+
+db.Estudiante_posgrado.insertOne({
+    _id: 1,
+    estudi_posg_cc: "80150101",
+    estudi_posg_prof_cc: "80150104"
+});
+
+  
+
+// -----------------------------------------------------
+// Table Facultad
+// ------------------------------------------------------
+
+
+db.Facultad.insertMany([
+    { _id: 1, facu_id: 1, facu_nombre: "Artes" },
+    { _id: 2, facu_id: 2, facu_nombre: "CIENCIAS" },
+    { _id: 3, facu_id: 3, facu_nombre: "Ciencias Agrarias" },
+    { _id: 4, facu_id: 4, facu_nombre: "Ciencias Económicas" },
+    { _id: 5, facu_id: 5, facu_nombre: "Ciencias Humanas" },
+    { _id: 6, facu_id: 6, facu_nombre: "Derecho, Ciencias Políticas y Sociales" },
+    { _id: 7, facu_id: 7, facu_nombre: "Enfermería" },
+    { _id: 8, facu_id: 8, facu_nombre: "INGENIERÍA" },
+    { _id: 9, facu_id: 9, facu_nombre: "Medicina" },
+    { _id: 10, facu_id: 10, facu_nombre: "Medicina Veterinaria y de Zootecnia" },
+    { _id: 11, facu_id: 11, facu_nombre: "Odontonlogía" }
+]);
+
+
+// -----------------------------------------------------
+// Table Departamento
+// ------------------------------------------------------
+
+
+db.Departamento.insertMany([
+    { _id: 1, depa_id: 801, depa_nombre: "Ingeniería Civil y Agrícola", depa_id_facultad: 8 },
+    { _id: 2, depa_id: 802, depa_nombre: "Ingeniería de Sistemas e Industrial", depa_id_facultad: 8 },
+    { _id: 3, depa_id: 803, depa_nombre: "Ingeniería Eléctrica y Electrónica", depa_id_facultad: 8 },
+    { _id: 4, depa_id: 804, depa_nombre: "Ingeniería Mecánica y Mecatrónica", depa_id_facultad: 8 },
+    { _id: 5, depa_id: 805, depa_nombre: "Ingeniería Química y Ambiental", depa_id_facultad: 8 },
+    { _id: 6, depa_id: 806, depa_nombre: "Instituto de Extensión e Investigación IEI", depa_id_facultad: 8 },
+    { _id: 7, depa_id: 201, depa_nombre: "Matemáticas y estadística", depa_id_facultad: 2 },
+    { _id: 8, depa_id: 202, depa_nombre: "Física y química", depa_id_facultad: 2 }
+]);
+
+
+// -----------------------------------------------------
+// Table Programa
+// ------------------------------------------------------
+
+
+db.Programa.insertMany([
+    { _id: 1, prog_id: 80101, prog_nombre: "Ingeniería Civil", prog_id_departamento: 801 },
+    { _id: 2, prog_id: 80102, prog_nombre: "Ingeniería Agrícola", prog_id_departamento: 801 },
+    { _id: 3, prog_id: 80201, prog_nombre: "INGENIERÍA DE SISTEMAS Y COMPUTACIÓN", prog_id_departamento: 802 },
+    { _id: 4, prog_id: 80202, prog_nombre: "Ingeniería Industrial", prog_id_departamento: 802 },
+    { _id: 5, prog_id: 80301, prog_nombre: "Ingeniería Eléctrica", prog_id_departamento: 803 },
+    { _id: 6, prog_id: 80302, prog_nombre: "Ingeniería Electrónica", prog_id_departamento: 803 },
+    { _id: 7, prog_id: 80401, prog_nombre: "Ingeniería Mecánica", prog_id_departamento: 804 },
+    { _id: 8, prog_id: 80402, prog_nombre: "Ingeniería Mecatrónica", prog_id_departamento: 804 },
+    { _id: 9, prog_id: 80502, prog_nombre: "Ingeniería Química", prog_id_departamento: 805 },
+    { _id: 10, prog_id: 20101, prog_nombre: "ESTADÍSTICA", prog_id_departamento: 201 }
+]);
+
+
+// -----------------------------------------------------
+// Table Asignatura
+// ------------------------------------------------------
+
+db.Asignatura.insertOne({ 
+    _id: 1,
+    asig_id: 1, 
+    asig_nombre: "Cálculo diferencial", 
+    asig_no_creditos: 4, 
+    asig_descripcion: null, 
+    asig_id_departamento: 802 
+});
+
+
+// -----------------------------------------------------
+// Table Edificio
+// ------------------------------------------------------
+
+
+db.Edificio.insertOne({
+    _id: 1,
+    edif_id: 401,
+    edif_nombre: "Julio Garavito",
+    edif_sede: "Bogotá"
+});
+
+
+// -----------------------------------------------------
+// Table Salon
+// ------------------------------------------------------
+
+
+db.Salon.insertOne({
+    _id: 1,
+    sal_id: 101,
+    sal_nombre: null,
+    sal_edif_id: '401'
+});
+
+});
+
+// -----------------------------------------------------
+// Table Grupo
+// ------------------------------------------------------
+
+
+db.Grupo.insertOne({
+    grup_no_grupo: 1,
+    grup_cupos: 40,
+    grup_asig_id: 1,
+    grup_prof_cc: 80150104,
+    grup_semestre: '2023-1',
+    horario: [
+        {horar_dia: 'Lunes', horar_hora_inicio: 11, horar_hora_final: 13, horar_sal_id: 101, horar_sal_edif_id: 401},
+        {horar_dia: 'Miércoles', horar_hora_inicio: 13, horar_hora_final:15, horar_sal_id: 101, horar_sal_edif_id: 401}
+    ]
+  });
