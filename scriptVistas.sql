@@ -121,7 +121,7 @@ SELECT DISTINCT per_cc AS CC, per_nombre AS Nombre,eval_nombre AS Actividad, eva
 eval_porcentaje AS Porcentaje,eval_calificacion_minima AS Calificacion_minima,
 eval_insc_id_asignatura AS Asignatura_ID, insc_no_grupo AS Grupo, grup_prof_cc AS Profesor_CC,
 insc_id_programa AS Programa, insc_semestre AS Semestre
-FROM evaluacion JOIN persona ON eval_insc_semestre=per_cc 
+FROM evaluacion JOIN persona ON eval_insc_estudiante_cc=per_cc 
 JOIN inscripcion ON (eval_insc_estudiante_cc=insc_estudiante_cc AND eval_insc_id_programa=insc_id_programa 
 AND eval_insc_id_asignatura = insc_id_asignatura)
 JOIN grupo ON (insc_no_grupo=grup_no_grupo AND insc_id_asignatura=grup_asig_id) ORDER BY per_cc;
