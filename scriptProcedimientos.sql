@@ -532,6 +532,7 @@ DELIMITER ;
 -- ----------------------------------------------------------------------------
 -- PUBLICAR DEFINITIVAS ESTUDIANTES DE CLASE
 -- ----------------------------------------------------------------------------
+
 DROP PROCEDURE IF EXISTS sp_publicar_definitivas;
 DELIMITER $$
 CREATE PROCEDURE sp_publicar_definitivas(userProfesor VARCHAR(45), asig_id INT, grup INT)
@@ -575,15 +576,15 @@ BEGIN
     
     -- Actualizar los ponderados
     -- Se hace join porque en ponderados hay que 
-	UPDATE ponderado join (SELECT DISTINCT CC,IdPrograma,IdAsignatura,ponderado FROM temp_nota_aporte_ponderado natural join temp_ponderados)AS subquery
-				ON CC = ponderado.ponde_insc_estudiante_cc 
-				AND IdPrograma = ponderado.ponde_insc_id_programa 
-				AND IdAsignatura = ponderado.ponde_insc_id_asignatura 
-				AND ponde_insc_semestre LIKE f_obtener_semestre()
-		SET ponde_nota_final = ponderado,
-		ponde_aprobado =
+	UPDATE inscripcion join (SELECT DISTINCT CC,IdPrograma,IdAsignatura,ponderado FROM temp_nota_aporte_ponderado natural join temp_ponderados)AS subquery
+				ON CC = insc_estudiante_cc 
+				AND IdPrograma = insc_id_programa
+				AND IdAsignatura = insc_id_asignatura
+				AND insc_semestre LIKE f_obtener_semestre()
+		SET insc_nota_final = ponderado,
+		insc_aprobado =
 			CASE
-				WHEN ponde_nota_final>=3 THEN 1
+				WHEN ponderado>=3 THEN 1
 				ELSE 0
 			END;
 
